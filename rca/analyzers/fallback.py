@@ -86,34 +86,63 @@ class FallbackAnalyzer(BaseCategoryAnalyzer):
             causal_category = CAUSAL_UNKNOWN
             step_disp = f"step '{failed_step}'" if failed_step else "an unidentified pipeline step"
             code_disp = f" (exit code {exit_code})" if exit_code is not None else ""
-            summary = f"Unknown pipeline failure in {step_disp}{code_disp}"
-            likely_cause = (
-                f"Unable to determine root cause. The pipeline failed in {step_disp}{code_disp}, "
-                f"but log content did not match recognized syntax, dependency, test, or timeout diagnostic patterns."
-            )
-            investigation.append(f"Inspect raw console output for {step_disp} to locate unparsed error messages.")
-            investigation.append("Re-run the pipeline with runner debug logging enabled (ACTIONS_RUNNER_DEBUG=true).")
-            if exit_code is not None:
-                investigation.append(f"Check documentation or exit code reference for exit code {exit_code} on commands run in {step_disp}.")
 
-            if exit_code is not None:
-                confidence = 0.4 if failed_step else 0.3
-                rationale = f"Low evidence strength: exit code {exit_code} observed without category-specific diagnostic signatures."
-                limitations.append(
-                    f"Exit code {exit_code} was observed, but runner logs do not include compiler, package manager, or test runner error messages to identify the underlying trigger."
+            if exit_code == 137:
+                summary = f"Process terminated by SIGKILL (exit code 137) in {step_disp}"
+                likely_cause = (
+                    f"The process in {step_disp} was forcefully terminated with exit code 137 (SIGKILL). "
+                    f"This signal typically indicates system Out-Of-Memory (OOM) killer intervention, container RAM limit exhaustion, "
+                    f"or external step cancellation, but log text alone does not contain conclusive proof of the specific trigger."
                 )
-            elif failed_step:
-                confidence = 0.3
-                rationale = "Low evidence strength: failure step identified, but no recognized error signatures found."
+                investigation.append(f"Check system/container memory usage and dmesg/OOM logs during step '{failed_step or 'unknown'}'.")
+                investigation.append("Inspect whether the job exceeded runner memory limits or was terminated externally.")
+                confidence = 0.4
+                rationale = "Low evidence strength: exit code 137 (SIGKILL) observed without specific OOM or timeout annotations."
                 limitations.append(
-                    "Insufficient log evidence. Generic failure step observed without accompanying compiler, package manager, or test framework diagnostic records."
+                    "Exit code 137 (SIGKILL) does not by itself prove an out-of-memory failure or timeout. Kernel OOM killing, cgroup memory exhaustion, and external step termination produce identical exit codes."
+                )
+            elif exit_code == 143:
+                summary = f"Process terminated by SIGTERM (exit code 143) in {step_disp}"
+                likely_cause = (
+                    f"The process in {step_disp} was terminated with exit code 143 (SIGTERM). "
+                    f"This signal indicates a termination request from the operating system or CI runner, "
+                    f"such as job cancellation or runner shutdown."
+                )
+                investigation.append(f"Check runner logs and job cancellation events for step '{failed_step or 'unknown'}'.")
+                confidence = 0.4
+                rationale = "Low evidence strength: exit code 143 (SIGTERM) observed without category-specific diagnostic signatures."
+                limitations.append(
+                    "Exit code 143 (SIGTERM) does not by itself prove a step timeout. Runner shutdown, container stop commands, and job cancellations produce identical SIGTERM signals."
                 )
             else:
-                confidence = 0.2
-                rationale = "Insufficient evidence: no recognizable error signatures or failure exit codes."
-                limitations.append(
-                    "Insufficient log evidence. Generic failure annotations were observed without accompanying compiler, package manager, or test framework diagnostic records."
+                summary = f"Unknown pipeline failure in {step_disp}{code_disp}"
+                likely_cause = (
+                    f"Unable to determine root cause. The pipeline failed in {step_disp}{code_disp}, "
+                    f"but log content did not match recognized syntax, dependency, test, or timeout diagnostic patterns."
                 )
+                investigation.append(f"Inspect raw console output for {step_disp} to locate unparsed error messages.")
+                investigation.append("Re-run the pipeline with runner debug logging enabled (ACTIONS_RUNNER_DEBUG=true).")
+                if exit_code is not None:
+                    investigation.append(f"Check documentation or exit code reference for exit code {exit_code} on commands run in {step_disp}.")
+
+                if exit_code is not None:
+                    confidence = 0.4 if failed_step else 0.3
+                    rationale = f"Low evidence strength: exit code {exit_code} observed without category-specific diagnostic signatures."
+                    limitations.append(
+                        f"Exit code {exit_code} was observed, but runner logs do not include compiler, package manager, or test runner error messages to identify the underlying trigger."
+                    )
+                elif failed_step:
+                    confidence = 0.3
+                    rationale = "Low evidence strength: failure step identified, but no recognized error signatures found."
+                    limitations.append(
+                        "Insufficient log evidence. Generic failure step observed without accompanying compiler, package manager, or test framework diagnostic records."
+                    )
+                else:
+                    confidence = 0.2
+                    rationale = "Insufficient evidence: no recognizable error signatures or failure exit codes."
+                    limitations.append(
+                        "Insufficient log evidence. Generic failure annotations were observed without accompanying compiler, package manager, or test framework diagnostic records."
+                    )
 
         return RCAReport(
             run_id=get_field(record, "run_id"),

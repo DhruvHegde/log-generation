@@ -47,8 +47,14 @@ _BARE_LINE_RE = re.compile(
     r"(?:\s(?P<msg>.*))?$"
 )
 
-# Strip ANSI control sequences and BOM
-_ANSI_RE = re.compile(r"\x1b\[[0-9;]*[A-Za-z]|\ufeff")
+# Strip ANSI control sequences, BOM, and ANSI caret sequences
+_ANSI_RE = re.compile(
+    r"(?:\x1b|\u001b|\^\[)\[[0-9;?]*[ -/]*[@-~]"
+    r"|(?:\x1b|\u001b|\^\[)\([A-B]"
+    r"|(?:\x1b|\u001b|\^\[)[=>]"
+    r"|(?:\x1b|\u001b|\^\[)\][^\x07\x1b]*\x07"
+    r"|\ufeff"
+)
 _CTRL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
 
 # Exit code annotation / process exit pattern
@@ -57,9 +63,19 @@ _EXIT_CODE_RE = re.compile(
     re.IGNORECASE
 )
 
-# GitHub Actions timeout annotation
+# GitHub Actions timeout annotation & broader timeout signals
 _TIMEOUT_RE = re.compile(
-    r"##\[error\]The action '(?P<step>[^']+)' has timed out after (?P<dur>\d+(?:\.\d+)?) minutes"
+    r"(?:##\[error\]The action '(?P<step>[^']+)' has timed out after (?P<dur>\d+(?:\.\d+)?) minutes"
+    r"|The job running this workflow has timed out after (?P<dur2>\d+(?:\.\d+)?) minutes"
+    r"|##\[error\]The operation was canceled because it has timed out"
+    r"|has timed out after (?P<dur3>\d+(?:\.\d+)?) minutes)",
+    re.IGNORECASE
+)
+
+# GitHub Actions cancellation without explicit timeout text
+_CANCELLATION_RE = re.compile(
+    r"(?:##\[error\]The operation was canceled|The operation was canceled\.|Job cancelled|Workflow run cancelled)",
+    re.IGNORECASE
 )
 
 # Orphan process termination in GHA cleanup
@@ -91,20 +107,30 @@ _GENERIC_EXCEPTION_PATTERNS: list[tuple[str, re.Pattern]] = [
     ("RuntimeError",        re.compile(r"\bRuntimeError\s*:\s*(.+)")),
 ]
 
+# Docker build step tag prefix (e.g. #5 1.234 or #0 0.456)
+_DOCKER_PREFIX_RE = re.compile(r"^(?:#\d+(?:\s+[\d\.]+)?\s*)+")
+
 # Pip failure patterns
 _PIP_NO_MATCH_RE = re.compile(
-    r"ERROR:\s+(?:No matching distribution found for|Could not find a version that satisfies the requirement)\s+([^\s\r\n]+)"
+    r"ERROR:\s+(?:No matching distribution found for|Could not find a version that satisfies the requirement)\s+([^\s\r\n]+)",
+    re.IGNORECASE
 )
-_PIP_INVALID_REQ_RE = re.compile(r"ERROR:\s+Invalid requirement:\s+'([^']+)'")
-_PIP_BUILD_FAIL_RE = re.compile(r"ERROR:\s+Failed to build\s+'([^']+)'")
+_PIP_INVALID_REQ_RE = re.compile(r"ERROR:\s+Invalid requirement:\s+'([^']+)'", re.IGNORECASE)
+_PIP_BUILD_FAIL_RE = re.compile(r"ERROR:\s+Failed to build\s+'([^']+)'", re.IGNORECASE)
+_PIP_CONFLICT_RE = re.compile(
+    r"(?:ERROR:\s+Cannot install\s+([^\s]+)|ResolutionImpossible|conflicting dependencies|Resolution failure)",
+    re.IGNORECASE
+)
 
-# Pytest failure patterns
-_PYTEST_SUMMARY_FAIL_RE = re.compile(r"^FAILED\s+(tests/[^\s:]+::\w+)\s+-\s+([A-Za-z0-9_]+)(?::\s*(.*))?$")
+# Pytest failure patterns (handling wrapper prefixes tox/uv/indentation)
+_PYTEST_SUMMARY_FAIL_RE = re.compile(
+    r"(?:^|[\s\:\>\]])FAILED\s+([^\s:]+(?:::[^\s:]+)+)\s+-\s+([A-Za-z0-9_.]+)(?::\s*(.*))?"
+)
 _PYTEST_COUNTS_RE = re.compile(r"=\s*(?:(?P<failed>\d+)\s+failed)?(?:,\s*)?(?:(?P<passed>\d+)\s+passed)?(?:\s+in\s+[\d\.]+s)?\s*=")
 _PYTEST_SESSION_RE = re.compile(r"platform\s+\w+\s+--\s+Python\s+[\d\.]+,?\s+(pytest-[\d\.]+)")
 
 # Tool detection keywords
-_TOOL_KEYWORDS = ["pytest", "pip", "python", "git", "flake8", "black", "mypy", "bash"]
+_TOOL_KEYWORDS = ["pytest", "pip", "python", "git", "flake8", "black", "mypy", "bash", "tox", "uv", "poetry", "docker"]
 
 
 def _clean(text: str) -> str:
@@ -404,6 +430,7 @@ def parse_log_text(
     # 3. Category-specific failure detectors (in strict priority order)
     # Rule 1: ##[error] alone must NOT determine category.
     # Rule 2: Exception in pytest must be failure_class = "test_failure".
+    clean_text = _clean(text)
     detected_class: Optional[str] = None
     detected_subcat: Optional[str] = None
     failed_step: Optional[str] = None
@@ -412,31 +439,94 @@ def parse_log_text(
     confidence: float = 0.0
 
     # -------------------------------------------------------------
-    # (A) Check for Timeout (F4)
+    # (A) Check for Timeout / Cancellation (F4)
     # -------------------------------------------------------------
-    m_timeout = _TIMEOUT_RE.search(text)
+    m_timeout = _TIMEOUT_RE.search(clean_text)
+    m_cancel = _CANCELLATION_RE.search(clean_text) if not m_timeout else None
+
     if m_timeout:
         detected_class = "timeout"
         detected_subcat = "gha_timeout"
-        failed_step = m_timeout.group("step")
-        dur_min = float(m_timeout.group("dur"))
+        failed_step = m_timeout.groupdict().get("step")
+        dur_str = m_timeout.groupdict().get("dur") or m_timeout.groupdict().get("dur2") or m_timeout.groupdict().get("dur3")
+        dur_min = float(dur_str) if dur_str else None
         record.timeout_duration_min = dur_min
 
         # Orphan process detection
-        m_orphan = _ORPHAN_PROC_RE.search(text)
+        m_orphan = _ORPHAN_PROC_RE.search(clean_text)
         if m_orphan:
             record.orphan_process = m_orphan.group("proc")
 
-        # Locate evidence lines
         for entry in parsed_stream:
             msg = entry.get("msg", "")
-            if "has timed out after" in msg or "Terminate orphan process" in msg:
+            if "has timed out" in msg or "Terminate orphan process" in msg or "canceled because it has timed out" in msg:
                 evidence_lines.append(entry.get("raw", msg))
 
         confidence = 1.0 if (dur_min and record.orphan_process) else 0.85
 
+    elif m_cancel:
+        detected_class = "timeout"
+        detected_subcat = "gha_cancellation"
+        for entry in parsed_stream:
+            msg = entry.get("msg", "")
+            if "operation was canceled" in msg.lower() or "job cancelled" in msg.lower():
+                evidence_lines.append(entry.get("raw", msg))
+        confidence = 0.65
+
     # -------------------------------------------------------------
-    # (B) Check for Pytest test failure (F3)
+    # (B) Check for Syntax errors (F1) - Takes priority over generic pytest collection
+    # -------------------------------------------------------------
+    if not detected_class:
+        for etype, pattern in _SYNTAX_ERROR_PATTERNS:
+            m_syntax = pattern.search(clean_text)
+            if m_syntax:
+                detected_class = "syntax_error"
+                detected_subcat = etype
+                record.error_type = etype
+                record.error_message = m_syntax.group(1).strip()
+                record.matched_line = m_syntax.group(0).strip()
+                break
+
+        if detected_class == "syntax_error":
+            # Extract python traceback block
+            tb_block: list[str] = []
+            capturing = False
+            for entry in parsed_stream:
+                raw_l = entry.get("raw", "")
+                msg = entry.get("msg", "")
+                if "Traceback (most recent call last):" in msg or ("File " in msg and not capturing):
+                    capturing = True
+                if capturing:
+                    tb_block.append(raw_l)
+                    if any(etype in msg for etype in ("SyntaxError:", "IndentationError:", "TabError:")):
+                        capturing = False
+            traceback_lines = tb_block
+            evidence_lines = list(tb_block) if tb_block else [record.matched_line or ""]
+
+            # Find real source file and line number (avoiding <string>)
+            m_tb_file = _TRACEBACK_FILE_RE.search(clean_text)
+            if m_tb_file and m_tb_file.group(1) != "<string>":
+                record.file_path = m_tb_file.group(1)
+                record.line_number = int(m_tb_file.group(2))
+            else:
+                for line in tb_block:
+                    m = _TRACEBACK_FILE_RE.search(line)
+                    if m and m.group(1) != "<string>":
+                        record.file_path = m.group(1)
+                        record.line_number = int(m.group(2))
+                        break
+
+            for step in step_sequence:
+                if any(kw in step.lower() for kw in ("syntax", "check app syntax")):
+                    failed_step = step
+                    break
+            if not failed_step:
+                failed_step = "Check App Syntax"
+
+            confidence = 1.0 if (traceback_lines and record.file_path and record.file_path != "<string>") else 0.85
+
+    # -------------------------------------------------------------
+    # (C) Check for Pytest test failure (F3)
     # -------------------------------------------------------------
     if not detected_class:
         is_test_failure = False
@@ -447,7 +537,7 @@ def parse_log_text(
         # Look for short test summary lines
         for entry in parsed_stream:
             msg = entry.get("msg", "")
-            m_fail = _PYTEST_SUMMARY_FAIL_RE.match(msg)
+            m_fail = _PYTEST_SUMMARY_FAIL_RE.search(msg)
             if m_fail:
                 is_test_failure = True
                 test_id = m_fail.group(1)
@@ -461,7 +551,7 @@ def parse_log_text(
 
         # Check for counts line (e.g. "= 1 failed, 5 passed in 0.03s =")
         m_failed_cnt = re.search(r"\b(\d+)\s+failed\b", text)
-        if m_failed_cnt:
+        if m_failed_cnt and re.search(r"\b\d+\s+passed\b|pytest|\bcollected\b", text):
             record.tests_failed = int(m_failed_cnt.group(1))
             if record.tests_failed > 0:
                 is_test_failure = True
@@ -478,9 +568,8 @@ def parse_log_text(
             record.error_type = pytest_error_type
             record.error_message = pytest_err_msg
 
-            # In bare runner format or structured format, identify the failed step
             for step in reversed(step_sequence):
-                if "test" in step.lower() or "pytest" in step.lower():
+                if any(kw in step.lower() for kw in ("test", "pytest", "tox", "uv")):
                     failed_step = step
                     break
             if not failed_step and step_sequence:
@@ -490,7 +579,6 @@ def parse_log_text(
             tb_collecting = False
             for entry in parsed_stream:
                 raw_l = entry.get("raw", "")
-                msg_l = entry.get("msg", "")
                 if "=== FAILURES ===" in raw_l:
                     tb_collecting = True
                 if tb_collecting:
@@ -501,7 +589,7 @@ def parse_log_text(
             # Evidence lines: short summary lines + counts line
             for entry in parsed_stream:
                 msg = entry.get("msg", "")
-                if msg.startswith("FAILED tests/") or _PYTEST_COUNTS_RE.search(msg):
+                if _PYTEST_SUMMARY_FAIL_RE.search(msg) or _PYTEST_COUNTS_RE.search(msg):
                     evidence_lines.append(entry.get("raw", msg))
 
             # Pytest items collected count
@@ -512,14 +600,28 @@ def parse_log_text(
             confidence = 1.0 if (pytest_failed_tests and pytest_error_type) else 0.85
 
     # -------------------------------------------------------------
-    # (C) Check for Dependency / Pip failure (F2)
+    # (D) Check for Dependency / Pip failure (F2) - Includes Docker build output
     # -------------------------------------------------------------
     if not detected_class:
-        m_pip_no_match = _PIP_NO_MATCH_RE.search(text)
-        m_pip_invalid = _PIP_INVALID_REQ_RE.search(text)
-        m_pip_build = _PIP_BUILD_FAIL_RE.search(text)
+        m_pip_no_match = None
+        m_pip_invalid = None
+        m_pip_build = None
+        m_pip_conflict = None
 
-        if m_pip_no_match or m_pip_invalid or m_pip_build:
+        for entry in parsed_stream:
+            msg = entry.get("msg", "")
+            clean_msg = _DOCKER_PREFIX_RE.sub("", msg)
+
+            if not m_pip_no_match:
+                m_pip_no_match = _PIP_NO_MATCH_RE.search(clean_msg)
+            if not m_pip_invalid:
+                m_pip_invalid = _PIP_INVALID_REQ_RE.search(clean_msg)
+            if not m_pip_build:
+                m_pip_build = _PIP_BUILD_FAIL_RE.search(clean_msg)
+            if not m_pip_conflict:
+                m_pip_conflict = _PIP_CONFLICT_RE.search(clean_msg)
+
+        if m_pip_no_match or m_pip_invalid or m_pip_build or m_pip_conflict:
             detected_class = "dependency_error"
             if m_pip_no_match:
                 record.failing_package = m_pip_no_match.group(1)
@@ -533,10 +635,15 @@ def parse_log_text(
                 record.failing_package = m_pip_build.group(1)
                 detected_subcat = "pip_build_failure"
                 record.error_message = f"Failed to build {record.failing_package}"
+            elif m_pip_conflict:
+                pkg_match = m_pip_conflict.group(1) if m_pip_conflict.lastindex and m_pip_conflict.lastindex >= 1 else None
+                record.failing_package = pkg_match
+                detected_subcat = "pip_dependency_conflict"
+                record.error_message = "Conflicting package dependency requirements"
 
             record.error_type = detected_subcat
             for step in step_sequence:
-                if any(kw in step.lower() for kw in ("install", "dep", "pip")):
+                if any(kw in step.lower() for kw in ("install", "dep", "pip", "docker", "build")):
                     failed_step = step
                     break
             if not failed_step:
@@ -544,55 +651,11 @@ def parse_log_text(
 
             for entry in parsed_stream:
                 msg = entry.get("msg", "")
-                if "ERROR:" in msg:
+                clean_msg = _DOCKER_PREFIX_RE.sub("", msg)
+                if "ERROR:" in clean_msg or "ResolutionImpossible" in clean_msg:
                     evidence_lines.append(entry.get("raw", msg))
 
             confidence = 1.0 if record.failing_package else 0.85
-
-    # -------------------------------------------------------------
-    # (D) Check for Syntax errors (F1)
-    # -------------------------------------------------------------
-    if not detected_class:
-        for etype, pattern in _SYNTAX_ERROR_PATTERNS:
-            m_syntax = pattern.search(text)
-            if m_syntax:
-                detected_class = "syntax_error"
-                detected_subcat = etype
-                record.error_type = etype
-                record.error_message = m_syntax.group(1).strip()
-                record.matched_line = m_syntax.group(0).strip()
-                break
-
-        if detected_class == "syntax_error":
-            # Find file and line number
-            m_tb_file = _TRACEBACK_FILE_RE.search(text)
-            if m_tb_file:
-                record.file_path = m_tb_file.group(1)
-                record.line_number = int(m_tb_file.group(2))
-
-            # Extract python traceback block
-            tb_block: list[str] = []
-            capturing = False
-            for entry in parsed_stream:
-                raw_l = entry.get("raw", "")
-                msg = entry.get("msg", "")
-                if "Traceback (most recent call last):" in msg or "File " in msg and not capturing:
-                    capturing = True
-                if capturing:
-                    tb_block.append(raw_l)
-                    if any(etype in msg for etype in ("SyntaxError:", "IndentationError:", "TabError:")):
-                        capturing = False
-            traceback_lines = tb_block
-            evidence_lines = list(tb_block) if tb_block else [record.matched_line or ""]
-
-            for step in step_sequence:
-                if any(kw in step.lower() for kw in ("syntax", "check app syntax")):
-                    failed_step = step
-                    break
-            if not failed_step:
-                failed_step = "Check App Syntax"
-
-            confidence = 1.0 if (traceback_lines and record.file_path) else 0.85
 
     # -------------------------------------------------------------
     # (E) Check for Generic Runtime Python Exception (outside pytest/syntax)
@@ -610,7 +673,7 @@ def parse_log_text(
 
         if detected_class == "runtime_error":
             m_tb_file = _TRACEBACK_FILE_RE.search(text)
-            if m_tb_file:
+            if m_tb_file and m_tb_file.group(1) != "<string>":
                 record.file_path = m_tb_file.group(1)
                 record.line_number = int(m_tb_file.group(2))
 
@@ -625,8 +688,15 @@ def parse_log_text(
     # (F) Fallback / Unknown
     # -------------------------------------------------------------
     if not detected_class:
-        # Check if generic exit code or ##[error] exists
-        if record.exit_code is not None or "##[error]" in text:
+        if record.exit_code == 137:
+            detected_class = "unknown"
+            detected_subcat = "process_signal_137"
+            confidence = 0.4
+        elif record.exit_code == 143:
+            detected_class = "unknown"
+            detected_subcat = "process_signal_143"
+            confidence = 0.4
+        elif record.exit_code is not None or "##[error]" in text:
             detected_class = "unknown"
             detected_subcat = "unknown_failure"
             confidence = 0.5

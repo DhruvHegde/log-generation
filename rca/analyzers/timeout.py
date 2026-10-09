@@ -25,6 +25,7 @@ class TimeoutAnalyzer(BaseCategoryAnalyzer):
         return get_field(record, "failure_class") == "timeout"
 
     def analyze(self, record: Any) -> RCAReport:
+        subcat = get_field(record, "failure_subcategory") or "gha_timeout"
         failed_step = get_field(record, "failed_step") or get_field(record, "step_name") or "Run Tests"
         dur_min = get_field(record, "timeout_duration_min")
         elapsed_s = get_field(record, "elapsed_step_seconds") or get_field(record, "duration")
@@ -35,12 +36,14 @@ class TimeoutAnalyzer(BaseCategoryAnalyzer):
             "timeout_duration_min": dur_min,
             "elapsed_step_seconds": elapsed_s,
             "orphan_process": orphan_proc,
+            "cancellation_type": subcat,
         }
 
         evidence_sources: dict[str, str] = {
             "timeout_duration_min": "parser.timeout_duration_min",
             "elapsed_step_seconds": "parser.elapsed_step_seconds",
             "orphan_process": "parser.orphan_process",
+            "cancellation_type": "parser.failure_subcategory",
         }
 
         primary_lines = [clean_line(l) for l in ev_lines]
@@ -49,15 +52,41 @@ class TimeoutAnalyzer(BaseCategoryAnalyzer):
         elapsed_disp = f"{elapsed_s}s" if elapsed_s is not None else "unknown elapsed time"
         proc_disp = f"'{orphan_proc}'" if orphan_proc else "an active process"
 
-        summary = f"Workflow step timed out: '{failed_step}' exceeded {dur_disp} (elapsed: {elapsed_disp})"
-
-        likely_cause = (
-            f"The step '{failed_step}' exceeded its configured timeout threshold of {dur_disp} "
-            f"(elapsed execution: {elapsed_disp}) and was terminated by the CI runner. "
-            f"Process {proc_disp} remained active at timeout expiration and was terminated during job cleanup. "
-            f"The log establishes that execution exceeded the time limit, but does not provide thread stack traces "
-            f"to identify the exact blocking operation."
-        )
+        if subcat == "gha_cancellation":
+            summary = f"Workflow step canceled: '{failed_step}' received cancellation signal"
+            likely_cause = (
+                f"The step '{failed_step}' was canceled or aborted by the CI runner. "
+                f"A cancellation signal ('The operation was canceled') was recorded. "
+                f"The available log establishes that execution was canceled, but does not provide "
+                f"sufficient evidence to prove whether cancellation was caused by a job timeout, manual user cancellation, "
+                f"concurrency group cancellation, or runner shutdown."
+            )
+            confidence = 0.65
+            rationale = "Moderate evidence strength: GHA cancellation signal observed without explicit step timeout duration annotation."
+            limitations = [
+                "Cancellation signals do not distinguish between step timeout, manual user cancellation, concurrency group supersession, or runner termination.",
+                "Underlying causes such as long-running tests, deadlocks, or external cancellation remain hypotheses until verified."
+            ]
+        else:
+            summary = f"Workflow step timed out: '{failed_step}' exceeded {dur_disp} (elapsed: {elapsed_disp})"
+            likely_cause = (
+                f"The step '{failed_step}' exceeded its configured timeout threshold of {dur_disp} "
+                f"(elapsed execution: {elapsed_disp}) and was terminated by the CI runner. "
+                f"Process {proc_disp} remained active at timeout expiration and was terminated during job cleanup. "
+                f"The log establishes that execution exceeded the time limit, but does not provide thread stack traces "
+                f"to identify the exact blocking operation."
+            )
+            has_complete = bool(dur_min is not None and orphan_proc)
+            confidence = 1.0 if has_complete else 0.8
+            rationale = (
+                "High evidence strength: direct GitHub Actions runner timeout annotation with timeout threshold and orphan process termination."
+                if has_complete else
+                "Medium evidence strength: timeout indicated but timeout threshold or orphan process was not parsed."
+            )
+            limitations = [
+                "GitHub Actions timeout mechanisms terminate the runner step without capturing process thread dumps. The specific blocking function or statement cannot be determined from runner logs alone.",
+                "Underlying causes such as infinite loops, deadlocks, or network delays remain hypotheses until verified locally.",
+            ]
 
         investigation: list[str] = [
             f"Run the operations in '{failed_step}' locally with verbose per-test duration tracking (e.g. 'pytest --durations=10').",
@@ -69,24 +98,11 @@ class TimeoutAnalyzer(BaseCategoryAnalyzer):
         # Reproduction command only if verified from step context
         local_cmd = "pytest --durations=10" if "test" in failed_step.lower() else None
 
-        has_complete = bool(dur_min is not None and orphan_proc)
-        confidence = 1.0 if has_complete else 0.8
-        rationale = (
-            "High evidence strength: direct GitHub Actions runner timeout annotation with timeout threshold and orphan process termination."
-            if has_complete else
-            "Medium evidence strength: timeout indicated but timeout threshold or orphan process was not parsed."
-        )
-
-        limitations = [
-            "GitHub Actions timeout mechanisms terminate the runner step without capturing process thread dumps. The specific blocking function or statement cannot be determined from runner logs alone.",
-            "Underlying causes such as infinite loops, deadlocks, or network delays remain hypotheses until verified locally.",
-        ]
-
         return RCAReport(
             run_id=get_field(record, "run_id"),
             timestamp=get_field(record, "timestamp"),
             failure_class="timeout",
-            failure_subcategory="gha_timeout",
+            failure_subcategory=subcat,
             failed_stage=get_field(record, "stage") or "test",
             failed_step=failed_step,
             execution_path=get_field(record, "execution_path") or [],
