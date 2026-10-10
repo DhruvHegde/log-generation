@@ -1,0 +1,333 @@
+﻿2026-09-08T10:38:01.0528091Z Current runner version: '2.337.0'
+2026-09-08T10:38:01.0552413Z ##[group]Runner Image Provisioner
+2026-09-08T10:38:01.0553192Z Hosted Compute Agent
+2026-09-08T10:38:01.0553812Z Version: 20260828.587
+2026-09-08T10:38:01.0554380Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-08T10:38:01.0555043Z Build Date: 2026-08-28T16:44:25Z
+2026-09-08T10:38:01.0555669Z Worker ID: {f3d9cbe4-16c3-4896-b62f-d04ce1fde5fc}
+2026-09-08T10:38:01.0556331Z Azure Region: westus3
+2026-09-08T10:38:01.0556899Z ##[endgroup]
+2026-09-08T10:38:01.0558607Z ##[group]Operating System
+2026-09-08T10:38:01.0559200Z Ubuntu
+2026-09-08T10:38:01.0559671Z 24.04.4
+2026-09-08T10:38:01.0560136Z LTS
+2026-09-08T10:38:01.0560631Z ##[endgroup]
+2026-09-08T10:38:01.0561116Z ##[group]Runner Image
+2026-09-08T10:38:01.0561837Z Image: ubuntu-24.04
+2026-09-08T10:38:01.0562427Z Version: 20260831.293.1
+2026-09-08T10:38:01.0563564Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260831.293/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-08T10:38:01.0565000Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260831.293
+2026-09-08T10:38:01.0565833Z ##[endgroup]
+2026-09-08T10:38:01.0566786Z ##[group]GITHUB_TOKEN Permissions
+2026-09-08T10:38:01.0568960Z Metadata: read
+2026-09-08T10:38:01.0569494Z ##[endgroup]
+2026-09-08T10:38:01.0571478Z Secret source: None
+2026-09-08T10:38:01.0572928Z Prepare workflow directory
+2026-09-08T10:38:01.0935798Z Prepare all required actions
+2026-09-08T10:38:01.0983815Z Getting action download info
+2026-09-08T10:38:01.4190566Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-09-08T10:38:01.5559225Z Download action repository 'astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9' (SHA:c771a70e6277c0a99b617c7a806ffedaca235ff9)
+2026-09-08T10:38:02.5471416Z Download action repository 'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97' (SHA:5fda3b95a4ea91299a34e894583c3862153e4b97)
+2026-09-08T10:38:02.6674959Z Download action repository 'actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9' (SHA:55cc8345863c7cc4c66a329aec7e433d2d1c52a9)
+2026-09-08T10:38:02.9131453Z Complete job name: main
+2026-09-08T10:38:03.0021596Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-09-08T10:38:03.0024064Z with:
+2026-09-08T10:38:03.0024918Z   persist-credentials: false
+2026-09-08T10:38:03.0025918Z   repository: pallets/click
+2026-09-08T10:38:03.0034634Z   token: ***
+2026-09-08T10:38:03.0035455Z   ssh-strict: true
+2026-09-08T10:38:03.0036299Z   ssh-user: git
+2026-09-08T10:38:03.0037121Z   clean: true
+2026-09-08T10:38:03.0037983Z   sparse-checkout-cone-mode: true
+2026-09-08T10:38:03.0038997Z   fetch-depth: 1
+2026-09-08T10:38:03.0039830Z   fetch-tags: false
+2026-09-08T10:38:03.0040688Z   show-progress: true
+2026-09-08T10:38:03.0041567Z   lfs: false
+2026-09-08T10:38:03.0042451Z   submodules: false
+2026-09-08T10:38:03.0043337Z   set-safe-directory: true
+2026-09-08T10:38:03.0044320Z   allow-unsafe-pr-checkout: false
+2026-09-08T10:38:03.0045779Z ##[endgroup]
+2026-09-08T10:38:03.1096952Z Syncing repository: pallets/click
+2026-09-08T10:38:03.1100962Z ##[group]Getting Git version info
+2026-09-08T10:38:03.1103487Z Working directory is '/home/runner/work/click/click'
+2026-09-08T10:38:03.1106668Z [command]/usr/bin/git version
+2026-09-08T10:38:03.1132321Z git version 2.55.0
+2026-09-08T10:38:03.1154680Z ##[endgroup]
+2026-09-08T10:38:03.1165960Z Temporarily overriding HOME='/home/runner/work/_temp/0af9181c-5885-42a8-8b7d-08faa3ac2592' before making global git config changes
+2026-09-08T10:38:03.1171881Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-08T10:38:03.1175771Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/click/click
+2026-09-08T10:38:03.1210959Z Deleting the contents of '/home/runner/work/click/click'
+2026-09-08T10:38:03.1214874Z ##[group]Determining repository object format
+2026-09-08T10:38:03.1218150Z ##[endgroup]
+2026-09-08T10:38:03.1221167Z ##[group]Initializing the repository
+2026-09-08T10:38:03.1224119Z [command]/usr/bin/git init /home/runner/work/click/click
+2026-09-08T10:38:03.1308603Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-08T10:38:03.1311453Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-08T10:38:03.1322024Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-08T10:38:03.1334833Z hint: call:
+2026-09-08T10:38:03.1336122Z hint:
+2026-09-08T10:38:03.1337773Z hint: 	git config --global init.defaultBranch <name>
+2026-09-08T10:38:03.1339969Z hint:
+2026-09-08T10:38:03.1342184Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-08T10:38:03.1344699Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-08T10:38:03.1346539Z hint:
+2026-09-08T10:38:03.1347604Z hint: 	git branch -m <name>
+2026-09-08T10:38:03.1348636Z hint:
+2026-09-08T10:38:03.1350236Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-08T10:38:03.1352579Z Initialized empty Git repository in /home/runner/work/click/click/.git/
+2026-09-08T10:38:03.1356325Z [command]/usr/bin/git remote add origin https://github.com/pallets/click
+2026-09-08T10:38:03.1369724Z ##[endgroup]
+2026-09-08T10:38:03.1371162Z ##[group]Disabling automatic garbage collection
+2026-09-08T10:38:03.1375379Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-08T10:38:03.1406071Z ##[endgroup]
+2026-09-08T10:38:03.1407848Z ##[group]Setting up auth
+2026-09-08T10:38:03.1409047Z Removing SSH command configuration
+2026-09-08T10:38:03.1413495Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-08T10:38:03.1446943Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-08T10:38:03.1737996Z Removing HTTP extra header
+2026-09-08T10:38:03.1745562Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-08T10:38:03.1775171Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-08T10:38:03.1940791Z Removing includeIf entries pointing to credentials config files
+2026-09-08T10:38:03.1945460Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-08T10:38:03.1972207Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-08T10:38:03.2148217Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-7a9768c1-82dc-4563-ae40-b5156e9a95f1.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-08T10:38:03.2180080Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/click/click/.git.path /home/runner/work/_temp/git-credentials-7a9768c1-82dc-4563-ae40-b5156e9a95f1.config
+2026-09-08T10:38:03.2203740Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/click/click/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-7a9768c1-82dc-4563-ae40-b5156e9a95f1.config
+2026-09-08T10:38:03.2230410Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-7a9768c1-82dc-4563-ae40-b5156e9a95f1.config
+2026-09-08T10:38:03.2255764Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-7a9768c1-82dc-4563-ae40-b5156e9a95f1.config
+2026-09-08T10:38:03.2277204Z ##[endgroup]
+2026-09-08T10:38:03.2278647Z ##[group]Fetching the repository
+2026-09-08T10:38:03.2284641Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +52d0830adfaa0baae70cb952aa2d01f4d8668e7f:refs/remotes/pull/3858/merge
+2026-09-08T10:38:04.2069465Z From https://github.com/pallets/click
+2026-09-08T10:38:04.2071214Z  * [new ref]         52d0830adfaa0baae70cb952aa2d01f4d8668e7f -> pull/3858/merge
+2026-09-08T10:38:04.2073765Z ##[endgroup]
+2026-09-08T10:38:04.2074529Z ##[group]Determining the checkout info
+2026-09-08T10:38:04.2075895Z ##[endgroup]
+2026-09-08T10:38:04.2080999Z [command]/usr/bin/git sparse-checkout disable
+2026-09-08T10:38:04.2120024Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-08T10:38:04.2142499Z ##[group]Checking out the ref
+2026-09-08T10:38:04.2145661Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/3858/merge
+2026-09-08T10:38:04.2280782Z Note: switching to 'refs/remotes/pull/3858/merge'.
+2026-09-08T10:38:04.2281459Z 
+2026-09-08T10:38:04.2281916Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-09-08T10:38:04.2282473Z changes and commit them, and you can discard any commits you make in this
+2026-09-08T10:38:04.2283071Z state without impacting any branches by switching back to a branch.
+2026-09-08T10:38:04.2283405Z 
+2026-09-08T10:38:04.2283738Z If you want to create a new branch to retain commits you create, you may
+2026-09-08T10:38:04.2284251Z do so (now or later) by using -c with the switch command. Example:
+2026-09-08T10:38:04.2284520Z 
+2026-09-08T10:38:04.2284746Z   git switch -c <new-branch-name>
+2026-09-08T10:38:04.2285052Z 
+2026-09-08T10:38:04.2285254Z Or undo this operation with:
+2026-09-08T10:38:04.2285584Z 
+2026-09-08T10:38:04.2285756Z   git switch -
+2026-09-08T10:38:04.2286027Z 
+2026-09-08T10:38:04.2286476Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-09-08T10:38:04.2287018Z 
+2026-09-08T10:38:04.2287625Z HEAD is now at 52d0830 Merge 4c04e98f2636705907bf5932eecdbb71debfc1b7 into 7944461a80b780d060899c8835acab3c273a04a6
+2026-09-08T10:38:04.2290775Z ##[endgroup]
+2026-09-08T10:38:04.2326792Z [command]/usr/bin/git log -1 --format=%H
+2026-09-08T10:38:04.2348098Z 52d0830adfaa0baae70cb952aa2d01f4d8668e7f
+2026-09-08T10:38:04.2356570Z ##[group]Removing auth
+2026-09-08T10:38:04.2357184Z Removing SSH command configuration
+2026-09-08T10:38:04.2361313Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-08T10:38:04.2386849Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-08T10:38:04.2560543Z Removing HTTP extra header
+2026-09-08T10:38:04.2564142Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-08T10:38:04.2593151Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-08T10:38:04.2771149Z Removing includeIf entries pointing to credentials config files
+2026-09-08T10:38:04.2772408Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-08T10:38:04.2794688Z includeif.gitdir:/home/runner/work/click/click/.git.path
+2026-09-08T10:38:04.2795672Z includeif.gitdir:/home/runner/work/click/click/.git/worktrees/*.path
+2026-09-08T10:38:04.2796381Z includeif.gitdir:/github/workspace/.git.path
+2026-09-08T10:38:04.2797036Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-08T10:38:04.2803081Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/click/click/.git.path
+2026-09-08T10:38:04.2821023Z /home/runner/work/_temp/git-credentials-7a9768c1-82dc-4563-ae40-b5156e9a95f1.config
+2026-09-08T10:38:04.2828991Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/click/click/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-7a9768c1\-82dc\-4563\-ae40\-b5156e9a95f1\.config
+2026-09-08T10:38:04.2855488Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/click/click/.git/worktrees/*.path
+2026-09-08T10:38:04.2874700Z /home/runner/work/_temp/git-credentials-7a9768c1-82dc-4563-ae40-b5156e9a95f1.config
+2026-09-08T10:38:04.2880924Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/click/click/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-7a9768c1\-82dc\-4563\-ae40\-b5156e9a95f1\.config
+2026-09-08T10:38:04.2905932Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-09-08T10:38:04.2923578Z /github/runner_temp/git-credentials-7a9768c1-82dc-4563-ae40-b5156e9a95f1.config
+2026-09-08T10:38:04.2931361Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-7a9768c1\-82dc\-4563\-ae40\-b5156e9a95f1\.config
+2026-09-08T10:38:04.2957986Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-08T10:38:04.2976418Z /github/runner_temp/git-credentials-7a9768c1-82dc-4563-ae40-b5156e9a95f1.config
+2026-09-08T10:38:04.3023749Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-7a9768c1\-82dc\-4563\-ae40\-b5156e9a95f1\.config
+2026-09-08T10:38:04.3071709Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-08T10:38:04.3240627Z Removing credentials config '/home/runner/work/_temp/git-credentials-7a9768c1-82dc-4563-ae40-b5156e9a95f1.config'
+2026-09-08T10:38:04.3247900Z ##[endgroup]
+2026-09-08T10:38:04.3497783Z ##[group]Run astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
+2026-09-08T10:38:04.3498240Z with:
+2026-09-08T10:38:04.3498490Z   enable-cache: true
+2026-09-08T10:38:04.3498781Z   activate-environment: false
+2026-09-08T10:38:04.3499149Z   no-project: false
+2026-09-08T10:38:04.3499458Z   working-directory: /home/runner/work/click/click
+2026-09-08T10:38:04.3502487Z   github-token: ***
+2026-09-08T10:38:04.3503116Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-09-08T10:38:04.3503770Z   restore-cache: true
+2026-09-08T10:38:04.3504032Z   save-cache: true
+2026-09-08T10:38:04.3504288Z   prune-cache: false
+2026-09-08T10:38:04.3504573Z   cache-python: false
+2026-09-08T10:38:04.3504857Z   ignore-nothing-to-cache: false
+2026-09-08T10:38:04.3505176Z   ignore-empty-workdir: false
+2026-09-08T10:38:04.3505518Z   download-from-astral-mirror: true
+2026-09-08T10:38:04.3505906Z   add-problem-matchers: true
+2026-09-08T10:38:04.3506187Z   quiet: false
+2026-09-08T10:38:04.3506463Z   resolution-strategy: highest
+2026-09-08T10:38:04.3506757Z ##[endgroup]
+2026-09-08T10:38:04.5262907Z Trying to find version for uv in: /home/runner/work/click/click/uv.toml
+2026-09-08T10:38:04.5263579Z Could not find file: /home/runner/work/click/click/uv.toml
+2026-09-08T10:38:04.5264141Z Trying to find version for uv in: /home/runner/work/click/click/pyproject.toml
+2026-09-08T10:38:04.5283426Z Could not determine uv version from uv.toml or pyproject.toml. Falling back to latest.
+2026-09-08T10:38:04.5285370Z Fetching manifest data from https://raw.githubusercontent.com/astral-sh/versions/main/v1/uv.ndjson ...
+2026-09-08T10:38:04.5944457Z Downloading uv from "https://releases.astral.sh/github/uv/releases/download/0.12.10/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-09-08T10:38:05.1920715Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/b285e1af-545e-4509-a12c-48f160c86976 -f /home/runner/work/_temp/6b702407-9766-4c1c-b57b-7e70bc595fa7
+2026-09-08T10:38:05.5634157Z Added /home/runner/.local/bin to the path
+2026-09-08T10:38:05.5639119Z Added /opt/hostedtoolcache/uv/0.12.10/x86_64 to the path
+2026-09-08T10:38:05.5640413Z Set UV_PYTHON_INSTALL_DIR to /home/runner/work/_temp/uv-python-dir
+2026-09-08T10:38:05.5641398Z Added /home/runner/work/_temp/uv-python-dir to the path
+2026-09-08T10:38:05.5666928Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+2026-09-08T10:38:05.5667311Z Successfully installed uv version 0.12.10
+2026-09-08T10:38:05.6220580Z Searching files using cache dependency glob: /home/runner/work/click/click/**/*requirements*.txt,/home/runner/work/click/click/**/*requirements*.in,/home/runner/work/click/click/**/*constraints*.txt,/home/runner/work/click/click/**/*constraints*.in,/home/runner/work/click/click/**/pyproject.toml,/home/runner/work/click/click/**/uv.lock,/home/runner/work/click/click/**/*.py.lock
+2026-09-08T10:38:05.6408685Z /home/runner/work/click/click/examples/aliases/pyproject.toml
+2026-09-08T10:38:05.6437402Z /home/runner/work/click/click/examples/colors/pyproject.toml
+2026-09-08T10:38:05.6450083Z /home/runner/work/click/click/examples/completion/pyproject.toml
+2026-09-08T10:38:05.6473091Z /home/runner/work/click/click/examples/complex/pyproject.toml
+2026-09-08T10:38:05.6486718Z /home/runner/work/click/click/examples/imagepipe/pyproject.toml
+2026-09-08T10:38:05.6498472Z /home/runner/work/click/click/examples/inout/pyproject.toml
+2026-09-08T10:38:05.6509552Z /home/runner/work/click/click/examples/naval/pyproject.toml
+2026-09-08T10:38:05.6520993Z /home/runner/work/click/click/examples/repo/pyproject.toml
+2026-09-08T10:38:05.6532604Z /home/runner/work/click/click/examples/termui/pyproject.toml
+2026-09-08T10:38:05.6543192Z /home/runner/work/click/click/examples/validation/pyproject.toml
+2026-09-08T10:38:05.6549387Z /home/runner/work/click/click/pyproject.toml
+2026-09-08T10:38:05.6649270Z /home/runner/work/click/click/uv.lock
+2026-09-08T10:38:05.6660472Z Found 12 files to hash.
+2026-09-08T10:38:05.6714374Z Trying to restore cache from GitHub Actions cache with key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.12.3-5e10cf5371c8ad72db87f10050fdc5a7fbf4027685632923f5862aca71b0f7f7
+2026-09-08T10:38:05.8657397Z Cache hit for: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.12.3-5e10cf5371c8ad72db87f10050fdc5a7fbf4027685632923f5862aca71b0f7f7
+2026-09-08T10:38:07.0895138Z Received 33554432 of 40918913 (82.0%), 32.0 MBs/sec
+2026-09-08T10:38:07.1249904Z Received 40918913 of 40918913 (100.0%), 37.7 MBs/sec
+2026-09-08T10:38:07.1250454Z Cache Size: ~39 MB (40918913 B)
+2026-09-08T10:38:07.1286077Z [command]/usr/bin/tar -xf /home/runner/work/_temp/54b0537e-1814-4666-ab4d-4c2ed1a48ec0/cache.tzst -P -C /home/runner/work/click/click --use-compress-program unzstd
+2026-09-08T10:38:07.2894762Z Cache restored successfully
+2026-09-08T10:38:07.2914447Z cache restored from GitHub Actions cache with key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.12.3-5e10cf5371c8ad72db87f10050fdc5a7fbf4027685632923f5862aca71b0f7f7
+2026-09-08T10:38:07.4101261Z ##[group]Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+2026-09-08T10:38:07.4102000Z with:
+2026-09-08T10:38:07.4102286Z   python-version-file: pyproject.toml
+2026-09-08T10:38:07.4102691Z   check-latest: false
+2026-09-08T10:38:07.4105395Z   token: ***
+2026-09-08T10:38:07.4105704Z   update-environment: true
+2026-09-08T10:38:07.4106105Z   allow-prereleases: false
+2026-09-08T10:38:07.4106419Z   freethreaded: false
+2026-09-08T10:38:07.4106717Z env:
+2026-09-08T10:38:07.4107060Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-09-08T10:38:07.4107577Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-09-08T10:38:07.4107941Z ##[endgroup]
+2026-09-08T10:38:07.5291195Z Extracted >=3.10 from pyproject.toml
+2026-09-08T10:38:07.5313879Z ##[group]Installed versions
+2026-09-08T10:38:07.5386674Z Successfully set up CPython (3.14.7)
+2026-09-08T10:38:07.5387699Z ##[endgroup]
+2026-09-08T10:38:07.6145250Z ##[group]Run actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+2026-09-08T10:38:07.6145613Z with:
+2026-09-08T10:38:07.6145828Z   path: ~/.cache/pre-commit
+2026-09-08T10:38:07.6146209Z   key: pre-commit|cf690451bf17c6ce9d4065d0f7d42144efaa6fb1b5f2a3a28ead820689f2cf84
+2026-09-08T10:38:07.6146618Z   enableCrossOsArchive: false
+2026-09-08T10:38:07.6146869Z   fail-on-cache-miss: false
+2026-09-08T10:38:07.6147244Z   lookup-only: false
+2026-09-08T10:38:07.6147454Z   save-always: false
+2026-09-08T10:38:07.6147652Z env:
+2026-09-08T10:38:07.6147917Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-09-08T10:38:07.6148288Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-09-08T10:38:07.6148658Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T10:38:07.6149073Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib/pkgconfig
+2026-09-08T10:38:07.6149469Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T10:38:07.6149887Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T10:38:07.6150248Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T10:38:07.6150611Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib
+2026-09-08T10:38:07.6150924Z ##[endgroup]
+2026-09-08T10:38:07.9228078Z Cache hit for: pre-commit|cf690451bf17c6ce9d4065d0f7d42144efaa6fb1b5f2a3a28ead820689f2cf84
+2026-09-08T10:38:09.1672339Z Received 33554432 of 36347912 (92.3%), 32.0 MBs/sec
+2026-09-08T10:38:09.2500438Z Received 36347912 of 36347912 (100.0%), 32.0 MBs/sec
+2026-09-08T10:38:09.2502791Z Cache Size: ~35 MB (36347912 B)
+2026-09-08T10:38:09.2546531Z [command]/usr/bin/tar -xf /home/runner/work/_temp/f548b6fe-8874-48e9-8880-99a76ca3054c/cache.tzst -P -C /home/runner/work/click/click --use-compress-program unzstd
+2026-09-08T10:38:09.4440997Z Cache restored successfully
+2026-09-08T10:38:09.4535840Z Cache restored from key: pre-commit|cf690451bf17c6ce9d4065d0f7d42144efaa6fb1b5f2a3a28ead820689f2cf84
+2026-09-08T10:38:09.4631028Z ##[group]Run uv run --locked --no-default-groups --group pre-commit pre-commit run --show-diff-on-failure --color=always --all-files
+2026-09-08T10:38:09.4632365Z [36;1muv run --locked --no-default-groups --group pre-commit pre-commit run --show-diff-on-failure --color=always --all-files[0m
+2026-09-08T10:38:09.4664199Z shell: /usr/bin/bash -e {0}
+2026-09-08T10:38:09.4664486Z env:
+2026-09-08T10:38:09.4664805Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-09-08T10:38:09.4665202Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-09-08T10:38:09.4665573Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T10:38:09.4665991Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib/pkgconfig
+2026-09-08T10:38:09.4666406Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T10:38:09.4666771Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T10:38:09.4667183Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-08T10:38:09.4667555Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib
+2026-09-08T10:38:09.4667880Z ##[endgroup]
+2026-09-08T10:38:09.5673256Z Using CPython 3.14.7 interpreter at: /opt/hostedtoolcache/Python/3.14.7/x64/bin/python3
+2026-09-08T10:38:09.5673939Z Creating virtual environment at: .venv
+2026-09-08T10:38:09.5717018Z    Building click @ file:///home/runner/work/click/click
+2026-09-08T10:38:09.9223157Z       Built click @ file:///home/runner/work/click/click
+2026-09-08T10:38:09.9268532Z Installed 13 packages in 3ms
+2026-09-08T10:38:10.3241376Z ruff check...............................................................[41mFailed[m
+2026-09-08T10:38:10.3242470Z [2m- hook id: ruff-check[m
+2026-09-08T10:38:10.3242959Z [2m- files were modified by this hook[m
+2026-09-08T10:38:10.3243257Z 
+2026-09-08T10:38:10.3243458Z [1;32mFixed 1 error:[0m
+2026-09-08T10:38:10.3244044Z [36m-[0m [1mtests/typing/typing_path.py[0m[36m:[0m
+2026-09-08T10:38:10.3244772Z     1 × [1;31mI001[0m (unsorted-imports)
+2026-09-08T10:38:10.3245114Z 
+2026-09-08T10:38:10.3245305Z Found 1 error (1 fixed, 0 remaining).
+2026-09-08T10:38:10.3245588Z 
+2026-09-08T10:38:10.3703510Z ruff format..............................................................[42mPassed[m
+2026-09-08T10:38:10.4401412Z uv-lock..................................................................[42mPassed[m
+2026-09-08T10:38:10.7698202Z codespell................................................................[42mPassed[m
+2026-09-08T10:38:10.8639557Z check for merge conflicts................................................[42mPassed[m
+2026-09-08T10:38:11.1270512Z debug statements (python)................................................[42mPassed[m
+2026-09-08T10:38:11.2066607Z fix utf-8 byte order marker..............................................[42mPassed[m
+2026-09-08T10:38:11.2961071Z trim trailing whitespace.................................................[42mPassed[m
+2026-09-08T10:38:11.3805465Z fix end of files.........................................................[42mPassed[m
+2026-09-08T10:38:11.3806223Z pre-commit hook(s) made changes.
+2026-09-08T10:38:11.3806973Z If you are seeing this message in CI, reproduce locally with: `pre-commit run --all-files`.
+2026-09-08T10:38:11.3807548Z To run `pre-commit` as part of git workflow, use `pre-commit install`.
+2026-09-08T10:38:11.3807915Z All changes made by hooks:
+2026-09-08T10:38:11.3878944Z [1mdiff --git a/tests/typing/typing_path.py b/tests/typing/typing_path.py[m
+2026-09-08T10:38:11.3879793Z [1mindex 5caeb72..f12a5d9 100644[m
+2026-09-08T10:38:11.3880372Z [1m--- a/tests/typing/typing_path.py[m
+2026-09-08T10:38:11.3880950Z [1m+++ b/tests/typing/typing_path.py[m
+2026-09-08T10:38:11.3881539Z [36m@@ -1,9 +1,10 @@[m
+2026-09-08T10:38:11.3882799Z  import os[m
+2026-09-08T10:38:11.3883753Z  import pathlib[m
+2026-09-08T10:38:11.3884543Z  [m
+2026-09-08T10:38:11.3885346Z [31m-import click[m
+2026-09-08T10:38:11.3886389Z  from typing_extensions import assert_type[m
+2026-09-08T10:38:11.3887809Z  [m
+2026-09-08T10:38:11.3888620Z [32m+[m[32mimport click[m
+2026-09-08T10:38:11.3889524Z [32m+[m
+2026-09-08T10:38:11.3890697Z  # Without ``path_type``, ``convert`` returns the value it was given.[m
+2026-09-08T10:38:11.3892865Z  assert_type(click.Path().convert("a/b.txt", None, None), str | bytes | os.PathLike[str])[m
+2026-09-08T10:38:11.3895032Z  assert_type(click.prompt("File", type=click.Path()), str | bytes | os.PathLike[str])[m
+2026-09-08T10:38:11.4153909Z ##[error]Process completed with exit code 1.
+2026-09-08T10:38:11.4272015Z Post job cleanup.
+2026-09-08T10:38:11.5082260Z [command]/usr/bin/git version
+2026-09-08T10:38:11.5115943Z git version 2.55.0
+2026-09-08T10:38:11.5147225Z Temporarily overriding HOME='/home/runner/work/_temp/fa313764-0bf1-4d68-972e-0676bbae8964' before making global git config changes
+2026-09-08T10:38:11.5148098Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-08T10:38:11.5152569Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/click/click
+2026-09-08T10:38:11.5177178Z Removing SSH command configuration
+2026-09-08T10:38:11.5183074Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-08T10:38:11.5212338Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-08T10:38:11.5387840Z Removing HTTP extra header
+2026-09-08T10:38:11.5393077Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-08T10:38:11.5423159Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-08T10:38:11.5594355Z Removing includeIf entries pointing to credentials config files
+2026-09-08T10:38:11.5600428Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-08T10:38:11.5625770Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-08T10:38:11.5913630Z Cleaning up orphan processes

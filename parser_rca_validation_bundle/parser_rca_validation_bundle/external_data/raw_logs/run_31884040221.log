@@ -1,0 +1,542 @@
+﻿2026-08-15T12:13:07.1385629Z Current runner version: '2.336.0'
+2026-08-15T12:13:07.1412622Z ##[group]Runner Image Provisioner
+2026-08-15T12:13:07.1413539Z Hosted Compute Agent
+2026-08-15T12:13:07.1414199Z Version: 20260729.566
+2026-08-15T12:13:07.1414867Z Commit: cf7153fe6e25b664e8693c24944bf2b00355d109
+2026-08-15T12:13:07.1415611Z Build Date: 2026-07-29T19:17:02Z
+2026-08-15T12:13:07.1416360Z Worker ID: {761347e1-5b71-4bcc-8165-fa2ef2ea35c4}
+2026-08-15T12:13:07.1417119Z Azure Region: eastus
+2026-08-15T12:13:07.1417668Z ##[endgroup]
+2026-08-15T12:13:07.1419505Z ##[group]Operating System
+2026-08-15T12:13:07.1420173Z Ubuntu
+2026-08-15T12:13:07.1420775Z 24.04.4
+2026-08-15T12:13:07.1421360Z LTS
+2026-08-15T12:13:07.1421883Z ##[endgroup]
+2026-08-15T12:13:07.1422498Z ##[group]Runner Image
+2026-08-15T12:13:07.1423110Z Image: ubuntu-24.04
+2026-08-15T12:13:07.1423661Z Version: 20260810.271.1
+2026-08-15T12:13:07.1425038Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260810.271/images/ubuntu/Ubuntu2404-Readme.md
+2026-08-15T12:13:07.1426641Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260810.271
+2026-08-15T12:13:07.1427603Z ##[endgroup]
+2026-08-15T12:13:07.1429092Z ##[group]GITHUB_TOKEN Permissions
+2026-08-15T12:13:07.1431477Z Metadata: read
+2026-08-15T12:13:07.1432169Z ##[endgroup]
+2026-08-15T12:13:07.1434386Z Secret source: None
+2026-08-15T12:13:07.1435555Z Prepare workflow directory
+2026-08-15T12:13:07.1832705Z Prepare all required actions
+2026-08-15T12:13:07.1882017Z Getting action download info
+2026-08-15T12:13:07.4142591Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-08-15T12:13:07.5414798Z Download action repository 'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97' (SHA:5fda3b95a4ea91299a34e894583c3862153e4b97)
+2026-08-15T12:13:07.6657539Z Download action repository 'pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd' (SHA:2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd)
+2026-08-15T12:13:07.8464375Z Getting action download info
+2026-08-15T12:13:07.9752050Z Download action repository 'actions/cache@v4' (SHA:0057852bfaa89a56745cba8c7296529d2fc39830)
+2026-08-15T12:13:08.1401525Z Complete job name: lint
+2026-08-15T12:13:08.2360004Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-08-15T12:13:08.2361941Z with:
+2026-08-15T12:13:08.2362831Z   persist-credentials: false
+2026-08-15T12:13:08.2363910Z   repository: psf/black
+2026-08-15T12:13:08.2372792Z   token: ***
+2026-08-15T12:13:08.2373681Z   ssh-strict: true
+2026-08-15T12:13:08.2374588Z   ssh-user: git
+2026-08-15T12:13:08.2375449Z   clean: true
+2026-08-15T12:13:08.2376356Z   sparse-checkout-cone-mode: true
+2026-08-15T12:13:08.2377445Z   fetch-depth: 1
+2026-08-15T12:13:08.2378554Z   fetch-tags: false
+2026-08-15T12:13:08.2379506Z   show-progress: true
+2026-08-15T12:13:08.2380429Z   lfs: false
+2026-08-15T12:13:08.2381282Z   submodules: false
+2026-08-15T12:13:08.2382203Z   set-safe-directory: true
+2026-08-15T12:13:08.2383284Z   allow-unsafe-pr-checkout: false
+2026-08-15T12:13:08.2384679Z env:
+2026-08-15T12:13:08.2385580Z   PIP_UPLOADED_PRIOR_TO: P2D
+2026-08-15T12:13:08.2386611Z ##[endgroup]
+2026-08-15T12:13:08.3379541Z Syncing repository: psf/black
+2026-08-15T12:13:08.3382637Z ##[group]Getting Git version info
+2026-08-15T12:13:08.3384014Z Working directory is '/home/runner/work/black/black'
+2026-08-15T12:13:08.3386111Z [command]/usr/bin/git version
+2026-08-15T12:13:08.3455702Z git version 2.54.0
+2026-08-15T12:13:08.3510982Z ##[endgroup]
+2026-08-15T12:13:08.3523342Z Temporarily overriding HOME='/home/runner/work/_temp/4ee2e29d-5483-4008-9d62-1b53570688ac' before making global git config changes
+2026-08-15T12:13:08.3528624Z Adding repository directory to the temporary git global config as a safe directory
+2026-08-15T12:13:08.3532645Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/black/black
+2026-08-15T12:13:08.3585110Z Deleting the contents of '/home/runner/work/black/black'
+2026-08-15T12:13:08.3588537Z ##[group]Determining repository object format
+2026-08-15T12:13:08.3590755Z ##[endgroup]
+2026-08-15T12:13:08.3592248Z ##[group]Initializing the repository
+2026-08-15T12:13:08.3594741Z [command]/usr/bin/git init /home/runner/work/black/black
+2026-08-15T12:13:08.3715460Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-08-15T12:13:08.3717648Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-08-15T12:13:08.3720508Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-08-15T12:13:08.3722746Z hint: call:
+2026-08-15T12:13:08.3724202Z hint:
+2026-08-15T12:13:08.3726022Z hint: 	git config --global init.defaultBranch <name>
+2026-08-15T12:13:08.3728484Z hint:
+2026-08-15T12:13:08.3730534Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-08-15T12:13:08.3733956Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-08-15T12:13:08.3736686Z hint:
+2026-08-15T12:13:08.3738102Z hint: 	git branch -m <name>
+2026-08-15T12:13:08.3739985Z hint:
+2026-08-15T12:13:08.3742255Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-08-15T12:13:08.3744472Z Initialized empty Git repository in /home/runner/work/black/black/.git/
+2026-08-15T12:13:08.3747822Z [command]/usr/bin/git remote add origin https://github.com/psf/black
+2026-08-15T12:13:08.3783498Z ##[endgroup]
+2026-08-15T12:13:08.3786309Z ##[group]Disabling automatic garbage collection
+2026-08-15T12:13:08.3788979Z [command]/usr/bin/git config --local gc.auto 0
+2026-08-15T12:13:08.3819405Z ##[endgroup]
+2026-08-15T12:13:08.3821897Z ##[group]Setting up auth
+2026-08-15T12:13:08.3823785Z Removing SSH command configuration
+2026-08-15T12:13:08.3826597Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-08-15T12:13:08.3864184Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-08-15T12:13:08.4215813Z Removing HTTP extra header
+2026-08-15T12:13:08.4222390Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-08-15T12:13:08.4255319Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-08-15T12:13:08.4476335Z Removing includeIf entries pointing to credentials config files
+2026-08-15T12:13:08.4481216Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-08-15T12:13:08.4512710Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-08-15T12:13:08.4734255Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-8c2b2bb7-b7a8-4862-8794-73668a1b3515.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-08-15T12:13:08.4770917Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/black/black/.git.path /home/runner/work/_temp/git-credentials-8c2b2bb7-b7a8-4862-8794-73668a1b3515.config
+2026-08-15T12:13:08.4800943Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/black/black/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-8c2b2bb7-b7a8-4862-8794-73668a1b3515.config
+2026-08-15T12:13:08.4833596Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-8c2b2bb7-b7a8-4862-8794-73668a1b3515.config
+2026-08-15T12:13:08.4866141Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-8c2b2bb7-b7a8-4862-8794-73668a1b3515.config
+2026-08-15T12:13:08.4893500Z ##[endgroup]
+2026-08-15T12:13:08.4899817Z ##[group]Fetching the repository
+2026-08-15T12:13:08.4902741Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +08bfad5c5799ae764f1ace26bb68148c43329705:refs/remotes/pull/5311/merge
+2026-08-15T12:13:08.8189021Z From https://github.com/psf/black
+2026-08-15T12:13:08.8192032Z  * [new ref]         08bfad5c5799ae764f1ace26bb68148c43329705 -> pull/5311/merge
+2026-08-15T12:13:08.8226093Z ##[endgroup]
+2026-08-15T12:13:08.8317819Z ##[group]Determining the checkout info
+2026-08-15T12:13:08.8320163Z ##[endgroup]
+2026-08-15T12:13:08.8321282Z [command]/usr/bin/git sparse-checkout disable
+2026-08-15T12:13:08.8325549Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-08-15T12:13:08.8331006Z ##[group]Checking out the ref
+2026-08-15T12:13:08.8334183Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/5311/merge
+2026-08-15T12:13:08.8753478Z Note: switching to 'refs/remotes/pull/5311/merge'.
+2026-08-15T12:13:08.8754969Z 
+2026-08-15T12:13:08.8756192Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-08-15T12:13:08.8758924Z changes and commit them, and you can discard any commits you make in this
+2026-08-15T12:13:08.8761501Z state without impacting any branches by switching back to a branch.
+2026-08-15T12:13:08.8763262Z 
+2026-08-15T12:13:08.8764404Z If you want to create a new branch to retain commits you create, you may
+2026-08-15T12:13:08.8766516Z do so (now or later) by using -c with the switch command. Example:
+2026-08-15T12:13:08.8767535Z 
+2026-08-15T12:13:08.8767957Z   git switch -c <new-branch-name>
+2026-08-15T12:13:08.8768883Z 
+2026-08-15T12:13:08.8769292Z Or undo this operation with:
+2026-08-15T12:13:08.8769903Z 
+2026-08-15T12:13:08.8770261Z   git switch -
+2026-08-15T12:13:08.8770727Z 
+2026-08-15T12:13:08.8771507Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-08-15T12:13:08.8772767Z 
+2026-08-15T12:13:08.8774171Z HEAD is now at 08bfad5 Merge e915f85e9ed508b34f50fd69b0f5bcdb4a1c7c74 into 74371e2041a3120a049ced8f1cab0e7a6bc8ecd3
+2026-08-15T12:13:08.8778115Z ##[endgroup]
+2026-08-15T12:13:08.8807838Z [command]/usr/bin/git log -1 --format=%H
+2026-08-15T12:13:08.8832546Z 08bfad5c5799ae764f1ace26bb68148c43329705
+2026-08-15T12:13:08.8843041Z ##[group]Removing auth
+2026-08-15T12:13:08.8844955Z Removing SSH command configuration
+2026-08-15T12:13:08.8847417Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-08-15T12:13:08.8878914Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-08-15T12:13:08.9096344Z Removing HTTP extra header
+2026-08-15T12:13:08.9100471Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-08-15T12:13:08.9135025Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-08-15T12:13:08.9356123Z Removing includeIf entries pointing to credentials config files
+2026-08-15T12:13:08.9359860Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-08-15T12:13:08.9388533Z includeif.gitdir:/home/runner/work/black/black/.git.path
+2026-08-15T12:13:08.9391365Z includeif.gitdir:/home/runner/work/black/black/.git/worktrees/*.path
+2026-08-15T12:13:08.9393973Z includeif.gitdir:/github/workspace/.git.path
+2026-08-15T12:13:08.9396290Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-08-15T12:13:08.9401980Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/black/black/.git.path
+2026-08-15T12:13:08.9423416Z /home/runner/work/_temp/git-credentials-8c2b2bb7-b7a8-4862-8794-73668a1b3515.config
+2026-08-15T12:13:08.9436716Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/black/black/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-8c2b2bb7\-b7a8\-4862\-8794\-73668a1b3515\.config
+2026-08-15T12:13:08.9469132Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/black/black/.git/worktrees/*.path
+2026-08-15T12:13:08.9491709Z /home/runner/work/_temp/git-credentials-8c2b2bb7-b7a8-4862-8794-73668a1b3515.config
+2026-08-15T12:13:08.9500423Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/black/black/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-8c2b2bb7\-b7a8\-4862\-8794\-73668a1b3515\.config
+2026-08-15T12:13:08.9530335Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-08-15T12:13:08.9550875Z /github/runner_temp/git-credentials-8c2b2bb7-b7a8-4862-8794-73668a1b3515.config
+2026-08-15T12:13:08.9561120Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-8c2b2bb7\-b7a8\-4862\-8794\-73668a1b3515\.config
+2026-08-15T12:13:08.9626859Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-08-15T12:13:08.9663184Z /github/runner_temp/git-credentials-8c2b2bb7-b7a8-4862-8794-73668a1b3515.config
+2026-08-15T12:13:08.9677901Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-8c2b2bb7\-b7a8\-4862\-8794\-73668a1b3515\.config
+2026-08-15T12:13:08.9710660Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-08-15T12:13:08.9928178Z Removing credentials config '/home/runner/work/_temp/git-credentials-8c2b2bb7-b7a8-4862-8794-73668a1b3515.config'
+2026-08-15T12:13:08.9935924Z ##[endgroup]
+2026-08-15T12:13:09.0185165Z ##[group]Run if [ "$GITHUB_BASE_REF" != "main" ]; then
+2026-08-15T12:13:09.0186675Z [36;1mif [ "$GITHUB_BASE_REF" != "main" ]; then[0m
+2026-08-15T12:13:09.0189052Z [36;1m    echo "::error::PR targeting '$GITHUB_BASE_REF', please refile targeting 'main'." && exit 1[0m
+2026-08-15T12:13:09.0190839Z [36;1mfi[0m
+2026-08-15T12:13:09.0232377Z shell: /usr/bin/bash -e {0}
+2026-08-15T12:13:09.0233343Z env:
+2026-08-15T12:13:09.0234132Z   PIP_UPLOADED_PRIOR_TO: P2D
+2026-08-15T12:13:09.0235077Z ##[endgroup]
+2026-08-15T12:13:09.0495676Z ##[group]Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+2026-08-15T12:13:09.0497151Z with:
+2026-08-15T12:13:09.0497921Z   python-version: 3.15
+2026-08-15T12:13:09.0499219Z   allow-prereleases: true
+2026-08-15T12:13:09.0500152Z   check-latest: false
+2026-08-15T12:13:09.0508017Z   token: ***
+2026-08-15T12:13:09.0509023Z   update-environment: true
+2026-08-15T12:13:09.0509958Z   freethreaded: false
+2026-08-15T12:13:09.0510791Z env:
+2026-08-15T12:13:09.0511566Z   PIP_UPLOADED_PRIOR_TO: P2D
+2026-08-15T12:13:09.0512501Z ##[endgroup]
+2026-08-15T12:13:09.1740290Z ##[group]Installed versions
+2026-08-15T12:13:09.1816562Z Version ~3.15.0-0 was not found in the local cache
+2026-08-15T12:13:09.5169554Z Version ~3.15.0-0 is available for downloading
+2026-08-15T12:13:09.5171285Z Download from "https://github.com/actions/python-versions/releases/download/3.15.0-rc.1-30966273682/python-3.15.0-rc.1-linux-24.04-x64.tar.gz"
+2026-08-15T12:13:10.2628949Z Extract downloaded archive
+2026-08-15T12:13:10.2823951Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/739beb44-fb3f-4de0-8518-c3877107588d -f /home/runner/work/_temp/e525ae4e-2433-4342-82e2-2b1f78b52ae2
+2026-08-15T12:13:12.6961608Z Execute installation script
+2026-08-15T12:13:12.7061186Z Check if Python hostedtoolcache folder exist...
+2026-08-15T12:13:12.7061972Z Create Python 3.15.0-rc.1 folder
+2026-08-15T12:13:12.7073638Z Copy Python binaries to hostedtoolcache folder
+2026-08-15T12:13:13.3048667Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+2026-08-15T12:13:13.3103372Z Upgrading pip...
+2026-08-15T12:13:15.7975382Z Collecting pip
+2026-08-15T12:13:15.8504837Z Downloading pip-26.2.1-py3-none-any.whl.metadata (4.6 kB)
+2026-08-15T12:13:15.9018572Z Downloading pip-26.2.1-py3-none-any.whl (1.8 MB)
+2026-08-15T12:13:15.9505839Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 78.0 MB/s  0:00:00
+2026-08-15T12:13:15.9506579Z 
+2026-08-15T12:13:16.0980811Z Installing collected packages: pip
+2026-08-15T12:13:16.0981894Z Attempting uninstall: pip
+2026-08-15T12:13:16.1003949Z Found existing installation: pip 26.2
+2026-08-15T12:13:16.1321581Z Uninstalling pip-26.2:
+2026-08-15T12:13:16.1382310Z Successfully uninstalled pip-26.2
+2026-08-15T12:13:17.2446895Z Successfully installed pip-26.2.1
+2026-08-15T12:13:17.3298139Z Create complete file
+2026-08-15T12:13:17.3353575Z Successfully set up CPython (3.15.0-rc.1)
+2026-08-15T12:13:17.3354622Z ##[endgroup]
+2026-08-15T12:13:17.3530267Z ##[group]Run python -m pip install -e . --group tox
+2026-08-15T12:13:17.3530695Z [36;1mpython -m pip install -e . --group tox[0m
+2026-08-15T12:13:17.3572722Z shell: /usr/bin/bash -e {0}
+2026-08-15T12:13:17.3572983Z env:
+2026-08-15T12:13:17.3573212Z   PIP_UPLOADED_PRIOR_TO: P2D
+2026-08-15T12:13:17.3573549Z   pythonLocation: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:17.3574019Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib/pkgconfig
+2026-08-15T12:13:17.3574503Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:17.3574906Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:17.3575332Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:17.3575736Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib
+2026-08-15T12:13:17.3576067Z ##[endgroup]
+2026-08-15T12:13:17.7378141Z Obtaining file:///home/runner/work/black/black
+2026-08-15T12:13:17.7405389Z   Installing build dependencies: started
+2026-08-15T12:13:18.8562337Z   Installing build dependencies: finished with status 'done'
+2026-08-15T12:13:18.8567946Z   Checking if build backend supports build_editable: started
+2026-08-15T12:13:18.9083516Z   Checking if build backend supports build_editable: finished with status 'done'
+2026-08-15T12:13:18.9092669Z   Getting requirements to build editable: started
+2026-08-15T12:13:19.1425044Z   Getting requirements to build editable: finished with status 'done'
+2026-08-15T12:13:19.1437826Z   Installing backend dependencies: started
+2026-08-15T12:13:19.7465807Z   Installing backend dependencies: finished with status 'done'
+2026-08-15T12:13:19.7473624Z   Preparing editable metadata (pyproject.toml): started
+2026-08-15T12:13:20.1146198Z   Preparing editable metadata (pyproject.toml): finished with status 'done'
+2026-08-15T12:13:20.2289996Z Collecting tox>=4.22
+2026-08-15T12:13:20.2780654Z   Downloading tox-4.59.0-py3-none-any.whl.metadata (3.8 kB)
+2026-08-15T12:13:21.2857055Z Collecting click>=8.0.0 (from black==0.1.dev1+g08bfad5c5)
+2026-08-15T12:13:21.2897001Z   Downloading click-8.4.2-py3-none-any.whl.metadata (2.6 kB)
+2026-08-15T12:13:21.3031948Z Collecting mypy-extensions>=0.4.3 (from black==0.1.dev1+g08bfad5c5)
+2026-08-15T12:13:21.3100034Z   Downloading mypy_extensions-1.1.0-py3-none-any.whl.metadata (1.1 kB)
+2026-08-15T12:13:21.3234073Z Collecting packaging>=22.0 (from black==0.1.dev1+g08bfad5c5)
+2026-08-15T12:13:21.3247021Z   Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-08-15T12:13:21.3308100Z Collecting pathspec>=1.0.0 (from black==0.1.dev1+g08bfad5c5)
+2026-08-15T12:13:21.3320480Z   Using cached pathspec-1.1.1-py3-none-any.whl.metadata (14 kB)
+2026-08-15T12:13:21.3501254Z Collecting platformdirs>=2 (from black==0.1.dev1+g08bfad5c5)
+2026-08-15T12:13:21.3537426Z   Downloading platformdirs-4.11.2-py3-none-any.whl.metadata (5.5 kB)
+2026-08-15T12:13:21.3701794Z Collecting pytokens~=0.4.0 (from black==0.1.dev1+g08bfad5c5)
+2026-08-15T12:13:21.3746350Z   Downloading pytokens-0.4.1-py3-none-any.whl.metadata (3.8 kB)
+2026-08-15T12:13:21.3937867Z Collecting cachetools>=7.0.3 (from tox>=4.22)
+2026-08-15T12:13:21.3974131Z   Downloading cachetools-7.1.7-py3-none-any.whl.metadata (5.5 kB)
+2026-08-15T12:13:21.4121409Z Collecting colorama>=0.4.6 (from tox>=4.22)
+2026-08-15T12:13:21.4157710Z   Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+2026-08-15T12:13:21.4378667Z Collecting filelock>=3.25 (from tox>=4.22)
+2026-08-15T12:13:21.4430565Z   Downloading filelock-3.32.2-py3-none-any.whl.metadata (2.0 kB)
+2026-08-15T12:13:21.4527755Z Collecting pluggy>=1.6 (from tox>=4.22)
+2026-08-15T12:13:21.4540496Z   Using cached pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+2026-08-15T12:13:21.4655661Z Collecting pyproject-api>=1.10 (from tox>=4.22)
+2026-08-15T12:13:21.4692056Z   Downloading pyproject_api-1.11.0-py3-none-any.whl.metadata (2.3 kB)
+2026-08-15T12:13:21.4822876Z Collecting python-discovery>=1.4.4 (from tox>=4.22)
+2026-08-15T12:13:21.4859743Z   Downloading python_discovery-1.5.2-py3-none-any.whl.metadata (5.1 kB)
+2026-08-15T12:13:21.4976498Z Collecting tomli-w>=1.2 (from tox>=4.22)
+2026-08-15T12:13:21.5015857Z   Downloading tomli_w-1.2.0-py3-none-any.whl.metadata (5.7 kB)
+2026-08-15T12:13:21.5344452Z Collecting virtualenv>=21.1 (from tox>=4.22)
+2026-08-15T12:13:21.5380540Z   Downloading virtualenv-21.7.4-py3-none-any.whl.metadata (3.5 kB)
+2026-08-15T12:13:21.5575909Z Collecting distlib<1,>=0.3.7 (from virtualenv>=21.1->tox>=4.22)
+2026-08-15T12:13:21.5632522Z   Downloading distlib-0.4.3-py2.py3-none-any.whl.metadata (5.3 kB)
+2026-08-15T12:13:21.5757279Z Downloading pytokens-0.4.1-py3-none-any.whl (13 kB)
+2026-08-15T12:13:21.5826398Z Downloading tox-4.59.0-py3-none-any.whl (226 kB)
+2026-08-15T12:13:21.5944760Z Downloading cachetools-7.1.7-py3-none-any.whl (16 kB)
+2026-08-15T12:13:21.6008125Z Downloading click-8.4.2-py3-none-any.whl (119 kB)
+2026-08-15T12:13:21.6066896Z Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+2026-08-15T12:13:21.6136110Z Downloading filelock-3.32.2-py3-none-any.whl (98 kB)
+2026-08-15T12:13:21.6206359Z Downloading mypy_extensions-1.1.0-py3-none-any.whl (5.0 kB)
+2026-08-15T12:13:21.6239945Z Using cached packaging-26.3-py3-none-any.whl (129 kB)
+2026-08-15T12:13:21.6251329Z Using cached pathspec-1.1.1-py3-none-any.whl (57 kB)
+2026-08-15T12:13:21.6284549Z Downloading platformdirs-4.11.2-py3-none-any.whl (23 kB)
+2026-08-15T12:13:21.6318775Z Using cached pluggy-1.6.0-py3-none-any.whl (20 kB)
+2026-08-15T12:13:21.6354611Z Downloading pyproject_api-1.11.0-py3-none-any.whl (13 kB)
+2026-08-15T12:13:21.6405131Z Downloading python_discovery-1.5.2-py3-none-any.whl (38 kB)
+2026-08-15T12:13:21.6461396Z Downloading tomli_w-1.2.0-py3-none-any.whl (6.7 kB)
+2026-08-15T12:13:21.6513432Z Downloading virtualenv-21.7.4-py3-none-any.whl (5.3 MB)
+2026-08-15T12:13:21.6809100Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.3/5.3 MB 202.1 MB/s  0:00:00
+2026-08-15T12:13:21.6846712Z Downloading distlib-0.4.3-py2.py3-none-any.whl (470 kB)
+2026-08-15T12:13:21.7262897Z Building wheels for collected packages: black
+2026-08-15T12:13:21.7272878Z   Building editable for black (pyproject.toml): started
+2026-08-15T12:13:21.7749593Z   Building editable for black (pyproject.toml): finished with status 'done'
+2026-08-15T12:13:21.7755357Z   Created wheel for black: filename=black-0.1.dev1+g08bfad5c5-py3-none-any.whl size=37558 sha256=c31df9efa90a63d317c49a32884a4f48c24f308d605ef1d54190fb3ca82dc482
+2026-08-15T12:13:21.7756780Z   Stored in directory: /tmp/pip-ephem-wheel-cache-oswfm8cx/wheels/de/44/e1/a42a87661b8a1da986828ebcb6ce4d65fb0521e84dc74a5490
+2026-08-15T12:13:21.7834975Z Successfully built black
+2026-08-15T12:13:21.8218849Z Installing collected packages: distlib, tomli-w, pytokens, pluggy, platformdirs, pathspec, packaging, mypy-extensions, filelock, colorama, click, cachetools, python-discovery, pyproject-api, black, virtualenv, tox
+2026-08-15T12:13:22.7952067Z 
+2026-08-15T12:13:22.7969868Z Successfully installed black-0.1.dev1+g08bfad5c5 cachetools-7.1.7 click-8.4.2 colorama-0.4.6 distlib-0.4.3 filelock-3.32.2 mypy-extensions-1.1.0 packaging-26.3 pathspec-1.1.1 platformdirs-4.11.2 pluggy-1.6.0 pyproject-api-1.11.0 python-discovery-1.5.2 pytokens-0.4.1 tomli-w-1.2.0 tox-4.59.0 virtualenv-21.7.4
+2026-08-15T12:13:22.9231193Z ##[group]Run pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd
+2026-08-15T12:13:22.9231592Z with:
+2026-08-15T12:13:22.9231812Z   extra_args: --all-files
+2026-08-15T12:13:22.9232028Z env:
+2026-08-15T12:13:22.9232211Z   PIP_UPLOADED_PRIOR_TO: P2D
+2026-08-15T12:13:22.9232521Z   pythonLocation: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:22.9232967Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib/pkgconfig
+2026-08-15T12:13:22.9233400Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:22.9233790Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:22.9234198Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:22.9234590Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib
+2026-08-15T12:13:22.9234911Z ##[endgroup]
+2026-08-15T12:13:22.9320088Z ##[start-action display=Run python -m pip install pre-commit;id=__pre-commit_action.__run]
+2026-08-15T12:13:22.9347958Z ##[group]Run python -m pip install pre-commit
+2026-08-15T12:13:22.9348601Z [36;1mpython -m pip install pre-commit[0m
+2026-08-15T12:13:22.9387333Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-08-15T12:13:22.9387675Z env:
+2026-08-15T12:13:22.9387886Z   PIP_UPLOADED_PRIOR_TO: P2D
+2026-08-15T12:13:22.9388434Z   pythonLocation: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:22.9388941Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib/pkgconfig
+2026-08-15T12:13:22.9389386Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:22.9389783Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:22.9390171Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:22.9390560Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib
+2026-08-15T12:13:22.9390888Z ##[endgroup]
+2026-08-15T12:13:23.3731158Z Collecting pre-commit
+2026-08-15T12:13:23.4236625Z   Downloading pre_commit-4.6.2-py2.py3-none-any.whl.metadata (1.2 kB)
+2026-08-15T12:13:23.4413342Z Collecting cfgv>=2.0.0 (from pre-commit)
+2026-08-15T12:13:23.4452005Z   Downloading cfgv-3.5.0-py2.py3-none-any.whl.metadata (8.9 kB)
+2026-08-15T12:13:23.4846710Z Collecting identify>=1.0.0 (from pre-commit)
+2026-08-15T12:13:23.4889145Z   Downloading identify-2.6.19-py2.py3-none-any.whl.metadata (4.4 kB)
+2026-08-15T12:13:23.5058917Z Collecting nodeenv>=0.11.1 (from pre-commit)
+2026-08-15T12:13:23.5097708Z   Downloading nodeenv-1.10.0-py2.py3-none-any.whl.metadata (24 kB)
+2026-08-15T12:13:23.5561530Z Collecting pyyaml>=5.1 (from pre-commit)
+2026-08-15T12:13:23.5625024Z   Downloading pyyaml-6.0.3.tar.gz (130 kB)
+2026-08-15T12:13:23.7107625Z   Installing build dependencies: started
+2026-08-15T12:13:24.7858653Z   Installing build dependencies: finished with status 'done'
+2026-08-15T12:13:24.7864360Z   Getting requirements to build wheel: started
+2026-08-15T12:13:27.1595784Z   Getting requirements to build wheel: finished with status 'done'
+2026-08-15T12:13:27.1605277Z   Preparing metadata (pyproject.toml): started
+2026-08-15T12:13:27.4364213Z   Preparing metadata (pyproject.toml): finished with status 'done'
+2026-08-15T12:13:27.4383950Z Requirement already satisfied: virtualenv>=20.10.0 in /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib/python3.15/site-packages (from pre-commit) (21.7.4)
+2026-08-15T12:13:27.4404891Z Requirement already satisfied: distlib<1,>=0.3.7 in /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib/python3.15/site-packages (from virtualenv>=20.10.0->pre-commit) (0.4.3)
+2026-08-15T12:13:27.4414049Z Requirement already satisfied: filelock<4,>=3.24.2 in /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib/python3.15/site-packages (from virtualenv>=20.10.0->pre-commit) (3.32.2)
+2026-08-15T12:13:27.4421114Z Requirement already satisfied: platformdirs<5,>=3.9.1 in /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib/python3.15/site-packages (from virtualenv>=20.10.0->pre-commit) (4.11.2)
+2026-08-15T12:13:27.4426812Z Requirement already satisfied: python-discovery>=1.4.2 in /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib/python3.15/site-packages (from virtualenv>=20.10.0->pre-commit) (1.5.2)
+2026-08-15T12:13:27.4510333Z Downloading pre_commit-4.6.2-py2.py3-none-any.whl (226 kB)
+2026-08-15T12:13:27.4621419Z Downloading cfgv-3.5.0-py2.py3-none-any.whl (7.4 kB)
+2026-08-15T12:13:27.4681725Z Downloading identify-2.6.19-py2.py3-none-any.whl (99 kB)
+2026-08-15T12:13:27.4746012Z Downloading nodeenv-1.10.0-py2.py3-none-any.whl (23 kB)
+2026-08-15T12:13:27.4896617Z Building wheels for collected packages: pyyaml
+2026-08-15T12:13:27.4904617Z   Building wheel for pyyaml (pyproject.toml): started
+2026-08-15T12:13:34.0726523Z   Building wheel for pyyaml (pyproject.toml): finished with status 'done'
+2026-08-15T12:13:34.0736749Z   Created wheel for pyyaml: filename=pyyaml-6.0.3-cp315-cp315-linux_x86_64.whl size=615266 sha256=39c0128a2305d320ed4c7401193103d53ac54815d1804960bf0498871b673064
+2026-08-15T12:13:34.0738569Z   Stored in directory: /home/runner/.cache/pip/wheels/39/c5/03/188d3f8dc792f835b1e767b5e6e0fec41846dc06f6dd368652
+2026-08-15T12:13:34.0758597Z Successfully built pyyaml
+2026-08-15T12:13:34.1083966Z Installing collected packages: pyyaml, nodeenv, identify, cfgv, pre-commit
+2026-08-15T12:13:34.3147720Z 
+2026-08-15T12:13:34.3166557Z Successfully installed cfgv-3.5.0 identify-2.6.19 nodeenv-1.10.0 pre-commit-4.6.2 pyyaml-6.0.3
+2026-08-15T12:13:34.4316506Z ##[end-action id=__pre-commit_action.__run;outcome=success;conclusion=success;duration_ms=11499]
+2026-08-15T12:13:34.4319655Z ##[start-action display=Run python -m pip freeze --local;id=__pre-commit_action.__run_2]
+2026-08-15T12:13:34.4336547Z ##[group]Run python -m pip freeze --local
+2026-08-15T12:13:34.4336879Z [36;1mpython -m pip freeze --local[0m
+2026-08-15T12:13:34.4373674Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-08-15T12:13:34.4374015Z env:
+2026-08-15T12:13:34.4374216Z   PIP_UPLOADED_PRIOR_TO: P2D
+2026-08-15T12:13:34.4374558Z   pythonLocation: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:34.4375032Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib/pkgconfig
+2026-08-15T12:13:34.4375482Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:34.4375876Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:34.4376276Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:34.4376673Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib
+2026-08-15T12:13:34.4376997Z ##[endgroup]
+2026-08-15T12:13:35.9566947Z -e git+https://github.com/psf/black@08bfad5c5799ae764f1ace26bb68148c43329705#egg=black
+2026-08-15T12:13:35.9567634Z cachetools==7.1.7
+2026-08-15T12:13:35.9567843Z cfgv==3.5.0
+2026-08-15T12:13:35.9568033Z click==8.4.2
+2026-08-15T12:13:35.9568470Z colorama==0.4.6
+2026-08-15T12:13:35.9568727Z distlib==0.4.3
+2026-08-15T12:13:35.9568922Z filelock==3.32.2
+2026-08-15T12:13:35.9569114Z identify==2.6.19
+2026-08-15T12:13:35.9569317Z mypy_extensions==1.1.0
+2026-08-15T12:13:35.9569574Z nodeenv==1.10.0
+2026-08-15T12:13:35.9569765Z packaging==26.3
+2026-08-15T12:13:35.9569956Z pathspec==1.1.1
+2026-08-15T12:13:35.9570155Z platformdirs==4.11.2
+2026-08-15T12:13:35.9570360Z pluggy==1.6.0
+2026-08-15T12:13:35.9570546Z pre_commit==4.6.2
+2026-08-15T12:13:35.9570752Z pyproject-api==1.11.0
+2026-08-15T12:13:35.9570973Z python-discovery==1.5.2
+2026-08-15T12:13:35.9571186Z pytokens==0.4.1
+2026-08-15T12:13:35.9571371Z PyYAML==6.0.3
+2026-08-15T12:13:35.9571552Z tomli_w==1.2.0
+2026-08-15T12:13:35.9571732Z tox==4.59.0
+2026-08-15T12:13:35.9571913Z virtualenv==21.7.4
+2026-08-15T12:13:35.9995760Z ##[end-action id=__pre-commit_action.__run_2;outcome=success;conclusion=success;duration_ms=1567]
+2026-08-15T12:13:36.0000128Z ##[start-action display=Run actions/cache@v4;id=__pre-commit_action.__actions_cache]
+2026-08-15T12:13:36.0640221Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-08-15T12:13:36.0641668Z ##[group]Run actions/cache@v4
+2026-08-15T12:13:36.0641911Z with:
+2026-08-15T12:13:36.0642106Z   path: ~/.cache/pre-commit
+2026-08-15T12:13:36.0642653Z   key: pre-commit-3|/opt/hostedtoolcache/Python/3.15.0-rc.1/x64|ab721f0605c80e731252c7c4c7cb5f3ccace5dfc82f79290553ab289264d1055
+2026-08-15T12:13:36.0643247Z   enableCrossOsArchive: false
+2026-08-15T12:13:36.0643496Z   fail-on-cache-miss: false
+2026-08-15T12:13:36.0643720Z   lookup-only: false
+2026-08-15T12:13:36.0643927Z   save-always: false
+2026-08-15T12:13:36.0644116Z env:
+2026-08-15T12:13:36.0644303Z   PIP_UPLOADED_PRIOR_TO: P2D
+2026-08-15T12:13:36.0644607Z   pythonLocation: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:36.0645050Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib/pkgconfig
+2026-08-15T12:13:36.0645497Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:36.0645891Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:36.0646277Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:36.0646664Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib
+2026-08-15T12:13:36.0646984Z ##[endgroup]
+2026-08-15T12:13:36.1777480Z (node:2525) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-08-15T12:13:36.1778980Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-08-15T12:13:36.2316381Z Cache hit for: pre-commit-3|/opt/hostedtoolcache/Python/3.15.0-rc.1/x64|ab721f0605c80e731252c7c4c7cb5f3ccace5dfc82f79290553ab289264d1055
+2026-08-15T12:13:36.2438594Z (node:2525) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-08-15T12:13:36.6391686Z Received 52114379 of 52114379 (100.0%), 140.4 MBs/sec
+2026-08-15T12:13:36.6392369Z Cache Size: ~50 MB (52114379 B)
+2026-08-15T12:13:36.6425416Z [command]/usr/bin/tar -xf /home/runner/work/_temp/6b665bf2-2463-4bd1-85a1-ae72ac5ce5c3/cache.tzst -P -C /home/runner/work/black/black --use-compress-program unzstd
+2026-08-15T12:13:37.2124674Z Cache restored successfully
+2026-08-15T12:13:37.2228015Z Cache restored from key: pre-commit-3|/opt/hostedtoolcache/Python/3.15.0-rc.1/x64|ab721f0605c80e731252c7c4c7cb5f3ccace5dfc82f79290553ab289264d1055
+2026-08-15T12:13:37.2357422Z ##[end-action id=__pre-commit_action.__actions_cache;outcome=success;conclusion=success;duration_ms=1235]
+2026-08-15T12:13:37.2377473Z ##[start-action display=Run pre-commit run --show-diff-on-failure --color=always --all-files;id=__pre-commit_action.__run_3]
+2026-08-15T12:13:37.2396053Z ##[group]Run pre-commit run --show-diff-on-failure --color=always --all-files
+2026-08-15T12:13:37.2396620Z [36;1mpre-commit run --show-diff-on-failure --color=always --all-files[0m
+2026-08-15T12:13:37.2434390Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-08-15T12:13:37.2434733Z env:
+2026-08-15T12:13:37.2434937Z   PIP_UPLOADED_PRIOR_TO: P2D
+2026-08-15T12:13:37.2435264Z   pythonLocation: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:37.2435738Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib/pkgconfig
+2026-08-15T12:13:37.2436203Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:37.2436608Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:37.2437032Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64
+2026-08-15T12:13:37.2437448Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.15.0-rc.1/x64/lib
+2026-08-15T12:13:37.2437780Z ##[endgroup]
+2026-08-15T12:13:38.3399676Z Check pre-commit rev in example..........................................[42mPassed[m
+2026-08-15T12:13:38.7441701Z Check black version in the basics example................................[42mPassed[m
+2026-08-15T12:13:39.4451804Z isort....................................................................[42mPassed[m
+2026-08-15T12:13:41.8441596Z flake8...................................................................[42mPassed[m
+2026-08-15T12:14:09.9056288Z mypy.....................................................................[42mPassed[m
+2026-08-15T12:14:12.0683734Z prettier.................................................................[41mFailed[m
+2026-08-15T12:14:12.0685014Z [2m- hook id: prettier[m
+2026-08-15T12:14:12.0685684Z [2m- files were modified by this hook[m
+2026-08-15T12:14:12.0686212Z 
+2026-08-15T12:14:12.0686718Z [90m.github/workflows/test.yml[39m 57ms (unchanged)
+2026-08-15T12:14:12.0687809Z [90m.github/workflows/docs.yml[39m 15ms (unchanged)
+2026-08-15T12:14:12.0689095Z [90m.github/ISSUE_TEMPLATE/docs-issue.md[39m 85ms (unchanged)
+2026-08-15T12:14:12.0690402Z [90m.github/workflows/diff_shades_comment.yml[39m 55ms (unchanged)
+2026-08-15T12:14:12.0691666Z [90mdocs/usage_and_configuration/index.md[39m 40ms (unchanged)
+2026-08-15T12:14:12.0692773Z [90m.github/workflows/lint.yml[39m 13ms (unchanged)
+2026-08-15T12:14:12.0693952Z [90m.github/workflows/diff_shades.yml[39m 66ms (unchanged)
+2026-08-15T12:14:12.0695181Z [90mdocs/guides/using_black_with_jupyter_notebooks.md[39m 182ms (unchanged)
+2026-08-15T12:14:12.0696176Z [90mREADME.md[39m 197ms (unchanged)
+2026-08-15T12:14:12.0696952Z [90mdocs/contributing/the_basics.md[39m 75ms (unchanged)
+2026-08-15T12:14:12.0697653Z [90mdocs/license.md[39m 5ms (unchanged)
+2026-08-15T12:14:12.0698706Z [90mdocs/guides/using_black_with_other_tools.md[39m 121ms (unchanged)
+2026-08-15T12:14:12.0699746Z [90mdocs/contributing/release_process.md[39m 130ms (unchanged)
+2026-08-15T12:14:12.0700358Z [90m.github/workflows/release_tests.yml[39m 9ms (unchanged)
+2026-08-15T12:14:12.0701084Z [90mdocs/contributing/index.md[39m 19ms (unchanged)
+2026-08-15T12:14:12.0701877Z [90m.github/ISSUE_TEMPLATE/config.yml[39m 6ms (unchanged)
+2026-08-15T12:14:12.0702653Z [90m.github/dependabot.yml[39m 25ms (unchanged)
+2026-08-15T12:14:12.0703196Z [90m.prettierrc.yaml[39m 4ms (unchanged)
+2026-08-15T12:14:12.0704064Z [90msrc/black/resources/black.schema.json[39m 108ms (unchanged)
+2026-08-15T12:14:12.0704772Z [90mdocs/authors.md[39m 73ms (unchanged)
+2026-08-15T12:14:12.0705568Z [90mdocs/integrations/github_actions.md[39m 164ms (unchanged)
+2026-08-15T12:14:12.0706296Z [90mdocs/the_black_code_style/index.md[39m 61ms (unchanged)
+2026-08-15T12:14:12.0706947Z [90m.github/PULL_REQUEST_TEMPLATE.md[39m 11ms (unchanged)
+2026-08-15T12:14:12.0707616Z [90mCONTRIBUTING.md[39m 6ms (unchanged)
+2026-08-15T12:14:12.0708139Z [90m.github/CODE_OF_CONDUCT.md[39m 25ms (unchanged)
+2026-08-15T12:14:12.0709058Z [90m.github/workflows/pypi_upload.yml[39m 67ms (unchanged)
+2026-08-15T12:14:12.0709583Z [90mdocs/change_log.md[39m 2ms (unchanged)
+2026-08-15T12:14:12.0710130Z [90mdocs/integrations/source_version_control.md[39m 93ms (unchanged)
+2026-08-15T12:14:12.0710794Z [90mdocs/usage_and_configuration/the_basics.md[39m 332ms (unchanged)
+2026-08-15T12:14:12.0711603Z [90m.github/workflows/docker.yml[39m 43ms (unchanged)
+2026-08-15T12:14:12.0712144Z [90m.github/ISSUE_TEMPLATE/bug_report.md[39m 11ms (unchanged)
+2026-08-15T12:14:12.0712819Z [90m.pre-commit-config.yaml[39m 15ms (unchanged)
+2026-08-15T12:14:12.0713271Z [90mdocs/the_black_code_style/current_style.md[39m 460ms (unchanged)
+2026-08-15T12:14:12.0713769Z [90mdocs/the_black_code_style/future_style.md[39m 265ms (unchanged)
+2026-08-15T12:14:12.0714195Z [90mdocs/integrations/index.md[39m 14ms (unchanged)
+2026-08-15T12:14:12.0714660Z [90mdocs/usage_and_configuration/black_docker_image.md[39m 43ms (unchanged)
+2026-08-15T12:14:12.0715206Z [90mdocs/guides/introducing_black_to_your_project.md[39m 12ms (unchanged)
+2026-08-15T12:14:12.0715708Z [90m.pre-commit-hooks.yaml[39m 45ms (unchanged)
+2026-08-15T12:14:12.0716777Z [90m.github/ISSUE_TEMPLATE/feature_request.md[39m 12ms (unchanged)
+2026-08-15T12:14:12.0718195Z [90mdocs/usage_and_configuration/black_as_a_server.md[39m 138ms (unchanged)
+2026-08-15T12:14:12.0718995Z [90m.readthedocs.yaml[39m 4ms (unchanged)
+2026-08-15T12:14:12.0719410Z [90m.github/workflows/publish_binaries.yml[39m 21ms (unchanged)
+2026-08-15T12:14:12.0719854Z [90mdocs/integrations/editors.md[39m 173ms (unchanged)
+2026-08-15T12:14:12.0720764Z [90mdocs/usage_and_configuration/file_collection_and_discovery.md[39m 11ms (unchanged)
+2026-08-15T12:14:12.0721558Z CHANGES.md 368ms
+2026-08-15T12:14:12.0722230Z [90mdocs/integrations/doctest_formatting.md[39m 29ms (unchanged)
+2026-08-15T12:14:12.0723127Z [90m.github/ISSUE_TEMPLATE/style_issue.md[39m 6ms (unchanged)
+2026-08-15T12:14:12.0723758Z [90mdocs/index.md[39m 18ms (unchanged)
+2026-08-15T12:14:12.0724306Z [90mAUTHORS.md[39m 306ms (unchanged)
+2026-08-15T12:14:12.0724901Z [90mdocs/getting_started.md[39m 43ms (unchanged)
+2026-08-15T12:14:12.0725727Z [90m.github/workflows/changelog.yml[39m 31ms (unchanged)
+2026-08-15T12:14:12.0726576Z [90mdocs/contributing/gauging_changes.md[39m 108ms (unchanged)
+2026-08-15T12:14:12.0727446Z [90m.github/workflows/post_release.yml[39m 25ms (unchanged)
+2026-08-15T12:14:12.0728138Z [90maction.yml[39m 40ms (unchanged)
+2026-08-15T12:14:12.0728993Z [90mdocs/guides/index.md[39m 22ms (unchanged)
+2026-08-15T12:14:12.0729607Z [90m.github/zizmor.yml[39m 10ms (unchanged)
+2026-08-15T12:14:12.0730283Z [90m.github/workflows/zizmor.yml[39m 23ms (unchanged)
+2026-08-15T12:14:12.0730987Z [90m.github/workflows/fuzz.yml[39m 29ms (unchanged)
+2026-08-15T12:14:12.0731616Z [90mdocs/faq.md[39m 152ms (unchanged)
+2026-08-15T12:14:12.0732163Z [90mSECURITY.md[39m 10ms (unchanged)
+2026-08-15T12:14:12.0732832Z [90mdocs/contributing/issue_triage.md[39m 125ms (unchanged)
+2026-08-15T12:14:12.0733332Z 
+2026-08-15T12:14:12.1283948Z fix end of files.........................................................[42mPassed[m
+2026-08-15T12:14:12.1884890Z trim trailing whitespace.................................................[42mPassed[m
+2026-08-15T12:14:12.1885824Z pre-commit hook(s) made changes.
+2026-08-15T12:14:12.1886577Z If you are seeing this message in CI, reproduce locally with: `pre-commit run --all-files`.
+2026-08-15T12:14:12.1887155Z To run `pre-commit` as part of git workflow, use `pre-commit install`.
+2026-08-15T12:14:12.1887521Z All changes made by hooks:
+2026-08-15T12:14:12.1921188Z [1mdiff --git a/CHANGES.md b/CHANGES.md[m
+2026-08-15T12:14:12.1921565Z [1mindex af69fb8..3edc74a 100644[m
+2026-08-15T12:14:12.1921867Z [1m--- a/CHANGES.md[m
+2026-08-15T12:14:12.1922112Z [1m+++ b/CHANGES.md[m
+2026-08-15T12:14:12.1922379Z [36m@@ -54,9 +54,10 @@[m
+2026-08-15T12:14:12.1922821Z    contents: the whole statement is now preserved instead of being reformatted (and[m
+2026-08-15T12:14:12.1923291Z    previously crashing) (#5161)[m
+2026-08-15T12:14:12.1923706Z  - Fix crash on a one-line `async with`/`async for`/`async def` with a[m
+2026-08-15T12:14:12.1924331Z [31m-  semicolon-separated body and `# fmt: skip` (e.g. `async with ctx(): a; b  # fmt: skip`).[m
+2026-08-15T12:14:12.1925024Z [31m-  The leading `async` keyword was left out of the skipped nodes and reformatted onto its[m
+2026-08-15T12:14:12.1927559Z [31m-  own line, so Black failed on its own output (#5311)[m
+2026-08-15T12:14:12.1928610Z [32m+[m[32m  semicolon-separated body and `# fmt: skip` (e.g.[m
+2026-08-15T12:14:12.1929618Z [32m+[m[32m  `async with ctx(): a; b  # fmt: skip`). The leading `async` keyword was left out of[m
+2026-08-15T12:14:12.1930769Z [32m+[m[32m  the skipped nodes and reformatted onto its own line, so Black failed on its own output[m
+2026-08-15T12:14:12.1931414Z [32m+[m[32m  (#5311)[m
+2026-08-15T12:14:12.1931663Z  [m
+2026-08-15T12:14:12.1931881Z  ### Preview style[m
+2026-08-15T12:14:12.1932104Z  [m
+2026-08-15T12:14:12.2174745Z ##[error]Process completed with exit code 1.
+2026-08-15T12:14:12.2182897Z ##[end-action id=__pre-commit_action.__run_3;outcome=failure;conclusion=failure;duration_ms=34980]
+2026-08-15T12:14:12.2307402Z Post job cleanup.
+2026-08-15T12:14:12.2311410Z ##[start-action display=Run actions/cache@v4;id=__2954821f-2670-4e78-81de-f5e5fae29982.__actions_cache]
+2026-08-15T12:14:12.2314889Z ##[end-action id=__2954821f-2670-4e78-81de-f5e5fae29982.__actions_cache;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-08-15T12:14:12.2383453Z Post job cleanup.
+2026-08-15T12:14:12.3239151Z [command]/usr/bin/git version
+2026-08-15T12:14:12.3276968Z git version 2.54.0
+2026-08-15T12:14:12.3312614Z Temporarily overriding HOME='/home/runner/work/_temp/043d37e3-ce02-4ce5-8815-38329c035b16' before making global git config changes
+2026-08-15T12:14:12.3313597Z Adding repository directory to the temporary git global config as a safe directory
+2026-08-15T12:14:12.3317467Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/black/black
+2026-08-15T12:14:12.3348690Z Removing SSH command configuration
+2026-08-15T12:14:12.3355204Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-08-15T12:14:12.3388720Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-08-15T12:14:12.3611741Z Removing HTTP extra header
+2026-08-15T12:14:12.3617105Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-08-15T12:14:12.3650604Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-08-15T12:14:12.3874096Z Removing includeIf entries pointing to credentials config files
+2026-08-15T12:14:12.3881992Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-08-15T12:14:12.3915850Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-08-15T12:14:12.4289331Z Cleaning up orphan processes
+2026-08-15T12:14:12.4713786Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

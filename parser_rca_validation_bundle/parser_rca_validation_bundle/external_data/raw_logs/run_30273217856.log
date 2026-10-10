@@ -1,0 +1,2413 @@
+﻿2026-07-27T14:04:10.6278697Z Current runner version: '2.335.1'
+2026-07-27T14:04:10.6314179Z ##[group]Runner Image Provisioner
+2026-07-27T14:04:10.6315573Z Hosted Compute Agent
+2026-07-27T14:04:10.6316516Z Version: 20260707.563
+2026-07-27T14:04:10.6317609Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-07-27T14:04:10.6318896Z Build Date: 2026-07-07T19:33:50Z
+2026-07-27T14:04:10.6320358Z Worker ID: {1024d581-15e2-4259-83c1-afd2fe4baf7f}
+2026-07-27T14:04:10.6321602Z Azure Region: eastus2
+2026-07-27T14:04:10.6322627Z ##[endgroup]
+2026-07-27T14:04:10.6325130Z ##[group]Operating System
+2026-07-27T14:04:10.6326222Z Ubuntu
+2026-07-27T14:04:10.6327046Z 24.04.4
+2026-07-27T14:04:10.6327901Z LTS
+2026-07-27T14:04:10.6328853Z ##[endgroup]
+2026-07-27T14:04:10.6330013Z ##[group]Runner Image
+2026-07-27T14:04:10.6331162Z Image: ubuntu-24.04
+2026-07-27T14:04:10.6332119Z Version: 20260720.247.2
+2026-07-27T14:04:10.6334284Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260720.247/images/ubuntu/Ubuntu2404-Readme.md
+2026-07-27T14:04:10.6336914Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260720.247
+2026-07-27T14:04:10.6338756Z ##[endgroup]
+2026-07-27T14:04:10.6340866Z ##[group]GITHUB_TOKEN Permissions
+2026-07-27T14:04:10.6343742Z Contents: read
+2026-07-27T14:04:10.6344716Z Metadata: read
+2026-07-27T14:04:10.6345648Z ##[endgroup]
+2026-07-27T14:04:10.6349146Z Secret source: None
+2026-07-27T14:04:10.6350826Z Prepare workflow directory
+2026-07-27T14:04:10.6834308Z Prepare all required actions
+2026-07-27T14:04:10.6891905Z Getting action download info
+2026-07-27T14:04:10.9030980Z Download action repository 're-actors/alls-green@05ac9388f0aebcb5727afa17fcccfecd6f8ec5fe' (SHA:05ac9388f0aebcb5727afa17fcccfecd6f8ec5fe)
+2026-07-27T14:04:11.2268260Z Complete job name: check
+2026-07-27T14:04:11.3041380Z ##[group]Run re-actors/alls-green@05ac9388f0aebcb5727afa17fcccfecd6f8ec5fe
+2026-07-27T14:04:11.3042563Z with:
+2026-07-27T14:04:11.3043420Z   jobs: {
+  "tests": {
+    "result": "failure",
+    "outputs": {}
+  },
+  "pyodide-tests": {
+    "result": "failure",
+    "outputs": {}
+  }
+}
+2026-07-27T14:04:11.3044419Z   allowed-failures: []
+2026-07-27T14:04:11.3044884Z   allowed-skips: []
+2026-07-27T14:04:11.3045567Z ##[endgroup]
+2026-07-27T14:04:11.3191305Z ##[group]Run python -m normalize_needed_jobs_status \
+2026-07-27T14:04:11.3192125Z [36;1mpython -m normalize_needed_jobs_status \[0m
+2026-07-27T14:04:11.3192756Z [36;1m"$(cat << EOM[0m
+2026-07-27T14:04:11.3193210Z [36;1m  [][0m
+2026-07-27T14:04:11.3193623Z [36;1mEOM[0m
+2026-07-27T14:04:11.3194030Z [36;1m)" \[0m
+2026-07-27T14:04:11.3194450Z [36;1m"$(cat << EOM[0m
+2026-07-27T14:04:11.3194904Z [36;1m  [][0m
+2026-07-27T14:04:11.3195315Z [36;1mEOM[0m
+2026-07-27T14:04:11.3195719Z [36;1m)" \[0m
+2026-07-27T14:04:11.3196181Z [36;1m"$(cat << EOM[0m
+2026-07-27T14:04:11.3196702Z [36;1m  {[0m
+2026-07-27T14:04:11.3197115Z [36;1m  "tests": {[0m
+2026-07-27T14:04:11.3197578Z [36;1m    "result": "failure",[0m
+2026-07-27T14:04:11.3198106Z [36;1m    "outputs": {}[0m
+2026-07-27T14:04:11.3198597Z [36;1m  },[0m
+2026-07-27T14:04:11.3199042Z [36;1m  "pyodide-tests": {[0m
+2026-07-27T14:04:11.3199561Z [36;1m    "result": "failure",[0m
+2026-07-27T14:04:11.3200306Z [36;1m    "outputs": {}[0m
+2026-07-27T14:04:11.3200790Z [36;1m  }[0m
+2026-07-27T14:04:11.3201198Z [36;1m}[0m
+2026-07-27T14:04:11.3201591Z [36;1mEOM[0m
+2026-07-27T14:04:11.3201996Z [36;1m)"[0m
+2026-07-27T14:04:11.3251656Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-07-27T14:04:11.3252365Z env:
+2026-07-27T14:04:11.3253202Z   PYTHONPATH: /home/runner/work/_actions/re-actors/alls-green/05ac9388f0aebcb5727afa17fcccfecd6f8ec5fe/src
+2026-07-27T14:04:11.3254287Z ##[endgroup]
+2026-07-27T14:04:11.3724255Z # ❌ Some of the required to succeed jobs failed 😢😢😢
+2026-07-27T14:04:11.3725414Z 
+2026-07-27T14:04:11.3725858Z 📝 Job statuses:
+2026-07-27T14:04:11.3726877Z 📝 tests → ❌ failure [required to succeed]
+2026-07-27T14:04:11.3728068Z 📝 pyodide-tests → ❌ failure [required to succeed]
+2026-07-27T14:04:11.3773076Z ##[error]Process completed with exit code 1.
+2026-07-27T14:04:11.3992167Z Cleaning up orphan processes
+
+﻿2026-07-27T14:03:36.2460138Z Current runner version: '2.336.0'
+2026-07-27T14:03:36.2485491Z ##[group]Runner Image Provisioner
+2026-07-27T14:03:36.2486817Z Hosted Compute Agent
+2026-07-27T14:03:36.2487479Z Version: 20260707.563
+2026-07-27T14:03:36.2488223Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-07-27T14:03:36.2488953Z Build Date: 2026-07-07T19:33:50Z
+2026-07-27T14:03:36.2489608Z Worker ID: {1dc6abb4-0e37-4b4a-bb56-e91121b753b1}
+2026-07-27T14:03:36.2490382Z Azure Region: westus2
+2026-07-27T14:03:36.2490943Z ##[endgroup]
+2026-07-27T14:03:36.2492553Z ##[group]Operating System
+2026-07-27T14:03:36.2493218Z Ubuntu
+2026-07-27T14:03:36.2493734Z 24.04.4
+2026-07-27T14:03:36.2494286Z LTS
+2026-07-27T14:03:36.2494786Z ##[endgroup]
+2026-07-27T14:03:36.2495342Z ##[group]Runner Image
+2026-07-27T14:03:36.2495982Z Image: ubuntu-24.04
+2026-07-27T14:03:36.2496778Z Version: 20260720.247.2
+2026-07-27T14:03:36.2498100Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260720.247/images/ubuntu/Ubuntu2404-Readme.md
+2026-07-27T14:03:36.2499604Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260720.247
+2026-07-27T14:03:36.2500594Z ##[endgroup]
+2026-07-27T14:03:36.2501687Z ##[group]GITHUB_TOKEN Permissions
+2026-07-27T14:03:36.2503570Z Contents: read
+2026-07-27T14:03:36.2504178Z Metadata: read
+2026-07-27T14:03:36.2504738Z ##[endgroup]
+2026-07-27T14:03:36.2507328Z Secret source: None
+2026-07-27T14:03:36.2508400Z Prepare workflow directory
+2026-07-27T14:03:36.2891427Z Prepare all required actions
+2026-07-27T14:03:36.2951149Z Getting action download info
+2026-07-27T14:03:36.6647330Z Download action repository 'actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0' (SHA:9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0)
+2026-07-27T14:03:36.8638817Z Download action repository 'astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39' (SHA:fac544c07dec837d0ccb6301d7b5580bf5edae39)
+2026-07-27T14:03:37.2600759Z Complete job name: Python 3.14
+2026-07-27T14:03:37.3500881Z ##[group]Run actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+2026-07-27T14:03:37.3501978Z with:
+2026-07-27T14:03:37.3502424Z   persist-credentials: false
+2026-07-27T14:03:37.3502950Z   repository: Kludex/starlette
+2026-07-27T14:03:37.3507003Z   token: ***
+2026-07-27T14:03:37.3507448Z   ssh-strict: true
+2026-07-27T14:03:37.3507942Z   ssh-user: git
+2026-07-27T14:03:37.3508354Z   clean: true
+2026-07-27T14:03:37.3508795Z   sparse-checkout-cone-mode: true
+2026-07-27T14:03:37.3509311Z   fetch-depth: 1
+2026-07-27T14:03:37.3509733Z   fetch-tags: false
+2026-07-27T14:03:37.3510166Z   show-progress: true
+2026-07-27T14:03:37.3510603Z   lfs: false
+2026-07-27T14:03:37.3511010Z   submodules: false
+2026-07-27T14:03:37.3511450Z   set-safe-directory: true
+2026-07-27T14:03:37.3511943Z   allow-unsafe-pr-checkout: false
+2026-07-27T14:03:37.3512758Z ##[endgroup]
+2026-07-27T14:03:37.4546258Z Syncing repository: Kludex/starlette
+2026-07-27T14:03:37.4549317Z ##[group]Getting Git version info
+2026-07-27T14:03:37.4550147Z Working directory is '/home/runner/work/starlette/starlette'
+2026-07-27T14:03:37.4551221Z [command]/usr/bin/git version
+2026-07-27T14:03:37.4638374Z git version 2.54.0
+2026-07-27T14:03:37.4661142Z ##[endgroup]
+2026-07-27T14:03:37.4672847Z Temporarily overriding HOME='/home/runner/work/_temp/6d78f8c2-164d-4060-ac5f-92e85a4a240a' before making global git config changes
+2026-07-27T14:03:37.4674624Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-27T14:03:37.4678996Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/starlette/starlette
+2026-07-27T14:03:37.4734871Z Deleting the contents of '/home/runner/work/starlette/starlette'
+2026-07-27T14:03:37.4738878Z ##[group]Determining repository object format
+2026-07-27T14:03:37.4740327Z ##[endgroup]
+2026-07-27T14:03:37.4741314Z ##[group]Initializing the repository
+2026-07-27T14:03:37.4744534Z [command]/usr/bin/git init /home/runner/work/starlette/starlette
+2026-07-27T14:03:37.4880314Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-07-27T14:03:37.4882450Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-07-27T14:03:37.4884319Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-07-27T14:03:37.4885896Z hint: call:
+2026-07-27T14:03:37.4887060Z hint:
+2026-07-27T14:03:37.4888082Z hint: 	git config --global init.defaultBranch <name>
+2026-07-27T14:03:37.4889409Z hint:
+2026-07-27T14:03:37.4890586Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-07-27T14:03:37.4892525Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-07-27T14:03:37.4893886Z hint:
+2026-07-27T14:03:37.4894815Z hint: 	git branch -m <name>
+2026-07-27T14:03:37.4895884Z hint:
+2026-07-27T14:03:37.4897130Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-07-27T14:03:37.4898335Z Initialized empty Git repository in /home/runner/work/starlette/starlette/.git/
+2026-07-27T14:03:37.4902467Z [command]/usr/bin/git remote add origin https://github.com/Kludex/starlette
+2026-07-27T14:03:37.4954466Z ##[endgroup]
+2026-07-27T14:03:37.4955499Z ##[group]Disabling automatic garbage collection
+2026-07-27T14:03:37.4958613Z [command]/usr/bin/git config --local gc.auto 0
+2026-07-27T14:03:37.4988406Z ##[endgroup]
+2026-07-27T14:03:37.4989831Z ##[group]Setting up auth
+2026-07-27T14:03:37.4990817Z Removing SSH command configuration
+2026-07-27T14:03:37.4994731Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:37.5029371Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:37.5455946Z Removing HTTP extra header
+2026-07-27T14:03:37.5461766Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:37.5494065Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:37.5715791Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:37.5720801Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:37.5751717Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:37.5980337Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-b7ad922b-7870-4448-82ed-ae2a67b65dda.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-07-27T14:03:37.6017970Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/starlette/starlette/.git.path /home/runner/work/_temp/git-credentials-b7ad922b-7870-4448-82ed-ae2a67b65dda.config
+2026-07-27T14:03:37.6047327Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-b7ad922b-7870-4448-82ed-ae2a67b65dda.config
+2026-07-27T14:03:37.6082694Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-b7ad922b-7870-4448-82ed-ae2a67b65dda.config
+2026-07-27T14:03:37.6115990Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-b7ad922b-7870-4448-82ed-ae2a67b65dda.config
+2026-07-27T14:03:37.6142176Z ##[endgroup]
+2026-07-27T14:03:37.6143999Z ##[group]Fetching the repository
+2026-07-27T14:03:37.6150785Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +1148c37d2bf838b1b9e427537abbc19c181e2654:refs/remotes/pull/3284/merge
+2026-07-27T14:03:37.9959989Z From https://github.com/Kludex/starlette
+2026-07-27T14:03:37.9962807Z  * [new ref]         1148c37d2bf838b1b9e427537abbc19c181e2654 -> pull/3284/merge
+2026-07-27T14:03:37.9999943Z ##[endgroup]
+2026-07-27T14:03:38.0001688Z ##[group]Determining the checkout info
+2026-07-27T14:03:38.0003336Z ##[endgroup]
+2026-07-27T14:03:38.0006128Z [command]/usr/bin/git sparse-checkout disable
+2026-07-27T14:03:38.0099910Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-07-27T14:03:38.0128791Z ##[group]Checking out the ref
+2026-07-27T14:03:38.0132454Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/3284/merge
+2026-07-27T14:03:38.0388899Z Note: switching to 'refs/remotes/pull/3284/merge'.
+2026-07-27T14:03:38.0389962Z 
+2026-07-27T14:03:38.0390786Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-07-27T14:03:38.0392740Z changes and commit them, and you can discard any commits you make in this
+2026-07-27T14:03:38.0394789Z state without impacting any branches by switching back to a branch.
+2026-07-27T14:03:38.0396740Z 
+2026-07-27T14:03:38.0397763Z If you want to create a new branch to retain commits you create, you may
+2026-07-27T14:03:38.0399524Z do so (now or later) by using -c with the switch command. Example:
+2026-07-27T14:03:38.0401143Z 
+2026-07-27T14:03:38.0401591Z   git switch -c <new-branch-name>
+2026-07-27T14:03:38.0402364Z 
+2026-07-27T14:03:38.0402765Z Or undo this operation with:
+2026-07-27T14:03:38.0403397Z 
+2026-07-27T14:03:38.0403896Z   git switch -
+2026-07-27T14:03:38.0404545Z 
+2026-07-27T14:03:38.0405392Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-07-27T14:03:38.0407624Z 
+2026-07-27T14:03:38.0409170Z HEAD is now at 1148c37 Merge 75c24d60c891029625048663b898f20ade55b0b4 into 5174d4c8358a6f06aa8056bafd14c2272dab8dd1
+2026-07-27T14:03:38.0414030Z ##[endgroup]
+2026-07-27T14:03:38.0440818Z [command]/usr/bin/git log -1 --format=%H
+2026-07-27T14:03:38.0464538Z 1148c37d2bf838b1b9e427537abbc19c181e2654
+2026-07-27T14:03:38.0475047Z ##[group]Removing auth
+2026-07-27T14:03:38.0476947Z Removing SSH command configuration
+2026-07-27T14:03:38.0479424Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:38.0513212Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:38.0732132Z Removing HTTP extra header
+2026-07-27T14:03:38.0735402Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:38.0770381Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:38.0989866Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:38.0993705Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:38.1021324Z includeif.gitdir:/home/runner/work/starlette/starlette/.git.path
+2026-07-27T14:03:38.1025215Z includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path
+2026-07-27T14:03:38.1029145Z includeif.gitdir:/github/workspace/.git.path
+2026-07-27T14:03:38.1032309Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-27T14:03:38.1038889Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/starlette/starlette/.git.path
+2026-07-27T14:03:38.1055403Z /home/runner/work/_temp/git-credentials-b7ad922b-7870-4448-82ed-ae2a67b65dda.config
+2026-07-27T14:03:38.1066145Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/starlette/starlette/.git.path /home/runner/work/_temp/git-credentials-b7ad922b-7870-4448-82ed-ae2a67b65dda.config
+2026-07-27T14:03:38.1097971Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path
+2026-07-27T14:03:38.1121244Z /home/runner/work/_temp/git-credentials-b7ad922b-7870-4448-82ed-ae2a67b65dda.config
+2026-07-27T14:03:38.1133929Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-b7ad922b-7870-4448-82ed-ae2a67b65dda.config
+2026-07-27T14:03:38.1163782Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-07-27T14:03:38.1185667Z /github/runner_temp/git-credentials-b7ad922b-7870-4448-82ed-ae2a67b65dda.config
+2026-07-27T14:03:38.1198447Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-b7ad922b-7870-4448-82ed-ae2a67b65dda.config
+2026-07-27T14:03:38.1244600Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-27T14:03:38.1300033Z /github/runner_temp/git-credentials-b7ad922b-7870-4448-82ed-ae2a67b65dda.config
+2026-07-27T14:03:38.1310871Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-b7ad922b-7870-4448-82ed-ae2a67b65dda.config
+2026-07-27T14:03:38.1350696Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:38.1571689Z Removing credentials config '/home/runner/work/_temp/git-credentials-b7ad922b-7870-4448-82ed-ae2a67b65dda.config'
+2026-07-27T14:03:38.1578928Z ##[endgroup]
+2026-07-27T14:03:38.2082872Z ##[group]Run astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39
+2026-07-27T14:03:38.2085413Z with:
+2026-07-27T14:03:38.2086971Z   python-version: 3.14
+2026-07-27T14:03:38.2088387Z   enable-cache: true
+2026-07-27T14:03:38.2089815Z   activate-environment: false
+2026-07-27T14:03:38.2091484Z   no-project: false
+2026-07-27T14:03:38.2093374Z   working-directory: /home/runner/work/starlette/starlette
+2026-07-27T14:03:38.2110936Z   github-token: ***
+2026-07-27T14:03:38.2114746Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-07-27T14:03:38.2119282Z   restore-cache: true
+2026-07-27T14:03:38.2120787Z   save-cache: true
+2026-07-27T14:03:38.2122266Z   prune-cache: true
+2026-07-27T14:03:38.2123773Z   cache-python: false
+2026-07-27T14:03:38.2125389Z   ignore-nothing-to-cache: false
+2026-07-27T14:03:38.2127422Z   ignore-empty-workdir: false
+2026-07-27T14:03:38.2129211Z   download-from-astral-mirror: true
+2026-07-27T14:03:38.2131019Z   add-problem-matchers: true
+2026-07-27T14:03:38.2132590Z   quiet: false
+2026-07-27T14:03:38.2133840Z   resolution-strategy: highest
+2026-07-27T14:03:38.2135339Z ##[endgroup]
+2026-07-27T14:03:38.3941107Z Trying to find version for uv in: /home/runner/work/starlette/starlette/uv.toml
+2026-07-27T14:03:38.3945034Z Could not find file: /home/runner/work/starlette/starlette/uv.toml
+2026-07-27T14:03:38.3949151Z Trying to find version for uv in: /home/runner/work/starlette/starlette/pyproject.toml
+2026-07-27T14:03:38.3954852Z Found version for uv in /home/runner/work/starlette/starlette/pyproject.toml: >=0.8.6
+2026-07-27T14:03:38.3982873Z Found minimum version specifier, using latest version
+2026-07-27T14:03:38.3987259Z Fetching manifest data from https://raw.githubusercontent.com/astral-sh/versions/main/v1/uv.ndjson ...
+2026-07-27T14:03:38.4710578Z Downloading uv from "https://releases.astral.sh/github/uv/releases/download/0.11.32/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-07-27T14:03:38.7163583Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/266f376f-8584-4c6d-967b-b4fca26afb26 -f /home/runner/work/_temp/0a531255-a6ff-4816-a9ea-33cc5685f544
+2026-07-27T14:03:39.2269516Z Added /home/runner/.local/bin to the path
+2026-07-27T14:03:39.2271029Z Added /opt/hostedtoolcache/uv/0.11.32/x86_64 to the path
+2026-07-27T14:03:39.2272696Z Set UV_PYTHON_INSTALL_DIR to /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:39.2274454Z Added /home/runner/work/_temp/uv-python-dir to the path
+2026-07-27T14:03:39.2276277Z Set UV_PYTHON to 3.14
+2026-07-27T14:03:39.2303907Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:39.2304894Z Successfully installed uv version 0.11.32
+2026-07-27T14:03:39.2309152Z Searching files using cache dependency glob: /home/runner/work/starlette/starlette/**/*requirements*.txt,/home/runner/work/starlette/starlette/**/*requirements*.in,/home/runner/work/starlette/starlette/**/*constraints*.txt,/home/runner/work/starlette/starlette/**/*constraints*.in,/home/runner/work/starlette/starlette/**/pyproject.toml,/home/runner/work/starlette/starlette/**/uv.lock,/home/runner/work/starlette/starlette/**/*.py.lock
+2026-07-27T14:03:39.2490378Z /home/runner/work/starlette/starlette/pyproject.toml
+2026-07-27T14:03:39.2611467Z /home/runner/work/starlette/starlette/uv.lock
+2026-07-27T14:03:39.2625147Z Found 2 files to hash.
+2026-07-27T14:03:39.2695320Z Trying to restore cache from GitHub Actions cache with key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.14-pruned-eda24f1f8146801859ca8c8dd799c42243fdb37ca10b95e5b2947624b5757e7f
+2026-07-27T14:03:39.5568351Z No GitHub Actions cache found for key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.14-pruned-eda24f1f8146801859ca8c8dd799c42243fdb37ca10b95e5b2947624b5757e7f
+2026-07-27T14:03:39.6742883Z ##[group]Run scripts/install
+2026-07-27T14:03:39.6743341Z [36;1mscripts/install[0m
+2026-07-27T14:03:39.6793982Z shell: /usr/bin/bash -e {0}
+2026-07-27T14:03:39.6794309Z env:
+2026-07-27T14:03:39.6794649Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:39.6795049Z   UV_PYTHON: 3.14
+2026-07-27T14:03:39.6795354Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:39.6795711Z ##[endgroup]
+2026-07-27T14:03:39.7424899Z + uv sync --frozen
+2026-07-27T14:03:40.3319445Z Downloading cpython-3.14.6-linux-x86_64-gnu (download) (34.3MiB)
+2026-07-27T14:03:41.4296164Z  Downloaded cpython-3.14.6-linux-x86_64-gnu (download)
+2026-07-27T14:03:41.6231813Z Using CPython 3.14.6
+2026-07-27T14:03:41.6232394Z Creating virtual environment at: .venv
+2026-07-27T14:03:41.6404331Z    Building starlette @ file:///home/runner/work/starlette/starlette
+2026-07-27T14:03:41.6657252Z Downloading mkdocs (3.7MiB)
+2026-07-27T14:03:41.6778212Z Downloading ast-serialize (1.2MiB)
+2026-07-27T14:03:41.6786857Z Downloading black (1.8MiB)
+2026-07-27T14:03:41.6809487Z Downloading cryptography (4.5MiB)
+2026-07-27T14:03:41.6810413Z Downloading ruff (11.1MiB)
+2026-07-27T14:03:41.6812980Z Downloading pygments (1.2MiB)
+2026-07-27T14:03:41.6816966Z Downloading zensical (12.5MiB)
+2026-07-27T14:03:41.7009997Z Downloading mypy (14.3MiB)
+2026-07-27T14:03:41.9559365Z  Downloaded ast-serialize
+2026-07-27T14:03:41.9889909Z    Building markupsafe==3.0.2
+2026-07-27T14:03:42.2235156Z  Downloaded black
+2026-07-27T14:03:42.2902758Z  Downloaded ruff
+2026-07-27T14:03:42.2903722Z  Downloaded mkdocs
+2026-07-27T14:03:42.3247802Z  Downloaded cryptography
+2026-07-27T14:03:42.3597066Z  Downloaded pygments
+2026-07-27T14:03:42.7383518Z  Downloaded mypy
+2026-07-27T14:03:42.9343505Z       Built starlette @ file:///home/runner/work/starlette/starlette
+2026-07-27T14:03:44.8067905Z  Downloaded zensical
+2026-07-27T14:03:45.4427941Z       Built markupsafe==3.0.2
+2026-07-27T14:03:45.4439877Z Prepared 80 packages in 3.81s
+2026-07-27T14:03:45.8280568Z Installed 80 packages in 383ms
+2026-07-27T14:03:45.8281244Z  + anyio==4.14.0
+2026-07-27T14:03:45.8288622Z  + ast-serialize==0.5.0
+2026-07-27T14:03:45.8289073Z  + attrs==25.3.0
+2026-07-27T14:03:45.8289865Z  + black==26.5.1
+2026-07-27T14:03:45.8290272Z  + certifi==2025.8.3
+2026-07-27T14:03:45.8290684Z  + cffi==2.0.0
+2026-07-27T14:03:45.8291097Z  + charset-normalizer==3.4.3
+2026-07-27T14:03:45.8291564Z  + click==8.2.1
+2026-07-27T14:03:45.8291969Z  + coverage==7.14.3
+2026-07-27T14:03:45.8292349Z  + cryptography==48.0.1
+2026-07-27T14:03:45.8292720Z  + deepmerge==2.0
+2026-07-27T14:03:45.8293061Z  + docutils==0.22
+2026-07-27T14:03:45.8293409Z  + ghp-import==2.1.0
+2026-07-27T14:03:45.8293785Z  + griffelib==2.0.0
+2026-07-27T14:03:45.8294434Z  + h11==0.16.0
+2026-07-27T14:03:45.8294764Z  + httpcore==1.0.9
+2026-07-27T14:03:45.8295104Z  + httpcore2==2.4.0
+2026-07-27T14:03:45.8295437Z  + httpx==0.28.1
+2026-07-27T14:03:45.8295771Z  + httpx2==2.4.0
+2026-07-27T14:03:45.8296094Z  + id==1.5.0
+2026-07-27T14:03:45.8296809Z  + idna==3.18
+2026-07-27T14:03:45.8297159Z  + importlib-metadata==9.0.0
+2026-07-27T14:03:45.8297559Z  + iniconfig==2.1.0
+2026-07-27T14:03:45.8297905Z  + itsdangerous==2.2.0
+2026-07-27T14:03:45.8298273Z  + jaraco-classes==3.4.0
+2026-07-27T14:03:45.8298659Z  + jaraco-context==6.0.1
+2026-07-27T14:03:45.8299051Z  + jaraco-functools==4.3.0
+2026-07-27T14:03:45.8299442Z  + jeepney==0.9.0
+2026-07-27T14:03:45.8299770Z  + jinja2==3.1.6
+2026-07-27T14:03:45.8300087Z  + keyring==25.6.0
+2026-07-27T14:03:45.8300417Z  + librt==0.11.0
+2026-07-27T14:03:45.8300738Z  + markdown==3.9
+2026-07-27T14:03:45.8301081Z  + markdown-it-py==4.0.0
+2026-07-27T14:03:45.8301458Z  + markupsafe==3.0.2
+2026-07-27T14:03:45.8301802Z  + mdurl==0.1.2
+2026-07-27T14:03:45.8302179Z  + mergedeep==1.3.4
+2026-07-27T14:03:45.8302514Z  + mkdocs==1.6.1
+2026-07-27T14:03:45.8302863Z  + mkdocs-autorefs==1.4.3
+2026-07-27T14:03:45.8303258Z  + mkdocs-get-deps==0.2.0
+2026-07-27T14:03:45.8303643Z  + mkdocstrings==1.0.4
+2026-07-27T14:03:45.8304294Z  + mkdocstrings-python==2.0.5
+2026-07-27T14:03:45.8304737Z  + more-itertools==10.8.0
+2026-07-27T14:03:45.8305115Z  + mypy==2.1.0
+2026-07-27T14:03:45.8305450Z  + mypy-extensions==1.1.0
+2026-07-27T14:03:45.8305817Z  + nh3==0.3.0
+2026-07-27T14:03:45.8306139Z  + outcome==1.3.0.post0
+2026-07-27T14:03:45.8306673Z  + packaging==25.0
+2026-07-27T14:03:45.8306968Z  + pathspec==1.0.4
+2026-07-27T14:03:45.8307279Z  + platformdirs==4.4.0
+2026-07-27T14:03:45.8307594Z  + pluggy==1.6.0
+2026-07-27T14:03:45.8307889Z  + pycparser==2.22
+2026-07-27T14:03:45.8308190Z  + pygments==2.20.0
+2026-07-27T14:03:45.8308514Z  + pymdown-extensions==10.21.3
+2026-07-27T14:03:45.8308884Z  + pytest==9.1.1
+2026-07-27T14:03:45.8309207Z  + python-dateutil==2.9.0.post0
+2026-07-27T14:03:45.8309599Z  + python-multipart==0.0.32
+2026-07-27T14:03:45.8309948Z  + pytokens==0.4.1
+2026-07-27T14:03:45.8310246Z  + pyyaml==6.0.3
+2026-07-27T14:03:45.8310547Z  + pyyaml-env-tag==1.1
+2026-07-27T14:03:45.8310896Z  + readme-renderer==44.0
+2026-07-27T14:03:45.8311265Z  + requests==2.33.0
+2026-07-27T14:03:45.8311609Z  + requests-toolbelt==1.0.0
+2026-07-27T14:03:45.8311978Z  + rfc3986==2.0.0
+2026-07-27T14:03:45.8312298Z  + rich==14.1.0
+2026-07-27T14:03:45.8312633Z  + ruff==0.15.19
+2026-07-27T14:03:45.8313055Z  + secretstorage==3.3.3
+2026-07-27T14:03:45.8313419Z  + six==1.17.0
+2026-07-27T14:03:45.8313740Z  + sniffio==1.3.1
+2026-07-27T14:03:45.8314091Z  + sortedcontainers==2.4.0
+2026-07-27T14:03:45.8314672Z  + starlette==1.3.1 (from file:///home/runner/work/starlette/starlette)
+2026-07-27T14:03:45.8315298Z  + tomli==2.4.1
+2026-07-27T14:03:45.8315620Z  + trio==0.33.0
+2026-07-27T14:03:45.8315948Z  + truststore==0.10.4
+2026-07-27T14:03:45.8316712Z  + twine==6.2.0
+2026-07-27T14:03:45.8317109Z  + types-pyyaml==6.0.12.20250516
+2026-07-27T14:03:45.8317573Z  + typing-extensions==4.15.0
+2026-07-27T14:03:45.8317982Z  + urllib3==2.7.0
+2026-07-27T14:03:45.8318325Z  + watchdog==6.0.0
+2026-07-27T14:03:45.8318672Z  + zensical==0.0.46
+2026-07-27T14:03:45.8319120Z  + zipp==3.23.0
+2026-07-27T14:03:45.8561621Z ##[group]Run scripts/build
+2026-07-27T14:03:45.8561905Z [36;1mscripts/build[0m
+2026-07-27T14:03:45.8607897Z shell: /usr/bin/bash -e {0}
+2026-07-27T14:03:45.8608135Z env:
+2026-07-27T14:03:45.8608413Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:45.8608766Z   UV_PYTHON: 3.14
+2026-07-27T14:03:45.8609020Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:45.8609316Z ##[endgroup]
+2026-07-27T14:03:45.8684070Z + uv build
+2026-07-27T14:03:45.9279960Z Building source distribution...
+2026-07-27T14:03:46.4207655Z Building wheel from source distribution...
+2026-07-27T14:03:46.7367633Z Successfully built dist/starlette-1.3.1.tar.gz
+2026-07-27T14:03:46.7368400Z Successfully built dist/starlette-1.3.1-py3-none-any.whl
+2026-07-27T14:03:46.7384357Z + uv run twine check dist/starlette-1.3.1-py3-none-any.whl dist/starlette-1.3.1.tar.gz
+2026-07-27T14:03:47.4909044Z Checking dist/starlette-1.3.1-py3-none-any.whl: [32mPASSED[0m
+2026-07-27T14:03:47.5144942Z Checking dist/starlette-1.3.1.tar.gz: [32mPASSED[0m
+2026-07-27T14:03:47.5624638Z + uv run zensical build --clean
+2026-07-27T14:03:48.4005918Z Build started
+2026-07-27T14:03:49.5905161Z No issues found
+2026-07-27T14:03:49.7819927Z Build finished in 1.38s
+2026-07-27T14:03:49.9456052Z ##[error]The operation was canceled.
+2026-07-27T14:03:49.9636174Z Post job cleanup.
+2026-07-27T14:03:50.0565197Z [command]/usr/bin/git version
+2026-07-27T14:03:50.0603471Z git version 2.54.0
+2026-07-27T14:03:50.0640025Z Temporarily overriding HOME='/home/runner/work/_temp/7b9494fa-8ef7-46cc-9582-9e24a5c3ed2f' before making global git config changes
+2026-07-27T14:03:50.0641289Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-27T14:03:50.0645556Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/starlette/starlette
+2026-07-27T14:03:50.0676641Z Removing SSH command configuration
+2026-07-27T14:03:50.0683414Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:50.0716769Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:50.0935864Z Removing HTTP extra header
+2026-07-27T14:03:50.0941556Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:50.0974834Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:50.1193546Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:50.1200545Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:50.1232724Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:50.1614435Z Cleaning up orphan processes
+
+﻿2026-07-27T14:03:35.2211886Z Current runner version: '2.336.0'
+2026-07-27T14:03:35.2246823Z ##[group]Runner Image Provisioner
+2026-07-27T14:03:35.2248284Z Hosted Compute Agent
+2026-07-27T14:03:35.2249399Z Version: 20260707.563
+2026-07-27T14:03:35.2250351Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-07-27T14:03:35.2251562Z Build Date: 2026-07-07T19:33:50Z
+2026-07-27T14:03:35.2252682Z Worker ID: {c001d780-6619-4bdf-b2d5-593d086c0f2a}
+2026-07-27T14:03:35.2253782Z Azure Region: eastus
+2026-07-27T14:03:35.2254754Z ##[endgroup]
+2026-07-27T14:03:35.2256888Z ##[group]Operating System
+2026-07-27T14:03:35.2257997Z Ubuntu
+2026-07-27T14:03:35.2259031Z 24.04.4
+2026-07-27T14:03:35.2259824Z LTS
+2026-07-27T14:03:35.2260644Z ##[endgroup]
+2026-07-27T14:03:35.2261496Z ##[group]Runner Image
+2026-07-27T14:03:35.2262462Z Image: ubuntu-24.04
+2026-07-27T14:03:35.2263500Z Version: 20260720.247.2
+2026-07-27T14:03:35.2265511Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260720.247/images/ubuntu/Ubuntu2404-Readme.md
+2026-07-27T14:03:35.2268370Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260720.247
+2026-07-27T14:03:35.2269886Z ##[endgroup]
+2026-07-27T14:03:35.2271924Z ##[group]GITHUB_TOKEN Permissions
+2026-07-27T14:03:35.2274881Z Contents: read
+2026-07-27T14:03:35.2275895Z Metadata: read
+2026-07-27T14:03:35.2276742Z ##[endgroup]
+2026-07-27T14:03:35.2280387Z Secret source: None
+2026-07-27T14:03:35.2282354Z Prepare workflow directory
+2026-07-27T14:03:35.2749142Z Prepare all required actions
+2026-07-27T14:03:35.2810574Z Getting action download info
+2026-07-27T14:03:35.4750891Z Download action repository 'actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0' (SHA:9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0)
+2026-07-27T14:03:35.6349424Z Download action repository 'astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39' (SHA:fac544c07dec837d0ccb6301d7b5580bf5edae39)
+2026-07-27T14:03:35.9690538Z Complete job name: Python 3.12
+2026-07-27T14:03:36.0561494Z ##[group]Run actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+2026-07-27T14:03:36.0562535Z with:
+2026-07-27T14:03:36.0562980Z   persist-credentials: false
+2026-07-27T14:03:36.0563506Z   repository: Kludex/starlette
+2026-07-27T14:03:36.0567202Z   token: ***
+2026-07-27T14:03:36.0567900Z   ssh-strict: true
+2026-07-27T14:03:36.0568335Z   ssh-user: git
+2026-07-27T14:03:36.0568759Z   clean: true
+2026-07-27T14:03:36.0569195Z   sparse-checkout-cone-mode: true
+2026-07-27T14:03:36.0569707Z   fetch-depth: 1
+2026-07-27T14:03:36.0570130Z   fetch-tags: false
+2026-07-27T14:03:36.0570568Z   show-progress: true
+2026-07-27T14:03:36.0571006Z   lfs: false
+2026-07-27T14:03:36.0571413Z   submodules: false
+2026-07-27T14:03:36.0571850Z   set-safe-directory: true
+2026-07-27T14:03:36.0572351Z   allow-unsafe-pr-checkout: false
+2026-07-27T14:03:36.0573060Z ##[endgroup]
+2026-07-27T14:03:36.1564584Z Syncing repository: Kludex/starlette
+2026-07-27T14:03:36.1566620Z ##[group]Getting Git version info
+2026-07-27T14:03:36.1567428Z Working directory is '/home/runner/work/starlette/starlette'
+2026-07-27T14:03:36.1568799Z [command]/usr/bin/git version
+2026-07-27T14:03:36.1638035Z git version 2.54.0
+2026-07-27T14:03:36.1658020Z ##[endgroup]
+2026-07-27T14:03:36.1669261Z Temporarily overriding HOME='/home/runner/work/_temp/d857f99b-1f2a-4636-ac7b-ddc063aad21c' before making global git config changes
+2026-07-27T14:03:36.1671358Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-27T14:03:36.1674575Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/starlette/starlette
+2026-07-27T14:03:36.1723336Z Deleting the contents of '/home/runner/work/starlette/starlette'
+2026-07-27T14:03:36.1726893Z ##[group]Determining repository object format
+2026-07-27T14:03:36.1728633Z ##[endgroup]
+2026-07-27T14:03:36.1729577Z ##[group]Initializing the repository
+2026-07-27T14:03:36.1735458Z [command]/usr/bin/git init /home/runner/work/starlette/starlette
+2026-07-27T14:03:36.1845809Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-07-27T14:03:36.1848310Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-07-27T14:03:36.1850323Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-07-27T14:03:36.1851743Z hint: call:
+2026-07-27T14:03:36.1852677Z hint:
+2026-07-27T14:03:36.1853975Z hint: 	git config --global init.defaultBranch <name>
+2026-07-27T14:03:36.1855335Z hint:
+2026-07-27T14:03:36.1856393Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-07-27T14:03:36.1858157Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-07-27T14:03:36.1859627Z hint:
+2026-07-27T14:03:36.1860440Z hint: 	git branch -m <name>
+2026-07-27T14:03:36.1861394Z hint:
+2026-07-27T14:03:36.1862485Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-07-27T14:03:36.1863812Z Initialized empty Git repository in /home/runner/work/starlette/starlette/.git/
+2026-07-27T14:03:36.1868328Z [command]/usr/bin/git remote add origin https://github.com/Kludex/starlette
+2026-07-27T14:03:36.1921749Z ##[endgroup]
+2026-07-27T14:03:36.1923802Z ##[group]Disabling automatic garbage collection
+2026-07-27T14:03:36.1925619Z [command]/usr/bin/git config --local gc.auto 0
+2026-07-27T14:03:36.1958625Z ##[endgroup]
+2026-07-27T14:03:36.1959712Z ##[group]Setting up auth
+2026-07-27T14:03:36.1960593Z Removing SSH command configuration
+2026-07-27T14:03:36.1964590Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:36.2001447Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:36.2383905Z Removing HTTP extra header
+2026-07-27T14:03:36.2391192Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:36.2438282Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:36.2709218Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:36.2711049Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:36.2756373Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:36.3018538Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-9ec7cc81-3993-4bed-915e-46efe9b167a5.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-07-27T14:03:36.3061856Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/starlette/starlette/.git.path /home/runner/work/_temp/git-credentials-9ec7cc81-3993-4bed-915e-46efe9b167a5.config
+2026-07-27T14:03:36.3093326Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-9ec7cc81-3993-4bed-915e-46efe9b167a5.config
+2026-07-27T14:03:36.3125595Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-9ec7cc81-3993-4bed-915e-46efe9b167a5.config
+2026-07-27T14:03:36.3161324Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-9ec7cc81-3993-4bed-915e-46efe9b167a5.config
+2026-07-27T14:03:36.3192363Z ##[endgroup]
+2026-07-27T14:03:36.3194060Z ##[group]Fetching the repository
+2026-07-27T14:03:36.3199939Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +1148c37d2bf838b1b9e427537abbc19c181e2654:refs/remotes/pull/3284/merge
+2026-07-27T14:03:36.6410077Z From https://github.com/Kludex/starlette
+2026-07-27T14:03:36.6412510Z  * [new ref]         1148c37d2bf838b1b9e427537abbc19c181e2654 -> pull/3284/merge
+2026-07-27T14:03:36.6448686Z ##[endgroup]
+2026-07-27T14:03:36.6450208Z ##[group]Determining the checkout info
+2026-07-27T14:03:36.6451761Z ##[endgroup]
+2026-07-27T14:03:36.6454888Z [command]/usr/bin/git sparse-checkout disable
+2026-07-27T14:03:36.6519475Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-07-27T14:03:36.6551329Z ##[group]Checking out the ref
+2026-07-27T14:03:36.6554759Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/3284/merge
+2026-07-27T14:03:36.6826294Z Note: switching to 'refs/remotes/pull/3284/merge'.
+2026-07-27T14:03:36.6828382Z 
+2026-07-27T14:03:36.6829791Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-07-27T14:03:36.6832287Z changes and commit them, and you can discard any commits you make in this
+2026-07-27T14:03:36.6834212Z state without impacting any branches by switching back to a branch.
+2026-07-27T14:03:36.6835362Z 
+2026-07-27T14:03:36.6836368Z If you want to create a new branch to retain commits you create, you may
+2026-07-27T14:03:36.6838822Z do so (now or later) by using -c with the switch command. Example:
+2026-07-27T14:03:36.6840283Z 
+2026-07-27T14:03:36.6841388Z   git switch -c <new-branch-name>
+2026-07-27T14:03:36.6842462Z 
+2026-07-27T14:03:36.6842982Z Or undo this operation with:
+2026-07-27T14:03:36.6843814Z 
+2026-07-27T14:03:36.6844268Z   git switch -
+2026-07-27T14:03:36.6844897Z 
+2026-07-27T14:03:36.6845808Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-07-27T14:03:36.6847454Z 
+2026-07-27T14:03:36.6849224Z HEAD is now at 1148c37 Merge 75c24d60c891029625048663b898f20ade55b0b4 into 5174d4c8358a6f06aa8056bafd14c2272dab8dd1
+2026-07-27T14:03:36.6854243Z ##[endgroup]
+2026-07-27T14:03:36.6883641Z [command]/usr/bin/git log -1 --format=%H
+2026-07-27T14:03:36.6910962Z 1148c37d2bf838b1b9e427537abbc19c181e2654
+2026-07-27T14:03:36.6922898Z ##[group]Removing auth
+2026-07-27T14:03:36.6924531Z Removing SSH command configuration
+2026-07-27T14:03:36.6926865Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:36.6962011Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:36.7206827Z Removing HTTP extra header
+2026-07-27T14:03:36.7209772Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:36.7247284Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:36.7490967Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:36.7494398Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:36.7524372Z includeif.gitdir:/home/runner/work/starlette/starlette/.git.path
+2026-07-27T14:03:36.7527950Z includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path
+2026-07-27T14:03:36.7530884Z includeif.gitdir:/github/workspace/.git.path
+2026-07-27T14:03:36.7533365Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-27T14:03:36.7538298Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/starlette/starlette/.git.path
+2026-07-27T14:03:36.7571341Z /home/runner/work/_temp/git-credentials-9ec7cc81-3993-4bed-915e-46efe9b167a5.config
+2026-07-27T14:03:36.7579424Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/starlette/starlette/.git.path /home/runner/work/_temp/git-credentials-9ec7cc81-3993-4bed-915e-46efe9b167a5.config
+2026-07-27T14:03:36.7606075Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path
+2026-07-27T14:03:36.7630798Z /home/runner/work/_temp/git-credentials-9ec7cc81-3993-4bed-915e-46efe9b167a5.config
+2026-07-27T14:03:36.7649419Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-9ec7cc81-3993-4bed-915e-46efe9b167a5.config
+2026-07-27T14:03:36.7682973Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-07-27T14:03:36.7707138Z /github/runner_temp/git-credentials-9ec7cc81-3993-4bed-915e-46efe9b167a5.config
+2026-07-27T14:03:36.7717849Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-9ec7cc81-3993-4bed-915e-46efe9b167a5.config
+2026-07-27T14:03:36.7752039Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-27T14:03:36.7776986Z /github/runner_temp/git-credentials-9ec7cc81-3993-4bed-915e-46efe9b167a5.config
+2026-07-27T14:03:36.7832592Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-9ec7cc81-3993-4bed-915e-46efe9b167a5.config
+2026-07-27T14:03:36.7885779Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:36.8133237Z Removing credentials config '/home/runner/work/_temp/git-credentials-9ec7cc81-3993-4bed-915e-46efe9b167a5.config'
+2026-07-27T14:03:36.8222295Z ##[endgroup]
+2026-07-27T14:03:36.8527223Z ##[group]Run astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39
+2026-07-27T14:03:36.8528669Z with:
+2026-07-27T14:03:36.8529535Z   python-version: 3.12
+2026-07-27T14:03:36.8530440Z   enable-cache: true
+2026-07-27T14:03:36.8531347Z   activate-environment: false
+2026-07-27T14:03:36.8532279Z   no-project: false
+2026-07-27T14:03:36.8533271Z   working-directory: /home/runner/work/starlette/starlette
+2026-07-27T14:03:36.8536912Z   github-token: ***
+2026-07-27T14:03:36.8538461Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-07-27T14:03:36.8539926Z   restore-cache: true
+2026-07-27T14:03:36.8540842Z   save-cache: true
+2026-07-27T14:03:36.8541716Z   prune-cache: true
+2026-07-27T14:03:36.8542589Z   cache-python: false
+2026-07-27T14:03:36.8543480Z   ignore-nothing-to-cache: false
+2026-07-27T14:03:36.8544409Z   ignore-empty-workdir: false
+2026-07-27T14:03:36.8545402Z   download-from-astral-mirror: true
+2026-07-27T14:03:36.8546347Z   add-problem-matchers: true
+2026-07-27T14:03:36.8547233Z   quiet: false
+2026-07-27T14:03:36.8548245Z   resolution-strategy: highest
+2026-07-27T14:03:36.8549146Z ##[endgroup]
+2026-07-27T14:03:37.0422924Z Trying to find version for uv in: /home/runner/work/starlette/starlette/uv.toml
+2026-07-27T14:03:37.0424564Z Could not find file: /home/runner/work/starlette/starlette/uv.toml
+2026-07-27T14:03:37.0426029Z Trying to find version for uv in: /home/runner/work/starlette/starlette/pyproject.toml
+2026-07-27T14:03:37.0431578Z Found version for uv in /home/runner/work/starlette/starlette/pyproject.toml: >=0.8.6
+2026-07-27T14:03:37.0436829Z Found minimum version specifier, using latest version
+2026-07-27T14:03:37.0438974Z Fetching manifest data from https://raw.githubusercontent.com/astral-sh/versions/main/v1/uv.ndjson ...
+2026-07-27T14:03:37.1259513Z Downloading uv from "https://releases.astral.sh/github/uv/releases/download/0.11.32/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-07-27T14:03:37.3098720Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/6d00ed01-6042-44e0-b53e-112c5307a7ea -f /home/runner/work/_temp/d07441d4-1696-4cf4-ae61-01bd13d1b3a7
+2026-07-27T14:03:37.8770806Z Added /home/runner/.local/bin to the path
+2026-07-27T14:03:37.8775320Z Added /opt/hostedtoolcache/uv/0.11.32/x86_64 to the path
+2026-07-27T14:03:37.8777134Z Set UV_PYTHON_INSTALL_DIR to /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:37.8778049Z Added /home/runner/work/_temp/uv-python-dir to the path
+2026-07-27T14:03:37.8779228Z Set UV_PYTHON to 3.12
+2026-07-27T14:03:37.8803952Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:37.8805079Z Successfully installed uv version 0.11.32
+2026-07-27T14:03:37.8808320Z Searching files using cache dependency glob: /home/runner/work/starlette/starlette/**/*requirements*.txt,/home/runner/work/starlette/starlette/**/*requirements*.in,/home/runner/work/starlette/starlette/**/*constraints*.txt,/home/runner/work/starlette/starlette/**/*constraints*.in,/home/runner/work/starlette/starlette/**/pyproject.toml,/home/runner/work/starlette/starlette/**/uv.lock,/home/runner/work/starlette/starlette/**/*.py.lock
+2026-07-27T14:03:37.8988183Z /home/runner/work/starlette/starlette/pyproject.toml
+2026-07-27T14:03:37.9086075Z /home/runner/work/starlette/starlette/uv.lock
+2026-07-27T14:03:37.9100009Z Found 2 files to hash.
+2026-07-27T14:03:37.9172468Z Trying to restore cache from GitHub Actions cache with key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.12-pruned-eda24f1f8146801859ca8c8dd799c42243fdb37ca10b95e5b2947624b5757e7f
+2026-07-27T14:03:37.9721830Z No GitHub Actions cache found for key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.12-pruned-eda24f1f8146801859ca8c8dd799c42243fdb37ca10b95e5b2947624b5757e7f
+2026-07-27T14:03:38.0898303Z ##[group]Run scripts/install
+2026-07-27T14:03:38.0898720Z [36;1mscripts/install[0m
+2026-07-27T14:03:38.0951567Z shell: /usr/bin/bash -e {0}
+2026-07-27T14:03:38.0951857Z env:
+2026-07-27T14:03:38.0952151Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:38.0952518Z   UV_PYTHON: 3.12
+2026-07-27T14:03:38.0952794Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:38.0953116Z ##[endgroup]
+2026-07-27T14:03:38.1052520Z + uv sync --frozen
+2026-07-27T14:03:38.1607053Z Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
+2026-07-27T14:03:38.1608003Z Creating virtual environment at: .venv
+2026-07-27T14:03:38.1809435Z    Building starlette @ file:///home/runner/work/starlette/starlette
+2026-07-27T14:03:38.2649887Z Downloading cryptography (4.5MiB)
+2026-07-27T14:03:38.2650909Z Downloading ast-serialize (1.2MiB)
+2026-07-27T14:03:38.2653520Z Downloading mypy (14.4MiB)
+2026-07-27T14:03:38.2659229Z Downloading zstandard (5.3MiB)
+2026-07-27T14:03:38.2668043Z Downloading mkdocs (3.7MiB)
+2026-07-27T14:03:38.2677562Z Downloading ruff (11.1MiB)
+2026-07-27T14:03:38.2695126Z Downloading pygments (1.2MiB)
+2026-07-27T14:03:38.2698791Z Downloading black (1.8MiB)
+2026-07-27T14:03:38.2703120Z Downloading zensical (12.5MiB)
+2026-07-27T14:03:38.5934480Z  Downloaded ast-serialize
+2026-07-27T14:03:38.8105967Z  Downloaded zstandard
+2026-07-27T14:03:38.8478091Z  Downloaded mkdocs
+2026-07-27T14:03:38.9063653Z  Downloaded black
+2026-07-27T14:03:38.9161937Z  Downloaded ruff
+2026-07-27T14:03:38.9419135Z  Downloaded cryptography
+2026-07-27T14:03:38.9665056Z  Downloaded pygments
+2026-07-27T14:03:39.1855715Z       Built starlette @ file:///home/runner/work/starlette/starlette
+2026-07-27T14:03:39.2074626Z  Downloaded mypy
+2026-07-27T14:03:40.8777460Z  Downloaded zensical
+2026-07-27T14:03:40.8782839Z Prepared 81 packages in 2.70s
+2026-07-27T14:03:41.2792158Z Installed 81 packages in 400ms
+2026-07-27T14:03:41.2795667Z  + anyio==4.14.0
+2026-07-27T14:03:41.2796047Z  + ast-serialize==0.5.0
+2026-07-27T14:03:41.2796299Z  + attrs==25.3.0
+2026-07-27T14:03:41.2796505Z  + black==26.5.1
+2026-07-27T14:03:41.2796712Z  + certifi==2025.8.3
+2026-07-27T14:03:41.2796930Z  + cffi==2.0.0
+2026-07-27T14:03:41.2797147Z  + charset-normalizer==3.4.3
+2026-07-27T14:03:41.2797388Z  + click==8.2.1
+2026-07-27T14:03:41.2797592Z  + coverage==7.14.3
+2026-07-27T14:03:41.2798411Z  + cryptography==48.0.1
+2026-07-27T14:03:41.2798771Z  + deepmerge==2.0
+2026-07-27T14:03:41.2799085Z  + docutils==0.22
+2026-07-27T14:03:41.2799549Z  + ghp-import==2.1.0
+2026-07-27T14:03:41.2800046Z  + griffelib==2.0.0
+2026-07-27T14:03:41.2800357Z  + h11==0.16.0
+2026-07-27T14:03:41.2800644Z  + httpcore==1.0.9
+2026-07-27T14:03:41.2800947Z  + httpcore2==2.4.0
+2026-07-27T14:03:41.2801240Z  + httpx==0.28.1
+2026-07-27T14:03:41.2801963Z  + httpx2==2.4.0
+2026-07-27T14:03:41.2802255Z  + id==1.5.0
+2026-07-27T14:03:41.2802535Z  + idna==3.18
+2026-07-27T14:03:41.2802876Z  + importlib-metadata==9.0.0
+2026-07-27T14:03:41.2803254Z  + iniconfig==2.1.0
+2026-07-27T14:03:41.2803562Z  + itsdangerous==2.2.0
+2026-07-27T14:03:41.2803912Z  + jaraco-classes==3.4.0
+2026-07-27T14:03:41.2804253Z  + jaraco-context==6.0.1
+2026-07-27T14:03:41.2804581Z  + jaraco-functools==4.3.0
+2026-07-27T14:03:41.2805227Z  + jeepney==0.9.0
+2026-07-27T14:03:41.2805751Z  + jinja2==3.1.6
+2026-07-27T14:03:41.2806064Z  + keyring==25.6.0
+2026-07-27T14:03:41.2806379Z  + librt==0.11.0
+2026-07-27T14:03:41.2806684Z  + markdown==3.9
+2026-07-27T14:03:41.2807011Z  + markdown-it-py==4.0.0
+2026-07-27T14:03:41.2807550Z  + markupsafe==3.0.2
+2026-07-27T14:03:41.2808612Z  + mdurl==0.1.2
+2026-07-27T14:03:41.2808924Z  + mergedeep==1.3.4
+2026-07-27T14:03:41.2809229Z  + mkdocs==1.6.1
+2026-07-27T14:03:41.2809526Z  + mkdocs-autorefs==1.4.3
+2026-07-27T14:03:41.2809905Z  + mkdocs-get-deps==0.2.0
+2026-07-27T14:03:41.2810241Z  + mkdocstrings==1.0.4
+2026-07-27T14:03:41.2810588Z  + mkdocstrings-python==2.0.5
+2026-07-27T14:03:41.2810955Z  + more-itertools==10.8.0
+2026-07-27T14:03:41.2811271Z  + mypy==2.1.0
+2026-07-27T14:03:41.2811914Z  + mypy-extensions==1.1.0
+2026-07-27T14:03:41.2812274Z  + nh3==0.3.0
+2026-07-27T14:03:41.2812579Z  + outcome==1.3.0.post0
+2026-07-27T14:03:41.2812920Z  + packaging==25.0
+2026-07-27T14:03:41.2813233Z  + pathspec==1.0.4
+2026-07-27T14:03:41.2813564Z  + platformdirs==4.4.0
+2026-07-27T14:03:41.2813877Z  + pluggy==1.6.0
+2026-07-27T14:03:41.2814174Z  + pycparser==2.22
+2026-07-27T14:03:41.2814481Z  + pygments==2.20.0
+2026-07-27T14:03:41.2814817Z  + pymdown-extensions==10.21.3
+2026-07-27T14:03:41.2815180Z  + pytest==9.1.1
+2026-07-27T14:03:41.2815503Z  + python-dateutil==2.9.0.post0
+2026-07-27T14:03:41.2815894Z  + python-multipart==0.0.32
+2026-07-27T14:03:41.2816253Z  + pytokens==0.4.1
+2026-07-27T14:03:41.2816532Z  + pyyaml==6.0.3
+2026-07-27T14:03:41.2816868Z  + pyyaml-env-tag==1.1
+2026-07-27T14:03:41.2817203Z  + readme-renderer==44.0
+2026-07-27T14:03:41.2817540Z  + requests==2.33.0
+2026-07-27T14:03:41.2818047Z  + requests-toolbelt==1.0.0
+2026-07-27T14:03:41.2818382Z  + rfc3986==2.0.0
+2026-07-27T14:03:41.2818685Z  + rich==14.1.0
+2026-07-27T14:03:41.2819006Z  + ruff==0.15.19
+2026-07-27T14:03:41.2819411Z  + secretstorage==3.3.3
+2026-07-27T14:03:41.2819728Z  + six==1.17.0
+2026-07-27T14:03:41.2820017Z  + sniffio==1.3.1
+2026-07-27T14:03:41.2820329Z  + sortedcontainers==2.4.0
+2026-07-27T14:03:41.2820847Z  + starlette==1.3.1 (from file:///home/runner/work/starlette/starlette)
+2026-07-27T14:03:41.2821601Z  + tomli==2.4.1
+2026-07-27T14:03:41.2822192Z  + trio==0.33.0
+2026-07-27T14:03:41.2822557Z  + truststore==0.10.4
+2026-07-27T14:03:41.2822873Z  + twine==6.2.0
+2026-07-27T14:03:41.2823193Z  + types-pyyaml==6.0.12.20250516
+2026-07-27T14:03:41.2823585Z  + typing-extensions==4.15.0
+2026-07-27T14:03:41.2823937Z  + urllib3==2.7.0
+2026-07-27T14:03:41.2824237Z  + watchdog==6.0.0
+2026-07-27T14:03:41.2824551Z  + zensical==0.0.46
+2026-07-27T14:03:41.2824974Z  + zipp==3.23.0
+2026-07-27T14:03:41.2825268Z  + zstandard==0.25.0
+2026-07-27T14:03:41.2993607Z ##[group]Run scripts/check
+2026-07-27T14:03:41.2993924Z [36;1mscripts/check[0m
+2026-07-27T14:03:41.3043008Z shell: /usr/bin/bash -e {0}
+2026-07-27T14:03:41.3043275Z env:
+2026-07-27T14:03:41.3043566Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:41.3043937Z   UV_PYTHON: 3.12
+2026-07-27T14:03:41.3044207Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:41.3044508Z ##[endgroup]
+2026-07-27T14:03:41.3127785Z + ./scripts/sync-version
+2026-07-27T14:03:41.3175582Z + uv run ruff format --check --diff starlette tests
+2026-07-27T14:03:41.4090163Z 67 files already formatted
+2026-07-27T14:03:41.4114688Z + uv run mypy starlette tests
+2026-07-27T14:03:46.3151012Z starlette/testclient.py:118: error: Cannot assign multiple types to name "_PortalFactoryType" without an explicit "type[...]" annotation  [misc]
+2026-07-27T14:03:46.3153051Z starlette/testclient.py:499: error: Argument "portal_factory" to "_TestClientTransport" has incompatible type "Callable[[], _GeneratorContextManager[_Portal, None, None]]"; expected "Callable[[], AbstractContextManager[BlockingPortal, bool | None]]"  [arg-type]
+2026-07-27T14:03:46.8466066Z Found 2 errors in 1 file (checked 67 source files)
+2026-07-27T14:03:46.8661679Z ##[error]Process completed with exit code 1.
+2026-07-27T14:03:46.8839965Z Post job cleanup.
+2026-07-27T14:03:46.9730240Z [command]/usr/bin/git version
+2026-07-27T14:03:46.9769975Z git version 2.54.0
+2026-07-27T14:03:46.9803334Z Temporarily overriding HOME='/home/runner/work/_temp/1fa57f95-ae93-46a9-b6fb-c7c8ac659735' before making global git config changes
+2026-07-27T14:03:46.9805155Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-27T14:03:46.9821403Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/starlette/starlette
+2026-07-27T14:03:46.9846254Z Removing SSH command configuration
+2026-07-27T14:03:46.9852974Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:46.9894632Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:47.0146846Z Removing HTTP extra header
+2026-07-27T14:03:47.0152846Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:47.0191347Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:47.0434817Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:47.0441528Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:47.0475561Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:47.0931626Z Cleaning up orphan processes
+
+﻿2026-07-27T14:03:35.6837185Z Current runner version: '2.335.1'
+2026-07-27T14:03:35.6872447Z ##[group]Runner Image Provisioner
+2026-07-27T14:03:35.6873943Z Hosted Compute Agent
+2026-07-27T14:03:35.6875098Z Version: 20260707.563
+2026-07-27T14:03:35.6876135Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-07-27T14:03:35.6877748Z Build Date: 2026-07-07T19:33:50Z
+2026-07-27T14:03:35.6878876Z Worker ID: {e8109a32-d48c-48de-951a-7e9ed3f9a19a}
+2026-07-27T14:03:35.6880172Z Azure Region: eastus
+2026-07-27T14:03:35.6881073Z ##[endgroup]
+2026-07-27T14:03:35.6883860Z ##[group]Operating System
+2026-07-27T14:03:35.6885134Z Ubuntu
+2026-07-27T14:03:35.6886020Z 24.04.4
+2026-07-27T14:03:35.6887242Z LTS
+2026-07-27T14:03:35.6888050Z ##[endgroup]
+2026-07-27T14:03:35.6888939Z ##[group]Runner Image
+2026-07-27T14:03:35.6890012Z Image: ubuntu-24.04
+2026-07-27T14:03:35.6890912Z Version: 20260720.247.2
+2026-07-27T14:03:35.6893085Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260720.247/images/ubuntu/Ubuntu2404-Readme.md
+2026-07-27T14:03:35.6895757Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260720.247
+2026-07-27T14:03:35.6897764Z ##[endgroup]
+2026-07-27T14:03:35.6899525Z ##[group]GITHUB_TOKEN Permissions
+2026-07-27T14:03:35.6902546Z Contents: read
+2026-07-27T14:03:35.6903509Z Metadata: read
+2026-07-27T14:03:35.6904471Z ##[endgroup]
+2026-07-27T14:03:35.6907827Z Secret source: None
+2026-07-27T14:03:35.6909370Z Prepare workflow directory
+2026-07-27T14:03:35.7391707Z Prepare all required actions
+2026-07-27T14:03:35.7448313Z Getting action download info
+2026-07-27T14:03:35.9500544Z Download action repository 'actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0' (SHA:9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0)
+2026-07-27T14:03:36.1069284Z Download action repository 'astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39' (SHA:fac544c07dec837d0ccb6301d7b5580bf5edae39)
+2026-07-27T14:03:36.4404199Z Complete job name: Python 3.10
+2026-07-27T14:03:36.5192730Z ##[group]Run actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+2026-07-27T14:03:36.5193874Z with:
+2026-07-27T14:03:36.5194316Z   persist-credentials: false
+2026-07-27T14:03:36.5194858Z   repository: Kludex/starlette
+2026-07-27T14:03:36.5199101Z   token: ***
+2026-07-27T14:03:36.5199540Z   ssh-strict: true
+2026-07-27T14:03:36.5199989Z   ssh-user: git
+2026-07-27T14:03:36.5200407Z   clean: true
+2026-07-27T14:03:36.5200847Z   sparse-checkout-cone-mode: true
+2026-07-27T14:03:36.5201391Z   fetch-depth: 1
+2026-07-27T14:03:36.5201827Z   fetch-tags: false
+2026-07-27T14:03:36.5202269Z   show-progress: true
+2026-07-27T14:03:36.5202760Z   lfs: false
+2026-07-27T14:03:36.5203169Z   submodules: false
+2026-07-27T14:03:36.5203619Z   set-safe-directory: true
+2026-07-27T14:03:36.5204127Z   allow-unsafe-pr-checkout: false
+2026-07-27T14:03:36.5204942Z ##[endgroup]
+2026-07-27T14:03:36.6229655Z Syncing repository: Kludex/starlette
+2026-07-27T14:03:36.6232418Z ##[group]Getting Git version info
+2026-07-27T14:03:36.6233821Z Working directory is '/home/runner/work/starlette/starlette'
+2026-07-27T14:03:36.6235746Z [command]/usr/bin/git version
+2026-07-27T14:03:36.6290221Z git version 2.54.0
+2026-07-27T14:03:36.6312501Z ##[endgroup]
+2026-07-27T14:03:36.6323278Z Temporarily overriding HOME='/home/runner/work/_temp/54187e94-4e7d-4fba-b094-9525901c202b' before making global git config changes
+2026-07-27T14:03:36.6328571Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-27T14:03:36.6330424Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/starlette/starlette
+2026-07-27T14:03:36.6376975Z Deleting the contents of '/home/runner/work/starlette/starlette'
+2026-07-27T14:03:36.6379236Z ##[group]Determining repository object format
+2026-07-27T14:03:36.6380945Z ##[endgroup]
+2026-07-27T14:03:36.6382174Z ##[group]Initializing the repository
+2026-07-27T14:03:36.6386530Z [command]/usr/bin/git init /home/runner/work/starlette/starlette
+2026-07-27T14:03:36.6489207Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-07-27T14:03:36.6490760Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-07-27T14:03:36.6491746Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-07-27T14:03:36.6492513Z hint: call:
+2026-07-27T14:03:36.6492904Z hint:
+2026-07-27T14:03:36.6493419Z hint: 	git config --global init.defaultBranch <name>
+2026-07-27T14:03:36.6494047Z hint:
+2026-07-27T14:03:36.6494643Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-07-27T14:03:36.6495602Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-07-27T14:03:36.6496746Z hint:
+2026-07-27T14:03:36.6497491Z hint: 	git branch -m <name>
+2026-07-27T14:03:36.6498002Z hint:
+2026-07-27T14:03:36.6498644Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-07-27T14:03:36.6503002Z Initialized empty Git repository in /home/runner/work/starlette/starlette/.git/
+2026-07-27T14:03:36.6513371Z [command]/usr/bin/git remote add origin https://github.com/Kludex/starlette
+2026-07-27T14:03:36.6555950Z ##[endgroup]
+2026-07-27T14:03:36.6557929Z ##[group]Disabling automatic garbage collection
+2026-07-27T14:03:36.6559614Z [command]/usr/bin/git config --local gc.auto 0
+2026-07-27T14:03:36.6589818Z ##[endgroup]
+2026-07-27T14:03:36.6591524Z ##[group]Setting up auth
+2026-07-27T14:03:36.6592658Z Removing SSH command configuration
+2026-07-27T14:03:36.6597109Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:36.6649338Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:36.7021076Z Removing HTTP extra header
+2026-07-27T14:03:36.7028731Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:36.7071391Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:36.7316988Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:36.7321180Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:36.7359233Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:36.7601630Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-2f616ffb-439b-4aed-b9e5-2e1322ff1c6e.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-07-27T14:03:36.7639481Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/starlette/starlette/.git.path /home/runner/work/_temp/git-credentials-2f616ffb-439b-4aed-b9e5-2e1322ff1c6e.config
+2026-07-27T14:03:36.7673046Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-2f616ffb-439b-4aed-b9e5-2e1322ff1c6e.config
+2026-07-27T14:03:36.7708491Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-2f616ffb-439b-4aed-b9e5-2e1322ff1c6e.config
+2026-07-27T14:03:36.7742898Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-2f616ffb-439b-4aed-b9e5-2e1322ff1c6e.config
+2026-07-27T14:03:36.7771150Z ##[endgroup]
+2026-07-27T14:03:36.7772064Z ##[group]Fetching the repository
+2026-07-27T14:03:36.7778079Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +1148c37d2bf838b1b9e427537abbc19c181e2654:refs/remotes/pull/3284/merge
+2026-07-27T14:03:37.0672729Z From https://github.com/Kludex/starlette
+2026-07-27T14:03:37.0675289Z  * [new ref]         1148c37d2bf838b1b9e427537abbc19c181e2654 -> pull/3284/merge
+2026-07-27T14:03:37.0721566Z ##[endgroup]
+2026-07-27T14:03:37.0723979Z ##[group]Determining the checkout info
+2026-07-27T14:03:37.0727212Z ##[endgroup]
+2026-07-27T14:03:37.0728656Z [command]/usr/bin/git sparse-checkout disable
+2026-07-27T14:03:37.0767405Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-07-27T14:03:37.0802475Z ##[group]Checking out the ref
+2026-07-27T14:03:37.0806967Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/3284/merge
+2026-07-27T14:03:37.1065646Z Note: switching to 'refs/remotes/pull/3284/merge'.
+2026-07-27T14:03:37.1067980Z 
+2026-07-27T14:03:37.1069597Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-07-27T14:03:37.1072141Z changes and commit them, and you can discard any commits you make in this
+2026-07-27T14:03:37.1074659Z state without impacting any branches by switching back to a branch.
+2026-07-27T14:03:37.1076104Z 
+2026-07-27T14:03:37.1077406Z If you want to create a new branch to retain commits you create, you may
+2026-07-27T14:03:37.1079883Z do so (now or later) by using -c with the switch command. Example:
+2026-07-27T14:03:37.1081365Z 
+2026-07-27T14:03:37.1082000Z   git switch -c <new-branch-name>
+2026-07-27T14:03:37.1083086Z 
+2026-07-27T14:03:37.1083729Z Or undo this operation with:
+2026-07-27T14:03:37.1084699Z 
+2026-07-27T14:03:37.1085291Z   git switch -
+2026-07-27T14:03:37.1086003Z 
+2026-07-27T14:03:37.1087430Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-07-27T14:03:37.1089178Z 
+2026-07-27T14:03:37.1090492Z HEAD is now at 1148c37 Merge 75c24d60c891029625048663b898f20ade55b0b4 into 5174d4c8358a6f06aa8056bafd14c2272dab8dd1
+2026-07-27T14:03:37.1094392Z ##[endgroup]
+2026-07-27T14:03:37.1122106Z [command]/usr/bin/git log -1 --format=%H
+2026-07-27T14:03:37.1148524Z 1148c37d2bf838b1b9e427537abbc19c181e2654
+2026-07-27T14:03:37.1159260Z ##[group]Removing auth
+2026-07-27T14:03:37.1160670Z Removing SSH command configuration
+2026-07-27T14:03:37.1164203Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:37.1200323Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:37.1422795Z Removing HTTP extra header
+2026-07-27T14:03:37.1435186Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:37.1464598Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:37.1689216Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:37.1692205Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:37.1718523Z includeif.gitdir:/home/runner/work/starlette/starlette/.git.path
+2026-07-27T14:03:37.1721479Z includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path
+2026-07-27T14:03:37.1723837Z includeif.gitdir:/github/workspace/.git.path
+2026-07-27T14:03:37.1726431Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-27T14:03:37.1731351Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/starlette/starlette/.git.path
+2026-07-27T14:03:37.1752985Z /home/runner/work/_temp/git-credentials-2f616ffb-439b-4aed-b9e5-2e1322ff1c6e.config
+2026-07-27T14:03:37.1763287Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/starlette/starlette/.git.path /home/runner/work/_temp/git-credentials-2f616ffb-439b-4aed-b9e5-2e1322ff1c6e.config
+2026-07-27T14:03:37.1797008Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path
+2026-07-27T14:03:37.1819188Z /home/runner/work/_temp/git-credentials-2f616ffb-439b-4aed-b9e5-2e1322ff1c6e.config
+2026-07-27T14:03:37.1831520Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-2f616ffb-439b-4aed-b9e5-2e1322ff1c6e.config
+2026-07-27T14:03:37.1869690Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-07-27T14:03:37.1891711Z /github/runner_temp/git-credentials-2f616ffb-439b-4aed-b9e5-2e1322ff1c6e.config
+2026-07-27T14:03:37.1902122Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-2f616ffb-439b-4aed-b9e5-2e1322ff1c6e.config
+2026-07-27T14:03:37.1937552Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-27T14:03:37.1961971Z /github/runner_temp/git-credentials-2f616ffb-439b-4aed-b9e5-2e1322ff1c6e.config
+2026-07-27T14:03:37.1977277Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-2f616ffb-439b-4aed-b9e5-2e1322ff1c6e.config
+2026-07-27T14:03:37.2035602Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:37.2275674Z Removing credentials config '/home/runner/work/_temp/git-credentials-2f616ffb-439b-4aed-b9e5-2e1322ff1c6e.config'
+2026-07-27T14:03:37.2282549Z ##[endgroup]
+2026-07-27T14:03:37.2782822Z ##[group]Run astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39
+2026-07-27T14:03:37.2784464Z with:
+2026-07-27T14:03:37.2785306Z   python-version: 3.10
+2026-07-27T14:03:37.2786462Z   enable-cache: true
+2026-07-27T14:03:37.2787508Z   activate-environment: false
+2026-07-27T14:03:37.2788577Z   no-project: false
+2026-07-27T14:03:37.2789752Z   working-directory: /home/runner/work/starlette/starlette
+2026-07-27T14:03:37.2803884Z   github-token: ***
+2026-07-27T14:03:37.2806561Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-07-27T14:03:37.2809280Z   restore-cache: true
+2026-07-27T14:03:37.2810223Z   save-cache: true
+2026-07-27T14:03:37.2811133Z   prune-cache: true
+2026-07-27T14:03:37.2812054Z   cache-python: false
+2026-07-27T14:03:37.2813062Z   ignore-nothing-to-cache: false
+2026-07-27T14:03:37.2814187Z   ignore-empty-workdir: false
+2026-07-27T14:03:37.2815347Z   download-from-astral-mirror: true
+2026-07-27T14:03:37.2816696Z   add-problem-matchers: true
+2026-07-27T14:03:37.2817734Z   quiet: false
+2026-07-27T14:03:37.2818630Z   resolution-strategy: highest
+2026-07-27T14:03:37.2819662Z ##[endgroup]
+2026-07-27T14:03:37.4691289Z Trying to find version for uv in: /home/runner/work/starlette/starlette/uv.toml
+2026-07-27T14:03:37.4692462Z Could not find file: /home/runner/work/starlette/starlette/uv.toml
+2026-07-27T14:03:37.4693173Z Trying to find version for uv in: /home/runner/work/starlette/starlette/pyproject.toml
+2026-07-27T14:03:37.4697965Z Found version for uv in /home/runner/work/starlette/starlette/pyproject.toml: >=0.8.6
+2026-07-27T14:03:37.4703670Z Found minimum version specifier, using latest version
+2026-07-27T14:03:37.4705502Z Fetching manifest data from https://raw.githubusercontent.com/astral-sh/versions/main/v1/uv.ndjson ...
+2026-07-27T14:03:37.5273778Z Downloading uv from "https://releases.astral.sh/github/uv/releases/download/0.11.32/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-07-27T14:03:37.7365875Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/12a1dabd-fd78-4d3d-b2ca-91908dcb23da -f /home/runner/work/_temp/803736f0-a141-481a-825b-d6fd0a991520
+2026-07-27T14:03:38.2687259Z Added /home/runner/.local/bin to the path
+2026-07-27T14:03:38.2705438Z Added /opt/hostedtoolcache/uv/0.11.32/x86_64 to the path
+2026-07-27T14:03:38.2706678Z Set UV_PYTHON_INSTALL_DIR to /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:38.2707413Z Added /home/runner/work/_temp/uv-python-dir to the path
+2026-07-27T14:03:38.2708399Z Set UV_PYTHON to 3.10
+2026-07-27T14:03:38.2732065Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:38.2732858Z Successfully installed uv version 0.11.32
+2026-07-27T14:03:38.2736038Z Searching files using cache dependency glob: /home/runner/work/starlette/starlette/**/*requirements*.txt,/home/runner/work/starlette/starlette/**/*requirements*.in,/home/runner/work/starlette/starlette/**/*constraints*.txt,/home/runner/work/starlette/starlette/**/*constraints*.in,/home/runner/work/starlette/starlette/**/pyproject.toml,/home/runner/work/starlette/starlette/**/uv.lock,/home/runner/work/starlette/starlette/**/*.py.lock
+2026-07-27T14:03:38.2936442Z /home/runner/work/starlette/starlette/pyproject.toml
+2026-07-27T14:03:38.3064493Z /home/runner/work/starlette/starlette/uv.lock
+2026-07-27T14:03:38.3080237Z Found 2 files to hash.
+2026-07-27T14:03:38.3151344Z Trying to restore cache from GitHub Actions cache with key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.10-pruned-eda24f1f8146801859ca8c8dd799c42243fdb37ca10b95e5b2947624b5757e7f
+2026-07-27T14:03:38.3669642Z No GitHub Actions cache found for key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.10-pruned-eda24f1f8146801859ca8c8dd799c42243fdb37ca10b95e5b2947624b5757e7f
+2026-07-27T14:03:38.4858846Z ##[group]Run scripts/install
+2026-07-27T14:03:38.4859444Z [36;1mscripts/install[0m
+2026-07-27T14:03:38.4925698Z shell: /usr/bin/bash -e {0}
+2026-07-27T14:03:38.4926118Z env:
+2026-07-27T14:03:38.4926872Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:38.4927467Z   UV_PYTHON: 3.10
+2026-07-27T14:03:38.4927883Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:38.4928404Z ##[endgroup]
+2026-07-27T14:03:38.5033207Z + uv sync --frozen
+2026-07-27T14:03:38.6989248Z Downloading cpython-3.10.20-linux-x86_64-gnu (download) (28.1MiB)
+2026-07-27T14:03:39.6664247Z  Downloaded cpython-3.10.20-linux-x86_64-gnu (download)
+2026-07-27T14:03:39.8747400Z Using CPython 3.10.20
+2026-07-27T14:03:39.8748126Z Creating virtual environment at: .venv
+2026-07-27T14:03:39.8983433Z    Building starlette @ file:///home/runner/work/starlette/starlette
+2026-07-27T14:03:39.9388194Z Downloading mypy (14.3MiB)
+2026-07-27T14:03:39.9389002Z Downloading cryptography (4.5MiB)
+2026-07-27T14:03:39.9390617Z Downloading ruff (11.1MiB)
+2026-07-27T14:03:39.9392394Z Downloading ast-serialize (1.2MiB)
+2026-07-27T14:03:39.9400063Z Downloading black (1.8MiB)
+2026-07-27T14:03:39.9402822Z Downloading zstandard (5.3MiB)
+2026-07-27T14:03:39.9409150Z Downloading mkdocs (3.7MiB)
+2026-07-27T14:03:39.9412161Z Downloading pygments (1.2MiB)
+2026-07-27T14:03:39.9537394Z Downloading zensical (12.5MiB)
+2026-07-27T14:03:40.3079471Z  Downloaded ast-serialize
+2026-07-27T14:03:40.5871309Z  Downloaded black
+2026-07-27T14:03:40.6040325Z  Downloaded mkdocs
+2026-07-27T14:03:40.6131955Z  Downloaded zstandard
+2026-07-27T14:03:40.7669203Z  Downloaded pygments
+2026-07-27T14:03:40.7699224Z  Downloaded ruff
+2026-07-27T14:03:40.7760017Z  Downloaded cryptography
+2026-07-27T14:03:41.0998472Z  Downloaded mypy
+2026-07-27T14:03:41.1002615Z       Built starlette @ file:///home/runner/work/starlette/starlette
+2026-07-27T14:03:43.0075897Z  Downloaded zensical
+2026-07-27T14:03:43.0081402Z Prepared 83 packages in 3.12s
+2026-07-27T14:03:43.3965544Z Installed 83 packages in 388ms
+2026-07-27T14:03:43.3966593Z  + anyio==4.14.0
+2026-07-27T14:03:43.3967091Z  + ast-serialize==0.5.0
+2026-07-27T14:03:43.3967580Z  + attrs==25.3.0
+2026-07-27T14:03:43.3968045Z  + backports-tarfile==1.2.0
+2026-07-27T14:03:43.3968538Z  + black==26.5.1
+2026-07-27T14:03:43.3968804Z  + certifi==2025.8.3
+2026-07-27T14:03:43.3969076Z  + cffi==2.0.0
+2026-07-27T14:03:43.3970120Z  + charset-normalizer==3.4.3
+2026-07-27T14:03:43.3970659Z  + click==8.2.1
+2026-07-27T14:03:43.3971086Z  + coverage==7.14.3
+2026-07-27T14:03:43.3971545Z  + cryptography==48.0.1
+2026-07-27T14:03:43.3972016Z  + deepmerge==2.0
+2026-07-27T14:03:43.3972453Z  + docutils==0.22
+2026-07-27T14:03:43.3972874Z  + exceptiongroup==1.3.0
+2026-07-27T14:03:43.3973803Z  + ghp-import==2.1.0
+2026-07-27T14:03:43.3974329Z  + griffelib==2.0.0
+2026-07-27T14:03:43.3974708Z  + h11==0.16.0
+2026-07-27T14:03:43.3975137Z  + httpcore==1.0.9
+2026-07-27T14:03:43.3975519Z  + httpcore2==2.4.0
+2026-07-27T14:03:43.3975932Z  + httpx==0.28.1
+2026-07-27T14:03:43.3976587Z  + httpx2==2.4.0
+2026-07-27T14:03:43.3976963Z  + id==1.5.0
+2026-07-27T14:03:43.3977324Z  + idna==3.18
+2026-07-27T14:03:43.3977721Z  + importlib-metadata==9.0.0
+2026-07-27T14:03:43.3978188Z  + iniconfig==2.1.0
+2026-07-27T14:03:43.3978599Z  + itsdangerous==2.2.0
+2026-07-27T14:03:43.3979043Z  + jaraco-classes==3.4.0
+2026-07-27T14:03:43.3979507Z  + jaraco-context==6.0.1
+2026-07-27T14:03:43.3979971Z  + jaraco-functools==4.3.0
+2026-07-27T14:03:43.3980455Z  + jeepney==0.9.0
+2026-07-27T14:03:43.3980865Z  + jinja2==3.1.6
+2026-07-27T14:03:43.3981268Z  + keyring==25.6.0
+2026-07-27T14:03:43.3981823Z  + librt==0.11.0
+2026-07-27T14:03:43.3982202Z  + markdown==3.9
+2026-07-27T14:03:43.3982847Z  + markdown-it-py==4.0.0
+2026-07-27T14:03:43.3983335Z  + markupsafe==3.0.2
+2026-07-27T14:03:43.3983845Z  + mdurl==0.1.2
+2026-07-27T14:03:43.3984448Z  + mergedeep==1.3.4
+2026-07-27T14:03:43.3984963Z  + mkdocs==1.6.1
+2026-07-27T14:03:43.3985502Z  + mkdocs-autorefs==1.4.3
+2026-07-27T14:03:43.3986475Z  + mkdocs-get-deps==0.2.0
+2026-07-27T14:03:43.3986925Z  + mkdocstrings==1.0.4
+2026-07-27T14:03:43.3987391Z  + mkdocstrings-python==2.0.5
+2026-07-27T14:03:43.3988011Z  + more-itertools==10.8.0
+2026-07-27T14:03:43.3988579Z  + mypy==2.1.0
+2026-07-27T14:03:43.3989099Z  + mypy-extensions==1.1.0
+2026-07-27T14:03:43.3989570Z  + nh3==0.3.0
+2026-07-27T14:03:43.3990194Z  + outcome==1.3.0.post0
+2026-07-27T14:03:43.3990574Z  + packaging==25.0
+2026-07-27T14:03:43.3991179Z  + pathspec==1.0.4
+2026-07-27T14:03:43.3991764Z  + platformdirs==4.4.0
+2026-07-27T14:03:43.3992240Z  + pluggy==1.6.0
+2026-07-27T14:03:43.3992615Z  + pycparser==2.22
+2026-07-27T14:03:43.3993236Z  + pygments==2.20.0
+2026-07-27T14:03:43.3993744Z  + pymdown-extensions==10.21.3
+2026-07-27T14:03:43.3994224Z  + pytest==9.1.1
+2026-07-27T14:03:43.3994829Z  + python-dateutil==2.9.0.post0
+2026-07-27T14:03:43.3995318Z  + python-multipart==0.0.32
+2026-07-27T14:03:43.3995877Z  + pytokens==0.4.1
+2026-07-27T14:03:43.3996581Z  + pyyaml==6.0.3
+2026-07-27T14:03:43.3996979Z  + pyyaml-env-tag==1.1
+2026-07-27T14:03:43.3997371Z  + readme-renderer==44.0
+2026-07-27T14:03:43.3997996Z  + requests==2.33.0
+2026-07-27T14:03:43.3998515Z  + requests-toolbelt==1.0.0
+2026-07-27T14:03:43.3998970Z  + rfc3986==2.0.0
+2026-07-27T14:03:43.3999585Z  + rich==14.1.0
+2026-07-27T14:03:43.4000086Z  + ruff==0.15.19
+2026-07-27T14:03:43.4000598Z  + secretstorage==3.3.3
+2026-07-27T14:03:43.4002856Z  + six==1.17.0
+2026-07-27T14:03:43.4003172Z  + sniffio==1.3.1
+2026-07-27T14:03:43.4003518Z  + sortedcontainers==2.4.0
+2026-07-27T14:03:43.4004271Z  + starlette==1.3.1 (from file:///home/runner/work/starlette/starlette)
+2026-07-27T14:03:43.4005013Z  + tomli==2.4.1
+2026-07-27T14:03:43.4005326Z  + trio==0.33.0
+2026-07-27T14:03:43.4005686Z  + truststore==0.10.4
+2026-07-27T14:03:43.4006456Z  + twine==6.2.0
+2026-07-27T14:03:43.4006792Z  + types-pyyaml==6.0.12.20250516
+2026-07-27T14:03:43.4007191Z  + typing-extensions==4.15.0
+2026-07-27T14:03:43.4007557Z  + urllib3==2.7.0
+2026-07-27T14:03:43.4007886Z  + watchdog==6.0.0
+2026-07-27T14:03:43.4008250Z  + zensical==0.0.46
+2026-07-27T14:03:43.4008536Z  + zipp==3.23.0
+2026-07-27T14:03:43.4008825Z  + zstandard==0.25.0
+2026-07-27T14:03:43.4167545Z ##[group]Run scripts/check
+2026-07-27T14:03:43.4167845Z [36;1mscripts/check[0m
+2026-07-27T14:03:43.4213236Z shell: /usr/bin/bash -e {0}
+2026-07-27T14:03:43.4213484Z env:
+2026-07-27T14:03:43.4213762Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:43.4214119Z   UV_PYTHON: 3.10
+2026-07-27T14:03:43.4214371Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:43.4214664Z ##[endgroup]
+2026-07-27T14:03:43.4285832Z + ./scripts/sync-version
+2026-07-27T14:03:43.4330280Z + uv run ruff format --check --diff starlette tests
+2026-07-27T14:03:43.5569385Z 67 files already formatted
+2026-07-27T14:03:43.5591517Z + uv run mypy starlette tests
+2026-07-27T14:03:48.2422492Z starlette/testclient.py:118: error: Cannot assign multiple types to name "_PortalFactoryType" without an explicit "type[...]" annotation  [misc]
+2026-07-27T14:03:48.2425076Z starlette/testclient.py:499: error: Argument "portal_factory" to "_TestClientTransport" has incompatible type "Callable[[], _GeneratorContextManager[_Portal, None, None]]"; expected "Callable[[], AbstractContextManager[BlockingPortal, bool | None]]"  [arg-type]
+2026-07-27T14:03:48.8134999Z Found 2 errors in 1 file (checked 67 source files)
+2026-07-27T14:03:48.8304328Z ##[error]Process completed with exit code 1.
+2026-07-27T14:03:48.8482508Z Post job cleanup.
+2026-07-27T14:03:48.9322012Z [command]/usr/bin/git version
+2026-07-27T14:03:48.9368977Z git version 2.54.0
+2026-07-27T14:03:48.9406388Z Temporarily overriding HOME='/home/runner/work/_temp/e5c6e799-4f4f-4059-b52e-c041720b0e30' before making global git config changes
+2026-07-27T14:03:48.9407493Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-27T14:03:48.9413208Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/starlette/starlette
+2026-07-27T14:03:48.9445687Z Removing SSH command configuration
+2026-07-27T14:03:48.9452874Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:48.9489271Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:48.9711812Z Removing HTTP extra header
+2026-07-27T14:03:48.9717595Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:48.9752123Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:48.9973555Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:48.9980419Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:49.0046527Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:49.0419185Z Cleaning up orphan processes
+
+﻿2026-07-27T14:03:35.6258285Z Current runner version: '2.336.0'
+2026-07-27T14:03:35.6284945Z ##[group]Runner Image Provisioner
+2026-07-27T14:03:35.6285820Z Hosted Compute Agent
+2026-07-27T14:03:35.6286449Z Version: 20260707.563
+2026-07-27T14:03:35.6287087Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-07-27T14:03:35.6287795Z Build Date: 2026-07-07T19:33:50Z
+2026-07-27T14:03:35.6289034Z Worker ID: {1012d6a7-bf91-45f8-b3a0-248ee3df7e5f}
+2026-07-27T14:03:35.6289841Z Azure Region: centralus
+2026-07-27T14:03:35.6290425Z ##[endgroup]
+2026-07-27T14:03:35.6292636Z ##[group]Operating System
+2026-07-27T14:03:35.6293283Z Ubuntu
+2026-07-27T14:03:35.6293893Z 24.04.4
+2026-07-27T14:03:35.6294403Z LTS
+2026-07-27T14:03:35.6294891Z ##[endgroup]
+2026-07-27T14:03:35.6295479Z ##[group]Runner Image
+2026-07-27T14:03:35.6296100Z Image: ubuntu-24.04
+2026-07-27T14:03:35.6296675Z Version: 20260720.247.2
+2026-07-27T14:03:35.6297959Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260720.247/images/ubuntu/Ubuntu2404-Readme.md
+2026-07-27T14:03:35.6299971Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260720.247
+2026-07-27T14:03:35.6300917Z ##[endgroup]
+2026-07-27T14:03:35.6302089Z ##[group]GITHUB_TOKEN Permissions
+2026-07-27T14:03:35.6304415Z Contents: read
+2026-07-27T14:03:35.6304988Z Metadata: read
+2026-07-27T14:03:35.6305628Z ##[endgroup]
+2026-07-27T14:03:35.6308146Z Secret source: None
+2026-07-27T14:03:35.6309865Z Prepare workflow directory
+2026-07-27T14:03:35.6670315Z Prepare all required actions
+2026-07-27T14:03:35.6717361Z Getting action download info
+2026-07-27T14:03:35.9543687Z Download action repository 'actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0' (SHA:9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0)
+2026-07-27T14:03:36.1107024Z Download action repository 'astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39' (SHA:fac544c07dec837d0ccb6301d7b5580bf5edae39)
+2026-07-27T14:03:36.7456041Z Complete job name: Python 3.13
+2026-07-27T14:03:36.8400479Z ##[group]Run actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+2026-07-27T14:03:36.8402424Z with:
+2026-07-27T14:03:36.8403234Z   persist-credentials: false
+2026-07-27T14:03:36.8404186Z   repository: Kludex/starlette
+2026-07-27T14:03:36.8412671Z   token: ***
+2026-07-27T14:03:36.8413560Z   ssh-strict: true
+2026-07-27T14:03:36.8414352Z   ssh-user: git
+2026-07-27T14:03:36.8415127Z   clean: true
+2026-07-27T14:03:36.8415923Z   sparse-checkout-cone-mode: true
+2026-07-27T14:03:36.8416868Z   fetch-depth: 1
+2026-07-27T14:03:36.8417631Z   fetch-tags: false
+2026-07-27T14:03:36.8418659Z   show-progress: true
+2026-07-27T14:03:36.8419488Z   lfs: false
+2026-07-27T14:03:36.8420253Z   submodules: false
+2026-07-27T14:03:36.8421082Z   set-safe-directory: true
+2026-07-27T14:03:36.8421990Z   allow-unsafe-pr-checkout: false
+2026-07-27T14:03:36.8423387Z ##[endgroup]
+2026-07-27T14:03:36.9520178Z Syncing repository: Kludex/starlette
+2026-07-27T14:03:36.9522234Z ##[group]Getting Git version info
+2026-07-27T14:03:36.9523280Z Working directory is '/home/runner/work/starlette/starlette'
+2026-07-27T14:03:36.9524542Z [command]/usr/bin/git version
+2026-07-27T14:03:36.9612192Z git version 2.54.0
+2026-07-27T14:03:36.9634208Z ##[endgroup]
+2026-07-27T14:03:36.9646832Z Temporarily overriding HOME='/home/runner/work/_temp/780affb3-c5b9-430d-a887-769024ea31a2' before making global git config changes
+2026-07-27T14:03:36.9649889Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-27T14:03:36.9652057Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/starlette/starlette
+2026-07-27T14:03:36.9706921Z Deleting the contents of '/home/runner/work/starlette/starlette'
+2026-07-27T14:03:36.9712389Z ##[group]Determining repository object format
+2026-07-27T14:03:36.9713981Z ##[endgroup]
+2026-07-27T14:03:36.9715126Z ##[group]Initializing the repository
+2026-07-27T14:03:36.9717937Z [command]/usr/bin/git init /home/runner/work/starlette/starlette
+2026-07-27T14:03:36.9828719Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-07-27T14:03:36.9831281Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-07-27T14:03:36.9834001Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-07-27T14:03:36.9836297Z hint: call:
+2026-07-27T14:03:36.9837720Z hint:
+2026-07-27T14:03:36.9839708Z hint: 	git config --global init.defaultBranch <name>
+2026-07-27T14:03:36.9841388Z hint:
+2026-07-27T14:03:36.9842861Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-07-27T14:03:36.9845223Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-07-27T14:03:36.9847409Z hint:
+2026-07-27T14:03:36.9849507Z hint: 	git branch -m <name>
+2026-07-27T14:03:36.9850735Z hint:
+2026-07-27T14:03:36.9852098Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-07-27T14:03:36.9854198Z Initialized empty Git repository in /home/runner/work/starlette/starlette/.git/
+2026-07-27T14:03:36.9857492Z [command]/usr/bin/git remote add origin https://github.com/Kludex/starlette
+2026-07-27T14:03:36.9902122Z ##[endgroup]
+2026-07-27T14:03:36.9904239Z ##[group]Disabling automatic garbage collection
+2026-07-27T14:03:36.9906157Z [command]/usr/bin/git config --local gc.auto 0
+2026-07-27T14:03:36.9938594Z ##[endgroup]
+2026-07-27T14:03:36.9940513Z ##[group]Setting up auth
+2026-07-27T14:03:36.9941539Z Removing SSH command configuration
+2026-07-27T14:03:36.9945562Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:36.9983900Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:37.0356010Z Removing HTTP extra header
+2026-07-27T14:03:37.0362863Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:37.0401642Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:37.0630723Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:37.0635640Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:37.0669791Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:37.0963571Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-7aa9942b-81da-42e1-876c-a5017130f12e.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-07-27T14:03:37.1006161Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/starlette/starlette/.git.path /home/runner/work/_temp/git-credentials-7aa9942b-81da-42e1-876c-a5017130f12e.config
+2026-07-27T14:03:37.1040663Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-7aa9942b-81da-42e1-876c-a5017130f12e.config
+2026-07-27T14:03:37.1080823Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-7aa9942b-81da-42e1-876c-a5017130f12e.config
+2026-07-27T14:03:37.1113155Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-7aa9942b-81da-42e1-876c-a5017130f12e.config
+2026-07-27T14:03:37.1141492Z ##[endgroup]
+2026-07-27T14:03:37.1142673Z ##[group]Fetching the repository
+2026-07-27T14:03:37.1151314Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +1148c37d2bf838b1b9e427537abbc19c181e2654:refs/remotes/pull/3284/merge
+2026-07-27T14:03:37.8627379Z From https://github.com/Kludex/starlette
+2026-07-27T14:03:37.8629441Z  * [new ref]         1148c37d2bf838b1b9e427537abbc19c181e2654 -> pull/3284/merge
+2026-07-27T14:03:37.8670836Z ##[endgroup]
+2026-07-27T14:03:37.8672436Z ##[group]Determining the checkout info
+2026-07-27T14:03:37.8674223Z ##[endgroup]
+2026-07-27T14:03:37.8675935Z [command]/usr/bin/git sparse-checkout disable
+2026-07-27T14:03:37.8729349Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-07-27T14:03:37.8760630Z ##[group]Checking out the ref
+2026-07-27T14:03:37.8763959Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/3284/merge
+2026-07-27T14:03:37.9022691Z Note: switching to 'refs/remotes/pull/3284/merge'.
+2026-07-27T14:03:37.9024479Z 
+2026-07-27T14:03:37.9026281Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-07-27T14:03:37.9029742Z changes and commit them, and you can discard any commits you make in this
+2026-07-27T14:03:37.9033104Z state without impacting any branches by switching back to a branch.
+2026-07-27T14:03:37.9035268Z 
+2026-07-27T14:03:37.9036818Z If you want to create a new branch to retain commits you create, you may
+2026-07-27T14:03:37.9039960Z do so (now or later) by using -c with the switch command. Example:
+2026-07-27T14:03:37.9041406Z 
+2026-07-27T14:03:37.9042018Z   git switch -c <new-branch-name>
+2026-07-27T14:03:37.9042993Z 
+2026-07-27T14:03:37.9043576Z Or undo this operation with:
+2026-07-27T14:03:37.9044488Z 
+2026-07-27T14:03:37.9045013Z   git switch -
+2026-07-27T14:03:37.9046055Z 
+2026-07-27T14:03:37.9047212Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-07-27T14:03:37.9049163Z 
+2026-07-27T14:03:37.9050943Z HEAD is now at 1148c37 Merge 75c24d60c891029625048663b898f20ade55b0b4 into 5174d4c8358a6f06aa8056bafd14c2272dab8dd1
+2026-07-27T14:03:37.9057039Z ##[endgroup]
+2026-07-27T14:03:37.9084448Z [command]/usr/bin/git log -1 --format=%H
+2026-07-27T14:03:37.9117801Z 1148c37d2bf838b1b9e427537abbc19c181e2654
+2026-07-27T14:03:37.9128518Z ##[group]Removing auth
+2026-07-27T14:03:37.9130640Z Removing SSH command configuration
+2026-07-27T14:03:37.9133521Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:37.9170774Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:37.9403319Z Removing HTTP extra header
+2026-07-27T14:03:37.9407335Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:37.9445582Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:37.9677753Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:37.9682279Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:37.9712243Z includeif.gitdir:/home/runner/work/starlette/starlette/.git.path
+2026-07-27T14:03:37.9715183Z includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path
+2026-07-27T14:03:37.9717364Z includeif.gitdir:/github/workspace/.git.path
+2026-07-27T14:03:37.9719433Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-27T14:03:37.9725054Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/starlette/starlette/.git.path
+2026-07-27T14:03:37.9747304Z /home/runner/work/_temp/git-credentials-7aa9942b-81da-42e1-876c-a5017130f12e.config
+2026-07-27T14:03:37.9759019Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/starlette/starlette/.git.path /home/runner/work/_temp/git-credentials-7aa9942b-81da-42e1-876c-a5017130f12e.config
+2026-07-27T14:03:37.9794178Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path
+2026-07-27T14:03:37.9822367Z /home/runner/work/_temp/git-credentials-7aa9942b-81da-42e1-876c-a5017130f12e.config
+2026-07-27T14:03:37.9831724Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-7aa9942b-81da-42e1-876c-a5017130f12e.config
+2026-07-27T14:03:37.9866005Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-07-27T14:03:37.9890359Z /github/runner_temp/git-credentials-7aa9942b-81da-42e1-876c-a5017130f12e.config
+2026-07-27T14:03:37.9902240Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-7aa9942b-81da-42e1-876c-a5017130f12e.config
+2026-07-27T14:03:37.9972432Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-27T14:03:38.0017308Z /github/runner_temp/git-credentials-7aa9942b-81da-42e1-876c-a5017130f12e.config
+2026-07-27T14:03:38.0039172Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-7aa9942b-81da-42e1-876c-a5017130f12e.config
+2026-07-27T14:03:38.0072031Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:38.0303238Z Removing credentials config '/home/runner/work/_temp/git-credentials-7aa9942b-81da-42e1-876c-a5017130f12e.config'
+2026-07-27T14:03:38.0311435Z ##[endgroup]
+2026-07-27T14:03:38.0839404Z ##[group]Run astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39
+2026-07-27T14:03:38.0841063Z with:
+2026-07-27T14:03:38.0841918Z   python-version: 3.13
+2026-07-27T14:03:38.0842929Z   enable-cache: true
+2026-07-27T14:03:38.0843907Z   activate-environment: false
+2026-07-27T14:03:38.0844974Z   no-project: false
+2026-07-27T14:03:38.0846147Z   working-directory: /home/runner/work/starlette/starlette
+2026-07-27T14:03:38.0856287Z   github-token: ***
+2026-07-27T14:03:38.0858692Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-07-27T14:03:38.0861257Z   restore-cache: true
+2026-07-27T14:03:38.0862197Z   save-cache: true
+2026-07-27T14:03:38.0863097Z   prune-cache: true
+2026-07-27T14:03:38.0864029Z   cache-python: false
+2026-07-27T14:03:38.0865025Z   ignore-nothing-to-cache: false
+2026-07-27T14:03:38.0866149Z   ignore-empty-workdir: false
+2026-07-27T14:03:38.0867315Z   download-from-astral-mirror: true
+2026-07-27T14:03:38.0868640Z   add-problem-matchers: true
+2026-07-27T14:03:38.0869690Z   quiet: false
+2026-07-27T14:03:38.0870594Z   resolution-strategy: highest
+2026-07-27T14:03:38.0871647Z ##[endgroup]
+2026-07-27T14:03:38.2751210Z Trying to find version for uv in: /home/runner/work/starlette/starlette/uv.toml
+2026-07-27T14:03:38.2754639Z Could not find file: /home/runner/work/starlette/starlette/uv.toml
+2026-07-27T14:03:38.2758044Z Trying to find version for uv in: /home/runner/work/starlette/starlette/pyproject.toml
+2026-07-27T14:03:38.2761798Z Found version for uv in /home/runner/work/starlette/starlette/pyproject.toml: >=0.8.6
+2026-07-27T14:03:38.2772000Z Found minimum version specifier, using latest version
+2026-07-27T14:03:38.2774248Z Fetching manifest data from https://raw.githubusercontent.com/astral-sh/versions/main/v1/uv.ndjson ...
+2026-07-27T14:03:38.4019000Z Downloading uv from "https://releases.astral.sh/github/uv/releases/download/0.11.32/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-07-27T14:03:38.7548647Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/a303d335-7eb4-4580-a134-b49550a005ef -f /home/runner/work/_temp/eb2ee0c1-ce83-4297-8791-d3f27f161b7f
+2026-07-27T14:03:39.3029935Z Added /home/runner/.local/bin to the path
+2026-07-27T14:03:39.3030983Z Added /opt/hostedtoolcache/uv/0.11.32/x86_64 to the path
+2026-07-27T14:03:39.3031871Z Set UV_PYTHON_INSTALL_DIR to /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:39.3032685Z Added /home/runner/work/_temp/uv-python-dir to the path
+2026-07-27T14:03:39.3033709Z Set UV_PYTHON to 3.13
+2026-07-27T14:03:39.3057402Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:39.3057888Z Successfully installed uv version 0.11.32
+2026-07-27T14:03:39.3063189Z Searching files using cache dependency glob: /home/runner/work/starlette/starlette/**/*requirements*.txt,/home/runner/work/starlette/starlette/**/*requirements*.in,/home/runner/work/starlette/starlette/**/*constraints*.txt,/home/runner/work/starlette/starlette/**/*constraints*.in,/home/runner/work/starlette/starlette/**/pyproject.toml,/home/runner/work/starlette/starlette/**/uv.lock,/home/runner/work/starlette/starlette/**/*.py.lock
+2026-07-27T14:03:39.3259827Z /home/runner/work/starlette/starlette/pyproject.toml
+2026-07-27T14:03:39.3410029Z /home/runner/work/starlette/starlette/uv.lock
+2026-07-27T14:03:39.3426670Z Found 2 files to hash.
+2026-07-27T14:03:39.3505265Z Trying to restore cache from GitHub Actions cache with key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.13-pruned-eda24f1f8146801859ca8c8dd799c42243fdb37ca10b95e5b2947624b5757e7f
+2026-07-27T14:03:39.6729643Z No GitHub Actions cache found for key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.13-pruned-eda24f1f8146801859ca8c8dd799c42243fdb37ca10b95e5b2947624b5757e7f
+2026-07-27T14:03:39.7913412Z ##[group]Run scripts/install
+2026-07-27T14:03:39.7913817Z [36;1mscripts/install[0m
+2026-07-27T14:03:39.7964449Z shell: /usr/bin/bash -e {0}
+2026-07-27T14:03:39.7964765Z env:
+2026-07-27T14:03:39.7965089Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:39.7965503Z   UV_PYTHON: 3.13
+2026-07-27T14:03:39.7965801Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:39.7966159Z ##[endgroup]
+2026-07-27T14:03:39.8072372Z + uv sync --frozen
+2026-07-27T14:03:40.0647035Z Downloading cpython-3.13.14-linux-x86_64-gnu (download) (33.2MiB)
+2026-07-27T14:03:41.1748899Z  Downloaded cpython-3.13.14-linux-x86_64-gnu (download)
+2026-07-27T14:03:41.3287262Z Using CPython 3.13.14
+2026-07-27T14:03:41.3287856Z Creating virtual environment at: .venv
+2026-07-27T14:03:41.3476015Z    Building starlette @ file:///home/runner/work/starlette/starlette
+2026-07-27T14:03:41.3822514Z Downloading pygments (1.2MiB)
+2026-07-27T14:03:41.3999607Z Downloading black (1.8MiB)
+2026-07-27T14:03:41.4005254Z Downloading ast-serialize (1.2MiB)
+2026-07-27T14:03:41.4014705Z Downloading ruff (11.1MiB)
+2026-07-27T14:03:41.4018427Z Downloading zstandard (5.3MiB)
+2026-07-27T14:03:41.4028881Z Downloading cryptography (4.5MiB)
+2026-07-27T14:03:41.4030091Z Downloading mkdocs (3.7MiB)
+2026-07-27T14:03:41.4034154Z Downloading zensical (12.5MiB)
+2026-07-27T14:03:41.4041046Z Downloading mypy (14.3MiB)
+2026-07-27T14:03:41.7456689Z  Downloaded ast-serialize
+2026-07-27T14:03:42.0556166Z  Downloaded zstandard
+2026-07-27T14:03:42.0803341Z  Downloaded black
+2026-07-27T14:03:42.0836451Z  Downloaded ruff
+2026-07-27T14:03:42.0950490Z  Downloaded mkdocs
+2026-07-27T14:03:42.1388611Z  Downloaded cryptography
+2026-07-27T14:03:42.1816811Z  Downloaded pygments
+2026-07-27T14:03:42.5011381Z  Downloaded mypy
+2026-07-27T14:03:43.0236787Z       Built starlette @ file:///home/runner/work/starlette/starlette
+2026-07-27T14:03:44.5362415Z  Downloaded zensical
+2026-07-27T14:03:44.5367675Z Prepared 81 packages in 3.20s
+2026-07-27T14:03:45.0411079Z Installed 81 packages in 504ms
+2026-07-27T14:03:45.0411776Z  + anyio==4.14.0
+2026-07-27T14:03:45.0412381Z  + ast-serialize==0.5.0
+2026-07-27T14:03:45.0413035Z  + attrs==25.3.0
+2026-07-27T14:03:45.0413689Z  + black==26.5.1
+2026-07-27T14:03:45.0414306Z  + certifi==2025.8.3
+2026-07-27T14:03:45.0414896Z  + cffi==2.0.0
+2026-07-27T14:03:45.0415512Z  + charset-normalizer==3.4.3
+2026-07-27T14:03:45.0416405Z  + click==8.2.1
+2026-07-27T14:03:45.0417155Z  + coverage==7.14.3
+2026-07-27T14:03:45.0417819Z  + cryptography==48.0.1
+2026-07-27T14:03:45.0418707Z  + deepmerge==2.0
+2026-07-27T14:03:45.0419260Z  + docutils==0.22
+2026-07-27T14:03:45.0419823Z  + ghp-import==2.1.0
+2026-07-27T14:03:45.0420425Z  + griffelib==2.0.0
+2026-07-27T14:03:45.0420973Z  + h11==0.16.0
+2026-07-27T14:03:45.0421962Z  + httpcore==1.0.9
+2026-07-27T14:03:45.0422531Z  + httpcore2==2.4.0
+2026-07-27T14:03:45.0423083Z  + httpx==0.28.1
+2026-07-27T14:03:45.0423627Z  + httpx2==2.4.0
+2026-07-27T14:03:45.0424165Z  + id==1.5.0
+2026-07-27T14:03:45.0424695Z  + idna==3.18
+2026-07-27T14:03:45.0425267Z  + importlib-metadata==9.0.0
+2026-07-27T14:03:45.0425954Z  + iniconfig==2.1.0
+2026-07-27T14:03:45.0426532Z  + itsdangerous==2.2.0
+2026-07-27T14:03:45.0427129Z  + jaraco-classes==3.4.0
+2026-07-27T14:03:45.0427766Z  + jaraco-context==6.0.1
+2026-07-27T14:03:45.0428699Z  + jaraco-functools==4.3.0
+2026-07-27T14:03:45.0429156Z  + jeepney==0.9.0
+2026-07-27T14:03:45.0429503Z  + jinja2==3.1.6
+2026-07-27T14:03:45.0429842Z  + keyring==25.6.0
+2026-07-27T14:03:45.0430183Z  + librt==0.11.0
+2026-07-27T14:03:45.0430520Z  + markdown==3.9
+2026-07-27T14:03:45.0430880Z  + markdown-it-py==4.0.0
+2026-07-27T14:03:45.0431290Z  + markupsafe==3.0.2
+2026-07-27T14:03:45.0431651Z  + mdurl==0.1.2
+2026-07-27T14:03:45.0432065Z  + mergedeep==1.3.4
+2026-07-27T14:03:45.0432431Z  + mkdocs==1.6.1
+2026-07-27T14:03:45.0432788Z  + mkdocs-autorefs==1.4.3
+2026-07-27T14:03:45.0433200Z  + mkdocs-get-deps==0.2.0
+2026-07-27T14:03:45.0433612Z  + mkdocstrings==1.0.4
+2026-07-27T14:03:45.0434374Z  + mkdocstrings-python==2.0.5
+2026-07-27T14:03:45.0434841Z  + more-itertools==10.8.0
+2026-07-27T14:03:45.0435234Z  + mypy==2.1.0
+2026-07-27T14:03:45.0435586Z  + mypy-extensions==1.1.0
+2026-07-27T14:03:45.0435967Z  + nh3==0.3.0
+2026-07-27T14:03:45.0436300Z  + outcome==1.3.0.post0
+2026-07-27T14:03:45.0436678Z  + packaging==25.0
+2026-07-27T14:03:45.0437027Z  + pathspec==1.0.4
+2026-07-27T14:03:45.0437381Z  + platformdirs==4.4.0
+2026-07-27T14:03:45.0437745Z  + pluggy==1.6.0
+2026-07-27T14:03:45.0438098Z  + pycparser==2.22
+2026-07-27T14:03:45.0438656Z  + pygments==2.20.0
+2026-07-27T14:03:45.0439041Z  + pymdown-extensions==10.21.3
+2026-07-27T14:03:45.0439454Z  + pytest==9.1.1
+2026-07-27T14:03:45.0439809Z  + python-dateutil==2.9.0.post0
+2026-07-27T14:03:45.0440245Z  + python-multipart==0.0.32
+2026-07-27T14:03:45.0440655Z  + pytokens==0.4.1
+2026-07-27T14:03:45.0440996Z  + pyyaml==6.0.3
+2026-07-27T14:03:45.0441349Z  + pyyaml-env-tag==1.1
+2026-07-27T14:03:45.0441726Z  + readme-renderer==44.0
+2026-07-27T14:03:45.0442113Z  + requests==2.33.0
+2026-07-27T14:03:45.0442471Z  + requests-toolbelt==1.0.0
+2026-07-27T14:03:45.0442861Z  + rfc3986==2.0.0
+2026-07-27T14:03:45.0443187Z  + rich==14.1.0
+2026-07-27T14:03:45.0443667Z  + ruff==0.15.19
+2026-07-27T14:03:45.0444165Z  + secretstorage==3.3.3
+2026-07-27T14:03:45.0444627Z  + six==1.17.0
+2026-07-27T14:03:45.0445109Z  + sniffio==1.3.1
+2026-07-27T14:03:45.0445601Z  + sortedcontainers==2.4.0
+2026-07-27T14:03:45.0446582Z  + starlette==1.3.1 (from file:///home/runner/work/starlette/starlette)
+2026-07-27T14:03:45.0447203Z  + tomli==2.4.1
+2026-07-27T14:03:45.0447529Z  + trio==0.33.0
+2026-07-27T14:03:45.0447980Z  + truststore==0.10.4
+2026-07-27T14:03:45.0448540Z  + twine==6.2.0
+2026-07-27T14:03:45.0449287Z  + types-pyyaml==6.0.12.20250516
+2026-07-27T14:03:45.0449810Z  + typing-extensions==4.15.0
+2026-07-27T14:03:45.0450239Z  + urllib3==2.7.0
+2026-07-27T14:03:45.0450588Z  + watchdog==6.0.0
+2026-07-27T14:03:45.0450933Z  + zensical==0.0.46
+2026-07-27T14:03:45.0451311Z  + zipp==3.23.0
+2026-07-27T14:03:45.0451593Z  + zstandard==0.25.0
+2026-07-27T14:03:45.0634862Z ##[group]Run scripts/check
+2026-07-27T14:03:45.0635171Z [36;1mscripts/check[0m
+2026-07-27T14:03:45.0680650Z shell: /usr/bin/bash -e {0}
+2026-07-27T14:03:45.0680937Z env:
+2026-07-27T14:03:45.0681239Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:45.0681633Z   UV_PYTHON: 3.13
+2026-07-27T14:03:45.0681913Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:45.0682249Z ##[endgroup]
+2026-07-27T14:03:45.0926288Z + ./scripts/sync-version
+2026-07-27T14:03:45.0983521Z + uv run ruff format --check --diff starlette tests
+2026-07-27T14:03:45.2190263Z 67 files already formatted
+2026-07-27T14:03:45.2222940Z + uv run mypy starlette tests
+2026-07-27T14:03:50.1096477Z starlette/testclient.py:118: error: Cannot assign multiple types to name "_PortalFactoryType" without an explicit "type[...]" annotation  [misc]
+2026-07-27T14:03:50.1099973Z starlette/testclient.py:499: error: Argument "portal_factory" to "_TestClientTransport" has incompatible type "Callable[[], _GeneratorContextManager[_Portal, None, None]]"; expected "Callable[[], AbstractContextManager[BlockingPortal, bool | None]]"  [arg-type]
+2026-07-27T14:03:50.6692943Z Found 2 errors in 1 file (checked 67 source files)
+2026-07-27T14:03:50.6985206Z ##[error]The operation was canceled.
+2026-07-27T14:03:50.7157758Z Post job cleanup.
+2026-07-27T14:03:50.8010042Z [command]/usr/bin/git version
+2026-07-27T14:03:50.8048798Z git version 2.54.0
+2026-07-27T14:03:50.8086231Z Temporarily overriding HOME='/home/runner/work/_temp/fa0c0709-fc7b-4389-b487-5762abe9d560' before making global git config changes
+2026-07-27T14:03:50.8088077Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-27T14:03:50.8092260Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/starlette/starlette
+2026-07-27T14:03:50.8127366Z Removing SSH command configuration
+2026-07-27T14:03:50.8134511Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:50.8171583Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:50.8395746Z Removing HTTP extra header
+2026-07-27T14:03:50.8402328Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:50.8450830Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:50.8704172Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:50.8712396Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:50.8755317Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:50.9158076Z Cleaning up orphan processes
+
+﻿2026-07-27T14:03:36.8494299Z Current runner version: '2.336.0'
+2026-07-27T14:03:36.8521632Z ##[group]Runner Image Provisioner
+2026-07-27T14:03:36.8522761Z Hosted Compute Agent
+2026-07-27T14:03:36.8523390Z Version: 20260707.563
+2026-07-27T14:03:36.8524206Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-07-27T14:03:36.8524953Z Build Date: 2026-07-07T19:33:50Z
+2026-07-27T14:03:36.8525688Z Worker ID: {d52e0e33-9f99-4add-88f8-c14f269f4940}
+2026-07-27T14:03:36.8526809Z Azure Region: westus3
+2026-07-27T14:03:36.8527403Z ##[endgroup]
+2026-07-27T14:03:36.8529077Z ##[group]Operating System
+2026-07-27T14:03:36.8529742Z Ubuntu
+2026-07-27T14:03:36.8530260Z 24.04.4
+2026-07-27T14:03:36.8530873Z LTS
+2026-07-27T14:03:36.8531395Z ##[endgroup]
+2026-07-27T14:03:36.8532028Z ##[group]Runner Image
+2026-07-27T14:03:36.8532653Z Image: ubuntu-24.04
+2026-07-27T14:03:36.8533232Z Version: 20260720.247.2
+2026-07-27T14:03:36.8534551Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260720.247/images/ubuntu/Ubuntu2404-Readme.md
+2026-07-27T14:03:36.8536450Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260720.247
+2026-07-27T14:03:36.8537530Z ##[endgroup]
+2026-07-27T14:03:36.8538716Z ##[group]GITHUB_TOKEN Permissions
+2026-07-27T14:03:36.8540743Z Contents: read
+2026-07-27T14:03:36.8541395Z Metadata: read
+2026-07-27T14:03:36.8542039Z ##[endgroup]
+2026-07-27T14:03:36.8544206Z Secret source: None
+2026-07-27T14:03:36.8545338Z Prepare workflow directory
+2026-07-27T14:03:36.8958430Z Prepare all required actions
+2026-07-27T14:03:36.9003805Z Getting action download info
+2026-07-27T14:03:37.2273945Z Download action repository 'actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0' (SHA:9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0)
+2026-07-27T14:03:38.0347955Z Download action repository 'astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39' (SHA:fac544c07dec837d0ccb6301d7b5580bf5edae39)
+2026-07-27T14:03:39.1790419Z Complete job name: Python 3.11
+2026-07-27T14:03:39.2858364Z ##[group]Run actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+2026-07-27T14:03:39.2860266Z with:
+2026-07-27T14:03:39.2861151Z   persist-credentials: false
+2026-07-27T14:03:39.2862226Z   repository: Kludex/starlette
+2026-07-27T14:03:39.2871924Z   token: ***
+2026-07-27T14:03:39.2872802Z   ssh-strict: true
+2026-07-27T14:03:39.2873686Z   ssh-user: git
+2026-07-27T14:03:39.2874547Z   clean: true
+2026-07-27T14:03:39.2875452Z   sparse-checkout-cone-mode: true
+2026-07-27T14:03:39.2876756Z   fetch-depth: 1
+2026-07-27T14:03:39.2877643Z   fetch-tags: false
+2026-07-27T14:03:39.2878598Z   show-progress: true
+2026-07-27T14:03:39.2879528Z   lfs: false
+2026-07-27T14:03:39.2880377Z   submodules: false
+2026-07-27T14:03:39.2881302Z   set-safe-directory: true
+2026-07-27T14:03:39.2882339Z   allow-unsafe-pr-checkout: false
+2026-07-27T14:03:39.2883756Z ##[endgroup]
+2026-07-27T14:03:39.3944861Z Syncing repository: Kludex/starlette
+2026-07-27T14:03:39.3948142Z ##[group]Getting Git version info
+2026-07-27T14:03:39.3949711Z Working directory is '/home/runner/work/starlette/starlette'
+2026-07-27T14:03:39.3951900Z [command]/usr/bin/git version
+2026-07-27T14:03:39.4002118Z git version 2.54.0
+2026-07-27T14:03:39.4028860Z ##[endgroup]
+2026-07-27T14:03:39.4040202Z Temporarily overriding HOME='/home/runner/work/_temp/4ff334da-29de-493e-9266-ec294f1ba29e' before making global git config changes
+2026-07-27T14:03:39.4045684Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-27T14:03:39.4050664Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/starlette/starlette
+2026-07-27T14:03:39.4097198Z Deleting the contents of '/home/runner/work/starlette/starlette'
+2026-07-27T14:03:39.4100910Z ##[group]Determining repository object format
+2026-07-27T14:03:39.4103354Z ##[endgroup]
+2026-07-27T14:03:39.4105072Z ##[group]Initializing the repository
+2026-07-27T14:03:39.4107394Z [command]/usr/bin/git init /home/runner/work/starlette/starlette
+2026-07-27T14:03:39.4246452Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-07-27T14:03:39.4250643Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-07-27T14:03:39.4253846Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-07-27T14:03:39.4256882Z hint: call:
+2026-07-27T14:03:39.4257969Z hint:
+2026-07-27T14:03:39.4259220Z hint: 	git config --global init.defaultBranch <name>
+2026-07-27T14:03:39.4261296Z hint:
+2026-07-27T14:03:39.4262824Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-07-27T14:03:39.4265032Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-07-27T14:03:39.4267293Z hint:
+2026-07-27T14:03:39.4268604Z hint: 	git branch -m <name>
+2026-07-27T14:03:39.4269724Z hint:
+2026-07-27T14:03:39.4271166Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-07-27T14:03:39.4273556Z Initialized empty Git repository in /home/runner/work/starlette/starlette/.git/
+2026-07-27T14:03:39.4277906Z [command]/usr/bin/git remote add origin https://github.com/Kludex/starlette
+2026-07-27T14:03:39.4311541Z ##[endgroup]
+2026-07-27T14:03:39.4314242Z ##[group]Disabling automatic garbage collection
+2026-07-27T14:03:39.4315918Z [command]/usr/bin/git config --local gc.auto 0
+2026-07-27T14:03:39.4345991Z ##[endgroup]
+2026-07-27T14:03:39.4348246Z ##[group]Setting up auth
+2026-07-27T14:03:39.4349680Z Removing SSH command configuration
+2026-07-27T14:03:39.4352124Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:39.4387407Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:39.4734440Z Removing HTTP extra header
+2026-07-27T14:03:39.4742133Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:39.4775263Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:39.5001804Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:39.5005645Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:39.5039567Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:39.5273018Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-44153563-a183-4d7e-84b3-87a456d92f90.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-07-27T14:03:39.5311546Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/starlette/starlette/.git.path /home/runner/work/_temp/git-credentials-44153563-a183-4d7e-84b3-87a456d92f90.config
+2026-07-27T14:03:39.5343924Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-44153563-a183-4d7e-84b3-87a456d92f90.config
+2026-07-27T14:03:39.5378324Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-44153563-a183-4d7e-84b3-87a456d92f90.config
+2026-07-27T14:03:39.5408981Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-44153563-a183-4d7e-84b3-87a456d92f90.config
+2026-07-27T14:03:39.5437686Z ##[endgroup]
+2026-07-27T14:03:39.5443828Z ##[group]Fetching the repository
+2026-07-27T14:03:39.5446890Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +1148c37d2bf838b1b9e427537abbc19c181e2654:refs/remotes/pull/3284/merge
+2026-07-27T14:03:40.7064900Z From https://github.com/Kludex/starlette
+2026-07-27T14:03:40.7066428Z  * [new ref]         1148c37d2bf838b1b9e427537abbc19c181e2654 -> pull/3284/merge
+2026-07-27T14:03:40.7105973Z ##[endgroup]
+2026-07-27T14:03:40.7107609Z ##[group]Determining the checkout info
+2026-07-27T14:03:40.7108790Z ##[endgroup]
+2026-07-27T14:03:40.7114826Z [command]/usr/bin/git sparse-checkout disable
+2026-07-27T14:03:40.7164941Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-07-27T14:03:40.7196408Z ##[group]Checking out the ref
+2026-07-27T14:03:40.7201128Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/3284/merge
+2026-07-27T14:03:40.7460333Z Note: switching to 'refs/remotes/pull/3284/merge'.
+2026-07-27T14:03:40.7461556Z 
+2026-07-27T14:03:40.7462404Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-07-27T14:03:40.7463744Z changes and commit them, and you can discard any commits you make in this
+2026-07-27T14:03:40.7465524Z state without impacting any branches by switching back to a branch.
+2026-07-27T14:03:40.7467139Z 
+2026-07-27T14:03:40.7468125Z If you want to create a new branch to retain commits you create, you may
+2026-07-27T14:03:40.7469105Z do so (now or later) by using -c with the switch command. Example:
+2026-07-27T14:03:40.7469750Z 
+2026-07-27T14:03:40.7470085Z   git switch -c <new-branch-name>
+2026-07-27T14:03:40.7470488Z 
+2026-07-27T14:03:40.7470702Z Or undo this operation with:
+2026-07-27T14:03:40.7471047Z 
+2026-07-27T14:03:40.7471342Z   git switch -
+2026-07-27T14:03:40.7471761Z 
+2026-07-27T14:03:40.7472336Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-07-27T14:03:40.7472966Z 
+2026-07-27T14:03:40.7473602Z HEAD is now at 1148c37 Merge 75c24d60c891029625048663b898f20ade55b0b4 into 5174d4c8358a6f06aa8056bafd14c2272dab8dd1
+2026-07-27T14:03:40.7475876Z ##[endgroup]
+2026-07-27T14:03:40.7520588Z [command]/usr/bin/git log -1 --format=%H
+2026-07-27T14:03:40.7546747Z 1148c37d2bf838b1b9e427537abbc19c181e2654
+2026-07-27T14:03:40.7559205Z ##[group]Removing auth
+2026-07-27T14:03:40.7560348Z Removing SSH command configuration
+2026-07-27T14:03:40.7563054Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:40.7599507Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:40.7846539Z Removing HTTP extra header
+2026-07-27T14:03:40.7850851Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:40.7890288Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:40.8151632Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:40.8152948Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:40.8174388Z includeif.gitdir:/home/runner/work/starlette/starlette/.git.path
+2026-07-27T14:03:40.8175469Z includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path
+2026-07-27T14:03:40.8176390Z includeif.gitdir:/github/workspace/.git.path
+2026-07-27T14:03:40.8177407Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-27T14:03:40.8188574Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/starlette/starlette/.git.path
+2026-07-27T14:03:40.8216787Z /home/runner/work/_temp/git-credentials-44153563-a183-4d7e-84b3-87a456d92f90.config
+2026-07-27T14:03:40.8225109Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/starlette/starlette/.git.path /home/runner/work/_temp/git-credentials-44153563-a183-4d7e-84b3-87a456d92f90.config
+2026-07-27T14:03:40.8263243Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path
+2026-07-27T14:03:40.8290686Z /home/runner/work/_temp/git-credentials-44153563-a183-4d7e-84b3-87a456d92f90.config
+2026-07-27T14:03:40.8299832Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-44153563-a183-4d7e-84b3-87a456d92f90.config
+2026-07-27T14:03:40.8335271Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-07-27T14:03:40.8358455Z /github/runner_temp/git-credentials-44153563-a183-4d7e-84b3-87a456d92f90.config
+2026-07-27T14:03:40.8377041Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-44153563-a183-4d7e-84b3-87a456d92f90.config
+2026-07-27T14:03:40.8407659Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-27T14:03:40.8433802Z /github/runner_temp/git-credentials-44153563-a183-4d7e-84b3-87a456d92f90.config
+2026-07-27T14:03:40.8474867Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-44153563-a183-4d7e-84b3-87a456d92f90.config
+2026-07-27T14:03:40.8546986Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:40.8792397Z Removing credentials config '/home/runner/work/_temp/git-credentials-44153563-a183-4d7e-84b3-87a456d92f90.config'
+2026-07-27T14:03:40.8801271Z ##[endgroup]
+2026-07-27T14:03:40.9149227Z ##[group]Run astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39
+2026-07-27T14:03:40.9149651Z with:
+2026-07-27T14:03:40.9149852Z   python-version: 3.11
+2026-07-27T14:03:40.9150076Z   enable-cache: true
+2026-07-27T14:03:40.9150299Z   activate-environment: false
+2026-07-27T14:03:40.9150544Z   no-project: false
+2026-07-27T14:03:40.9150827Z   working-directory: /home/runner/work/starlette/starlette
+2026-07-27T14:03:40.9153580Z   github-token: ***
+2026-07-27T14:03:40.9154163Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-07-27T14:03:40.9154829Z   restore-cache: true
+2026-07-27T14:03:40.9155044Z   save-cache: true
+2026-07-27T14:03:40.9155245Z   prune-cache: true
+2026-07-27T14:03:40.9155454Z   cache-python: false
+2026-07-27T14:03:40.9155687Z   ignore-nothing-to-cache: false
+2026-07-27T14:03:40.9155945Z   ignore-empty-workdir: false
+2026-07-27T14:03:40.9156445Z   download-from-astral-mirror: true
+2026-07-27T14:03:40.9156730Z   add-problem-matchers: true
+2026-07-27T14:03:40.9156960Z   quiet: false
+2026-07-27T14:03:40.9157163Z   resolution-strategy: highest
+2026-07-27T14:03:40.9157404Z ##[endgroup]
+2026-07-27T14:03:41.0966836Z Trying to find version for uv in: /home/runner/work/starlette/starlette/uv.toml
+2026-07-27T14:03:41.0968716Z Could not find file: /home/runner/work/starlette/starlette/uv.toml
+2026-07-27T14:03:41.0970209Z Trying to find version for uv in: /home/runner/work/starlette/starlette/pyproject.toml
+2026-07-27T14:03:41.0981418Z Found version for uv in /home/runner/work/starlette/starlette/pyproject.toml: >=0.8.6
+2026-07-27T14:03:41.0984240Z Found minimum version specifier, using latest version
+2026-07-27T14:03:41.0985401Z Fetching manifest data from https://raw.githubusercontent.com/astral-sh/versions/main/v1/uv.ndjson ...
+2026-07-27T14:03:41.1901881Z Downloading uv from "https://releases.astral.sh/github/uv/releases/download/0.11.32/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-07-27T14:03:41.4475500Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/bddbf826-3a28-4784-8554-10e1ae0c40f1 -f /home/runner/work/_temp/c4fbe8b9-b655-4f81-9ce8-d63b44879881
+2026-07-27T14:03:41.9537109Z Added /home/runner/.local/bin to the path
+2026-07-27T14:03:41.9540509Z Added /opt/hostedtoolcache/uv/0.11.32/x86_64 to the path
+2026-07-27T14:03:41.9542382Z Set UV_PYTHON_INSTALL_DIR to /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:41.9543497Z Added /home/runner/work/_temp/uv-python-dir to the path
+2026-07-27T14:03:41.9544637Z Set UV_PYTHON to 3.11
+2026-07-27T14:03:41.9572496Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:41.9573192Z Successfully installed uv version 0.11.32
+2026-07-27T14:03:41.9576568Z Searching files using cache dependency glob: /home/runner/work/starlette/starlette/**/*requirements*.txt,/home/runner/work/starlette/starlette/**/*requirements*.in,/home/runner/work/starlette/starlette/**/*constraints*.txt,/home/runner/work/starlette/starlette/**/*constraints*.in,/home/runner/work/starlette/starlette/**/pyproject.toml,/home/runner/work/starlette/starlette/**/uv.lock,/home/runner/work/starlette/starlette/**/*.py.lock
+2026-07-27T14:03:41.9768229Z /home/runner/work/starlette/starlette/pyproject.toml
+2026-07-27T14:03:41.9886486Z /home/runner/work/starlette/starlette/uv.lock
+2026-07-27T14:03:41.9900051Z Found 2 files to hash.
+2026-07-27T14:03:41.9967222Z Trying to restore cache from GitHub Actions cache with key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.11-pruned-eda24f1f8146801859ca8c8dd799c42243fdb37ca10b95e5b2947624b5757e7f
+2026-07-27T14:03:42.1966028Z No GitHub Actions cache found for key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.11-pruned-eda24f1f8146801859ca8c8dd799c42243fdb37ca10b95e5b2947624b5757e7f
+2026-07-27T14:03:42.3132510Z ##[group]Run scripts/install
+2026-07-27T14:03:42.3132879Z [36;1mscripts/install[0m
+2026-07-27T14:03:42.3180363Z shell: /usr/bin/bash -e {0}
+2026-07-27T14:03:42.3180629Z env:
+2026-07-27T14:03:42.3180906Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:42.3181257Z   UV_PYTHON: 3.11
+2026-07-27T14:03:42.3181517Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:42.3181822Z ##[endgroup]
+2026-07-27T14:03:42.3275519Z + uv sync --frozen
+2026-07-27T14:03:42.5467393Z Downloading cpython-3.11.15-linux-x86_64-gnu (download) (29.5MiB)
+2026-07-27T14:03:43.5673584Z  Downloaded cpython-3.11.15-linux-x86_64-gnu (download)
+2026-07-27T14:03:43.6964319Z Using CPython 3.11.15
+2026-07-27T14:03:43.6964904Z Creating virtual environment at: .venv
+2026-07-27T14:03:43.7168041Z    Building starlette @ file:///home/runner/work/starlette/starlette
+2026-07-27T14:03:43.7580403Z Downloading ast-serialize (1.2MiB)
+2026-07-27T14:03:43.7717020Z Downloading mkdocs (3.7MiB)
+2026-07-27T14:03:43.7730350Z Downloading ruff (11.1MiB)
+2026-07-27T14:03:43.7738875Z Downloading pygments (1.2MiB)
+2026-07-27T14:03:43.7745190Z Downloading zensical (12.5MiB)
+2026-07-27T14:03:43.7746887Z Downloading black (1.8MiB)
+2026-07-27T14:03:43.7748863Z Downloading cryptography (4.5MiB)
+2026-07-27T14:03:43.7754330Z Downloading zstandard (5.3MiB)
+2026-07-27T14:03:43.7761468Z Downloading mypy (14.2MiB)
+2026-07-27T14:03:44.0625245Z  Downloaded ast-serialize
+2026-07-27T14:03:44.3194336Z  Downloaded zstandard
+2026-07-27T14:03:44.3718923Z  Downloaded black
+2026-07-27T14:03:44.4000334Z  Downloaded ruff
+2026-07-27T14:03:44.4018515Z  Downloaded mkdocs
+2026-07-27T14:03:44.4297783Z  Downloaded cryptography
+2026-07-27T14:03:44.4543062Z  Downloaded pygments
+2026-07-27T14:03:44.7381207Z  Downloaded mypy
+2026-07-27T14:03:45.0730637Z       Built starlette @ file:///home/runner/work/starlette/starlette
+2026-07-27T14:03:46.6597366Z  Downloaded zensical
+2026-07-27T14:03:46.6604134Z Prepared 82 packages in 2.95s
+2026-07-27T14:03:47.0537194Z Installed 82 packages in 393ms
+2026-07-27T14:03:47.0537818Z  + anyio==4.14.0
+2026-07-27T14:03:47.0538194Z  + ast-serialize==0.5.0
+2026-07-27T14:03:47.0538614Z  + attrs==25.3.0
+2026-07-27T14:03:47.0538988Z  + backports-tarfile==1.2.0
+2026-07-27T14:03:47.0539413Z  + black==26.5.1
+2026-07-27T14:03:47.0539785Z  + certifi==2025.8.3
+2026-07-27T14:03:47.0540153Z  + cffi==2.0.0
+2026-07-27T14:03:47.0540532Z  + charset-normalizer==3.4.3
+2026-07-27T14:03:47.0540964Z  + click==8.2.1
+2026-07-27T14:03:47.0541318Z  + coverage==7.14.3
+2026-07-27T14:03:47.0541712Z  + cryptography==48.0.1
+2026-07-27T14:03:47.0542105Z  + deepmerge==2.0
+2026-07-27T14:03:47.0542471Z  + docutils==0.22
+2026-07-27T14:03:47.0542833Z  + ghp-import==2.1.0
+2026-07-27T14:03:47.0543565Z  + griffelib==2.0.0
+2026-07-27T14:03:47.0543915Z  + h11==0.16.0
+2026-07-27T14:03:47.0544274Z  + httpcore==1.0.9
+2026-07-27T14:03:47.0544622Z  + httpcore2==2.4.0
+2026-07-27T14:03:47.0544932Z  + httpx==0.28.1
+2026-07-27T14:03:47.0545241Z  + httpx2==2.4.0
+2026-07-27T14:03:47.0552400Z  + id==1.5.0
+2026-07-27T14:03:47.0552746Z  + idna==3.18
+2026-07-27T14:03:47.0553112Z  + importlib-metadata==9.0.0
+2026-07-27T14:03:47.0553543Z  + iniconfig==2.1.0
+2026-07-27T14:03:47.0553910Z  + itsdangerous==2.2.0
+2026-07-27T14:03:47.0554304Z  + jaraco-classes==3.4.0
+2026-07-27T14:03:47.0554697Z  + jaraco-context==6.0.1
+2026-07-27T14:03:47.0555093Z  + jaraco-functools==4.3.0
+2026-07-27T14:03:47.0555485Z  + jeepney==0.9.0
+2026-07-27T14:03:47.0555826Z  + jinja2==3.1.6
+2026-07-27T14:03:47.0556394Z  + keyring==25.6.0
+2026-07-27T14:03:47.0556733Z  + librt==0.11.0
+2026-07-27T14:03:47.0557080Z  + markdown==3.9
+2026-07-27T14:03:47.0557431Z  + markdown-it-py==4.0.0
+2026-07-27T14:03:47.0557830Z  + markupsafe==3.0.2
+2026-07-27T14:03:47.0558203Z  + mdurl==0.1.2
+2026-07-27T14:03:47.0558538Z  + mergedeep==1.3.4
+2026-07-27T14:03:47.0558874Z  + mkdocs==1.6.1
+2026-07-27T14:03:47.0559229Z  + mkdocs-autorefs==1.4.3
+2026-07-27T14:03:47.0559632Z  + mkdocs-get-deps==0.2.0
+2026-07-27T14:03:47.0560355Z  + mkdocstrings==1.0.4
+2026-07-27T14:03:47.0560797Z  + mkdocstrings-python==2.0.5
+2026-07-27T14:03:47.0561230Z  + more-itertools==10.8.0
+2026-07-27T14:03:47.0561614Z  + mypy==2.1.0
+2026-07-27T14:03:47.0561967Z  + mypy-extensions==1.1.0
+2026-07-27T14:03:47.0562342Z  + nh3==0.3.0
+2026-07-27T14:03:47.0562680Z  + outcome==1.3.0.post0
+2026-07-27T14:03:47.0562908Z  + packaging==25.0
+2026-07-27T14:03:47.0563144Z  + pathspec==1.0.4
+2026-07-27T14:03:47.0563370Z  + platformdirs==4.4.0
+2026-07-27T14:03:47.0563584Z  + pluggy==1.6.0
+2026-07-27T14:03:47.0563772Z  + pycparser==2.22
+2026-07-27T14:03:47.0563960Z  + pygments==2.20.0
+2026-07-27T14:03:47.0564166Z  + pymdown-extensions==10.21.3
+2026-07-27T14:03:47.0564395Z  + pytest==9.1.1
+2026-07-27T14:03:47.0564603Z  + python-dateutil==2.9.0.post0
+2026-07-27T14:03:47.0564860Z  + python-multipart==0.0.32
+2026-07-27T14:03:47.0565085Z  + pytokens==0.4.1
+2026-07-27T14:03:47.0565274Z  + pyyaml==6.0.3
+2026-07-27T14:03:47.0565466Z  + pyyaml-env-tag==1.1
+2026-07-27T14:03:47.0565689Z  + readme-renderer==44.0
+2026-07-27T14:03:47.0565903Z  + requests==2.33.0
+2026-07-27T14:03:47.0566356Z  + requests-toolbelt==1.0.0
+2026-07-27T14:03:47.0566605Z  + rfc3986==2.0.0
+2026-07-27T14:03:47.0566806Z  + rich==14.1.0
+2026-07-27T14:03:47.0567051Z  + ruff==0.15.19
+2026-07-27T14:03:47.0567242Z  + secretstorage==3.3.3
+2026-07-27T14:03:47.0567442Z  + six==1.17.0
+2026-07-27T14:03:47.0567621Z  + sniffio==1.3.1
+2026-07-27T14:03:47.0567816Z  + sortedcontainers==2.4.0
+2026-07-27T14:03:47.0568138Z  + starlette==1.3.1 (from file:///home/runner/work/starlette/starlette)
+2026-07-27T14:03:47.0568485Z  + tomli==2.4.1
+2026-07-27T14:03:47.0568666Z  + trio==0.33.0
+2026-07-27T14:03:47.0568851Z  + truststore==0.10.4
+2026-07-27T14:03:47.0569062Z  + twine==6.2.0
+2026-07-27T14:03:47.0569271Z  + types-pyyaml==6.0.12.20250516
+2026-07-27T14:03:47.0569519Z  + typing-extensions==4.15.0
+2026-07-27T14:03:47.0569743Z  + urllib3==2.7.0
+2026-07-27T14:03:47.0569931Z  + watchdog==6.0.0
+2026-07-27T14:03:47.0570428Z  + zensical==0.0.46
+2026-07-27T14:03:47.0570768Z  + zipp==3.23.0
+2026-07-27T14:03:47.0571114Z  + zstandard==0.25.0
+2026-07-27T14:03:47.0729528Z ##[group]Run scripts/check
+2026-07-27T14:03:47.0729823Z [36;1mscripts/check[0m
+2026-07-27T14:03:47.0772987Z shell: /usr/bin/bash -e {0}
+2026-07-27T14:03:47.0773232Z env:
+2026-07-27T14:03:47.0773503Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:47.0773845Z   UV_PYTHON: 3.11
+2026-07-27T14:03:47.0774111Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:47.0774397Z ##[endgroup]
+2026-07-27T14:03:47.0843823Z + ./scripts/sync-version
+2026-07-27T14:03:47.0888470Z + uv run ruff format --check --diff starlette tests
+2026-07-27T14:03:47.1747204Z 67 files already formatted
+2026-07-27T14:03:47.1767937Z + uv run mypy starlette tests
+2026-07-27T14:03:51.7597405Z starlette/testclient.py:118: error: Cannot assign multiple types to name "_PortalFactoryType" without an explicit "type[...]" annotation  [misc]
+2026-07-27T14:03:51.7599325Z starlette/testclient.py:499: error: Argument "portal_factory" to "_TestClientTransport" has incompatible type "Callable[[], _GeneratorContextManager[_Portal, None, None]]"; expected "Callable[[], AbstractContextManager[BlockingPortal, bool | None]]"  [arg-type]
+2026-07-27T14:03:52.2971044Z Found 2 errors in 1 file (checked 67 source files)
+2026-07-27T14:03:52.3252773Z ##[error]The operation was canceled.
+2026-07-27T14:03:52.3416836Z Post job cleanup.
+2026-07-27T14:03:52.4337445Z [command]/usr/bin/git version
+2026-07-27T14:03:52.4381997Z git version 2.54.0
+2026-07-27T14:03:52.4419448Z Temporarily overriding HOME='/home/runner/work/_temp/f2d93153-1ba4-49e5-8377-825ddc78aee0' before making global git config changes
+2026-07-27T14:03:52.4420416Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-27T14:03:52.4425086Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/starlette/starlette
+2026-07-27T14:03:52.4465110Z Removing SSH command configuration
+2026-07-27T14:03:52.4471445Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:52.4504231Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:52.4723381Z Removing HTTP extra header
+2026-07-27T14:03:52.4728934Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:52.4764402Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:52.4984205Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:52.4991573Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:52.5023829Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:52.5400862Z Cleaning up orphan processes
+
+﻿2026-07-27T14:03:35.7220325Z Current runner version: '2.336.0'
+2026-07-27T14:03:35.7240945Z ##[group]Runner Image Provisioner
+2026-07-27T14:03:35.7241610Z Hosted Compute Agent
+2026-07-27T14:03:35.7242154Z Version: 20260707.563
+2026-07-27T14:03:35.7242685Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-07-27T14:03:35.7243237Z Build Date: 2026-07-07T19:33:50Z
+2026-07-27T14:03:35.7243835Z Worker ID: {675c37e9-6cdc-4848-8005-50015b1e7174}
+2026-07-27T14:03:35.7244410Z Azure Region: westus3
+2026-07-27T14:03:35.7244907Z ##[endgroup]
+2026-07-27T14:03:35.7245976Z ##[group]Operating System
+2026-07-27T14:03:35.7246488Z Ubuntu
+2026-07-27T14:03:35.7246963Z 24.04.4
+2026-07-27T14:03:35.7247376Z LTS
+2026-07-27T14:03:35.7247773Z ##[endgroup]
+2026-07-27T14:03:35.7248265Z ##[group]Runner Image
+2026-07-27T14:03:35.7248770Z Image: ubuntu-24.04
+2026-07-27T14:03:35.7249247Z Version: 20260720.247.2
+2026-07-27T14:03:35.7250411Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260720.247/images/ubuntu/Ubuntu2404-Readme.md
+2026-07-27T14:03:35.7251686Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260720.247
+2026-07-27T14:03:35.7252461Z ##[endgroup]
+2026-07-27T14:03:35.7253378Z ##[group]GITHUB_TOKEN Permissions
+2026-07-27T14:03:35.7254871Z Contents: read
+2026-07-27T14:03:35.7255429Z Metadata: read
+2026-07-27T14:03:35.7255922Z ##[endgroup]
+2026-07-27T14:03:35.7257591Z Secret source: None
+2026-07-27T14:03:35.7258464Z Prepare workflow directory
+2026-07-27T14:03:35.7514482Z Prepare all required actions
+2026-07-27T14:03:35.7548740Z Getting action download info
+2026-07-27T14:03:36.1005391Z Download action repository 'actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd' (SHA:de0fac2e4500dabe0009e67214ff5f5447ce83dd)
+2026-07-27T14:03:36.2935469Z Download action repository 'astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b' (SHA:08807647e7069bb48b6ef5acd8ec9567f424441b)
+2026-07-27T14:03:37.2395963Z Download action repository 'actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e' (SHA:48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e)
+2026-07-27T14:03:37.6637435Z Complete job name: Pyodide
+2026-07-27T14:03:37.7406914Z ##[group]Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+2026-07-27T14:03:37.7408302Z with:
+2026-07-27T14:03:37.7408997Z   persist-credentials: false
+2026-07-27T14:03:37.7409839Z   repository: Kludex/starlette
+2026-07-27T14:03:37.7417378Z   token: ***
+2026-07-27T14:03:37.7418068Z   ssh-strict: true
+2026-07-27T14:03:37.7418759Z   ssh-user: git
+2026-07-27T14:03:37.7419432Z   clean: true
+2026-07-27T14:03:37.7420338Z   sparse-checkout-cone-mode: true
+2026-07-27T14:03:37.7421176Z   fetch-depth: 1
+2026-07-27T14:03:37.7421860Z   fetch-tags: false
+2026-07-27T14:03:37.7422567Z   show-progress: true
+2026-07-27T14:03:37.7423373Z   lfs: false
+2026-07-27T14:03:37.7424241Z   submodules: false
+2026-07-27T14:03:37.7425095Z   set-safe-directory: true
+2026-07-27T14:03:37.7426575Z ##[endgroup]
+2026-07-27T14:03:37.8294851Z Syncing repository: Kludex/starlette
+2026-07-27T14:03:37.8297318Z ##[group]Getting Git version info
+2026-07-27T14:03:37.8298733Z Working directory is '/home/runner/work/starlette/starlette'
+2026-07-27T14:03:37.8300712Z [command]/usr/bin/git version
+2026-07-27T14:03:37.8637398Z git version 2.54.0
+2026-07-27T14:03:37.8693562Z ##[endgroup]
+2026-07-27T14:03:37.8706531Z Temporarily overriding HOME='/home/runner/work/_temp/0c68859f-2a10-42b0-b1e5-40e218b11634' before making global git config changes
+2026-07-27T14:03:37.8709980Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-27T14:03:37.8713154Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/starlette/starlette
+2026-07-27T14:03:37.9270048Z Deleting the contents of '/home/runner/work/starlette/starlette'
+2026-07-27T14:03:37.9272569Z ##[group]Initializing the repository
+2026-07-27T14:03:37.9276543Z [command]/usr/bin/git init /home/runner/work/starlette/starlette
+2026-07-27T14:03:38.0342184Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-07-27T14:03:38.0344865Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-07-27T14:03:38.0347566Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-07-27T14:03:38.0349286Z hint: call:
+2026-07-27T14:03:38.0350672Z hint:
+2026-07-27T14:03:38.0352374Z hint: 	git config --global init.defaultBranch <name>
+2026-07-27T14:03:38.0353874Z hint:
+2026-07-27T14:03:38.0355327Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-07-27T14:03:38.0356898Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-07-27T14:03:38.0358185Z hint:
+2026-07-27T14:03:38.0359004Z hint: 	git branch -m <name>
+2026-07-27T14:03:38.0359964Z hint:
+2026-07-27T14:03:38.0361514Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-07-27T14:03:38.0363236Z Initialized empty Git repository in /home/runner/work/starlette/starlette/.git/
+2026-07-27T14:03:38.0366237Z [command]/usr/bin/git remote add origin https://github.com/Kludex/starlette
+2026-07-27T14:03:38.0381061Z ##[endgroup]
+2026-07-27T14:03:38.0382827Z ##[group]Disabling automatic garbage collection
+2026-07-27T14:03:38.0384382Z [command]/usr/bin/git config --local gc.auto 0
+2026-07-27T14:03:38.0409790Z ##[endgroup]
+2026-07-27T14:03:38.0411500Z ##[group]Setting up auth
+2026-07-27T14:03:38.0412483Z Removing SSH command configuration
+2026-07-27T14:03:38.0415466Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:38.0443783Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:38.1460823Z Removing HTTP extra header
+2026-07-27T14:03:38.1466199Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:38.1493997Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:38.1676575Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:38.1680620Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:38.1707811Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:38.1891699Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-6efe09e8-7e79-4cad-8282-21a0875ef57f.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-07-27T14:03:38.1958187Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/starlette/starlette/.git.path /home/runner/work/_temp/git-credentials-6efe09e8-7e79-4cad-8282-21a0875ef57f.config
+2026-07-27T14:03:38.2061852Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-6efe09e8-7e79-4cad-8282-21a0875ef57f.config
+2026-07-27T14:03:38.2143642Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-6efe09e8-7e79-4cad-8282-21a0875ef57f.config
+2026-07-27T14:03:38.2240820Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-6efe09e8-7e79-4cad-8282-21a0875ef57f.config
+2026-07-27T14:03:38.2337716Z ##[endgroup]
+2026-07-27T14:03:38.2339077Z ##[group]Fetching the repository
+2026-07-27T14:03:38.2344663Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +1148c37d2bf838b1b9e427537abbc19c181e2654:refs/remotes/pull/3284/merge
+2026-07-27T14:03:39.6185864Z From https://github.com/Kludex/starlette
+2026-07-27T14:03:39.6188196Z  * [new ref]         1148c37d2bf838b1b9e427537abbc19c181e2654 -> pull/3284/merge
+2026-07-27T14:03:39.6206437Z ##[endgroup]
+2026-07-27T14:03:39.6207379Z ##[group]Determining the checkout info
+2026-07-27T14:03:39.6208152Z ##[endgroup]
+2026-07-27T14:03:39.6211864Z [command]/usr/bin/git sparse-checkout disable
+2026-07-27T14:03:39.6306958Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-07-27T14:03:39.6309987Z ##[group]Checking out the ref
+2026-07-27T14:03:39.6310741Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/3284/merge
+2026-07-27T14:03:39.6476280Z Note: switching to 'refs/remotes/pull/3284/merge'.
+2026-07-27T14:03:39.6476605Z 
+2026-07-27T14:03:39.6476797Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-07-27T14:03:39.6477227Z changes and commit them, and you can discard any commits you make in this
+2026-07-27T14:03:39.6477642Z state without impacting any branches by switching back to a branch.
+2026-07-27T14:03:39.6477905Z 
+2026-07-27T14:03:39.6478141Z If you want to create a new branch to retain commits you create, you may
+2026-07-27T14:03:39.6478613Z do so (now or later) by using -c with the switch command. Example:
+2026-07-27T14:03:39.6478834Z 
+2026-07-27T14:03:39.6478946Z   git switch -c <new-branch-name>
+2026-07-27T14:03:39.6479106Z 
+2026-07-27T14:03:39.6479211Z Or undo this operation with:
+2026-07-27T14:03:39.6479371Z 
+2026-07-27T14:03:39.6479462Z   git switch -
+2026-07-27T14:03:39.6479620Z 
+2026-07-27T14:03:39.6480467Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-07-27T14:03:39.6480907Z 
+2026-07-27T14:03:39.6481433Z HEAD is now at 1148c37 Merge 75c24d60c891029625048663b898f20ade55b0b4 into 5174d4c8358a6f06aa8056bafd14c2272dab8dd1
+2026-07-27T14:03:39.6483518Z ##[endgroup]
+2026-07-27T14:03:39.6516060Z [command]/usr/bin/git log -1 --format=%H
+2026-07-27T14:03:39.6535974Z 1148c37d2bf838b1b9e427537abbc19c181e2654
+2026-07-27T14:03:39.6547606Z ##[group]Removing auth
+2026-07-27T14:03:39.6547911Z Removing SSH command configuration
+2026-07-27T14:03:39.6548301Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:03:39.6572998Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:03:39.6751643Z Removing HTTP extra header
+2026-07-27T14:03:39.6754936Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:03:39.6779616Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:03:39.6962087Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:03:39.6965152Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:03:39.6984945Z includeif.gitdir:/home/runner/work/starlette/starlette/.git.path
+2026-07-27T14:03:39.6985464Z includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path
+2026-07-27T14:03:39.6985853Z includeif.gitdir:/github/workspace/.git.path
+2026-07-27T14:03:39.6986170Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-27T14:03:39.6992512Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/starlette/starlette/.git.path
+2026-07-27T14:03:39.7009534Z /home/runner/work/_temp/git-credentials-6efe09e8-7e79-4cad-8282-21a0875ef57f.config
+2026-07-27T14:03:39.7017231Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/starlette/starlette/.git.path /home/runner/work/_temp/git-credentials-6efe09e8-7e79-4cad-8282-21a0875ef57f.config
+2026-07-27T14:03:39.7042682Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path
+2026-07-27T14:03:39.7059360Z /home/runner/work/_temp/git-credentials-6efe09e8-7e79-4cad-8282-21a0875ef57f.config
+2026-07-27T14:03:39.7065386Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-6efe09e8-7e79-4cad-8282-21a0875ef57f.config
+2026-07-27T14:03:39.7090968Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-07-27T14:03:39.7108770Z /github/runner_temp/git-credentials-6efe09e8-7e79-4cad-8282-21a0875ef57f.config
+2026-07-27T14:03:39.7117618Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-6efe09e8-7e79-4cad-8282-21a0875ef57f.config
+2026-07-27T14:03:39.7145111Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-27T14:03:39.7171057Z /github/runner_temp/git-credentials-6efe09e8-7e79-4cad-8282-21a0875ef57f.config
+2026-07-27T14:03:39.7174025Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-6efe09e8-7e79-4cad-8282-21a0875ef57f.config
+2026-07-27T14:03:39.7199076Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:03:39.7373837Z Removing credentials config '/home/runner/work/_temp/git-credentials-6efe09e8-7e79-4cad-8282-21a0875ef57f.config'
+2026-07-27T14:03:39.7380244Z ##[endgroup]
+2026-07-27T14:03:39.7602037Z ##[group]Run astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b
+2026-07-27T14:03:39.7602390Z with:
+2026-07-27T14:03:39.7602599Z   python-version: 3.13
+2026-07-27T14:03:39.7602819Z   enable-cache: true
+2026-07-27T14:03:39.7603047Z   activate-environment: false
+2026-07-27T14:03:39.7603279Z   no-project: false
+2026-07-27T14:03:39.7603546Z   working-directory: /home/runner/work/starlette/starlette
+2026-07-27T14:03:39.7605694Z   github-token: ***
+2026-07-27T14:03:39.7606191Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-07-27T14:03:39.7606726Z   restore-cache: true
+2026-07-27T14:03:39.7606946Z   save-cache: true
+2026-07-27T14:03:39.7607152Z   prune-cache: true
+2026-07-27T14:03:39.7607361Z   cache-python: false
+2026-07-27T14:03:39.7607589Z   ignore-nothing-to-cache: false
+2026-07-27T14:03:39.7607839Z   ignore-empty-workdir: false
+2026-07-27T14:03:39.7608117Z   add-problem-matchers: true
+2026-07-27T14:03:39.7608355Z   resolution-strategy: highest
+2026-07-27T14:03:39.7608591Z ##[endgroup]
+2026-07-27T14:03:39.8907049Z Trying to find version for uv in: /home/runner/work/starlette/starlette/uv.toml
+2026-07-27T14:03:39.8907725Z Could not find file: /home/runner/work/starlette/starlette/uv.toml
+2026-07-27T14:03:39.8908201Z Trying to find version for uv in: /home/runner/work/starlette/starlette/pyproject.toml
+2026-07-27T14:03:39.8915124Z Found version for uv in /home/runner/work/starlette/starlette/pyproject.toml: >=0.8.6
+2026-07-27T14:03:39.8917056Z Found minimum version specifier, using latest version
+2026-07-27T14:03:39.8918058Z Fetching manifest data from https://raw.githubusercontent.com/astral-sh/versions/main/v1/uv.ndjson ...
+2026-07-27T14:03:39.9791342Z Downloading uv from "https://releases.astral.sh/github/uv/releases/download/0.11.32/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-07-27T14:03:40.2336699Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/c1749459-77cf-4e5b-87c5-c009d6718b86 -f /home/runner/work/_temp/e4b1ff3b-48f5-4511-b19c-ee65657ade72
+2026-07-27T14:03:40.8990073Z Added /home/runner/.local/bin to the path
+2026-07-27T14:03:40.8993690Z Added /opt/hostedtoolcache/uv/0.11.32/x86_64 to the path
+2026-07-27T14:03:40.8995158Z Set UV_PYTHON_INSTALL_DIR to /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:40.8995616Z Added /home/runner/work/_temp/uv-python-dir to the path
+2026-07-27T14:03:40.8996141Z Set UV_PYTHON to 3.13
+2026-07-27T14:03:40.9014412Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:40.9014991Z Successfully installed uv version 0.11.32
+2026-07-27T14:03:40.9016249Z Searching files using cache dependency glob: /home/runner/work/starlette/starlette/**/*requirements*.txt,/home/runner/work/starlette/starlette/**/*requirements*.in,/home/runner/work/starlette/starlette/**/*constraints*.txt,/home/runner/work/starlette/starlette/**/*constraints*.in,/home/runner/work/starlette/starlette/**/pyproject.toml,/home/runner/work/starlette/starlette/**/uv.lock,/home/runner/work/starlette/starlette/**/*.py.lock
+2026-07-27T14:03:40.9145567Z /home/runner/work/starlette/starlette/pyproject.toml
+2026-07-27T14:03:40.9218107Z /home/runner/work/starlette/starlette/uv.lock
+2026-07-27T14:03:40.9227602Z Found 2 files to hash.
+2026-07-27T14:03:40.9281924Z Trying to restore cache from GitHub Actions cache with key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.13-pruned-eda24f1f8146801859ca8c8dd799c42243fdb37ca10b95e5b2947624b5757e7f
+2026-07-27T14:03:41.2048366Z No GitHub Actions cache found for key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.13-pruned-eda24f1f8146801859ca8c8dd799c42243fdb37ca10b95e5b2947624b5757e7f
+2026-07-27T14:03:41.2712091Z ##[group]Run actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
+2026-07-27T14:03:41.2712390Z with:
+2026-07-27T14:03:41.2712545Z   node-version: 24
+2026-07-27T14:03:41.2712714Z   check-latest: false
+2026-07-27T14:03:41.2714586Z   token: ***
+2026-07-27T14:03:41.2714767Z   package-manager-cache: true
+2026-07-27T14:03:41.2714961Z env:
+2026-07-27T14:03:41.2715174Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:41.2715435Z   UV_PYTHON: 3.13
+2026-07-27T14:03:41.2715637Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:41.2715867Z ##[endgroup]
+2026-07-27T14:03:41.3905767Z Found in cache @ /opt/hostedtoolcache/node/24.18.0/x64
+2026-07-27T14:03:41.3907984Z ##[group]Environment details
+2026-07-27T14:03:41.6277273Z node: v24.18.0
+2026-07-27T14:03:41.6277597Z npm: 11.16.0
+2026-07-27T14:03:41.6277825Z yarn: 1.22.22
+2026-07-27T14:03:41.6278389Z ##[endgroup]
+2026-07-27T14:03:41.6386067Z ##[group]Run uv build --wheel
+2026-07-27T14:03:41.6386340Z [36;1muv build --wheel[0m
+2026-07-27T14:03:41.6431734Z shell: /usr/bin/bash -e {0}
+2026-07-27T14:03:41.6431946Z env:
+2026-07-27T14:03:41.6432174Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:41.6432445Z   UV_PYTHON: 3.13
+2026-07-27T14:03:41.6432653Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:41.6432886Z ##[endgroup]
+2026-07-27T14:03:41.8463593Z Downloading cpython-3.13.14-linux-x86_64-gnu (download) (33.2MiB)
+2026-07-27T14:03:42.5433003Z  Downloaded cpython-3.13.14-linux-x86_64-gnu (download)
+2026-07-27T14:03:42.6726722Z Building wheel...
+2026-07-27T14:03:43.2310710Z Successfully built dist/starlette-1.3.1-py3-none-any.whl
+2026-07-27T14:03:43.2362568Z ##[group]Run uv venv .venv-pyodide-host --python 3.13
+2026-07-27T14:03:43.2362933Z [36;1muv venv .venv-pyodide-host --python 3.13[0m
+2026-07-27T14:03:43.2363306Z [36;1muv pip install --python .venv-pyodide-host/bin/python pyodide-build[0m
+2026-07-27T14:03:43.2402606Z shell: /usr/bin/bash -e {0}
+2026-07-27T14:03:43.2402819Z env:
+2026-07-27T14:03:43.2403043Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:43.2403317Z   UV_PYTHON: 3.13
+2026-07-27T14:03:43.2403519Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:43.2403752Z ##[endgroup]
+2026-07-27T14:03:43.2934316Z Using CPython 3.13.14
+2026-07-27T14:03:43.2934695Z Creating virtual environment at: .venv-pyodide-host
+2026-07-27T14:03:43.2940584Z Activate with: .venv-pyodide-host/bin/activate
+2026-07-27T14:03:43.3405103Z Using Python 3.13.14 environment at: .venv-pyodide-host
+2026-07-27T14:03:43.8029137Z Resolved 30 packages in 461ms
+2026-07-27T14:03:43.8319049Z Downloading pygments (1.2MiB)
+2026-07-27T14:03:43.8322876Z Downloading pydantic-core (2.0MiB)
+2026-07-27T14:03:43.8325878Z Downloading virtualenv (5.3MiB)
+2026-07-27T14:03:43.9209132Z  Downloaded pydantic-core
+2026-07-27T14:03:43.9417548Z  Downloaded virtualenv
+2026-07-27T14:03:43.9617677Z  Downloaded pygments
+2026-07-27T14:03:43.9619299Z Prepared 29 packages in 158ms
+2026-07-27T14:03:43.9743360Z Installed 30 packages in 12ms
+2026-07-27T14:03:43.9743748Z  + annotated-types==0.7.0
+2026-07-27T14:03:43.9744111Z  + auditwheel-emscripten==0.2.5
+2026-07-27T14:03:43.9744437Z  + build==1.5.0
+2026-07-27T14:03:43.9744752Z  + certifi==2026.6.17
+2026-07-27T14:03:43.9745041Z  + charset-normalizer==3.4.9
+2026-07-27T14:03:43.9745555Z  + click==8.4.2
+2026-07-27T14:03:43.9745854Z  + distlib==0.4.3
+2026-07-27T14:03:43.9746234Z  + filelock==3.31.1
+2026-07-27T14:03:43.9746514Z  + idna==3.18
+2026-07-27T14:03:43.9746985Z  + leb128==1.0.9
+2026-07-27T14:03:43.9747442Z  + markdown-it-py==4.2.0
+2026-07-27T14:03:43.9747783Z  + mdurl==0.1.2
+2026-07-27T14:03:43.9748143Z  + packaging==26.2
+2026-07-27T14:03:43.9748572Z  + platformdirs==4.10.1
+2026-07-27T14:03:43.9748906Z  + pydantic==2.13.4
+2026-07-27T14:03:43.9749412Z  + pydantic-core==2.46.4
+2026-07-27T14:03:43.9749783Z  + pygments==2.20.0
+2026-07-27T14:03:43.9750412Z  + pyodide-build==0.36.0
+2026-07-27T14:03:43.9750730Z  + pyodide-cli==0.5.0
+2026-07-27T14:03:43.9751207Z  + pyodide-lock==0.1.3
+2026-07-27T14:03:43.9751588Z  + pyproject-hooks==1.2.0
+2026-07-27T14:03:43.9751975Z  + python-discovery==1.4.4
+2026-07-27T14:03:43.9752363Z  + requests==2.34.2
+2026-07-27T14:03:43.9752763Z  + rich==15.0.0
+2026-07-27T14:03:43.9753195Z  + ruamel-yaml==0.19.1
+2026-07-27T14:03:43.9753586Z  + typing-extensions==4.16.0
+2026-07-27T14:03:43.9753980Z  + typing-inspection==0.4.2
+2026-07-27T14:03:43.9754351Z  + urllib3==2.7.0
+2026-07-27T14:03:43.9754761Z  + virtualenv==21.6.1
+2026-07-27T14:03:43.9755110Z  + wheel==0.47.0
+2026-07-27T14:03:43.9840065Z ##[group]Run PATH="$PWD/.venv-pyodide-host/bin:$PATH" .venv-pyodide-host/bin/pyodide venv .venv-pyodide
+2026-07-27T14:03:43.9840861Z [36;1mPATH="$PWD/.venv-pyodide-host/bin:$PATH" .venv-pyodide-host/bin/pyodide venv .venv-pyodide[0m
+2026-07-27T14:03:43.9878298Z shell: /usr/bin/bash -e {0}
+2026-07-27T14:03:43.9878516Z env:
+2026-07-27T14:03:43.9878739Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:43.9879008Z   UV_PYTHON: 3.13
+2026-07-27T14:03:43.9879204Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:43.9879439Z ##[endgroup]
+2026-07-27T14:03:45.1444090Z Downloading Pyodide cross-build environment from                                
+2026-07-27T14:03:45.1444983Z https://github.com/pyodide/pyodide/releases/download/0.29.4/xbuildenv-0.29.4.tar
+2026-07-27T14:03:45.1445660Z .bz2                                                                            
+2026-07-27T14:03:45.9742595Z Installing Pyodide cross-build environment to                                   
+2026-07-27T14:03:45.9743454Z /home/runner/.cache/pyodide-build/.pyodide-xbuildenv-238e20b962eb/0.29.4        
+2026-07-27T14:03:45.9977067Z Using Pyodide cross-build environment version: 0.29.4                           
+2026-07-27T14:03:45.9982720Z Creating Pyodide virtualenv at .venv-pyodide                                    
+2026-07-27T14:03:47.5815559Z ... Configuring virtualenv                                                      
+2026-07-27T14:03:49.0475457Z ... Installing standard library                                                 
+2026-07-27T14:03:52.5659350Z Successfully created Pyodide virtual environment!                               
+2026-07-27T14:03:52.6213026Z ##[group]Run wheels=(dist/*.whl)
+2026-07-27T14:03:52.6213400Z [36;1mwheels=(dist/*.whl)[0m
+2026-07-27T14:03:52.6213769Z [36;1m.venv-pyodide/bin/python -m pip install \[0m
+2026-07-27T14:03:52.6214161Z [36;1m  "${wheels[0]}[full]" \[0m
+2026-07-27T14:03:52.6214470Z [36;1m  pytest \[0m
+2026-07-27T14:03:52.6214724Z [36;1m  sniffio \[0m
+2026-07-27T14:03:52.6214990Z [36;1m  typing_extensions[0m
+2026-07-27T14:03:52.6264474Z shell: /usr/bin/bash -e {0}
+2026-07-27T14:03:52.6264780Z env:
+2026-07-27T14:03:52.6265110Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:52.6265730Z   UV_PYTHON: 3.13
+2026-07-27T14:03:52.6266039Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:52.6266413Z ##[endgroup]
+2026-07-27T14:03:53.7872161Z WARNING: Location 'file:///home/runner/.cache/pyodide-build/.pyodide-xbuildenv-238e20b962eb/0.29.4/xbuildenv/pyodide-root/package_index/pip/' is ignored: it is neither a file nor a directory.
+2026-07-27T14:03:53.8858006Z Looking in indexes: https://pypi.org/simple, file:///home/runner/.cache/pyodide-build/.pyodide-xbuildenv-238e20b962eb/0.29.4/xbuildenv/pyodide-root/package_index
+2026-07-27T14:03:53.8862844Z Processing ./dist/starlette-1.3.1-py3-none-any.whl (from starlette==1.3.1)
+2026-07-27T14:03:53.9561127Z Collecting pytest
+2026-07-27T14:03:53.9972022Z   Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+2026-07-27T14:03:54.0441757Z Collecting sniffio
+2026-07-27T14:03:54.1343651Z   Downloading sniffio-1.3.1-py3-none-any.whl
+2026-07-27T14:03:54.1492089Z      - 9.6 kB ? 0:00:00
+2026-07-27T14:03:54.1729949Z Collecting typing_extensions
+2026-07-27T14:03:54.1823303Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-07-27T14:03:54.2005937Z Collecting anyio<5,>=3.6.2 (from starlette==1.3.1->starlette==1.3.1)
+2026-07-27T14:03:54.2097512Z   Downloading anyio-4.14.2-py3-none-any.whl.metadata (4.6 kB)
+2026-07-27T14:03:54.2288627Z WARNING: Location 'file:///home/runner/.cache/pyodide-build/.pyodide-xbuildenv-238e20b962eb/0.29.4/xbuildenv/pyodide-root/package_index/httpx2/' is ignored: it is neither a file nor a directory.
+2026-07-27T14:03:54.2412430Z Collecting httpx2>=2.0.0 (from starlette==1.3.1->starlette==1.3.1)
+2026-07-27T14:03:54.2503141Z   Downloading httpx2-2.9.1-py3-none-any.whl.metadata (8.2 kB)
+2026-07-27T14:03:54.2711065Z Collecting httpx<0.29.0,>=0.27.0 (from starlette==1.3.1->starlette==1.3.1)
+2026-07-27T14:03:54.5257915Z   Downloading httpx-0.28.1-py3-none-any.whl
+2026-07-27T14:03:54.5369486Z      - 77.5 kB ? 0:00:00
+2026-07-27T14:03:54.5389188Z WARNING: Location 'file:///home/runner/.cache/pyodide-build/.pyodide-xbuildenv-238e20b962eb/0.29.4/xbuildenv/pyodide-root/package_index/itsdangerous/' is ignored: it is neither a file nor a directory.
+2026-07-27T14:03:54.5514326Z Collecting itsdangerous (from starlette==1.3.1->starlette==1.3.1)
+2026-07-27T14:03:54.5604156Z   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+2026-07-27T14:03:54.5773236Z Collecting jinja2 (from starlette==1.3.1->starlette==1.3.1)
+2026-07-27T14:03:54.5964968Z   Downloading jinja2-3.1.6-py3-none-any.whl
+2026-07-27T14:03:54.6091452Z      - 134.9 kB 13.2 MB/s 0:00:00
+2026-07-27T14:03:54.6108849Z WARNING: Location 'file:///home/runner/.cache/pyodide-build/.pyodide-xbuildenv-238e20b962eb/0.29.4/xbuildenv/pyodide-root/package_index/python-multipart/' is ignored: it is neither a file nor a directory.
+2026-07-27T14:03:54.6312278Z Collecting python-multipart>=0.0.18 (from starlette==1.3.1->starlette==1.3.1)
+2026-07-27T14:03:54.6402575Z   Downloading python_multipart-0.0.32-py3-none-any.whl.metadata (2.1 kB)
+2026-07-27T14:03:54.6682144Z Collecting pyyaml (from starlette==1.3.1->starlette==1.3.1)
+2026-07-27T14:03:54.6868549Z   Downloading pyyaml-6.0.2-cp313-cp313-pyemscripten_2025_0_wasm32.whl
+2026-07-27T14:03:54.6914704Z      - 110.6 kB ? 0:00:00
+2026-07-27T14:03:54.7067619Z Collecting idna>=2.8 (from anyio<5,>=3.6.2->starlette==1.3.1->starlette==1.3.1)
+2026-07-27T14:03:54.7161130Z   Downloading idna-3.18-py3-none-any.whl.metadata (6.1 kB)
+2026-07-27T14:03:54.7316829Z Collecting iniconfig>=1.0.1 (from pytest)
+2026-07-27T14:03:54.7408580Z   Downloading iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+2026-07-27T14:03:54.7577127Z Collecting packaging>=22 (from pytest)
+2026-07-27T14:03:54.7765507Z   Downloading packaging-26.2-py3-none-any.whl
+2026-07-27T14:03:54.7808011Z      - 100.2 kB ? 0:00:00
+2026-07-27T14:03:54.7951139Z Collecting pluggy<2,>=1.5 (from pytest)
+2026-07-27T14:03:54.8040630Z   Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+2026-07-27T14:03:54.8328550Z Collecting pygments>=2.7.2 (from pytest)
+2026-07-27T14:03:54.8419498Z   Downloading pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)
+2026-07-27T14:03:54.8460792Z WARNING: Location 'file:///home/runner/.cache/pyodide-build/.pyodide-xbuildenv-238e20b962eb/0.29.4/xbuildenv/pyodide-root/package_index/httpcore2/' is ignored: it is neither a file nor a directory.
+2026-07-27T14:03:54.8576913Z Collecting httpcore2==2.9.1 (from httpx2>=2.0.0->starlette==1.3.1->starlette==1.3.1)
+2026-07-27T14:03:54.8668305Z   Downloading httpcore2-2.9.1-py3-none-any.whl.metadata (24 kB)
+2026-07-27T14:03:54.8731314Z WARNING: Location 'file:///home/runner/.cache/pyodide-build/.pyodide-xbuildenv-238e20b962eb/0.29.4/xbuildenv/pyodide-root/package_index/truststore/' is ignored: it is neither a file nor a directory.
+2026-07-27T14:03:54.8878945Z Collecting truststore>=0.10 (from httpx2>=2.0.0->starlette==1.3.1->starlette==1.3.1)
+2026-07-27T14:03:54.8970068Z   Downloading truststore-0.10.4-py3-none-any.whl.metadata (4.4 kB)
+2026-07-27T14:03:54.9128102Z Collecting h11>=0.16 (from httpcore2==2.9.1->httpx2>=2.0.0->starlette==1.3.1->starlette==1.3.1)
+2026-07-27T14:03:54.9222352Z   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+2026-07-27T14:03:54.9605621Z Collecting MarkupSafe>=2.0 (from jinja2->starlette==1.3.1->starlette==1.3.1)
+2026-07-27T14:03:54.9775440Z   Downloading markupsafe-3.0.2-cp313-cp313-pyemscripten_2025_0_wasm32.whl
+2026-07-27T14:03:54.9802309Z      - 10.5 kB ? 0:00:00
+2026-07-27T14:03:54.9912164Z Downloading anyio-4.14.2-py3-none-any.whl (125 kB)
+2026-07-27T14:03:55.0133826Z Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+2026-07-27T14:03:55.0412416Z Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+2026-07-27T14:03:55.0518141Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-07-27T14:03:55.0625769Z Downloading httpx2-2.9.1-py3-none-any.whl (91 kB)
+2026-07-27T14:03:55.0809005Z Downloading httpcore2-2.9.1-py3-none-any.whl (82 kB)
+2026-07-27T14:03:55.0918895Z Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+2026-07-27T14:03:55.1030314Z Downloading idna-3.18-py3-none-any.whl (65 kB)
+2026-07-27T14:03:55.1140879Z Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+2026-07-27T14:03:55.1253344Z Downloading pygments-2.20.0-py3-none-any.whl (1.2 MB)
+2026-07-27T14:03:55.1583496Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 40.9 MB/s  0:00:00
+2026-07-27T14:03:55.1676811Z Downloading python_multipart-0.0.32-py3-none-any.whl (30 kB)
+2026-07-27T14:03:55.1785537Z Downloading truststore-0.10.4-py3-none-any.whl (18 kB)
+2026-07-27T14:03:55.1893277Z Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+2026-07-27T14:03:55.2312801Z Installing collected packages: typing_extensions, truststore, sniffio, pyyaml, python-multipart, pygments, pluggy, packaging, MarkupSafe, itsdangerous, iniconfig, idna, h11, pytest, jinja2, httpx, httpcore2, anyio, starlette, httpx2
+2026-07-27T14:03:58.3512230Z 
+2026-07-27T14:03:58.3535581Z Successfully installed MarkupSafe-3.0.2 anyio-4.14.2 h11-0.16.0 httpcore2-2.9.1 httpx-0.28.1 httpx2-2.9.1 idna-3.18 iniconfig-2.3.0 itsdangerous-2.2.0 jinja2-3.1.6 packaging-26.2 pluggy-1.6.0 pygments-2.20.0 pytest-9.1.1 python-multipart-0.0.32 pyyaml-6.0.2 sniffio-1.3.1 starlette-1.3.1 truststore-0.10.4 typing_extensions-4.16.0
+2026-07-27T14:03:58.4058256Z ##[group]Run .venv-pyodide/bin/python -m pytest
+2026-07-27T14:03:58.4058854Z [36;1m.venv-pyodide/bin/python -m pytest[0m
+2026-07-27T14:03:58.4097335Z shell: /usr/bin/bash -e {0}
+2026-07-27T14:03:58.4097639Z env:
+2026-07-27T14:03:58.4098034Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-07-27T14:03:58.4098409Z   UV_PYTHON: 3.13
+2026-07-27T14:03:58.4098696Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-27T14:03:58.4099115Z ##[endgroup]
+2026-07-27T14:04:01.1870859Z ============================= test session starts ==============================
+2026-07-27T14:04:01.1875122Z platform emscripten -- Python 3.13.2, pytest-9.1.1, pluggy-1.6.0
+2026-07-27T14:04:01.1890238Z rootdir: /home/runner/work/starlette/starlette
+2026-07-27T14:04:01.1890712Z configfile: pyproject.toml
+2026-07-27T14:04:01.1891626Z plugins: anyio-4.14.2
+2026-07-27T14:04:02.6596283Z collected 546 items
+2026-07-27T14:04:02.6622442Z 
+2026-07-27T14:04:03.5600404Z tests/middleware/test_base.py .....x........................s            [  5%]
+2026-07-27T14:04:03.6092661Z tests/middleware/test_cors.py ................                           [  8%]
+2026-07-27T14:04:03.6324291Z tests/middleware/test_errors.py ......                                   [  9%]
+2026-07-27T14:04:03.6525249Z tests/middleware/test_gzip.py ........                                   [ 11%]
+2026-07-27T14:04:03.6573854Z tests/middleware/test_https_redirect.py .                                [ 11%]
+2026-07-27T14:04:03.6596207Z tests/middleware/test_middleware.py ..                                   [ 11%]
+2026-07-27T14:04:03.6936815Z tests/middleware/test_session.py ..........                              [ 13%]
+2026-07-27T14:04:03.7006561Z tests/middleware/test_trusted_host.py ...                                [ 14%]
+2026-07-27T14:04:03.7062085Z tests/middleware/test_wsgi.py ssss..                                     [ 15%]
+2026-07-27T14:04:03.7230629Z tests/test__utils.py .............                                       [ 17%]
+2026-07-27T14:04:03.8036674Z tests/test_applications.py ...............s.............                 [ 22%]
+2026-07-27T14:04:03.8328682Z tests/test_authentication.py ......                                      [ 23%]
+2026-07-27T14:04:03.8416113Z tests/test_background.py ....                                            [ 24%]
+2026-07-27T14:04:03.8480456Z tests/test_concurrency.py ...                                            [ 25%]
+2026-07-27T14:04:03.8589435Z tests/test_config.py ......                                              [ 26%]
+2026-07-27T14:04:03.8887468Z tests/test_convertors.py ........                                        [ 27%]
+2026-07-27T14:04:03.9368785Z tests/test_datastructures.py ......................................      [ 34%]
+2026-07-27T14:04:03.9730849Z tests/test_endpoints.py ...........                                      [ 36%]
+2026-07-27T14:04:04.0083787Z tests/test_exceptions.py ..............                                  [ 39%]
+2026-07-27T14:04:04.6180422Z tests/test_formparsers.py .......s...................................... [ 47%]
+2026-07-27T14:04:04.6341895Z ......                                                                   [ 48%]
+2026-07-27T14:04:04.7353022Z tests/test_requests.py ..F...........................................    [ 57%]
+2026-07-27T14:04:04.8498026Z tests/test_responses.py ................................................ [ 66%]
+2026-07-27T14:04:04.9063398Z .................                                                        [ 69%]
+2026-07-27T14:04:05.0257690Z tests/test_routing.py .................................................. [ 78%]
+2026-07-27T14:04:05.0293017Z ...                                                                      [ 78%]
+2026-07-27T14:04:05.0413620Z tests/test_schemas.py ..                                                 [ 79%]
+2026-07-27T14:04:05.1840954Z tests/test_staticfiles.py ....................................           [ 85%]
+2026-07-27T14:04:05.1877994Z tests/test_status.py ...                                                 [ 86%]
+2026-07-27T14:04:05.2203473Z tests/test_templates.py .........                                        [ 88%]
+2026-07-27T14:04:05.2713352Z tests/test_testclient.py .s.....s.................                       [ 92%]
+2026-07-27T14:04:05.4095672Z tests/test_websockets.py ....F...................................        [100%]
+2026-07-27T14:04:05.4096070Z 
+2026-07-27T14:04:05.4096374Z =================================== FAILURES ===================================
+2026-07-27T14:04:05.4097349Z ________________________ test_request_headers[asyncio] _________________________
+2026-07-27T14:04:05.4097820Z 
+2026-07-27T14:04:05.4098516Z test_client_factory = functools.partial(<class 'starlette.testclient.TestClient'>, backend='asyncio', backend_options={})
+2026-07-27T14:04:05.4099382Z 
+2026-07-27T14:04:05.4099706Z     @pytest.mark.skipif(
+2026-07-27T14:04:05.4100391Z         any(module in sys.modules for module in ("brotli", "brotlicffi")),
+2026-07-27T14:04:05.4101068Z         reason='urllib3 includes "br" to the "accept-encoding" headers.',
+2026-07-27T14:04:05.4101618Z     )
+2026-07-27T14:04:05.4102117Z     def test_request_headers(test_client_factory: TestClientFactory) -> None:
+2026-07-27T14:04:05.4102901Z         async def app(scope: Scope, receive: Receive, send: Send) -> None:
+2026-07-27T14:04:05.4103554Z             request = Request(scope, receive)
+2026-07-27T14:04:05.4103902Z             headers = dict(request.headers)
+2026-07-27T14:04:05.4104312Z             response = JSONResponse({"headers": headers})
+2026-07-27T14:04:05.4104713Z             await response(scope, receive, send)
+2026-07-27T14:04:05.4105147Z     
+2026-07-27T14:04:05.4105534Z         client = test_client_factory(app)
+2026-07-27T14:04:05.4106090Z         response = client.get("/", headers={"host": "example.org"})
+2026-07-27T14:04:05.4106841Z >       assert response.json() == {
+2026-07-27T14:04:05.4107321Z             "headers": {
+2026-07-27T14:04:05.4107843Z                 "host": "example.org",
+2026-07-27T14:04:05.4108453Z                 "user-agent": "testclient",
+2026-07-27T14:04:05.4109076Z                 "accept-encoding": "gzip, deflate, zstd",
+2026-07-27T14:04:05.4109673Z                 "accept": "*/*",
+2026-07-27T14:04:05.4110334Z                 "connection": "keep-alive",
+2026-07-27T14:04:05.4110759Z             }
+2026-07-27T14:04:05.4110947Z         }
+2026-07-27T14:04:05.4111301Z E       AssertionError: assert {'headers': {...client', ...}} == {'headers': {...: '*/*', ...}}
+2026-07-27T14:04:05.4111621Z E         
+2026-07-27T14:04:05.4111797Z E         Differing items:
+2026-07-27T14:04:05.4112671Z E         {'headers': {'accept': '*/*', 'accept-encoding': 'gzip, deflate', 'connection': 'keep-alive', 'user-agent': 'testclient', ...}} != {'headers': {'host': 'example.org', 'user-agent': 'testclient', 'accept-encoding': 'gzip, deflate, zstd', 'accept': '*/*', ...}}
+2026-07-27T14:04:05.4113393Z E         
+2026-07-27T14:04:05.4113565Z E         Full diff:
+2026-07-27T14:04:05.4113732Z E           {
+2026-07-27T14:04:05.4113906Z E               'headers': {
+2026-07-27T14:04:05.4114128Z E         +         'accept': '*/*',
+2026-07-27T14:04:05.4114393Z E         +         'accept-encoding': 'gzip, deflate',
+2026-07-27T14:04:05.4114673Z E         +         'connection': 'keep-alive',
+2026-07-27T14:04:05.4114947Z E         +         'user-agent': 'testclient',
+2026-07-27T14:04:05.4115203Z E                   'host': 'example.org',
+2026-07-27T14:04:05.4115460Z E         -         'user-agent': 'testclient',
+2026-07-27T14:04:05.4115762Z E         -         'accept-encoding': 'gzip, deflate, zstd',
+2026-07-27T14:04:05.4116047Z E         -         'accept': '*/*',
+2026-07-27T14:04:05.4116313Z E         -         'connection': 'keep-alive',
+2026-07-27T14:04:05.4116538Z E               },
+2026-07-27T14:04:05.4116696Z E           }
+2026-07-27T14:04:05.4116796Z 
+2026-07-27T14:04:05.4116928Z tests/test_requests.py:55: AssertionError
+2026-07-27T14:04:05.4117466Z _______________________ test_websocket_headers[asyncio] ________________________
+2026-07-27T14:04:05.4117688Z 
+2026-07-27T14:04:05.4118068Z test_client_factory = functools.partial(<class 'starlette.testclient.TestClient'>, backend='asyncio', backend_options={})
+2026-07-27T14:04:05.4118418Z 
+2026-07-27T14:04:05.4118507Z     @pytest.mark.skipif(
+2026-07-27T14:04:05.4118800Z         any(module in sys.modules for module in ("brotli", "brotlicffi")),
+2026-07-27T14:04:05.4119287Z         reason='urllib3 includes "br" to the "accept-encoding" headers.',
+2026-07-27T14:04:05.4119684Z     )
+2026-07-27T14:04:05.4120272Z     def test_websocket_headers(test_client_factory: TestClientFactory) -> None:
+2026-07-27T14:04:05.4120692Z         async def app(scope: Scope, receive: Receive, send: Send) -> None:
+2026-07-27T14:04:05.4121050Z             websocket = WebSocket(scope, receive=receive, send=send)
+2026-07-27T14:04:05.4121484Z             headers = dict(websocket.headers)
+2026-07-27T14:04:05.4121729Z             await websocket.accept()
+2026-07-27T14:04:05.4121992Z             await websocket.send_json({"headers": headers})
+2026-07-27T14:04:05.4122258Z             await websocket.close()
+2026-07-27T14:04:05.4122447Z     
+2026-07-27T14:04:05.4122625Z         client = test_client_factory(app)
+2026-07-27T14:04:05.4122897Z         with client.websocket_connect("/") as websocket:
+2026-07-27T14:04:05.4123153Z             expected_headers = {
+2026-07-27T14:04:05.4123365Z                 "accept": "*/*",
+2026-07-27T14:04:05.4123604Z                 "accept-encoding": "gzip, deflate, zstd",
+2026-07-27T14:04:05.4124063Z                 "connection": "upgrade",
+2026-07-27T14:04:05.4124325Z                 "host": "testserver",
+2026-07-27T14:04:05.4124553Z                 "user-agent": "testclient",
+2026-07-27T14:04:05.4124815Z                 "sec-websocket-key": "testserver==",
+2026-07-27T14:04:05.4125083Z                 "sec-websocket-version": "13",
+2026-07-27T14:04:05.4125297Z             }
+2026-07-27T14:04:05.4125486Z             data = websocket.receive_json()
+2026-07-27T14:04:05.4125778Z >           assert data == {"headers": expected_headers}
+2026-07-27T14:04:05.4126199Z E           AssertionError: assert {'headers': {...client', ...}} == {'headers': {...server', ...}}
+2026-07-27T14:04:05.4126526Z E             
+2026-07-27T14:04:05.4126722Z E             Differing items:
+2026-07-27T14:04:05.4127568Z E             {'headers': {'host': 'testserver', 'accept': '*/*', 'accept-encoding': 'gzip, deflate', 'user-agent': 'testclient', ...}} != {'headers': {'accept': '*/*', 'accept-encoding': 'gzip, deflate, zstd', 'connection': 'upgrade', 'host': 'testserver', ...}}
+2026-07-27T14:04:05.4128210Z E             
+2026-07-27T14:04:05.4128384Z E             Full diff:
+2026-07-27T14:04:05.4128563Z E               {
+2026-07-27T14:04:05.4128920Z E                   'headers': {
+2026-07-27T14:04:05.4129250Z E             +         'host': 'testserver',
+2026-07-27T14:04:05.4129633Z E                       'accept': '*/*',
+2026-07-27T14:04:05.4130076Z E             -         'accept-encoding': 'gzip, deflate, zstd',
+2026-07-27T14:04:05.4130721Z E             ?                                          ------
+2026-07-27T14:04:05.4131182Z E             +         'accept-encoding': 'gzip, deflate',
+2026-07-27T14:04:05.4131498Z E             +         'user-agent': 'testclient',
+2026-07-27T14:04:05.4131783Z E                       'connection': 'upgrade',
+2026-07-27T14:04:05.4132054Z E             -         'host': 'testserver',
+2026-07-27T14:04:05.4132320Z E             -         'user-agent': 'testclient',
+2026-07-27T14:04:05.4132614Z E                       'sec-websocket-key': 'testserver==',
+2026-07-27T14:04:05.4132921Z E                       'sec-websocket-version': '13',
+2026-07-27T14:04:05.4133154Z E                   },
+2026-07-27T14:04:05.4133321Z E               }
+2026-07-27T14:04:05.4133413Z 
+2026-07-27T14:04:05.4133563Z tests/test_websockets.py:102: AssertionError
+2026-07-27T14:04:05.4133909Z =========================== short test summary info ============================
+2026-07-27T14:04:05.4134554Z SKIPPED [1] tests/middleware/test_base.py:1021: TestClient requires thread support
+2026-07-27T14:04:05.4135040Z SKIPPED [1] tests/middleware/test_wsgi.py:68: WSGIMiddleware requires thread support
+2026-07-27T14:04:05.4135506Z SKIPPED [1] tests/middleware/test_wsgi.py:77: WSGIMiddleware requires thread support
+2026-07-27T14:04:05.4135962Z SKIPPED [1] tests/middleware/test_wsgi.py:86: WSGIMiddleware requires thread support
+2026-07-27T14:04:05.4136421Z SKIPPED [1] tests/middleware/test_wsgi.py:96: WSGIMiddleware requires thread support
+2026-07-27T14:04:05.4136941Z SKIPPED [1] tests/test_applications.py:272: Sync websocket exception handler uses anyio.from_thread
+2026-07-27T14:04:05.4137438Z SKIPPED [1] tests/test_formparsers.py:350: No background thread is used on WASM
+2026-07-27T14:04:05.4137932Z SKIPPED [1] tests/test_testclient.py:92: This test asserts thread-specific TestClient behavior
+2026-07-27T14:04:05.4138593Z SKIPPED [1] tests/test_testclient.py:262: This test asserts thread-backed websocket cancellation behavior
+2026-07-27T14:04:05.4139079Z ============= 2 failed, 534 passed, 9 skipped, 1 xfailed in 4.23s ==============
+2026-07-27T14:04:05.4974062Z ##[error]Process completed with exit code 1.
+2026-07-27T14:04:05.5113540Z Post job cleanup.
+2026-07-27T14:04:05.5779744Z [command]/usr/bin/git version
+2026-07-27T14:04:05.5810328Z git version 2.54.0
+2026-07-27T14:04:05.5841390Z Temporarily overriding HOME='/home/runner/work/_temp/35f1b931-8c69-44e1-817c-6be0bec5016f' before making global git config changes
+2026-07-27T14:04:05.5842495Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-27T14:04:05.5846443Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/starlette/starlette
+2026-07-27T14:04:05.5923515Z Removing SSH command configuration
+2026-07-27T14:04:05.5928202Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-27T14:04:05.5956864Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-27T14:04:05.6154448Z Removing HTTP extra header
+2026-07-27T14:04:05.6159021Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-27T14:04:05.6185254Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-27T14:04:05.6367897Z Removing includeIf entries pointing to credentials config files
+2026-07-27T14:04:05.6373797Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-27T14:04:05.6433544Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-27T14:04:05.6742362Z Cleaning up orphan processes

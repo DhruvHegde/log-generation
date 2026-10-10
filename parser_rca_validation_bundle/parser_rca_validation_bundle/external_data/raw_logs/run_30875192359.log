@@ -1,0 +1,363 @@
+﻿2026-08-04T03:35:34.7384552Z Current runner version: '2.336.0'
+2026-08-04T03:35:34.7420239Z ##[group]Runner Image Provisioner
+2026-08-04T03:35:34.7421606Z Hosted Compute Agent
+2026-08-04T03:35:34.7422768Z Version: 20260707.563
+2026-08-04T03:35:34.7424274Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-08-04T03:35:34.7425627Z Build Date: 2026-07-07T19:33:50Z
+2026-08-04T03:35:34.7426992Z Worker ID: {420db9ac-19f8-4ffb-93e0-0baf40491d6d}
+2026-08-04T03:35:34.7428262Z Azure Region: eastus
+2026-08-04T03:35:34.7429186Z ##[endgroup]
+2026-08-04T03:35:34.7431710Z ##[group]Operating System
+2026-08-04T03:35:34.7432784Z Ubuntu
+2026-08-04T03:35:34.7433749Z 24.04.4
+2026-08-04T03:35:34.7434913Z LTS
+2026-08-04T03:35:34.7435790Z ##[endgroup]
+2026-08-04T03:35:34.7436940Z ##[group]Runner Image
+2026-08-04T03:35:34.7438066Z Image: ubuntu-24.04
+2026-08-04T03:35:34.7439143Z Version: 20260720.247.2
+2026-08-04T03:35:34.7441248Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260720.247/images/ubuntu/Ubuntu2404-Readme.md
+2026-08-04T03:35:34.7444327Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260720.247
+2026-08-04T03:35:34.7446152Z ##[endgroup]
+2026-08-04T03:35:34.7448249Z ##[group]GITHUB_TOKEN Permissions
+2026-08-04T03:35:34.7451226Z Metadata: read
+2026-08-04T03:35:34.7452421Z PullRequests: write
+2026-08-04T03:35:34.7453456Z ##[endgroup]
+2026-08-04T03:35:34.7457045Z Secret source: Actions
+2026-08-04T03:35:34.7459281Z Prepare workflow directory
+2026-08-04T03:35:34.8041465Z Prepare all required actions
+2026-08-04T03:35:34.8117532Z Getting action download info
+2026-08-04T03:35:35.0076531Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-08-04T03:35:35.2218486Z Download action repository 'actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c' (SHA:3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c)
+2026-08-04T03:35:35.3625856Z Download action repository 'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97' (SHA:5fda3b95a4ea91299a34e894583c3862153e4b97)
+2026-08-04T03:35:35.5410595Z Download action repository 'peter-evans/find-comment@b30e6a3c0ed37e7c023ccd3f1db5c6c0b0c23aad' (SHA:b30e6a3c0ed37e7c023ccd3f1db5c6c0b0c23aad)
+2026-08-04T03:35:35.6397529Z Download action repository 'peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9' (SHA:e8674b075228eee787fea43ef493e45ece1004c9)
+2026-08-04T03:35:35.8600546Z Complete job name: comment
+2026-08-04T03:35:35.9590192Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-08-04T03:35:35.9591381Z with:
+2026-08-04T03:35:35.9591836Z   persist-credentials: false
+2026-08-04T03:35:35.9592356Z   repository: psf/black
+2026-08-04T03:35:35.9596710Z   token: ***
+2026-08-04T03:35:35.9597159Z   ssh-strict: true
+2026-08-04T03:35:35.9597595Z   ssh-user: git
+2026-08-04T03:35:35.9598009Z   clean: true
+2026-08-04T03:35:35.9598450Z   sparse-checkout-cone-mode: true
+2026-08-04T03:35:35.9598970Z   fetch-depth: 1
+2026-08-04T03:35:35.9599415Z   fetch-tags: false
+2026-08-04T03:35:35.9599862Z   show-progress: true
+2026-08-04T03:35:35.9600302Z   lfs: false
+2026-08-04T03:35:35.9600705Z   submodules: false
+2026-08-04T03:35:35.9601147Z   set-safe-directory: true
+2026-08-04T03:35:35.9601645Z   allow-unsafe-pr-checkout: false
+2026-08-04T03:35:35.9602467Z env:
+2026-08-04T03:35:35.9602899Z   PIP_UPLOADED_PRIOR_TO: P2D
+2026-08-04T03:35:35.9603393Z ##[endgroup]
+2026-08-04T03:35:36.0567534Z Syncing repository: psf/black
+2026-08-04T03:35:36.0569440Z ##[group]Getting Git version info
+2026-08-04T03:35:36.0570162Z Working directory is '/home/runner/work/black/black'
+2026-08-04T03:35:36.0571269Z [command]/usr/bin/git version
+2026-08-04T03:35:36.0633729Z git version 2.54.0
+2026-08-04T03:35:36.0655642Z ##[endgroup]
+2026-08-04T03:35:36.0666533Z Temporarily overriding HOME='/home/runner/work/_temp/60c68bb7-09e0-48ea-8731-5d3288c90e21' before making global git config changes
+2026-08-04T03:35:36.0667996Z Adding repository directory to the temporary git global config as a safe directory
+2026-08-04T03:35:36.0672258Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/black/black
+2026-08-04T03:35:36.0718807Z Deleting the contents of '/home/runner/work/black/black'
+2026-08-04T03:35:36.0722415Z ##[group]Determining repository object format
+2026-08-04T03:35:36.0723932Z ##[endgroup]
+2026-08-04T03:35:36.0724846Z ##[group]Initializing the repository
+2026-08-04T03:35:36.0728252Z [command]/usr/bin/git init /home/runner/work/black/black
+2026-08-04T03:35:36.0827747Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-08-04T03:35:36.0829347Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-08-04T03:35:36.0830420Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-08-04T03:35:36.0831370Z hint: call:
+2026-08-04T03:35:36.0831818Z hint:
+2026-08-04T03:35:36.0832379Z hint: 	git config --global init.defaultBranch <name>
+2026-08-04T03:35:36.0833320Z hint:
+2026-08-04T03:35:36.0834677Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-08-04T03:35:36.0836076Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-08-04T03:35:36.0837189Z hint:
+2026-08-04T03:35:36.0837657Z hint: 	git branch -m <name>
+2026-08-04T03:35:36.0910820Z hint:
+2026-08-04T03:35:36.0912215Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-08-04T03:35:36.0913379Z Initialized empty Git repository in /home/runner/work/black/black/.git/
+2026-08-04T03:35:36.0915180Z [command]/usr/bin/git remote add origin https://github.com/psf/black
+2026-08-04T03:35:36.0917736Z ##[endgroup]
+2026-08-04T03:35:36.0918625Z ##[group]Disabling automatic garbage collection
+2026-08-04T03:35:36.0919746Z [command]/usr/bin/git config --local gc.auto 0
+2026-08-04T03:35:36.0922113Z ##[endgroup]
+2026-08-04T03:35:36.0923141Z ##[group]Setting up auth
+2026-08-04T03:35:36.0923663Z Removing SSH command configuration
+2026-08-04T03:35:36.0926411Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-08-04T03:35:36.0959761Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-08-04T03:35:36.3335045Z Removing HTTP extra header
+2026-08-04T03:35:36.3336613Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-08-04T03:35:36.3375975Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-08-04T03:35:36.3581408Z Removing includeIf entries pointing to credentials config files
+2026-08-04T03:35:36.3588174Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-08-04T03:35:36.3627769Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-08-04T03:35:36.3847274Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-7ba3eee7-c774-4780-a9fd-1aefdefa1b2c.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-08-04T03:35:36.3883188Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/black/black/.git.path /home/runner/work/_temp/git-credentials-7ba3eee7-c774-4780-a9fd-1aefdefa1b2c.config
+2026-08-04T03:35:36.3913176Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/black/black/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-7ba3eee7-c774-4780-a9fd-1aefdefa1b2c.config
+2026-08-04T03:35:36.3946053Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-7ba3eee7-c774-4780-a9fd-1aefdefa1b2c.config
+2026-08-04T03:35:36.3975432Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-7ba3eee7-c774-4780-a9fd-1aefdefa1b2c.config
+2026-08-04T03:35:36.4001184Z ##[endgroup]
+2026-08-04T03:35:36.4001954Z ##[group]Fetching the repository
+2026-08-04T03:35:36.4007983Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +006b2a74d4deac01fa16e85ccc9f5810b53a7391:refs/remotes/origin/main
+2026-08-04T03:35:36.6629988Z From https://github.com/psf/black
+2026-08-04T03:35:36.6632164Z  * [new ref]         006b2a74d4deac01fa16e85ccc9f5810b53a7391 -> origin/main
+2026-08-04T03:35:36.6671975Z [command]/usr/bin/git branch --list --remote origin/main
+2026-08-04T03:35:36.6699269Z   origin/main
+2026-08-04T03:35:36.6709665Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-08-04T03:35:36.6733507Z 006b2a74d4deac01fa16e85ccc9f5810b53a7391
+2026-08-04T03:35:36.6743417Z ##[endgroup]
+2026-08-04T03:35:36.6744906Z ##[group]Determining the checkout info
+2026-08-04T03:35:36.6746219Z ##[endgroup]
+2026-08-04T03:35:36.6747020Z [command]/usr/bin/git sparse-checkout disable
+2026-08-04T03:35:36.6796140Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-08-04T03:35:36.6828618Z ##[group]Checking out the ref
+2026-08-04T03:35:36.6831942Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-08-04T03:35:36.7355991Z Switched to a new branch 'main'
+2026-08-04T03:35:36.7358802Z branch 'main' set up to track 'origin/main'.
+2026-08-04T03:35:36.7371997Z ##[endgroup]
+2026-08-04T03:35:36.7420420Z [command]/usr/bin/git log -1 --format=%H
+2026-08-04T03:35:36.7448559Z 006b2a74d4deac01fa16e85ccc9f5810b53a7391
+2026-08-04T03:35:36.7459919Z ##[group]Removing auth
+2026-08-04T03:35:36.7461189Z Removing SSH command configuration
+2026-08-04T03:35:36.7465938Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-08-04T03:35:36.7510741Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-08-04T03:35:36.7754488Z Removing HTTP extra header
+2026-08-04T03:35:36.7757597Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-08-04T03:35:36.7799365Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-08-04T03:35:36.8025819Z Removing includeIf entries pointing to credentials config files
+2026-08-04T03:35:36.8028919Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-08-04T03:35:36.8055302Z includeif.gitdir:/home/runner/work/black/black/.git.path
+2026-08-04T03:35:36.8058778Z includeif.gitdir:/home/runner/work/black/black/.git/worktrees/*.path
+2026-08-04T03:35:36.8061866Z includeif.gitdir:/github/workspace/.git.path
+2026-08-04T03:35:36.8065407Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-08-04T03:35:36.8072314Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/black/black/.git.path
+2026-08-04T03:35:36.8089136Z /home/runner/work/_temp/git-credentials-7ba3eee7-c774-4780-a9fd-1aefdefa1b2c.config
+2026-08-04T03:35:36.8110765Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/black/black/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-7ba3eee7\-c774\-4780\-a9fd\-1aefdefa1b2c\.config
+2026-08-04T03:35:36.8149240Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/black/black/.git/worktrees/*.path
+2026-08-04T03:35:36.8171341Z /home/runner/work/_temp/git-credentials-7ba3eee7-c774-4780-a9fd-1aefdefa1b2c.config
+2026-08-04T03:35:36.8182730Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/black/black/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-7ba3eee7\-c774\-4780\-a9fd\-1aefdefa1b2c\.config
+2026-08-04T03:35:36.8254827Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-08-04T03:35:36.8303016Z /github/runner_temp/git-credentials-7ba3eee7-c774-4780-a9fd-1aefdefa1b2c.config
+2026-08-04T03:35:36.8311391Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-7ba3eee7\-c774\-4780\-a9fd\-1aefdefa1b2c\.config
+2026-08-04T03:35:36.8345421Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-08-04T03:35:36.8368494Z /github/runner_temp/git-credentials-7ba3eee7-c774-4780-a9fd-1aefdefa1b2c.config
+2026-08-04T03:35:36.8378787Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-7ba3eee7\-c774\-4780\-a9fd\-1aefdefa1b2c\.config
+2026-08-04T03:35:36.8414710Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-08-04T03:35:36.8631155Z Removing credentials config '/home/runner/work/_temp/git-credentials-7ba3eee7-c774-4780-a9fd-1aefdefa1b2c.config'
+2026-08-04T03:35:36.8639170Z ##[endgroup]
+2026-08-04T03:35:36.8954556Z ##[group]Run actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+2026-08-04T03:35:36.8956220Z with:
+2026-08-04T03:35:36.8956963Z   merge-multiple: true
+2026-08-04T03:35:36.8957848Z   pattern: .*.pr-comment.md
+2026-08-04T03:35:36.8958953Z   path: /home/runner/work/_temp/diff-shades-artifacts
+2026-08-04T03:35:36.8970018Z   github-token: ***
+2026-08-04T03:35:36.8970861Z   run-id: 30603474211
+2026-08-04T03:35:36.8971718Z   repository: psf/black
+2026-08-04T03:35:36.8972613Z   skip-decompress: false
+2026-08-04T03:35:36.8973532Z   digest-mismatch: error
+2026-08-04T03:35:36.8974767Z env:
+2026-08-04T03:35:36.8975520Z   PIP_UPLOADED_PRIOR_TO: P2D
+2026-08-04T03:35:36.8976461Z ##[endgroup]
+2026-08-04T03:35:37.0372233Z Fetching artifact list for workflow run 30603474211 in repository psf/black
+2026-08-04T03:35:37.1903629Z Found 8 artifact(s)
+2026-08-04T03:35:37.1907161Z Filtering artifacts by pattern '.*.pr-comment.md'
+2026-08-04T03:35:37.1951001Z Preparing to download the following artifacts:
+2026-08-04T03:35:37.1956947Z - .preview.pr-comment.md (ID: 8879266093, Size: 203, Expected Digest: sha256:fc1cbcb57c45932cd6c13575d81913e2f56281fba2018ba98b2aaa5e4ce4c773)
+2026-08-04T03:35:37.1961634Z - .stable.pr-comment.md (ID: 8879262667, Size: 198, Expected Digest: sha256:15f3f54dc43a005059aad46d136440e6f91dbc86fc20ff12771480d42801957d)
+2026-08-04T03:35:37.1966454Z Downloading artifact '8879266093' from 'psf/black'
+2026-08-04T03:35:37.1967981Z Downloading artifact '8879262667' from 'psf/black'
+2026-08-04T03:35:37.2995869Z Redirecting to blob download url: https://productionresultssa5.blob.core.windows.net/actions-results/f2363223-f56f-428f-be0c-af51b34cf3ce/workflow-job-run-8ced21d8-46f8-5ae9-b093-49cf502fa641/artifacts/54047f918266c606bfd2b775e1e786315eedec583a37d116eb8b06fd4e8ed253.zip
+2026-08-04T03:35:37.3000769Z Starting download of artifact to: /home/runner/work/_temp/diff-shades-artifacts
+2026-08-04T03:35:37.3181537Z Redirecting to blob download url: https://productionresultssa5.blob.core.windows.net/actions-results/f2363223-f56f-428f-be0c-af51b34cf3ce/workflow-job-run-c6ffed31-0142-5f73-8b66-0d9f321d367c/artifacts/4d6eaf10cd63a3470edb633dd87056e6496f59179b20379f0ef24818f8089112.zip
+2026-08-04T03:35:37.3187681Z Starting download of artifact to: /home/runner/work/_temp/diff-shades-artifacts
+2026-08-04T03:35:37.3482430Z (node:3025) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-08-04T03:35:37.3485828Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-08-04T03:35:37.3539829Z SHA256 digest of downloaded artifact is fc1cbcb57c45932cd6c13575d81913e2f56281fba2018ba98b2aaa5e4ce4c773
+2026-08-04T03:35:37.3542640Z Artifact download completed successfully.
+2026-08-04T03:35:37.3766909Z SHA256 digest of downloaded artifact is 15f3f54dc43a005059aad46d136440e6f91dbc86fc20ff12771480d42801957d
+2026-08-04T03:35:37.3769649Z Artifact download completed successfully.
+2026-08-04T03:35:37.3770578Z Total of 2 artifact(s) downloaded
+2026-08-04T03:35:37.3771412Z Download artifact has finished successfully
+2026-08-04T03:35:37.3920482Z ##[group]Run set -euo pipefail
+2026-08-04T03:35:37.3921250Z [36;1mset -euo pipefail[0m
+2026-08-04T03:35:37.3921812Z [36;1m[0m
+2026-08-04T03:35:37.3922463Z [36;1martifact_dir="${RUNNER_TEMP}/diff-shades-artifacts"[0m
+2026-08-04T03:35:37.3923622Z [36;1mpreview_artifact="${artifact_dir}/.preview.pr-comment.md"[0m
+2026-08-04T03:35:37.3925222Z [36;1mstable_artifact="${artifact_dir}/.stable.pr-comment.md"[0m
+2026-08-04T03:35:37.3926129Z [36;1m[0m
+2026-08-04T03:35:37.3926605Z [36;1mif [ ! -d "$artifact_dir" ]; then[0m
+2026-08-04T03:35:37.3927625Z [36;1m    echo "::error::Artifact directory does not exist: ${artifact_dir}"[0m
+2026-08-04T03:35:37.3928652Z [36;1m    exit 1[0m
+2026-08-04T03:35:37.3929121Z [36;1mfi[0m
+2026-08-04T03:35:37.3929536Z [36;1m[0m
+2026-08-04T03:35:37.3930012Z [36;1mwhile IFS= read -r -d '' entry; do[0m
+2026-08-04T03:35:37.3930871Z [36;1m    if [ "$(dirname "$entry")" != "$artifact_dir" ]; then[0m
+2026-08-04T03:35:37.3932018Z [36;1m        echo "::error::Unexpected nested artifact path: ${entry}"[0m
+2026-08-04T03:35:37.3932938Z [36;1m        exit 1[0m
+2026-08-04T03:35:37.3933439Z [36;1m    fi[0m
+2026-08-04T03:35:37.3934098Z [36;1m[0m
+2026-08-04T03:35:37.3934575Z [36;1m    case "$(basename "$entry")" in[0m
+2026-08-04T03:35:37.3935486Z [36;1m        .preview.pr-comment.md|.stable.pr-comment.md) ;;[0m
+2026-08-04T03:35:37.3936336Z [36;1m        *)[0m
+2026-08-04T03:35:37.3937013Z [36;1m            echo "::error::Unexpected artifact path: ${entry}"[0m
+2026-08-04T03:35:37.3937879Z [36;1m            exit 1[0m
+2026-08-04T03:35:37.3938412Z [36;1m            ;;[0m
+2026-08-04T03:35:37.3938910Z [36;1m    esac[0m
+2026-08-04T03:35:37.3939354Z [36;1m[0m
+2026-08-04T03:35:37.3939874Z [36;1m    if [ ! -f "$entry" ] || [ -L "$entry" ]; then[0m
+2026-08-04T03:35:37.3940869Z [36;1m        echo "::error::Artifact must be a regular file: ${entry}"[0m
+2026-08-04T03:35:37.3941745Z [36;1m        exit 1[0m
+2026-08-04T03:35:37.3942224Z [36;1m    fi[0m
+2026-08-04T03:35:37.3942820Z [36;1mdone < <(find "$artifact_dir" -mindepth 1 -print0)[0m
+2026-08-04T03:35:37.3943587Z [36;1m[0m
+2026-08-04T03:35:37.3944351Z [36;1mfor artifact in "$preview_artifact" "$stable_artifact"; do[0m
+2026-08-04T03:35:37.3945374Z [36;1m    if [ ! -f "$artifact" ] || [ -L "$artifact" ]; then[0m
+2026-08-04T03:35:37.3946398Z [36;1m        echo "::error::Missing expected artifact file: ${artifact}"[0m
+2026-08-04T03:35:37.3947288Z [36;1m        exit 1[0m
+2026-08-04T03:35:37.3947758Z [36;1m    fi[0m
+2026-08-04T03:35:37.3948163Z [36;1mdone[0m
+2026-08-04T03:35:37.3948566Z [36;1m[0m
+2026-08-04T03:35:37.3948930Z [36;1m{[0m
+2026-08-04T03:35:37.3949416Z [36;1m    echo "preview=${preview_artifact}"[0m
+2026-08-04T03:35:37.3950174Z [36;1m    echo "stable=${stable_artifact}"[0m
+2026-08-04T03:35:37.3950858Z [36;1m} >> "$GITHUB_OUTPUT"[0m
+2026-08-04T03:35:37.3999800Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-08-04T03:35:37.4000621Z env:
+2026-08-04T03:35:37.4001036Z   PIP_UPLOADED_PRIOR_TO: P2D
+2026-08-04T03:35:37.4001584Z ##[endgroup]
+2026-08-04T03:35:37.4298110Z ##[group]Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+2026-08-04T03:35:37.4299035Z with:
+2026-08-04T03:35:37.4299412Z   python-version: 3.15
+2026-08-04T03:35:37.4299906Z   allow-prereleases: true
+2026-08-04T03:35:37.4300395Z   check-latest: false
+2026-08-04T03:35:37.4308556Z   token: ***
+2026-08-04T03:35:37.4309017Z   update-environment: true
+2026-08-04T03:35:37.4309532Z   freethreaded: false
+2026-08-04T03:35:37.4309958Z env:
+2026-08-04T03:35:37.4310368Z   PIP_UPLOADED_PRIOR_TO: P2D
+2026-08-04T03:35:37.4310868Z ##[endgroup]
+2026-08-04T03:35:37.5482940Z ##[group]Installed versions
+2026-08-04T03:35:37.5556052Z Version ~3.15.0-0 was not found in the local cache
+2026-08-04T03:35:38.0538810Z Version ~3.15.0-0 is available for downloading
+2026-08-04T03:35:38.0540248Z Download from "https://github.com/actions/python-versions/releases/download/3.15.0-beta.4-29712574371/python-3.15.0-beta.4-linux-24.04-x64.tar.gz"
+2026-08-04T03:35:38.6804509Z Extract downloaded archive
+2026-08-04T03:35:38.6921884Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/d15f9f4e-8d5e-4990-a080-109395c90e11 -f /home/runner/work/_temp/b44c8925-a318-411b-8bc8-6b14b9b4fe68
+2026-08-04T03:35:41.0742248Z Execute installation script
+2026-08-04T03:35:41.0831218Z Check if Python hostedtoolcache folder exist...
+2026-08-04T03:35:41.0832087Z Create Python 3.15.0-beta.4 folder
+2026-08-04T03:35:41.0846684Z Copy Python binaries to hostedtoolcache folder
+2026-08-04T03:35:41.6876483Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+2026-08-04T03:35:41.6964971Z Upgrading pip...
+2026-08-04T03:35:44.9029710Z Collecting pip
+2026-08-04T03:35:44.9571903Z Downloading pip-26.2-py3-none-any.whl.metadata (4.6 kB)
+2026-08-04T03:35:45.0043000Z Downloading pip-26.2-py3-none-any.whl (1.8 MB)
+2026-08-04T03:35:45.0464847Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 83.2 MB/s  0:00:00
+2026-08-04T03:35:45.0465527Z 
+2026-08-04T03:35:45.0794688Z Installing collected packages: pip
+2026-08-04T03:35:45.0802525Z Attempting uninstall: pip
+2026-08-04T03:35:45.0820658Z Found existing installation: pip 26.1.2
+2026-08-04T03:35:45.1131534Z Uninstalling pip-26.1.2:
+2026-08-04T03:35:45.1212571Z Successfully uninstalled pip-26.1.2
+2026-08-04T03:35:46.2087009Z Successfully installed pip-26.2
+2026-08-04T03:35:46.2689120Z Create complete file
+2026-08-04T03:35:46.2740563Z Successfully set up CPython (3.15.0-beta.4)
+2026-08-04T03:35:46.2741268Z ##[endgroup]
+2026-08-04T03:35:46.2903045Z ##[group]Run python -m pip install --group diff-shades-comment
+2026-08-04T03:35:46.2904160Z [36;1mpython -m pip install --group diff-shades-comment[0m
+2026-08-04T03:35:46.2953257Z shell: /usr/bin/bash -e {0}
+2026-08-04T03:35:46.2953519Z env:
+2026-08-04T03:35:46.2953719Z   PIP_UPLOADED_PRIOR_TO: P2D
+2026-08-04T03:35:46.2954368Z   pythonLocation: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64
+2026-08-04T03:35:46.2954876Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64/lib/pkgconfig
+2026-08-04T03:35:46.2955382Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64
+2026-08-04T03:35:46.2955792Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64
+2026-08-04T03:35:46.2956207Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64
+2026-08-04T03:35:46.2956619Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64/lib
+2026-08-04T03:35:46.2956957Z ##[endgroup]
+2026-08-04T03:35:46.7261532Z Collecting click>=8.1.7
+2026-08-04T03:35:46.7724601Z   Downloading click-8.4.2-py3-none-any.whl.metadata (2.6 kB)
+2026-08-04T03:35:46.7928968Z Collecting packaging>=22.0
+2026-08-04T03:35:46.7962533Z   Downloading packaging-26.2-py3-none-any.whl.metadata (3.5 kB)
+2026-08-04T03:35:46.8217506Z Collecting urllib3
+2026-08-04T03:35:46.8252566Z   Downloading urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+2026-08-04T03:35:46.8351401Z Downloading click-8.4.2-py3-none-any.whl (119 kB)
+2026-08-04T03:35:46.8513777Z Downloading packaging-26.2-py3-none-any.whl (100 kB)
+2026-08-04T03:35:46.8584239Z Downloading urllib3-2.7.0-py3-none-any.whl (131 kB)
+2026-08-04T03:35:46.8909244Z Installing collected packages: urllib3, packaging, click
+2026-08-04T03:35:47.1640346Z 
+2026-08-04T03:35:47.1649561Z Successfully installed click-8.4.2 packaging-26.2 urllib3-2.7.0
+2026-08-04T03:35:47.2237656Z ##[group]Run echo pr=$(gh pr list --search $sha --json number --jq ".[0].number") >> "$GITHUB_OUTPUT"
+2026-08-04T03:35:47.2238338Z [36;1mecho pr=$(gh pr list --search $sha --json number --jq ".[0].number") >> "$GITHUB_OUTPUT"[0m
+2026-08-04T03:35:47.2282711Z shell: /usr/bin/bash -e {0}
+2026-08-04T03:35:47.2282956Z env:
+2026-08-04T03:35:47.2283161Z   PIP_UPLOADED_PRIOR_TO: P2D
+2026-08-04T03:35:47.2283497Z   pythonLocation: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64
+2026-08-04T03:35:47.2284359Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64/lib/pkgconfig
+2026-08-04T03:35:47.2284913Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64
+2026-08-04T03:35:47.2285351Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64
+2026-08-04T03:35:47.2285769Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64
+2026-08-04T03:35:47.2286182Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64/lib
+2026-08-04T03:35:47.2289251Z   GITHUB_TOKEN: ***
+2026-08-04T03:35:47.2289515Z   sha: c177bc41adfe44929316a4fddf525d8b28870cee
+2026-08-04T03:35:47.2289810Z ##[endgroup]
+2026-08-04T03:35:47.8257727Z ##[group]Run python scripts/diff_shades_gha_helper.py comment-details \
+2026-08-04T03:35:47.8258268Z [36;1mpython scripts/diff_shades_gha_helper.py comment-details \[0m
+2026-08-04T03:35:47.8258703Z [36;1m"$pr" "$run_id" "$preview_artifact" "$stable_artifact"[0m
+2026-08-04T03:35:47.8302906Z shell: /usr/bin/bash -e {0}
+2026-08-04T03:35:47.8303161Z env:
+2026-08-04T03:35:47.8303364Z   PIP_UPLOADED_PRIOR_TO: P2D
+2026-08-04T03:35:47.8303709Z   pythonLocation: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64
+2026-08-04T03:35:47.8304475Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64/lib/pkgconfig
+2026-08-04T03:35:47.8304969Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64
+2026-08-04T03:35:47.8305404Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64
+2026-08-04T03:35:47.8305838Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64
+2026-08-04T03:35:47.8306305Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.15.0-beta.4/x64/lib
+2026-08-04T03:35:47.8309323Z   GITHUB_TOKEN: ***
+2026-08-04T03:35:47.8309529Z   pr: 
+2026-08-04T03:35:47.8309709Z   run_id: 30603474211
+2026-08-04T03:35:47.8310095Z   preview_artifact: /home/runner/work/_temp/diff-shades-artifacts/.preview.pr-comment.md
+2026-08-04T03:35:47.8310678Z   stable_artifact: /home/runner/work/_temp/diff-shades-artifacts/.stable.pr-comment.md
+2026-08-04T03:35:47.8311099Z ##[endgroup]
+2026-08-04T03:35:48.0218654Z Traceback (most recent call last):
+2026-08-04T03:35:48.0237144Z   File "/home/runner/work/black/black/scripts/diff_shades_gha_helper.py", line 231, in <module>
+2026-08-04T03:35:48.0237978Z     main()
+2026-08-04T03:35:48.0238264Z     ~~~~^^
+2026-08-04T03:35:48.0239066Z   File "/opt/hostedtoolcache/Python/3.15.0-beta.4/x64/lib/python3.15/site-packages/click/core.py", line 1569, in __call__
+2026-08-04T03:35:48.0239984Z     return self.main(*args, **kwargs)
+2026-08-04T03:35:48.0240399Z            ~~~~~~~~~^^^^^^^^^^^^^^^^^
+2026-08-04T03:35:48.0241257Z   File "/opt/hostedtoolcache/Python/3.15.0-beta.4/x64/lib/python3.15/site-packages/click/core.py", line 1490, in main
+2026-08-04T03:35:48.0242086Z     rv = self.invoke(ctx)
+2026-08-04T03:35:48.0242912Z   File "/opt/hostedtoolcache/Python/3.15.0-beta.4/x64/lib/python3.15/site-packages/click/core.py", line 1970, in invoke
+2026-08-04T03:35:48.0244077Z     return _process_result(sub_ctx.command.invoke(sub_ctx))
+2026-08-04T03:35:48.0244627Z                            ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+2026-08-04T03:35:48.0245524Z   File "/opt/hostedtoolcache/Python/3.15.0-beta.4/x64/lib/python3.15/site-packages/click/core.py", line 1353, in invoke
+2026-08-04T03:35:48.0246462Z     return ctx.invoke(self.callback, **ctx.params)
+2026-08-04T03:35:48.0246933Z            ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-04T03:35:48.0247778Z   File "/opt/hostedtoolcache/Python/3.15.0-beta.4/x64/lib/python3.15/site-packages/click/core.py", line 907, in invoke
+2026-08-04T03:35:48.0248694Z     return callback(*args, **kwargs)
+2026-08-04T03:35:48.0249499Z   File "/home/runner/work/black/black/scripts/diff_shades_gha_helper.py", line 203, in comment_details
+2026-08-04T03:35:48.0250274Z     base, head, _ = get_pr_branches(pr)
+2026-08-04T03:35:48.0250986Z                     ~~~~~~~~~~~~~~~^^^^
+2026-08-04T03:35:48.0251782Z   File "/home/runner/work/black/black/scripts/diff_shades_gha_helper.py", line 98, in get_pr_branches
+2026-08-04T03:35:48.0252595Z     pr = int(pr_ref[10:-6])
+2026-08-04T03:35:48.0253074Z ValueError: invalid literal for int() with base 10: ''
+2026-08-04T03:35:48.0424766Z ##[error]Process completed with exit code 1.
+2026-08-04T03:35:48.0577087Z Post job cleanup.
+2026-08-04T03:35:48.1402183Z [command]/usr/bin/git version
+2026-08-04T03:35:48.1446286Z git version 2.54.0
+2026-08-04T03:35:48.1484063Z Temporarily overriding HOME='/home/runner/work/_temp/28823d14-916f-4fb3-8775-45f36f141842' before making global git config changes
+2026-08-04T03:35:48.1485405Z Adding repository directory to the temporary git global config as a safe directory
+2026-08-04T03:35:48.1490689Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/black/black
+2026-08-04T03:35:48.1521093Z Removing SSH command configuration
+2026-08-04T03:35:48.1527602Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-08-04T03:35:48.1563159Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-08-04T03:35:48.1788486Z Removing HTTP extra header
+2026-08-04T03:35:48.1793432Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-08-04T03:35:48.1826012Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-08-04T03:35:48.2047017Z Removing includeIf entries pointing to credentials config files
+2026-08-04T03:35:48.2052640Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-08-04T03:35:48.2082882Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-08-04T03:35:48.2459834Z Cleaning up orphan processes

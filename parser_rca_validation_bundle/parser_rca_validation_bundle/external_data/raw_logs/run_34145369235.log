@@ -1,0 +1,271 @@
+﻿2026-09-07T16:54:46.3633757Z Current runner version: '2.337.0'
+2026-09-07T16:54:46.3658531Z ##[group]Runner Image Provisioner
+2026-09-07T16:54:46.3659406Z Hosted Compute Agent
+2026-09-07T16:54:46.3660079Z Version: 20260828.587
+2026-09-07T16:54:46.3660802Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-07T16:54:46.3661545Z Build Date: 2026-08-28T16:44:25Z
+2026-09-07T16:54:46.3662854Z Worker ID: {66b5964f-d7ca-469a-81ac-fb55e27afb16}
+2026-09-07T16:54:46.3663605Z Azure Region: westus
+2026-09-07T16:54:46.3664211Z ##[endgroup]
+2026-09-07T16:54:46.3666035Z ##[group]Operating System
+2026-09-07T16:54:46.3666694Z Ubuntu
+2026-09-07T16:54:46.3667297Z 24.04.4
+2026-09-07T16:54:46.3667817Z LTS
+2026-09-07T16:54:46.3668315Z ##[endgroup]
+2026-09-07T16:54:46.3669053Z ##[group]Runner Image
+2026-09-07T16:54:46.3669662Z Image: ubuntu-24.04
+2026-09-07T16:54:46.3670270Z Version: 20260831.293.1
+2026-09-07T16:54:46.3671549Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260831.293/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-07T16:54:46.3673426Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260831.293
+2026-09-07T16:54:46.3674407Z ##[endgroup]
+2026-09-07T16:54:46.3675944Z ##[group]GITHUB_TOKEN Permissions
+2026-09-07T16:54:46.3678041Z Contents: read
+2026-09-07T16:54:46.3678773Z Metadata: read
+2026-09-07T16:54:46.3679401Z ##[endgroup]
+2026-09-07T16:54:46.3681415Z Secret source: Dependabot
+2026-09-07T16:54:46.3683251Z Prepare workflow directory
+2026-09-07T16:54:46.4033080Z Prepare all required actions
+2026-09-07T16:54:46.4107088Z Getting action download info
+2026-09-07T16:54:46.7717416Z Download action repository 'actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0' (SHA:9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0)
+2026-09-07T16:54:46.9363546Z Download action repository 'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97' (SHA:5fda3b95a4ea91299a34e894583c3862153e4b97)
+2026-09-07T16:54:47.1147883Z Complete job name: lint
+2026-09-07T16:54:47.1994804Z ##[group]Run actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+2026-09-07T16:54:47.1995882Z with:
+2026-09-07T16:54:47.1996337Z   persist-credentials: false
+2026-09-07T16:54:47.1996941Z   repository: psf/requests
+2026-09-07T16:54:47.2000633Z   token: ***
+2026-09-07T16:54:47.2001083Z   ssh-strict: true
+2026-09-07T16:54:47.2001532Z   ssh-user: git
+2026-09-07T16:54:47.2002310Z   clean: true
+2026-09-07T16:54:47.2002777Z   sparse-checkout-cone-mode: true
+2026-09-07T16:54:47.2003305Z   fetch-depth: 1
+2026-09-07T16:54:47.2003739Z   fetch-tags: false
+2026-09-07T16:54:47.2004192Z   show-progress: true
+2026-09-07T16:54:47.2004704Z   lfs: false
+2026-09-07T16:54:47.2005144Z   submodules: false
+2026-09-07T16:54:47.2005600Z   set-safe-directory: true
+2026-09-07T16:54:47.2006485Z   allow-unsafe-pr-checkout: false
+2026-09-07T16:54:47.2007609Z ##[endgroup]
+2026-09-07T16:54:47.2972198Z Syncing repository: psf/requests
+2026-09-07T16:54:47.2974431Z ##[group]Getting Git version info
+2026-09-07T16:54:47.2975286Z Working directory is '/home/runner/work/requests/requests'
+2026-09-07T16:54:47.2976590Z [command]/usr/bin/git version
+2026-09-07T16:54:47.3044592Z git version 2.55.0
+2026-09-07T16:54:47.3065633Z ##[endgroup]
+2026-09-07T16:54:47.3075651Z Temporarily overriding HOME='/home/runner/work/_temp/35da2789-5146-4954-8ca6-39c08a8d4758' before making global git config changes
+2026-09-07T16:54:47.3077118Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-07T16:54:47.3080441Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/requests/requests
+2026-09-07T16:54:47.3124590Z Deleting the contents of '/home/runner/work/requests/requests'
+2026-09-07T16:54:47.3127659Z ##[group]Determining repository object format
+2026-09-07T16:54:47.3129093Z ##[endgroup]
+2026-09-07T16:54:47.3129886Z ##[group]Initializing the repository
+2026-09-07T16:54:47.3133431Z [command]/usr/bin/git init /home/runner/work/requests/requests
+2026-09-07T16:54:47.3232525Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-07T16:54:47.3234372Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-07T16:54:47.3235887Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-07T16:54:47.3236820Z hint: call:
+2026-09-07T16:54:47.3237562Z hint:
+2026-09-07T16:54:47.3238339Z hint: 	git config --global init.defaultBranch <name>
+2026-09-07T16:54:47.3238991Z hint:
+2026-09-07T16:54:47.3239613Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-07T16:54:47.3241061Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-07T16:54:47.3242291Z hint:
+2026-09-07T16:54:47.3242745Z hint: 	git branch -m <name>
+2026-09-07T16:54:47.3243250Z hint:
+2026-09-07T16:54:47.3243920Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-07T16:54:47.3245585Z Initialized empty Git repository in /home/runner/work/requests/requests/.git/
+2026-09-07T16:54:47.3247405Z [command]/usr/bin/git remote add origin https://github.com/psf/requests
+2026-09-07T16:54:47.3292211Z ##[endgroup]
+2026-09-07T16:54:47.3293632Z ##[group]Disabling automatic garbage collection
+2026-09-07T16:54:47.3295833Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-07T16:54:47.3327741Z ##[endgroup]
+2026-09-07T16:54:47.3329509Z ##[group]Setting up auth
+2026-09-07T16:54:47.3331111Z Removing SSH command configuration
+2026-09-07T16:54:47.3334185Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-07T16:54:47.3368020Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-07T16:54:47.3688596Z Removing HTTP extra header
+2026-09-07T16:54:47.3693825Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-07T16:54:47.3724402Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-07T16:54:47.3933682Z Removing includeIf entries pointing to credentials config files
+2026-09-07T16:54:47.3939532Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-07T16:54:47.3970599Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-07T16:54:47.4193778Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-02eeb2c1-4d69-490f-bb63-583d8cee2233.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-07T16:54:47.4234094Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/requests/requests/.git.path /home/runner/work/_temp/git-credentials-02eeb2c1-4d69-490f-bb63-583d8cee2233.config
+2026-09-07T16:54:47.4265924Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/requests/requests/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-02eeb2c1-4d69-490f-bb63-583d8cee2233.config
+2026-09-07T16:54:47.4328163Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-02eeb2c1-4d69-490f-bb63-583d8cee2233.config
+2026-09-07T16:54:47.4361403Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-02eeb2c1-4d69-490f-bb63-583d8cee2233.config
+2026-09-07T16:54:47.4387936Z ##[endgroup]
+2026-09-07T16:54:47.4389370Z ##[group]Fetching the repository
+2026-09-07T16:54:47.4396541Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +1e62a1d065cb8a332e5a20e58b2f83ecef4fd78c:refs/remotes/origin/dependabot/pre_commit/pre-commit-d501b75439
+2026-09-07T16:54:48.0067219Z From https://github.com/psf/requests
+2026-09-07T16:54:48.0068733Z  * [new ref]         1e62a1d065cb8a332e5a20e58b2f83ecef4fd78c -> origin/dependabot/pre_commit/pre-commit-d501b75439
+2026-09-07T16:54:48.0077170Z [command]/usr/bin/git branch --list --remote origin/dependabot/pre_commit/pre-commit-d501b75439
+2026-09-07T16:54:48.0103904Z   origin/dependabot/pre_commit/pre-commit-d501b75439
+2026-09-07T16:54:48.0112288Z [command]/usr/bin/git rev-parse refs/remotes/origin/dependabot/pre_commit/pre-commit-d501b75439
+2026-09-07T16:54:48.0134205Z 1e62a1d065cb8a332e5a20e58b2f83ecef4fd78c
+2026-09-07T16:54:48.0138684Z ##[endgroup]
+2026-09-07T16:54:48.0139622Z ##[group]Determining the checkout info
+2026-09-07T16:54:48.0140835Z ##[endgroup]
+2026-09-07T16:54:48.0143467Z [command]/usr/bin/git sparse-checkout disable
+2026-09-07T16:54:48.0191102Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-07T16:54:48.0217363Z ##[group]Checking out the ref
+2026-09-07T16:54:48.0223701Z [command]/usr/bin/git checkout --progress --force -B dependabot/pre_commit/pre-commit-d501b75439 refs/remotes/origin/dependabot/pre_commit/pre-commit-d501b75439
+2026-09-07T16:54:48.0438619Z Switched to a new branch 'dependabot/pre_commit/pre-commit-d501b75439'
+2026-09-07T16:54:48.0444685Z branch 'dependabot/pre_commit/pre-commit-d501b75439' set up to track 'origin/dependabot/pre_commit/pre-commit-d501b75439'.
+2026-09-07T16:54:48.0452196Z ##[endgroup]
+2026-09-07T16:54:48.0491576Z [command]/usr/bin/git log -1 --format=%H
+2026-09-07T16:54:48.0514942Z 1e62a1d065cb8a332e5a20e58b2f83ecef4fd78c
+2026-09-07T16:54:48.0523606Z ##[group]Removing auth
+2026-09-07T16:54:48.0524245Z Removing SSH command configuration
+2026-09-07T16:54:48.0527744Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-07T16:54:48.0559129Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-07T16:54:48.0776268Z Removing HTTP extra header
+2026-09-07T16:54:48.0779349Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-07T16:54:48.0807708Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-07T16:54:48.1019119Z Removing includeIf entries pointing to credentials config files
+2026-09-07T16:54:48.1022709Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-07T16:54:48.1046145Z includeif.gitdir:/home/runner/work/requests/requests/.git.path
+2026-09-07T16:54:48.1047183Z includeif.gitdir:/home/runner/work/requests/requests/.git/worktrees/*.path
+2026-09-07T16:54:48.1048073Z includeif.gitdir:/github/workspace/.git.path
+2026-09-07T16:54:48.1049228Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-07T16:54:48.1054727Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/requests/requests/.git.path
+2026-09-07T16:54:48.1075418Z /home/runner/work/_temp/git-credentials-02eeb2c1-4d69-490f-bb63-583d8cee2233.config
+2026-09-07T16:54:48.1084365Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/requests/requests/.git.path /home/runner/work/_temp/git-credentials-02eeb2c1-4d69-490f-bb63-583d8cee2233.config
+2026-09-07T16:54:48.1117781Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/requests/requests/.git/worktrees/*.path
+2026-09-07T16:54:48.1139027Z /home/runner/work/_temp/git-credentials-02eeb2c1-4d69-490f-bb63-583d8cee2233.config
+2026-09-07T16:54:48.1147670Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/requests/requests/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-02eeb2c1-4d69-490f-bb63-583d8cee2233.config
+2026-09-07T16:54:48.1179612Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-09-07T16:54:48.1223902Z /github/runner_temp/git-credentials-02eeb2c1-4d69-490f-bb63-583d8cee2233.config
+2026-09-07T16:54:48.1248616Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-02eeb2c1-4d69-490f-bb63-583d8cee2233.config
+2026-09-07T16:54:48.1283017Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-07T16:54:48.1303966Z /github/runner_temp/git-credentials-02eeb2c1-4d69-490f-bb63-583d8cee2233.config
+2026-09-07T16:54:48.1314205Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-02eeb2c1-4d69-490f-bb63-583d8cee2233.config
+2026-09-07T16:54:48.1345487Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-07T16:54:48.1559889Z Removing credentials config '/home/runner/work/_temp/git-credentials-02eeb2c1-4d69-490f-bb63-583d8cee2233.config'
+2026-09-07T16:54:48.1566986Z ##[endgroup]
+2026-09-07T16:54:48.1837274Z ##[group]Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+2026-09-07T16:54:48.1838074Z with:
+2026-09-07T16:54:48.1838502Z   python-version: 3.x
+2026-09-07T16:54:48.1838979Z   check-latest: false
+2026-09-07T16:54:48.1842948Z   token: ***
+2026-09-07T16:54:48.1843435Z   update-environment: true
+2026-09-07T16:54:48.1843956Z   allow-prereleases: false
+2026-09-07T16:54:48.1844446Z   freethreaded: false
+2026-09-07T16:54:48.1844903Z ##[endgroup]
+2026-09-07T16:54:48.3023524Z ##[group]Installed versions
+2026-09-07T16:54:48.3105416Z Successfully set up CPython (3.14.7)
+2026-09-07T16:54:48.3186233Z ##[endgroup]
+2026-09-07T16:54:48.3268894Z ##[group]Run python -m pip install pre-commit==4.6.0
+2026-09-07T16:54:48.3269744Z [36;1mpython -m pip install pre-commit==4.6.0[0m
+2026-09-07T16:54:48.3270626Z [36;1mpre-commit run --show-diff-on-failure --color=always --all-files[0m
+2026-09-07T16:54:48.3320676Z shell: /usr/bin/bash -e {0}
+2026-09-07T16:54:48.3321517Z env:
+2026-09-07T16:54:48.3322290Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-07T16:54:48.3323161Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib/pkgconfig
+2026-09-07T16:54:48.3324003Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-07T16:54:48.3324783Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-07T16:54:48.3325554Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.7/x64
+2026-09-07T16:54:48.3326322Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.7/x64/lib
+2026-09-07T16:54:48.3326991Z ##[endgroup]
+2026-09-07T16:54:50.0154871Z Collecting pre-commit==4.6.0
+2026-09-07T16:54:50.0614087Z   Downloading pre_commit-4.6.0-py2.py3-none-any.whl.metadata (1.2 kB)
+2026-09-07T16:54:50.0747071Z Collecting cfgv>=2.0.0 (from pre-commit==4.6.0)
+2026-09-07T16:54:50.0777235Z   Downloading cfgv-3.5.0-py2.py3-none-any.whl.metadata (8.9 kB)
+2026-09-07T16:54:50.1114067Z Collecting identify>=1.0.0 (from pre-commit==4.6.0)
+2026-09-07T16:54:50.1142066Z   Downloading identify-2.6.19-py2.py3-none-any.whl.metadata (4.4 kB)
+2026-09-07T16:54:50.1301965Z Collecting nodeenv>=0.11.1 (from pre-commit==4.6.0)
+2026-09-07T16:54:50.1328783Z   Downloading nodeenv-1.10.0-py2.py3-none-any.whl.metadata (24 kB)
+2026-09-07T16:54:50.1738040Z Collecting pyyaml>=5.1 (from pre-commit==4.6.0)
+2026-09-07T16:54:50.1766041Z   Downloading pyyaml-6.0.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+2026-09-07T16:54:50.2111186Z Collecting virtualenv>=20.10.0 (from pre-commit==4.6.0)
+2026-09-07T16:54:50.2137635Z   Downloading virtualenv-21.7.8-py3-none-any.whl.metadata (3.5 kB)
+2026-09-07T16:54:50.2268697Z Collecting distlib<1,>=0.3.7 (from virtualenv>=20.10.0->pre-commit==4.6.0)
+2026-09-07T16:54:50.2297589Z   Downloading distlib-0.4.3-py2.py3-none-any.whl.metadata (5.3 kB)
+2026-09-07T16:54:50.2489957Z Collecting filelock<4,>=3.24.2 (from virtualenv>=20.10.0->pre-commit==4.6.0)
+2026-09-07T16:54:50.2516332Z   Downloading filelock-3.32.5-py3-none-any.whl.metadata (2.0 kB)
+2026-09-07T16:54:50.2688137Z Collecting platformdirs<5,>=3.9.1 (from virtualenv>=20.10.0->pre-commit==4.6.0)
+2026-09-07T16:54:50.2719829Z   Downloading platformdirs-4.11.7-py3-none-any.whl.metadata (5.5 kB)
+2026-09-07T16:54:50.2830914Z Collecting python-discovery>=1.6 (from virtualenv>=20.10.0->pre-commit==4.6.0)
+2026-09-07T16:54:50.2856640Z   Downloading python_discovery-1.6.0-py3-none-any.whl.metadata (5.1 kB)
+2026-09-07T16:54:50.2943058Z Downloading pre_commit-4.6.0-py2.py3-none-any.whl (226 kB)
+2026-09-07T16:54:50.3029393Z Downloading cfgv-3.5.0-py2.py3-none-any.whl (7.4 kB)
+2026-09-07T16:54:50.3074605Z Downloading identify-2.6.19-py2.py3-none-any.whl (99 kB)
+2026-09-07T16:54:50.3122846Z Downloading nodeenv-1.10.0-py2.py3-none-any.whl (23 kB)
+2026-09-07T16:54:50.3169940Z Downloading pyyaml-6.0.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (794 kB)
+2026-09-07T16:54:50.3251491Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 794.2/794.2 kB 106.9 MB/s  0:00:00
+2026-09-07T16:54:50.3276988Z Downloading virtualenv-21.7.8-py3-none-any.whl (5.3 MB)
+2026-09-07T16:54:50.3498775Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.3/5.3 MB 252.0 MB/s  0:00:00
+2026-09-07T16:54:50.3526176Z Downloading distlib-0.4.3-py2.py3-none-any.whl (470 kB)
+2026-09-07T16:54:50.3587216Z Downloading filelock-3.32.5-py3-none-any.whl (100 kB)
+2026-09-07T16:54:50.3655586Z Downloading platformdirs-4.11.7-py3-none-any.whl (23 kB)
+2026-09-07T16:54:50.3700891Z Downloading python_discovery-1.6.0-py3-none-any.whl (38 kB)
+2026-09-07T16:54:50.4638636Z Installing collected packages: distlib, pyyaml, platformdirs, nodeenv, identify, filelock, cfgv, python-discovery, virtualenv, pre-commit
+2026-09-07T16:54:51.0471620Z 
+2026-09-07T16:54:51.0490176Z Successfully installed cfgv-3.5.0 distlib-0.4.3 filelock-3.32.5 identify-2.6.19 nodeenv-1.10.0 platformdirs-4.11.7 pre-commit-4.6.0 python-discovery-1.6.0 pyyaml-6.0.3 virtualenv-21.7.8
+2026-09-07T16:54:51.3231695Z [INFO][m Initializing environment for https://github.com/pre-commit/pre-commit-hooks.
+2026-09-07T16:54:51.8308638Z [INFO][m Initializing environment for https://github.com/astral-sh/ruff-pre-commit.
+2026-09-07T16:54:52.3136462Z [INFO][m Installing environment for https://github.com/pre-commit/pre-commit-hooks.
+2026-09-07T16:54:52.3138013Z [INFO][m Once installed this environment will be reused.
+2026-09-07T16:54:52.3138822Z [INFO][m This may take a few minutes...
+2026-09-07T16:54:56.2082752Z [INFO][m Installing environment for https://github.com/astral-sh/ruff-pre-commit.
+2026-09-07T16:54:56.2083960Z [INFO][m Once installed this environment will be reused.
+2026-09-07T16:54:56.2084691Z [INFO][m This may take a few minutes...
+2026-09-07T16:54:59.8839376Z check for case conflicts.................................................[42mPassed[m
+2026-09-07T16:54:59.9875402Z check for merge conflicts................................................[42mPassed[m
+2026-09-07T16:55:00.0518732Z check toml...............................................................[42mPassed[m
+2026-09-07T16:55:00.1946700Z check yaml...............................................................[42mPassed[m
+2026-09-07T16:55:00.2893864Z fix end of files.........................................................[42mPassed[m
+2026-09-07T16:55:00.3788255Z mixed line ending........................................................[42mPassed[m
+2026-09-07T16:55:00.4701456Z trim trailing whitespace.................................................[42mPassed[m
+2026-09-07T16:55:00.5022325Z ruff check...............................................................[42mPassed[m
+2026-09-07T16:55:00.5340993Z ruff format..............................................................[41mFailed[m
+2026-09-07T16:55:00.5342081Z [2m- hook id: ruff-format[m
+2026-09-07T16:55:00.5342662Z [2m- files were modified by this hook[m
+2026-09-07T16:55:00.5343019Z 
+2026-09-07T16:55:00.5343230Z 2 files reformatted, 45 files left unchanged
+2026-09-07T16:55:00.5343600Z 
+2026-09-07T16:55:00.5343846Z pre-commit hook(s) made changes.
+2026-09-07T16:55:00.5344879Z If you are seeing this message in CI, reproduce locally with: `pre-commit run --all-files`.
+2026-09-07T16:55:00.5345876Z To run `pre-commit` as part of git workflow, use `pre-commit install`.
+2026-09-07T16:55:00.5346580Z All changes made by hooks:
+2026-09-07T16:55:00.5484185Z [1mdiff --git a/.github/ISSUE_TEMPLATE.md b/.github/ISSUE_TEMPLATE.md[m
+2026-09-07T16:55:00.5484846Z [1mindex 060d926..a618999 100644[m
+2026-09-07T16:55:00.5485300Z [1m--- a/.github/ISSUE_TEMPLATE.md[m
+2026-09-07T16:55:00.5485750Z [1m+++ b/.github/ISSUE_TEMPLATE.md[m
+2026-09-07T16:55:00.5486275Z [36m@@ -12,7 +12,6 @@[m [mWhat happened instead.[m
+2026-09-07T16:55:00.5486726Z  [m
+2026-09-07T16:55:00.5487006Z  ```python[m
+2026-09-07T16:55:00.5487325Z  import requests[m
+2026-09-07T16:55:00.5487638Z [31m-[m
+2026-09-07T16:55:00.5487914Z  ```[m
+2026-09-07T16:55:00.5488173Z  [m
+2026-09-07T16:55:00.5488684Z  ## System Information[m
+2026-09-07T16:55:00.5489870Z [1mdiff --git a/.github/ISSUE_TEMPLATE/Bug_report.md b/.github/ISSUE_TEMPLATE/Bug_report.md[m
+2026-09-07T16:55:00.5491303Z [1mindex cb87bd6..5a6dda8 100644[m
+2026-09-07T16:55:00.5492759Z [1m--- a/.github/ISSUE_TEMPLATE/Bug_report.md[m
+2026-09-07T16:55:00.5493846Z [1m+++ b/.github/ISSUE_TEMPLATE/Bug_report.md[m
+2026-09-07T16:55:00.5494891Z [36m@@ -18,7 +18,6 @@[m [mabout: Create a report to help us improve[m
+2026-09-07T16:55:00.5495688Z  [m
+2026-09-07T16:55:00.5496117Z  ```python[m
+2026-09-07T16:55:00.5496589Z  import requests[m
+2026-09-07T16:55:00.5497060Z [31m-[m
+2026-09-07T16:55:00.5497514Z  ```[m
+2026-09-07T16:55:00.5497968Z  [m
+2026-09-07T16:55:00.5498757Z  ## System Information[m
+2026-09-07T16:55:00.5715374Z ##[error]Process completed with exit code 1.
+2026-09-07T16:55:00.5881527Z Post job cleanup.
+2026-09-07T16:55:00.6729752Z [command]/usr/bin/git version
+2026-09-07T16:55:00.6776306Z git version 2.55.0
+2026-09-07T16:55:00.6812793Z Temporarily overriding HOME='/home/runner/work/_temp/383d3412-8cde-4572-9e8c-9fdb6dbe7d13' before making global git config changes
+2026-09-07T16:55:00.6814274Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-07T16:55:00.6819872Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/requests/requests
+2026-09-07T16:55:00.6851220Z Removing SSH command configuration
+2026-09-07T16:55:00.6857125Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-07T16:55:00.6890653Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-07T16:55:00.7110580Z Removing HTTP extra header
+2026-09-07T16:55:00.7116073Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-07T16:55:00.7148721Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-07T16:55:00.7363352Z Removing includeIf entries pointing to credentials config files
+2026-09-07T16:55:00.7368805Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-07T16:55:00.7399069Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-07T16:55:00.7754886Z Cleaning up orphan processes

@@ -1,0 +1,311 @@
+﻿2026-07-22T11:53:24.0646726Z Current runner version: '2.336.0'
+2026-07-22T11:53:24.0681496Z ##[group]Runner Image Provisioner
+2026-07-22T11:53:24.0682823Z Hosted Compute Agent
+2026-07-22T11:53:24.0683837Z Version: 20260707.563
+2026-07-22T11:53:24.0684770Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-07-22T11:53:24.0685960Z Build Date: 2026-07-07T19:33:50Z
+2026-07-22T11:53:24.0687014Z Worker ID: {eb2fe8b2-0311-455f-9489-9cfb4d965bb2}
+2026-07-22T11:53:24.0688271Z Azure Region: eastus2
+2026-07-22T11:53:24.0689226Z ##[endgroup]
+2026-07-22T11:53:24.0691899Z ##[group]Operating System
+2026-07-22T11:53:24.0692902Z Ubuntu
+2026-07-22T11:53:24.0693743Z 24.04.4
+2026-07-22T11:53:24.0694767Z LTS
+2026-07-22T11:53:24.0695620Z ##[endgroup]
+2026-07-22T11:53:24.0696553Z ##[group]Runner Image
+2026-07-22T11:53:24.0697596Z Image: ubuntu-24.04
+2026-07-22T11:53:24.0698418Z Version: 20260714.240.1
+2026-07-22T11:53:24.0701311Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260714.240/images/ubuntu/Ubuntu2404-Readme.md
+2026-07-22T11:53:24.0703961Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260714.240
+2026-07-22T11:53:24.0705516Z ##[endgroup]
+2026-07-22T11:53:24.0707607Z ##[group]GITHUB_TOKEN Permissions
+2026-07-22T11:53:24.0710800Z Contents: read
+2026-07-22T11:53:24.0711789Z Metadata: read
+2026-07-22T11:53:24.0712692Z Packages: read
+2026-07-22T11:53:24.0713556Z ##[endgroup]
+2026-07-22T11:53:24.0716417Z Secret source: None
+2026-07-22T11:53:24.0718345Z Prepare workflow directory
+2026-07-22T11:53:24.1183126Z Prepare all required actions
+2026-07-22T11:53:24.1244501Z Getting action download info
+2026-07-22T11:53:24.3265173Z Download action repository 'github/dependabot-action@main' (SHA:394dae3180bd1a1f89d4b83ca9bd57210627c953)
+2026-07-22T11:53:24.7390119Z Complete job name: Dependabot
+2026-07-22T11:53:24.8196893Z ##[group]Run mkdir -p  ./dependabot-job-1474326522-1784721157
+2026-07-22T11:53:24.8197828Z [36;1mmkdir -p  ./dependabot-job-1474326522-1784721157[0m
+2026-07-22T11:53:24.8282083Z shell: /usr/bin/bash -e {0}
+2026-07-22T11:53:24.8282936Z ##[endgroup]
+2026-07-22T11:53:24.8619405Z ##[group]Run github/dependabot-action@main
+2026-07-22T11:53:24.8620239Z env:
+2026-07-22T11:53:24.8620693Z   DEPENDABOT_DISABLE_CLEANUP: 1
+2026-07-22T11:53:24.8621246Z   DEPENDABOT_ENABLE_CONNECTIVITY_CHECK: 0
+2026-07-22T11:53:24.8625607Z   GITHUB_TOKEN: ***
+2026-07-22T11:53:24.8626496Z   GITHUB_DEPENDABOT_JOB_TOKEN: ***
+2026-07-22T11:53:24.8627410Z   GITHUB_DEPENDABOT_CRED_TOKEN: ***
+2026-07-22T11:53:24.8627983Z   GITHUB_REGISTRIES_PROXY: ***
+2026-07-22T11:53:24.8628504Z ##[endgroup]
+2026-07-22T11:53:25.0345696Z 🤖 ~ starting update ~
+2026-07-22T11:53:25.0365042Z Fetching job details
+2026-07-22T11:53:25.3691682Z ##[group]Pulling updater images
+2026-07-22T11:53:25.3738226Z Pulling image ghcr.io/dependabot/dependabot-updater-uv:b4f99e2915a20b79a329953dfea381f4a9af146b (attempt 1)...
+2026-07-22T11:53:25.4199298Z Successfully sent metric (dependabot.action.ghcr_image_pull) to remote API endpoint
+2026-07-22T11:53:48.0458014Z Pulled image ghcr.io/dependabot/dependabot-updater-uv:b4f99e2915a20b79a329953dfea381f4a9af146b
+2026-07-22T11:53:48.0467504Z Pulling image ghcr.io/dependabot/proxy:v2.0.20260616220547@sha256:b3c9cac5831fdef22330282f54c7067d4df9844385daf8f1a66c880a670a9daa (attempt 1)...
+2026-07-22T11:53:48.1170819Z Successfully sent metric (dependabot.action.ghcr_image_pull) to remote API endpoint
+2026-07-22T11:53:48.6351624Z Pulled image ghcr.io/dependabot/proxy:v2.0.20260616220547@sha256:b3c9cac5831fdef22330282f54c7067d4df9844385daf8f1a66c880a670a9daa
+2026-07-22T11:53:48.6353945Z ##[endgroup]
+2026-07-22T11:53:48.6354463Z Starting update process
+2026-07-22T11:53:48.7930553Z Created proxy container: 6eb736972f4039602262b6b5e5bd4d31b0a1353c0272bae03ac8afe66199294e
+2026-07-22T11:53:48.9847345Z Created container: b089edcc99ba48299998c11607d774f8e400bce17fb94d10eac6c38ac47397c4
+2026-07-22T11:53:49.0678002Z   proxy | 2026/07/22 11:53:49 proxy starting, commit: 0852f73f46a5e0426c4f34291a9892ad18cf7ba0
+2026-07-22T11:53:49.0708973Z   proxy | 2026/07/22 11:53:49 Listening (:1080)
+2026-07-22T11:53:49.0946142Z Started container b089edcc99ba48299998c11607d774f8e400bce17fb94d10eac6c38ac47397c4
+2026-07-22T11:53:49.2242273Z updater | Updating certificates in /etc/ssl/certs...
+2026-07-22T11:53:50.1274867Z updater | rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-07-22T11:53:50.1585068Z updater | 1 added, 0 removed; done.
+2026-07-22T11:53:50.1586558Z Running hooks in /etc/ca-certificates/update.d...
+2026-07-22T11:53:50.1639919Z updater | done.
+2026-07-22T11:53:50.5539396Z updater | fetch_files command is no longer used directly
+2026-07-22T11:53:52.7672353Z updater | 2026/07/22 11:53:52 INFO <job_1474326522> Starting job processing
+2026-07-22T11:53:52.7687771Z updater | 2026/07/22 11:53:52 INFO <job_1474326522> Job definition: {"job":{"command":"security","allowed-updates":[{"dependency-type":"direct","update-type":"all"}],"commit-message-options":{"prefix":null,"prefix-development":null,"include-scope":null},"credentials-metadata":[{"type":"git_source","host":"github.com"}],"debug":null,"dependencies":["urllib3"],"dependency-groups":[],"dependency-group-to-refresh":null,"existing-pull-requests":[],"existing-group-pull-requests":[],"experiments":{"record-ecosystem-versions":true,"record-update-job-unknown-error":true,"proxy-cached":true,"enable-corepack-for-npm-and-yarn":true,"enable-private-registry-for-corepack":true,"allow-refresh-for-existing-pr-dependencies":true,"allow-refresh-group-with-all-dependencies":true,"azure-registry-backup":true,"enable-enhanced-error-details-for-updater":true,"gradle-lockfile-updater":true,"enable-exclude-paths-subdirectory-manifest-files":true,"blocked-versions":true,"workflow-job-summary":true,"async-retry":true,"enable-npmrc-credential-generation":true,"enable-cooldown-default-days":true},"ignore-conditions":[],"lockfile-only":false,"max-updater-run-time":2700,"package-manager":"uv","requirements-update-strategy":null,"reject-external-code":false,"security-advisories":[{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":[">= 2.6.0, < 2.7.0"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":[">= 1.23, < 2.7.0"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":[">= 1.22, < 2.6.3"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":[">= 1.0, < 2.6.0"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":[">= 1.24, < 2.6.0"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":[">= 2.2.0, < 2.5.0"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":["< 2.5.0"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":["< 1.26.19",">= 2.0.0, < 2.2.2"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":[">= 2.0.0, < 2.0.7",">= 0, < 1.26.18"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":["< 1.24.2"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":[">= 2.0.0, < 2.0.6","< 1.26.17"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":[">= 1.17, <= 1.18"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":["<= 1.24.2"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":["< 1.25.9"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":[">= 1.25.4, < 1.26.5"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":[">= 1.25.2, <= 1.25.7"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":[">= 1.26.0, < 1.26.4"]},{"dependency-name":"urllib3","patched-versions":[],"unaffected-versions":[],"affected-versions":["< 1.23"]}],"security-updates-only":true,"source":{"provider":"github","repo":"pytest-dev/pytest","branch":null,"api-endpoint":"https://api.github.com/","hostname":"github.com","directories":["/."]},"updating-a-pull-request":false,"update-subdependencies":false,"vendor-dependencies":false,"enable-beta-ecosystems":false,"repo-private":true,"multi-ecosystem-update":false,"exclude-paths":[]}}
+2026-07-22T11:53:52.9170237Z   proxy | 2026/07/22 11:53:52 [002] GET https://github.com:443/pytest-dev/pytest.git/info/refs?service=git-upload-pack
+2026-07-22T11:53:52.9171410Z   proxy | 2026/07/22 11:53:52 [002] * authenticating git server request (host: github.com)
+2026-07-22T11:53:53.0170635Z   proxy | 2026/07/22 11:53:53 [002] 200 https://github.com:443/pytest-dev/pytest.git/info/refs?service=git-upload-pack
+2026-07-22T11:53:53.2161749Z updater | 2026/07/22 11:53:53 INFO <job_1474326522> Started process PID: 1003 with command: {} git clone --no-tags --depth 1 --recurse-submodules --shallow-submodules https://github.com/pytest-dev/pytest /home/dependabot/dependabot-updater/repo {}
+2026-07-22T11:53:53.5028227Z   proxy | 2026/07/22 11:53:53 [004] GET https://github.com:443/pytest-dev/pytest/info/refs?service=git-upload-pack
+2026-07-22T11:53:53.5029469Z 2026/07/22 11:53:53 [004] * authenticating git server request (host: github.com)
+2026-07-22T11:53:53.5572721Z   proxy | 2026/07/22 11:53:53 [004] 200 https://github.com:443/pytest-dev/pytest/info/refs?service=git-upload-pack
+2026-07-22T11:53:53.5951866Z   proxy | 2026/07/22 11:53:53 [006] POST https://github.com:443/pytest-dev/pytest/git-upload-pack
+2026-07-22T11:53:53.5952528Z 2026/07/22 11:53:53 [006] * authenticating git server request (host: github.com)
+2026-07-22T11:53:53.6429966Z   proxy | 2026/07/22 11:53:53 [006] 200 https://github.com:443/pytest-dev/pytest/git-upload-pack
+2026-07-22T11:53:53.6717836Z   proxy | 2026/07/22 11:53:53 [008] POST https://github.com:443/pytest-dev/pytest/git-upload-pack
+2026-07-22T11:53:53.6719869Z 2026/07/22 11:53:53 [008] * authenticating git server request (host: github.com)
+2026-07-22T11:53:53.9124662Z   proxy | 2026/07/22 11:53:53 [008] 200 https://github.com:443/pytest-dev/pytest/git-upload-pack
+2026-07-22T11:53:54.2136444Z updater | 2026/07/22 11:53:54 INFO <job_1474326522> Process PID: 1003 completed with status: pid 1003 exit 0
+2026-07-22T11:53:54.2137118Z 2026/07/22 11:53:54 INFO <job_1474326522> Total execution time: 1.0 seconds
+2026-07-22T11:53:54.2144037Z updater | 2026/07/22 11:53:54 INFO <job_1474326522> Started process PID: 1045 with command: {} git -C /home/dependabot/dependabot-updater/repo ls-files --stage {}
+2026-07-22T11:53:54.2188334Z updater | 2026/07/22 11:53:54 INFO <job_1474326522> Process PID: 1045 completed with status: pid 1045 exit 0
+2026-07-22T11:53:54.2192278Z updater | 2026/07/22 11:53:54 INFO <job_1474326522> Total execution time: 0.01 seconds
+2026-07-22T11:53:54.2718294Z updater | 2026/07/22 11:53:54 INFO <job_1474326522> Started process PID: 1143 with command: {} git rev-parse HEAD {}
+2026-07-22T11:53:54.2752089Z updater | 2026/07/22 11:53:54 INFO <job_1474326522> Process PID: 1143 completed with status: pid 1143 exit 0
+2026-07-22T11:53:54.2753002Z 2026/07/22 11:53:54 INFO <job_1474326522> Total execution time: 0.0 seconds
+2026-07-22T11:53:54.8229080Z updater | 2026/07/22 11:53:54 INFO <job_1474326522> DEBUG filter_excluded: entries=30, exclude_paths=[]
+2026-07-22T11:53:54.8241214Z updater | 2026/07/22 11:53:54 INFO <job_1474326522> DEBUG filter_excluded: entries=11, exclude_paths=[]
+2026-07-22T11:53:54.8245532Z updater | 2026/07/22 11:53:54 INFO <job_1474326522> DEBUG filter_excluded: entries=10, exclude_paths=[]
+2026-07-22T11:53:54.8248671Z updater | 2026/07/22 11:53:54 INFO <job_1474326522> DEBUG filter_excluded: entries=7, exclude_paths=[]
+2026-07-22T11:53:54.8254182Z updater | 2026/07/22 11:53:54 INFO <job_1474326522> DEBUG filter_excluded: entries=14, exclude_paths=[]
+2026-07-22T11:53:54.8257049Z updater | 2026/07/22 11:53:54 INFO <job_1474326522> DEBUG filter_excluded: entries=1, exclude_paths=[]
+2026-07-22T11:53:54.8263853Z updater | 2026/07/22 11:53:54 INFO <job_1474326522> DEBUG filter_excluded: entries=1, exclude_paths=[]
+2026-07-22T11:53:54.8265128Z updater | 2026/07/22 11:53:54 INFO <job_1474326522> DEBUG filter_excluded: entries=9, exclude_paths=[]
+2026-07-22T11:53:54.8269053Z updater | 2026/07/22 11:53:54 INFO <job_1474326522> DEBUG filter_excluded: entries=3, exclude_paths=[]
+2026-07-22T11:53:54.8284845Z updater | 2026/07/22 11:53:54 INFO <job_1474326522> DEBUG filter_excluded: entries=65, exclude_paths=[]
+2026-07-22T11:53:55.5569393Z updater | 2026/07/22 11:53:55 INFO <job_1474326522> Dependabot is using Python version '3.10.20'.
+2026-07-22T11:53:55.7974348Z   proxy | 2026/07/22 11:53:55 [010] POST /update_jobs/1474326522/record_ecosystem_versions
+2026-07-22T11:53:55.8619375Z   proxy | 2026/07/22 11:53:55 [010] 204 /update_jobs/1474326522/record_ecosystem_versions
+2026-07-22T11:53:55.8781636Z updater | 2026/07/22 11:53:55 INFO <job_1474326522> Base commit SHA: 849fbda3ce87e3829b30d005979bee59928c01ff
+2026-07-22T11:53:55.8782360Z 2026/07/22 11:53:55 INFO <job_1474326522> Finished job processing
+2026-07-22T11:53:55.8794185Z updater | 2026/07/22 11:53:55 INFO <job_1474326522> Starting job processing
+2026-07-22T11:53:55.9596996Z   proxy | 2026/07/22 11:53:55 [012] GET /update_jobs/1474326522/blocked_versions?package-manager=uv
+2026-07-22T11:53:55.9839482Z   proxy | 2026/07/22 11:53:55 [012] 200 /update_jobs/1474326522/blocked_versions?package-manager=uv
+2026-07-22T11:53:55.9948547Z updater | 2026/07/22 11:53:55 INFO <job_1474326522> Started process PID: 1237 with command: {} pyenv exec uv --version {}
+2026-07-22T11:53:56.0735989Z updater | 2026/07/22 11:53:56 INFO <job_1474326522> Process PID: 1237 completed with status: pid 1237 exit 0
+2026-07-22T11:53:56.0736900Z 2026/07/22 11:53:56 INFO <job_1474326522> Total execution time: 0.08 seconds
+2026-07-22T11:53:56.0737812Z updater | 2026/07/22 11:53:56 INFO <job_1474326522> Package manager uv, Info : uv 0.11.8 (x86_64-unknown-linux-gnu)
+2026-07-22T11:53:56.0739052Z 
+2026-07-22T11:53:56.5411442Z updater | 2026/07/22 11:53:56 INFO <job_1474326522> Started process PID: 1284 with command: {} pyenv exec python --version {}
+2026-07-22T11:53:56.5998274Z updater | 2026/07/22 11:53:56 INFO <job_1474326522> Process PID: 1284 completed with status: pid 1284 exit 0
+2026-07-22T11:53:56.5999176Z updater | 2026/07/22 11:53:56 INFO <job_1474326522> Total execution time: 0.06 seconds
+2026-07-22T11:53:56.7535889Z updater | 2026/07/22 11:53:56 INFO <job_1474326522> Started process PID: 1331 with command: pyenv exec python3 /opt/python/run.py
+2026-07-22T11:54:00.3983138Z updater | 2026/07/22 11:54:00 INFO <job_1474326522> Process PID: 1331 completed with status: pid 1331 exit 0
+2026-07-22T11:54:00.3983789Z 2026/07/22 11:54:00 INFO <job_1474326522> Total execution time: 3.65 seconds
+2026-07-22T11:54:01.2078185Z   proxy | 2026/07/22 11:54:01 [014] POST /update_jobs/1474326522/update_dependency_list
+2026-07-22T11:54:01.2353124Z   proxy | 2026/07/22 11:54:01 [014] 204 /update_jobs/1474326522/update_dependency_list
+2026-07-22T11:54:01.3626151Z   proxy | 2026/07/22 11:54:01 [016] POST /update_jobs/1474326522/increment_metric
+2026-07-22T11:54:01.4066426Z   proxy | 2026/07/22 11:54:01 [016] 204 /update_jobs/1474326522/increment_metric
+2026-07-22T11:54:01.4449726Z updater | 2026/07/22 11:54:01 INFO <job_1474326522> Starting security update job for pytest-dev/pytest
+2026-07-22T11:54:01.4494448Z updater | 2026/07/22 11:54:01 INFO <job_1474326522> Checking if urllib3 2.6.3 needs updating
+2026-07-22T11:54:01.7959241Z updater | 2026/07/22 11:54:01 INFO <job_1474326522> Fetching release information from json registry at https://pypi.org/pypi/ for urllib3
+2026-07-22T11:54:01.9187808Z   proxy | 2026/07/22 11:54:01 [018] GET https://pypi.org:443/pypi/urllib3/json
+2026-07-22T11:54:01.9427695Z   proxy | 2026/07/22 11:54:01 [018] 200 https://pypi.org:443/pypi/urllib3/json
+2026-07-22T11:54:02.0240040Z updater | 2026/07/22 11:54:02 INFO <job_1474326522> Filtered out 4 yanked versions
+2026-07-22T11:54:02.0244948Z updater | 2026/07/22 11:54:02 INFO <job_1474326522> Filtered out 4 pre-release versions
+2026-07-22T11:54:02.0260995Z updater | 2026/07/22 11:54:02 INFO <job_1474326522> Latest version is 2.7.0
+2026-07-22T11:54:02.0370724Z updater | 2026/07/22 11:54:02 INFO <job_1474326522> Filtered out 4 yanked versions
+2026-07-22T11:54:02.3317029Z updater | 2026/07/22 11:54:02 INFO <job_1474326522> Fetching release information from json registry at https://pypi.org/pypi/ for urllib3
+2026-07-22T11:54:02.4108198Z   proxy | 2026/07/22 11:54:02 [020] GET https://pypi.org:443/pypi/urllib3/json
+2026-07-22T11:54:02.4109087Z 2026/07/22 11:54:02 [020] 200 https://pypi.org:443/pypi/urllib3/json (cached)
+2026-07-22T11:54:02.5302910Z updater | 2026/07/22 11:54:02 INFO <job_1474326522> Filtered out 4 yanked versions
+2026-07-22T11:54:02.5577194Z updater | 2026/07/22 11:54:02 INFO <job_1474326522> Requirements to unlock own
+2026-07-22T11:54:02.5578505Z 2026/07/22 11:54:02 INFO <job_1474326522> Requirements update strategy bump_versions
+2026-07-22T11:54:02.5762585Z updater | 2026/07/22 11:54:02 INFO <job_1474326522> Updating urllib3 from 2.6.3 to 2.7.0
+2026-07-22T11:54:03.0013725Z updater | 2026/07/22 11:54:03 INFO <job_1474326522> Started process PID: 1379 with command: {} pyenv versions {}
+2026-07-22T11:54:03.1191454Z updater | 2026/07/22 11:54:03 INFO <job_1474326522> Process PID: 1379 completed with status: pid 1379 exit 0
+2026-07-22T11:54:03.1194806Z updater | 2026/07/22 11:54:03 INFO <job_1474326522> Total execution time: 0.12 seconds
+2026-07-22T11:54:03.1200114Z updater | 2026/07/22 11:54:03 INFO <job_1474326522> Started process PID: 1485 with command: {} tar -axf /usr/local/.pyenv/versions/3.10.20.tar.zst -C /usr/local/.pyenv/versions {}
+2026-07-22T11:54:03.6651170Z updater | 2026/07/22 11:54:03 INFO <job_1474326522> Process PID: 1485 completed with status: pid 1485 exit 0
+2026-07-22T11:54:03.6652095Z 2026/07/22 11:54:03 INFO <job_1474326522> Total execution time: 0.55 seconds
+2026-07-22T11:54:03.6677338Z updater | 2026/07/22 11:54:03 INFO <job_1474326522> Started process PID: 1490 with command: {} git reset HEAD --hard {}
+2026-07-22T11:54:03.7339060Z updater | 2026/07/22 11:54:03 INFO <job_1474326522> Process PID: 1490 completed with status: pid 1490 exit 0
+2026-07-22T11:54:03.7340142Z 2026/07/22 11:54:03 INFO <job_1474326522> Total execution time: 0.07 seconds
+2026-07-22T11:54:03.7371488Z updater | 2026/07/22 11:54:03 INFO <job_1474326522> Started process PID: 1497 with command: {} git clean -fx {}
+2026-07-22T11:54:03.7401752Z updater | 2026/07/22 11:54:03 INFO <job_1474326522> Process PID: 1497 completed with status: pid 1497 exit 0
+2026-07-22T11:54:03.7402371Z 2026/07/22 11:54:03 INFO <job_1474326522> Total execution time: 0.01 seconds
+2026-07-22T11:54:03.9312403Z updater | 2026/07/22 11:54:03 INFO <job_1474326522> Creating directory for version file: src/_pytest
+2026-07-22T11:54:03.9313229Z 2026/07/22 11:54:03 INFO <job_1474326522> Setting up Python environment using LanguageVersionManager
+2026-07-22T11:54:03.9323052Z updater | 2026/07/22 11:54:03 INFO <job_1474326522> Started process PID: 1592 with command: {} pyenv versions {}
+2026-07-22T11:54:03.9819923Z updater | 2026/07/22 11:54:03 INFO <job_1474326522> Process PID: 1592 completed with status: pid 1592 exit 0
+2026-07-22T11:54:03.9820564Z 2026/07/22 11:54:03 INFO <job_1474326522> Total execution time: 0.05 seconds
+2026-07-22T11:54:04.3933207Z updater | 2026/07/22 11:54:04 INFO <job_1474326522> Setting Python version to 3.10.20
+2026-07-22T11:54:04.3939003Z updater | 2026/07/22 11:54:04 INFO <job_1474326522> Started process PID: 1636 with command: {} pyenv local 3.10.20 {}
+2026-07-22T11:54:04.4224295Z updater | 2026/07/22 11:54:04 INFO <job_1474326522> Process PID: 1636 completed with status: pid 1636 exit 0
+2026-07-22T11:54:04.4224953Z 2026/07/22 11:54:04 INFO <job_1474326522> Total execution time: 0.03 seconds
+2026-07-22T11:54:04.4225412Z 2026/07/22 11:54:04 INFO <job_1474326522> Using pre-installed uv package
+2026-07-22T11:54:05.2283942Z updater | 2026/07/22 11:54:05 INFO <job_1474326522> Running command: pyenv exec uv lock --upgrade-package urllib3==2.7.0 
+2026-07-22T11:54:05.2291013Z updater | 2026/07/22 11:54:05 INFO <job_1474326522> Started process PID: 1662 with command: {"SETUPTOOLS_SCM_PRETEND_VERSION_FOR_PYTEST" => "0.0.0"} pyenv exec uv lock --upgrade-package urllib3\=\=2.7.0 {}
+2026-07-22T11:54:05.6146545Z   proxy | 2026/07/22 11:54:05 [023] GET https://pypi.org:443/simple/setuptools/
+2026-07-22T11:54:05.6149481Z   proxy | 2026/07/22 11:54:05 [024] GET https://pypi.org:443/simple/setuptools-scm/
+2026-07-22T11:54:05.6204389Z   proxy | 2026/07/22 11:54:05 [023] 200 https://pypi.org:443/simple/setuptools/
+2026-07-22T11:54:05.6386906Z   proxy | 2026/07/22 11:54:05 [024] 200 https://pypi.org:443/simple/setuptools-scm/
+2026-07-22T11:54:05.6780023Z   proxy | 2026/07/22 11:54:05 [027] GET https://files.pythonhosted.org:443/packages/c3/b4/02ac1d9833b882c87b3a4e82703e70eac4ab33d0d15fb123e60bb01f3bc1/setuptools_scm-10.2.1-py3-none-any.whl.metadata
+2026-07-22T11:54:05.6783537Z   proxy | 2026/07/22 11:54:05 [028] GET https://files.pythonhosted.org:443/packages/5d/40/e1e72872c6354b306daef1703549e8e83b4d43cfea356311bf722a043752/setuptools-83.0.0-py3-none-any.whl.metadata
+2026-07-22T11:54:05.7134507Z   proxy | 2026/07/22 11:54:05 [027] 200 https://files.pythonhosted.org:443/packages/c3/b4/02ac1d9833b882c87b3a4e82703e70eac4ab33d0d15fb123e60bb01f3bc1/setuptools_scm-10.2.1-py3-none-any.whl.metadata
+2026-07-22T11:54:05.7138762Z   proxy | 2026/07/22 11:54:05 [028] 200 https://files.pythonhosted.org:443/packages/5d/40/e1e72872c6354b306daef1703549e8e83b4d43cfea356311bf722a043752/setuptools-83.0.0-py3-none-any.whl.metadata
+2026-07-22T11:54:05.7201925Z   proxy | 2026/07/22 11:54:05 [033] GET https://pypi.org:443/simple/packaging/
+2026-07-22T11:54:05.7212058Z   proxy | 2026/07/22 11:54:05 [034] GET https://pypi.org:443/simple/tomli/
+2026-07-22T11:54:05.7215836Z   proxy | 2026/07/22 11:54:05 [035] GET https://pypi.org:443/simple/vcs-versioning/
+2026-07-22T11:54:05.7228995Z   proxy | 2026/07/22 11:54:05 [036] GET https://pypi.org:443/simple/typing-extensions/
+2026-07-22T11:54:05.7259834Z   proxy | 2026/07/22 11:54:05 [033] 200 https://pypi.org:443/simple/packaging/
+2026-07-22T11:54:05.7263822Z   proxy | 2026/07/22 11:54:05 [034] 200 https://pypi.org:443/simple/tomli/
+2026-07-22T11:54:05.7341895Z   proxy | 2026/07/22 11:54:05 [035] 200 https://pypi.org:443/simple/vcs-versioning/
+2026-07-22T11:54:05.7348877Z   proxy | 2026/07/22 11:54:05 [039] GET https://files.pythonhosted.org:443/packages/df/b2/87e62e8c3e2f4b32e5fe99e0b86d576da1312593b39f47d8ceef365e95ed/packaging-26.2-py3-none-any.whl.metadata
+2026-07-22T11:54:05.7350760Z 2026/07/22 11:54:05 [036] 200 https://pypi.org:443/simple/typing-extensions/
+2026-07-22T11:54:05.7365705Z   proxy | 2026/07/22 11:54:05 [040] GET https://files.pythonhosted.org:443/packages/7b/61/cceae43728b7de99d9b847560c262873a1f6c98202171fd5ed62640b494b/tomli-2.4.1-py3-none-any.whl.metadata
+2026-07-22T11:54:05.7419001Z   proxy | 2026/07/22 11:54:05 [039] 200 https://files.pythonhosted.org:443/packages/df/b2/87e62e8c3e2f4b32e5fe99e0b86d576da1312593b39f47d8ceef365e95ed/packaging-26.2-py3-none-any.whl.metadata
+2026-07-22T11:54:05.7421692Z   proxy | 2026/07/22 11:54:05 [040] 200 https://files.pythonhosted.org:443/packages/7b/61/cceae43728b7de99d9b847560c262873a1f6c98202171fd5ed62640b494b/tomli-2.4.1-py3-none-any.whl.metadata
+2026-07-22T11:54:05.7443554Z   proxy | 2026/07/22 11:54:05 [043] GET https://files.pythonhosted.org:443/packages/85/9e/1f06f4ddc3a74ccfe0877490caaf4a5233e65401160afc8cb13207815f5e/vcs_versioning-2.2.2-py3-none-any.whl.metadata
+2026-07-22T11:54:05.7460612Z   proxy | 2026/07/22 11:54:05 [044] GET https://files.pythonhosted.org:443/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl.metadata
+2026-07-22T11:54:05.7499887Z   proxy | 2026/07/22 11:54:05 [043] 200 https://files.pythonhosted.org:443/packages/85/9e/1f06f4ddc3a74ccfe0877490caaf4a5233e65401160afc8cb13207815f5e/vcs_versioning-2.2.2-py3-none-any.whl.metadata
+2026-07-22T11:54:05.7541282Z   proxy | 2026/07/22 11:54:05 [044] 200 https://files.pythonhosted.org:443/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl.metadata
+2026-07-22T11:54:05.7620999Z   proxy | 2026/07/22 11:54:05 [051] GET https://files.pythonhosted.org:443/packages/c3/b4/02ac1d9833b882c87b3a4e82703e70eac4ab33d0d15fb123e60bb01f3bc1/setuptools_scm-10.2.1-py3-none-any.whl
+2026-07-22T11:54:05.7627833Z   proxy | 2026/07/22 11:54:05 [052] GET https://files.pythonhosted.org:443/packages/85/9e/1f06f4ddc3a74ccfe0877490caaf4a5233e65401160afc8cb13207815f5e/vcs_versioning-2.2.2-py3-none-any.whl
+2026-07-22T11:54:05.7629898Z 2026/07/22 11:54:05 [053] GET https://files.pythonhosted.org:443/packages/5d/40/e1e72872c6354b306daef1703549e8e83b4d43cfea356311bf722a043752/setuptools-83.0.0-py3-none-any.whl
+2026-07-22T11:54:05.7631958Z 2026/07/22 11:54:05 [054] GET https://files.pythonhosted.org:443/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl
+2026-07-22T11:54:05.7646763Z   proxy | 2026/07/22 11:54:05 [055] GET https://files.pythonhosted.org:443/packages/7b/61/cceae43728b7de99d9b847560c262873a1f6c98202171fd5ed62640b494b/tomli-2.4.1-py3-none-any.whl
+2026-07-22T11:54:05.7658161Z   proxy | 2026/07/22 11:54:05 [056] GET https://files.pythonhosted.org:443/packages/df/b2/87e62e8c3e2f4b32e5fe99e0b86d576da1312593b39f47d8ceef365e95ed/packaging-26.2-py3-none-any.whl
+2026-07-22T11:54:05.7679401Z   proxy | 2026/07/22 11:54:05 [052] 200 https://files.pythonhosted.org:443/packages/85/9e/1f06f4ddc3a74ccfe0877490caaf4a5233e65401160afc8cb13207815f5e/vcs_versioning-2.2.2-py3-none-any.whl
+2026-07-22T11:54:05.7684250Z   proxy | 2026/07/22 11:54:05 [051] 200 https://files.pythonhosted.org:443/packages/c3/b4/02ac1d9833b882c87b3a4e82703e70eac4ab33d0d15fb123e60bb01f3bc1/setuptools_scm-10.2.1-py3-none-any.whl
+2026-07-22T11:54:05.7771155Z   proxy | 2026/07/22 11:54:05 [053] 200 https://files.pythonhosted.org:443/packages/5d/40/e1e72872c6354b306daef1703549e8e83b4d43cfea356311bf722a043752/setuptools-83.0.0-py3-none-any.whl
+2026-07-22T11:54:05.7822069Z   proxy | 2026/07/22 11:54:05 [055] 200 https://files.pythonhosted.org:443/packages/7b/61/cceae43728b7de99d9b847560c262873a1f6c98202171fd5ed62640b494b/tomli-2.4.1-py3-none-any.whl
+2026-07-22T11:54:05.7832485Z   proxy | 2026/07/22 11:54:05 [054] 200 https://files.pythonhosted.org:443/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl
+2026-07-22T11:54:05.7847463Z   proxy | 2026/07/22 11:54:05 [056] 200 https://files.pythonhosted.org:443/packages/df/b2/87e62e8c3e2f4b32e5fe99e0b86d576da1312593b39f47d8ceef365e95ed/packaging-26.2-py3-none-any.whl
+2026-07-22T11:54:07.3961662Z   proxy | 2026/07/22 11:54:07 [074] GET https://files.pythonhosted.org:443/packages/20/12/38679034af332785aac8774540895e234f4d07f7545804097de4b666afd8/packaging-25.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.3963692Z 2026/07/22 11:54:07 [075] GET https://pypi.org:443/simple/iniconfig/
+2026-07-22T11:54:07.4026211Z   proxy | 2026/07/22 11:54:07 [074] 200 https://files.pythonhosted.org:443/packages/20/12/38679034af332785aac8774540895e234f4d07f7545804097de4b666afd8/packaging-25.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4034734Z   proxy | 2026/07/22 11:54:07 [075] 200 https://pypi.org:443/simple/iniconfig/
+2026-07-22T11:54:07.4052162Z   proxy | 2026/07/22 11:54:07 [076] GET https://pypi.org:443/simple/xmlschema/
+2026-07-22T11:54:07.4057053Z   proxy | 2026/07/22 11:54:07 [077] GET https://pypi.org:443/simple/coverage/
+2026-07-22T11:54:07.4062143Z   proxy | 2026/07/22 11:54:07 [078] GET https://pypi.org:443/simple/pluggy/
+2026-07-22T11:54:07.4064775Z   proxy | 2026/07/22 11:54:07 [080] GET https://files.pythonhosted.org:443/packages/a3/dc/17031897dae0efacfea57dfd3a82fdd2a2aeb58e0ff71b77b87e44edc772/setuptools-80.9.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4066928Z   proxy | 2026/07/22 11:54:07 [081] GET https://pypi.org:443/simple/numpy/
+2026-07-22T11:54:07.4067916Z 2026/07/22 11:54:07 [079] GET https://pypi.org:443/simple/requests/
+2026-07-22T11:54:07.4080738Z   proxy | 2026/07/22 11:54:07 [082] GET https://pypi.org:443/simple/attrs/
+2026-07-22T11:54:07.4081607Z   proxy | 2026/07/22 11:54:07 [083] GET https://pypi.org:443/simple/colorama/
+2026-07-22T11:54:07.4084409Z   proxy | 2026/07/22 11:54:07 [084] GET https://pypi.org:443/simple/argcomplete/
+2026-07-22T11:54:07.4085416Z 2026/07/22 11:54:07 [085] GET https://pypi.org:443/simple/pytest-xdist/
+2026-07-22T11:54:07.4091238Z   proxy | 2026/07/22 11:54:07 [086] GET https://pypi.org:443/simple/pyyaml/
+2026-07-22T11:54:07.4092619Z   proxy | 2026/07/22 11:54:07 [087] GET https://pypi.org:443/simple/pexpect/
+2026-07-22T11:54:07.4094953Z   proxy | 2026/07/22 11:54:07 [088] GET https://pypi.org:443/simple/pygments/
+2026-07-22T11:54:07.4097228Z   proxy | 2026/07/22 11:54:07 [089] GET https://pypi.org:443/simple/hypothesis/
+2026-07-22T11:54:07.4106701Z   proxy | 2026/07/22 11:54:07 [090] GET https://pypi.org:443/simple/mock/
+2026-07-22T11:54:07.4135252Z   proxy | 2026/07/22 11:54:07 [080] 200 https://files.pythonhosted.org:443/packages/a3/dc/17031897dae0efacfea57dfd3a82fdd2a2aeb58e0ff71b77b87e44edc772/setuptools-80.9.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4140214Z   proxy | 2026/07/22 11:54:07 [076] 200 https://pypi.org:443/simple/xmlschema/
+2026-07-22T11:54:07.4152476Z   proxy | 2026/07/22 11:54:07 [077] 200 https://pypi.org:443/simple/coverage/
+2026-07-22T11:54:07.4166793Z   proxy | 2026/07/22 11:54:07 [092] GET https://files.pythonhosted.org:443/packages/cb/b1/3846dd7f199d53cb17f49cba7e651e9ce294d8497c8c150530ed11865bb8/iniconfig-2.3.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4290971Z   proxy | 2026/07/22 11:54:07 [092] 200 https://files.pythonhosted.org:443/packages/cb/b1/3846dd7f199d53cb17f49cba7e651e9ce294d8497c8c150530ed11865bb8/iniconfig-2.3.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4293094Z   proxy | 2026/07/22 11:54:07 [078] 200 https://pypi.org:443/simple/pluggy/
+2026-07-22T11:54:07.4302690Z   proxy | 2026/07/22 11:54:07 [094] GET https://files.pythonhosted.org:443/packages/c6/98/f7ee16a9350060a8ef9aacedff492311343e580ab0cd2897f8d0e726a50d/xmlschema-4.3.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4331021Z   proxy | 2026/07/22 11:54:07 [089] 200 https://pypi.org:443/simple/hypothesis/
+2026-07-22T11:54:07.4334798Z   proxy | 2026/07/22 11:54:07 [084] 200 https://pypi.org:443/simple/argcomplete/
+2026-07-22T11:54:07.4335987Z 2026/07/22 11:54:07 [086] 200 https://pypi.org:443/simple/pyyaml/
+2026-07-22T11:54:07.4340185Z   proxy | 2026/07/22 11:54:07 [088] 200 https://pypi.org:443/simple/pygments/
+2026-07-22T11:54:07.4346105Z   proxy | 2026/07/22 11:54:07 [082] 200 https://pypi.org:443/simple/attrs/
+2026-07-22T11:54:07.4354410Z   proxy | 2026/07/22 11:54:07 [081] 200 https://pypi.org:443/simple/numpy/
+2026-07-22T11:54:07.4355760Z   proxy | 2026/07/22 11:54:07 [079] 200 https://pypi.org:443/simple/requests/
+2026-07-22T11:54:07.4358092Z   proxy | 2026/07/22 11:54:07 [090] 200 https://pypi.org:443/simple/mock/
+2026-07-22T11:54:07.4401317Z   proxy | 2026/07/22 11:54:07 [094] 200 https://files.pythonhosted.org:443/packages/c6/98/f7ee16a9350060a8ef9aacedff492311343e580ab0cd2897f8d0e726a50d/xmlschema-4.3.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4403326Z 2026/07/22 11:54:07 [087] 200 https://pypi.org:443/simple/pexpect/
+2026-07-22T11:54:07.4404635Z   proxy | 2026/07/22 11:54:07 [085] 200 https://pypi.org:443/simple/pytest-xdist/
+2026-07-22T11:54:07.4405903Z   proxy | 2026/07/22 11:54:07 [083] 200 https://pypi.org:443/simple/colorama/
+2026-07-22T11:54:07.4473423Z   proxy | 2026/07/22 11:54:07 [096] GET https://files.pythonhosted.org:443/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4542756Z   proxy | 2026/07/22 11:54:07 [096] 200 https://files.pythonhosted.org:443/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4644396Z   proxy | 2026/07/22 11:54:07 [100] GET https://files.pythonhosted.org:443/packages/74/f5/9373290775639cb67a2fce7f629a1c240dce9f12fe927bc32b2736e16dfc/argcomplete-3.6.3-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4668958Z   proxy | 2026/07/22 11:54:07 [101] GET https://files.pythonhosted.org:443/packages/3a/2a/7cc015f5b9f5db42b7d48157e23356022889fc354a2813c15934b7cb5c0e/attrs-25.4.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4714956Z   proxy | 2026/07/22 11:54:07 [100] 200 https://files.pythonhosted.org:443/packages/74/f5/9373290775639cb67a2fce7f629a1c240dce9f12fe927bc32b2736e16dfc/argcomplete-3.6.3-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4735144Z   proxy | 2026/07/22 11:54:07 [101] 200 https://files.pythonhosted.org:443/packages/3a/2a/7cc015f5b9f5db42b7d48157e23356022889fc354a2813c15934b7cb5c0e/attrs-25.4.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4756697Z   proxy | 2026/07/22 11:54:07 [107] GET https://files.pythonhosted.org:443/packages/c7/21/705964c7812476f378728bdf590ca4b771ec72385c533964653c68e86bdc/pygments-2.19.2-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4805268Z   proxy | 2026/07/22 11:54:07 [109] GET https://files.pythonhosted.org:443/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl.metadata
+2026-07-22T11:54:07.4815593Z   proxy | 2026/07/22 11:54:07 [110] GET https://files.pythonhosted.org:443/packages/bd/d9/617e6af809bf3a1d468e0d58c3997b1dc219a9a9202e650d30c2fc85d481/mock-5.2.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4826535Z   proxy | 2026/07/22 11:54:07 [107] 200 https://files.pythonhosted.org:443/packages/c7/21/705964c7812476f378728bdf590ca4b771ec72385c533964653c68e86bdc/pygments-2.19.2-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4838423Z   proxy | 2026/07/22 11:54:07 [111] GET https://files.pythonhosted.org:443/packages/1e/db/4254e3eabe8020b458f1a747140d32277ec7a271daf1d235b70dc0b4e6e3/requests-2.32.5-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4854497Z   proxy | 2026/07/22 11:54:07 [112] GET https://files.pythonhosted.org:443/packages/ca/31/d4e37e9e550c2b92a9cbc2e4d0b7420a27224968580b5a447f420847c975/pytest_xdist-3.8.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4873445Z   proxy | 2026/07/22 11:54:07 [109] 200 https://files.pythonhosted.org:443/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl.metadata
+2026-07-22T11:54:07.4911059Z   proxy | 2026/07/22 11:54:07 [110] 200 https://files.pythonhosted.org:443/packages/bd/d9/617e6af809bf3a1d468e0d58c3997b1dc219a9a9202e650d30c2fc85d481/mock-5.2.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4945672Z   proxy | 2026/07/22 11:54:07 [111] 200 https://files.pythonhosted.org:443/packages/1e/db/4254e3eabe8020b458f1a747140d32277ec7a271daf1d235b70dc0b4e6e3/requests-2.32.5-py3-none-any.whl.metadata
+2026-07-22T11:54:07.4978589Z   proxy | 2026/07/22 11:54:07 [112] 200 https://files.pythonhosted.org:443/packages/ca/31/d4e37e9e550c2b92a9cbc2e4d0b7420a27224968580b5a447f420847c975/pytest_xdist-3.8.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.5105042Z   proxy | 2026/07/22 11:54:07 [114] GET https://files.pythonhosted.org:443/packages/f4/a0/39350dd17dd6d6c6507025c0e53aef67a9293a6d37d3511f23ea510d5800/pyyaml-6.0.3-cp310-cp310-macosx_10_13_x86_64.whl.metadata
+2026-07-22T11:54:07.5107039Z   proxy | 2026/07/22 11:54:07 [115] GET https://files.pythonhosted.org:443/packages/9e/c3/059298687310d527a58bb01f3b1965787ee3b40dce76752eda8b44e9a2c5/pexpect-4.9.0-py2.py3-none-any.whl.metadata
+2026-07-22T11:54:07.5161805Z   proxy | 2026/07/22 11:54:07 [115] 200 https://files.pythonhosted.org:443/packages/9e/c3/059298687310d527a58bb01f3b1965787ee3b40dce76752eda8b44e9a2c5/pexpect-4.9.0-py2.py3-none-any.whl.metadata
+2026-07-22T11:54:07.5170363Z   proxy | 2026/07/22 11:54:07 [114] 200 https://files.pythonhosted.org:443/packages/f4/a0/39350dd17dd6d6c6507025c0e53aef67a9293a6d37d3511f23ea510d5800/pyyaml-6.0.3-cp310-cp310-macosx_10_13_x86_64.whl.metadata
+2026-07-22T11:54:07.5487003Z   proxy | 2026/07/22 11:54:07 [116] GET https://files.pythonhosted.org:443/packages/0f/6c/49e29a0b856be17048fa4a216cc21bf914623f66305f6327b7a9bcec6871/hypothesis-6.150.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.5581500Z   proxy | 2026/07/22 11:54:07 [116] 200 https://files.pythonhosted.org:443/packages/0f/6c/49e29a0b856be17048fa4a216cc21bf914623f66305f6327b7a9bcec6871/hypothesis-6.150.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.5641027Z   proxy | 2026/07/22 11:54:07 [118] GET https://files.pythonhosted.org:443/packages/2d/9a/3742e58fd04b233df95c012ee9f3dfe04708a5e1d32613bd2d47d4e1be0d/coverage-7.13.1-cp310-cp310-macosx_10_9_x86_64.whl.metadata
+2026-07-22T11:54:07.5676412Z   proxy | 2026/07/22 11:54:07 [120] GET https://files.pythonhosted.org:443/packages/a5/34/2b1bc18424f3ad9af577f6ce23600319968a70575bd7db31ce66731bbef9/numpy-2.4.1-cp311-cp311-macosx_10_9_x86_64.whl.metadata
+2026-07-22T11:54:07.5707295Z   proxy | 2026/07/22 11:54:07 [118] 200 https://files.pythonhosted.org:443/packages/2d/9a/3742e58fd04b233df95c012ee9f3dfe04708a5e1d32613bd2d47d4e1be0d/coverage-7.13.1-cp310-cp310-macosx_10_9_x86_64.whl.metadata
+2026-07-22T11:54:07.5733527Z   proxy | 2026/07/22 11:54:07 [120] 200 https://files.pythonhosted.org:443/packages/a5/34/2b1bc18424f3ad9af577f6ce23600319968a70575bd7db31ce66731bbef9/numpy-2.4.1-cp311-cp311-macosx_10_9_x86_64.whl.metadata
+2026-07-22T11:54:07.5775008Z   proxy | 2026/07/22 11:54:07 [122] GET https://pypi.org:443/simple/sortedcontainers/
+2026-07-22T11:54:07.5816211Z   proxy | 2026/07/22 11:54:07 [126] GET https://pypi.org:443/simple/ptyprocess/
+2026-07-22T11:54:07.5820123Z   proxy | 2026/07/22 11:54:07 [127] GET https://files.pythonhosted.org:443/packages/0d/b2/0e802fde6f1c5b2f7ae7e9ad42b83fd4ecebac18a8a8c2f2f14e39dce6e1/pytest_xdist-3.7.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.5825614Z   proxy | 2026/07/22 11:54:07 [122] 200 https://pypi.org:443/simple/sortedcontainers/
+2026-07-22T11:54:07.5827291Z   proxy | 2026/07/22 11:54:07 [128] GET https://pypi.org:443/simple/execnet/
+2026-07-22T11:54:07.5897898Z   proxy | 2026/07/22 11:54:07 [126] 200 https://pypi.org:443/simple/ptyprocess/
+2026-07-22T11:54:07.5906376Z   proxy | 2026/07/22 11:54:07 [130] GET https://files.pythonhosted.org:443/packages/32/46/9cb0e58b2deb7f82b84065f37f3bffeb12413f947f9388e4cac22c4621ce/sortedcontainers-2.4.0-py2.py3-none-any.whl.metadata
+2026-07-22T11:54:07.5910976Z   proxy | 2026/07/22 11:54:07 [127] 200 https://files.pythonhosted.org:443/packages/0d/b2/0e802fde6f1c5b2f7ae7e9ad42b83fd4ecebac18a8a8c2f2f14e39dce6e1/pytest_xdist-3.7.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.5913106Z   proxy | 2026/07/22 11:54:07 [128] 200 https://pypi.org:443/simple/execnet/
+2026-07-22T11:54:07.5942620Z   proxy | 2026/07/22 11:54:07 [130] 200 https://files.pythonhosted.org:443/packages/32/46/9cb0e58b2deb7f82b84065f37f3bffeb12413f947f9388e4cac22c4621ce/sortedcontainers-2.4.0-py2.py3-none-any.whl.metadata
+2026-07-22T11:54:07.5978880Z   proxy | 2026/07/22 11:54:07 [133] GET https://files.pythonhosted.org:443/packages/22/a6/858897256d0deac81a172289110f31629fc4cee19b6f01283303e18c8db3/ptyprocess-0.7.0-py2.py3-none-any.whl.metadata
+2026-07-22T11:54:07.5983129Z   proxy | 2026/07/22 11:54:07 [134] GET https://files.pythonhosted.org:443/packages/6d/82/1d96bf03ee4c0fdc3c0cbe61470070e659ca78dc0086fb88b66c185e2449/pytest_xdist-3.6.1-py3-none-any.whl.metadata
+2026-07-22T11:54:07.6046427Z   proxy | 2026/07/22 11:54:07 [133] 200 https://files.pythonhosted.org:443/packages/22/a6/858897256d0deac81a172289110f31629fc4cee19b6f01283303e18c8db3/ptyprocess-0.7.0-py2.py3-none-any.whl.metadata
+2026-07-22T11:54:07.6049046Z   proxy | 2026/07/22 11:54:07 [134] 200 https://files.pythonhosted.org:443/packages/6d/82/1d96bf03ee4c0fdc3c0cbe61470070e659ca78dc0086fb88b66c185e2449/pytest_xdist-3.6.1-py3-none-any.whl.metadata
+2026-07-22T11:54:07.6089007Z   proxy | 2026/07/22 11:54:07 [136] GET https://files.pythonhosted.org:443/packages/50/37/125fe5ec459321e2d48a0c38672cfc2419ad87d580196fd894e5f25230b0/pytest_xdist-3.5.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.6151557Z   proxy | 2026/07/22 11:54:07 [136] 200 https://files.pythonhosted.org:443/packages/50/37/125fe5ec459321e2d48a0c38672cfc2419ad87d580196fd894e5f25230b0/pytest_xdist-3.5.0-py3-none-any.whl.metadata
+2026-07-22T11:54:07.6427460Z updater | 2026/07/22 11:54:07 INFO <job_1474326522> Process PID: 1662 completed with status: pid 1662 exit 1
+2026-07-22T11:54:07.6428563Z 2026/07/22 11:54:07 INFO <job_1474326522> Total execution time: 2.41 seconds
+2026-07-22T11:54:07.6854594Z   proxy | 2026/07/22 11:54:07 [138] POST /update_jobs/1474326522/record_update_job_error
+2026-07-22T11:54:07.7375780Z   proxy | 2026/07/22 11:54:07 [138] 204 /update_jobs/1474326522/record_update_job_error
+2026-07-22T11:54:07.7442458Z updater | 2026/07/22 11:54:07 INFO <job_1474326522> Handled error whilst updating urllib3: dependency_file_not_resolvable {message: "× No solution found when resolving dependencies for split (markers:\n  │ python_full_version >= '3.11'):\n  ╰─▶ Because only the following versions of pytest-xdist are available:\n          pytest-xdist<=3.5.0\n          pytest-xdist==3.6.0\n          pytest-xdist==3.6.1\n          pytest-xdist==3.7.0\n          pytest-xdist==3.8.0\n      and pytest-xdist==3.5.0 depends on your project, we can conclude that\n      pytest-xdist>=3.5.0,<3.6.0 depends on your project.\n      And because pytest-xdist==3.6.0 was yanked (reason: fatal regression\n      when combined with pytest-cov) and pytest-xdist>=3.6.1 depends on\n      your project, we can conclude that pytest-xdist>=3.5.0 depends on your\n      project.\n      And because pytest[dev] depends on pytest-xdist>=3.5 and your project\n      requires pytest[dev], we can conclude that your project's requirements\n      are unsatisfiable.\n\n      hint: While the active Python version is 3.10, the resolution failed for\n      other Python versions supported by your project. Consider limiting your\n      project's supported Python versions using `requires-python`.\n\n      hint: The package `pytest-xdist` depends on the package `pytest` but\n      the name is shadowed by your project. Consider changing the name of\n      the project."}
+2026-07-22T11:54:07.8235950Z   proxy | 2026/07/22 11:54:07 [140] POST /update_jobs/1474326522/record_ecosystem_meta
+2026-07-22T11:54:07.8580685Z   proxy | 2026/07/22 11:54:07 [140] 204 /update_jobs/1474326522/record_ecosystem_meta
+2026-07-22T11:54:07.9456341Z   proxy | 2026/07/22 11:54:07 [142] PATCH /update_jobs/1474326522/mark_as_processed
+2026-07-22T11:54:08.0442445Z   proxy | 2026/07/22 11:54:08 [142] 204 /update_jobs/1474326522/mark_as_processed
+2026-07-22T11:54:08.1208740Z updater | 2026/07/22 11:54:08 INFO <job_1474326522> Finished job processing
+2026-07-22T11:54:08.1225469Z updater | 2026/07/22 11:54:08 INFO Results:
+2026-07-22T11:54:08.1227354Z Dependabot encountered '1' error(s) during execution, please check the logs for more details.
+2026-07-22T11:54:08.1233525Z +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+2026-07-22T11:54:08.1242955Z |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Dependencies failed to update                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+2026-07-22T11:54:08.1251966Z +------------+--------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+2026-07-22T11:54:08.1260782Z | Dependency | Error Type                     | Error Details                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+2026-07-22T11:54:08.1269748Z +------------+--------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+2026-07-22T11:54:08.1278583Z | urllib3    | dependency_file_not_resolvable | {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+2026-07-22T11:54:08.1290673Z |            |                                |   "message": "× No solution found when resolving dependencies for split (markers:\n  │ python_full_version >= '3.11'):\n  ╰─▶ Because only the following versions of pytest-xdist are available:\n          pytest-xdist<=3.5.0\n          pytest-xdist==3.6.0\n          pytest-xdist==3.6.1\n          pytest-xdist==3.7.0\n          pytest-xdist==3.8.0\n      and pytest-xdist==3.5.0 depends on your project, we can conclude that\n      pytest-xdist>=3.5.0,<3.6.0 depends on your project.\n      And because pytest-xdist==3.6.0 was yanked (reason: fatal regression\n      when combined with pytest-cov) and pytest-xdist>=3.6.1 depends on\n      your project, we can conclude that pytest-xdist>=3.5.0 depends on your\n      project.\n      And because pytest[dev] depends on pytest-xdist>=3.5 and your project\n      requires pytest[dev], we can conclude that your project's requirements\n      are unsatisfiable.\n\n      hint: While the active Python version is 3.10, the resolution failed for\n      other Python versions supported by your project. Consider limiting your\n      project's supported Python versions using `requires-python`.\n\n      hint: The package `pytest-xdist` depends on the package `pytest` but\n      the name is shadowed by your project. Consider changing the name of\n      the project." |
+2026-07-22T11:54:08.1300741Z |            |                                | }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+2026-07-22T11:54:08.1309290Z +------------+--------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+2026-07-22T11:54:08.2624664Z Failure running container b089edcc99ba48299998c11607d774f8e400bce17fb94d10eac6c38ac47397c4: Error: Command failed with exit code 1: /bin/sh -c $DEPENDABOT_HOME/dependabot-updater/bin/run update_files
+2026-07-22T11:54:08.6749514Z Cleaned up container b089edcc99ba48299998c11607d774f8e400bce17fb94d10eac6c38ac47397c4
+2026-07-22T11:54:08.6925423Z   proxy | 2026/07/22 11:54:08 1/71 calls cached (1%)
+2026-07-22T11:54:08.6926385Z 2026/07/22 11:54:08 Posting metrics to remote API endpoint
+2026-07-22T11:54:09.0407693Z ##[error]Dependabot encountered an error performing the update
+
+Error: The updater encountered one or more errors.
+
+For more information see: https://github.com/pytest-dev/pytest/network/updates/1474326522 (write access to the repository is required to view the log)
+2026-07-22T11:54:09.0416779Z 🤖 ~ finished: error reported to Dependabot ~
+2026-07-22T11:54:09.0628921Z Post job cleanup.
+2026-07-22T11:54:09.1952045Z Cleaning up orphan processes

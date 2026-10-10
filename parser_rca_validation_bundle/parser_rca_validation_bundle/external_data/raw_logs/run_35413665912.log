@@ -1,0 +1,1102 @@
+﻿2026-09-19T01:46:19.1457843Z Current runner version: '2.337.0'
+2026-09-19T01:46:19.1483737Z ##[group]Runner Image Provisioner
+2026-09-19T01:46:19.1484797Z Hosted Compute Agent
+2026-09-19T01:46:19.1485740Z Version: 20260828.587
+2026-09-19T01:46:19.1486560Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-19T01:46:19.1487435Z Build Date: 2026-08-28T16:44:25Z
+2026-09-19T01:46:19.1488204Z Worker ID: {2c847d0a-829f-4a84-aee6-b4b60c3d3518}
+2026-09-19T01:46:19.1489036Z Azure Region: eastus2
+2026-09-19T01:46:19.1489694Z ##[endgroup]
+2026-09-19T01:46:19.1491313Z ##[group]Operating System
+2026-09-19T01:46:19.1492072Z Ubuntu
+2026-09-19T01:46:19.1492687Z 24.04.5
+2026-09-19T01:46:19.1493328Z LTS
+2026-09-19T01:46:19.1493940Z ##[endgroup]
+2026-09-19T01:46:19.1494644Z ##[group]Runner Image
+2026-09-19T01:46:19.1495553Z Image: ubuntu-24.04
+2026-09-19T01:46:19.1496339Z Version: 20260907.300.1
+2026-09-19T01:46:19.1497758Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260907.300/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-19T01:46:19.1499863Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260907.300
+2026-09-19T01:46:19.1500981Z ##[endgroup]
+2026-09-19T01:46:19.1502341Z ##[group]GITHUB_TOKEN Permissions
+2026-09-19T01:46:19.1504603Z Contents: read
+2026-09-19T01:46:19.1505298Z Metadata: read
+2026-09-19T01:46:19.1506581Z Packages: read
+2026-09-19T01:46:19.1507379Z ##[endgroup]
+2026-09-19T01:46:19.1509622Z Secret source: None
+2026-09-19T01:46:19.1510607Z Cache mode: read
+2026-09-19T01:46:19.1511702Z Prepare workflow directory
+2026-09-19T01:46:19.1841659Z Prepare all required actions
+2026-09-19T01:46:19.1889096Z Getting action download info
+2026-09-19T01:46:19.4317555Z Download action repository 'github/dependabot-action@main' (SHA:1c27e13c5f068bc6730fb60f6e476d8355fb9633)
+2026-09-19T01:46:21.0944901Z Complete job name: Dependabot
+2026-09-19T01:46:21.1770019Z ##[group]Run mkdir -p  ./dependabot-job-1582741952-1789782372
+2026-09-19T01:46:21.1771019Z [36;1mmkdir -p  ./dependabot-job-1582741952-1789782372[0m
+2026-09-19T01:46:21.1809575Z shell: /usr/bin/bash -e {0}
+2026-09-19T01:46:21.1810477Z ##[endgroup]
+2026-09-19T01:46:21.2115775Z ##[group]Run github/dependabot-action@main
+2026-09-19T01:46:21.2116559Z env:
+2026-09-19T01:46:21.2117067Z   DEPENDABOT_DISABLE_CLEANUP: 1
+2026-09-19T01:46:21.2117705Z   DEPENDABOT_ENABLE_CONNECTIVITY_CHECK: 0
+2026-09-19T01:46:21.2122135Z   GITHUB_TOKEN: ***
+2026-09-19T01:46:21.2123090Z   GITHUB_DEPENDABOT_JOB_TOKEN: ***
+2026-09-19T01:46:21.2124103Z   GITHUB_DEPENDABOT_CRED_TOKEN: ***
+2026-09-19T01:46:21.2124757Z   GITHUB_REGISTRIES_PROXY: ***
+2026-09-19T01:46:21.2125627Z ##[endgroup]
+2026-09-19T01:46:21.4224444Z 🤖 ~ starting update ~
+2026-09-19T01:46:21.4243936Z Fetching job details
+2026-09-19T01:46:22.5934418Z ##[group]Pulling updater images
+2026-09-19T01:46:22.6109385Z Pulling image ghcr.io/dependabot/dependabot-updater-uv:b5fd956c2f4cc52a9e2bc1adeae98cc4dfb1b4c7 (attempt 1)...
+2026-09-19T01:46:22.6551579Z Successfully sent metric (dependabot.action.ghcr_image_pull) to remote API endpoint
+2026-09-19T01:46:49.4897839Z Pulled image ghcr.io/dependabot/dependabot-updater-uv:b5fd956c2f4cc52a9e2bc1adeae98cc4dfb1b4c7
+2026-09-19T01:46:49.4907897Z Pulling image ghcr.io/dependabot/proxy:v2.0.20260918154032@sha256:da67080208c7b40bcf5333c48e24ac5b0fbc7604b47da5c38732aea317f88626 (attempt 1)...
+2026-09-19T01:46:49.5359318Z Successfully sent metric (dependabot.action.ghcr_image_pull) to remote API endpoint
+2026-09-19T01:46:50.1770405Z Pulled image ghcr.io/dependabot/proxy:v2.0.20260918154032@sha256:da67080208c7b40bcf5333c48e24ac5b0fbc7604b47da5c38732aea317f88626
+2026-09-19T01:46:50.1773242Z ##[endgroup]
+2026-09-19T01:46:50.1774196Z Starting update process
+2026-09-19T01:46:50.3822342Z Created proxy container: f83a09e520ad1409e14b070b3fc3398a5975802ee0e8f659729783dd42ba2edc
+2026-09-19T01:46:52.2749728Z   proxy | 2026/09/19 01:46:52 proxy starting, commit: b303105fc2a7bb61d7888523d4704a664581d3c7
+2026-09-19T01:46:52.2768336Z   proxy | 2026/09/19 01:46:52 Listening (:1080)
+2026-09-19T01:46:52.5100665Z Created container: c042f8ed37df8eeac9440ab3b57b97e81f1fa7b0ac64ea57522953ebb7140eea
+2026-09-19T01:46:52.6093120Z Started container c042f8ed37df8eeac9440ab3b57b97e81f1fa7b0ac64ea57522953ebb7140eea
+2026-09-19T01:46:52.6454221Z updater | Updating certificates in /etc/ssl/certs...
+2026-09-19T01:46:53.2106802Z updater | rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-09-19T01:46:53.2154727Z updater | 1 added, 0 removed; done.
+2026-09-19T01:46:53.2156245Z updater | Running hooks in /etc/ca-certificates/update.d...
+2026-09-19T01:46:53.2167030Z updater | done.
+2026-09-19T01:46:53.4914310Z updater | fetch_files command is no longer used directly
+2026-09-19T01:46:55.4814989Z updater | 2026/09/19 01:46:55 INFO <job_1582741952> Starting job processing
+2026-09-19T01:46:55.4846045Z updater | 2026/09/19 01:46:55 INFO <job_1582741952> Job definition: {"job":{"command":"security","allowed-updates":[{"dependency-type":"direct","update-type":"all"}],"commit-message-options":{"prefix":"⬆","prefix-development":null,"include-scope":null},"credentials-metadata":[{"type":"git_source","host":"github.com"}],"debug":null,"dependencies":["mcp"],"dependency-groups":[],"dependency-group-to-refresh":null,"existing-pull-requests":[{"pr-number":15256,"dependencies":[{"dependency-name":"cryptography","dependency-version":"46.0.6","directory":"/"}]},{"pr-number":15275,"dependencies":[{"dependency-name":"click","dependency-version":"8.3.1","directory":"/"}]},{"pr-number":15367,"dependencies":[{"dependency-name":"python-multipart","dependency-version":"0.0.24","directory":"/"}]},{"pr-number":15416,"dependencies":[{"dependency-name":"mkdocs-redirects","dependency-version":"1.2.3","directory":"/"}]},{"pr-number":15420,"dependencies":[{"dependency-name":"pydantic-extra-types","dependency-version":"2.11.1","directory":"/"}]},{"pr-number":15431,"dependencies":[{"dependency-name":"gitpython","dependency-version":"3.1.47","directory":"/"}]},{"pr-number":15438,"dependencies":[{"dependency-name":"pydantic-ai","dependency-version":"1.84.1","directory":"/"}]},{"pr-number":15452,"dependencies":[{"dependency-name":"click","dependency-version":"8.3.2","directory":"/"}]},{"pr-number":15453,"dependencies":[{"dependency-name":"pydantic-ai","dependency-version":"1.85.1","directory":"/"}]},{"pr-number":15459,"dependencies":[{"dependency-name":"pydantic-ai","dependency-version":"1.86.0","directory":"/"}]},{"pr-number":15460,"dependencies":[{"dependency-name":"prek","dependency-version":"0.3.10","directory":"/"}]},{"pr-number":15491,"dependencies":[{"dependency-name":"gitpython","dependency-version":"3.1.49","directory":"/"}]},{"pr-number":15492,"dependencies":[{"dependency-name":"python-multipart","dependency-version":"0.0.27","directory":"/"}]},{"pr-number":15495,"dependencies":[{"dependency-name":"gitpython","dependency-version":"3.1.50","directory":"/"}]},{"pr-number":15567,"dependencies":[{"dependency-name":"strawberry-graphql","dependency-version":"0.315.4","directory":"/"}]},{"pr-number":15581,"dependencies":[{"dependency-name":"pydantic-ai","dependency-version":"1.99.0","directory":"/"}]},{"pr-number":15582,"dependencies":[{"dependency-name":"pydantic-ai-slim","dependency-version":"1.99.0","directory":"/"}]},{"pr-number":16017,"dependencies":[{"dependency-name":"mcp","dependency-version":"1.27.2","directory":"/"}]},{"pr-number":16018,"dependencies":[{"dependency-name":"mcp","dependency-version":"1.28.1","directory":"/"}]},{"pr-number":16042,"dependencies":[{"dependency-name":"gitpython","dependency-version":"3.1.52","directory":"/"}]},{"pr-number":16375,"dependencies":[{"dependency-name":"anyio","dependency-version":"4.14.2","directory":"/"}]}],"existing-group-pull-requests":[],"experiments":{"record-ecosystem-versions":true,"record-update-job-unknown-error":true,"azure-registry-backup":true,"automatic-github-packages-auth":true,"blocked-versions":true,"workflow-job-summary":true,"async-retry":true,"enable-npmrc-credential-generation":true,"proxy-read-only-git-credentials":true,"proxy-egress-observe":true,"maven-wrapper-updater":true,"prioritize-scm-source":true},"ignore-conditions":[{"dependency-name":"click","version-requirement":"> 8.2.1","update-types":null,"source":"@dependabot ignore command","updated-at":"2026-04-29T12:22:42.000Z"}],"lockfile-only":false,"package-manager":"uv","requirements-update-strategy":null,"reject-external-code":false,"security-advisories":[{"dependency-name":"mcp","patched-versions":[],"unaffected-versions":[],"affected-versions":["< 1.28.1"]},{"dependency-name":"mcp","patched-versions":[],"unaffected-versions":[],"affected-versions":["<= 1.27.1"]},{"dependency-name":"mcp","patched-versions":[],"unaffected-versions":[],"affected-versions":[">= 1.23.0, <= 1.27.1"]},{"dependency-name":"mcp","patched-versions":[],"unaffected-versions":[],"affected-versions":["< 1.23.0"]},{"dependency-name":"mcp","patched-versions":[],"unaffected-versions":[],"affected-versions":["< 1.9.4"]},{"dependency-name":"mcp","patched-versions":[],"unaffected-versions":[],"affected-versions":["< 1.10.0"]}],"security-updates-only":true,"source":{"provider":"github","repo":"fastapi/fastapi","branch":null,"api-endpoint":"https://api.github.com/","hostname":"github.com","directories":["/."]},"updating-a-pull-request":false,"update-subdependencies":false,"vendor-dependencies":false,"enable-beta-ecosystems":false,"repo-private":false,"cooldown":{"default-days":7,"semver-major-days":0,"semver-minor-days":0,"semver-patch-days":0,"include":[],"exclude":[]},"multi-ecosystem-update":false,"exclude-paths":null}}
+2026-09-19T01:46:55.5924278Z   proxy | 2026/09/19 01:46:55 [002] GET https://github.com:443/fastapi/fastapi.git/info/refs?service=git-upload-pack
+2026-09-19T01:46:55.5925224Z   proxy | 2026/09/19 01:46:55 [002] * authenticating git server request (host: github.com)
+2026-09-19T01:46:55.7734206Z   proxy | 2026/09/19 01:46:55 [002] 200 https://github.com:443/fastapi/fastapi.git/info/refs?service=git-upload-pack
+2026-09-19T01:46:55.9302994Z updater | 2026/09/19 01:46:55 INFO <job_1582741952> Started process PID: 1001 with command: {} git clone --no-tags --depth 1 --recurse-submodules --shallow-submodules https://github.com/fastapi/fastapi /home/dependabot/dependabot-updater/repo {}
+2026-09-19T01:46:55.9726476Z   proxy | 2026/09/19 01:46:55 [004] GET https://github.com:443/fastapi/fastapi/info/refs?service=git-upload-pack
+2026-09-19T01:46:55.9727594Z 2026/09/19 01:46:55 [004] * authenticating git server request (host: github.com)
+2026-09-19T01:46:56.0211996Z   proxy | 2026/09/19 01:46:56 [004] 200 https://github.com:443/fastapi/fastapi/info/refs?service=git-upload-pack
+2026-09-19T01:46:56.0226863Z   proxy | 2026/09/19 01:46:56 [005] POST https://github.com:443/fastapi/fastapi/git-upload-pack
+2026-09-19T01:46:56.0227804Z   proxy | 2026/09/19 01:46:56 [005] * authenticating git server request (host: github.com)
+2026-09-19T01:46:56.1221211Z   proxy | 2026/09/19 01:46:56 [005] 200 https://github.com:443/fastapi/fastapi/git-upload-pack
+2026-09-19T01:46:56.1246146Z   proxy | 2026/09/19 01:46:56 [006] POST https://github.com:443/fastapi/fastapi/git-upload-pack
+2026-09-19T01:46:56.1247129Z   proxy | 2026/09/19 01:46:56 [006] * authenticating git server request (host: github.com)
+2026-09-19T01:46:56.3831811Z   proxy | 2026/09/19 01:46:56 [006] 200 https://github.com:443/fastapi/fastapi/git-upload-pack
+2026-09-19T01:46:57.9441468Z updater | 2026/09/19 01:46:57 INFO <job_1582741952> Process PID: 1001 completed with status: pid 1001 exit 0
+2026-09-19T01:46:57.9449756Z updater | 2026/09/19 01:46:57 INFO <job_1582741952> Total execution time: 2.01 seconds
+2026-09-19T01:46:57.9450769Z updater | 2026/09/19 01:46:57 INFO <job_1582741952> Started process PID: 1043 with command: {} git -C /home/dependabot/dependabot-updater/repo ls-files --stage {}
+2026-09-19T01:46:57.9747155Z updater | 2026/09/19 01:46:57 INFO <job_1582741952> Process PID: 1043 completed with status: pid 1043 exit 0
+2026-09-19T01:46:57.9748277Z 2026/09/19 01:46:57 INFO <job_1582741952> Total execution time: 0.03 seconds
+2026-09-19T01:46:58.0271836Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> Started process PID: 1136 with command: {} git rev-parse HEAD {}
+2026-09-19T01:46:58.0312042Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> Process PID: 1136 completed with status: pid 1136 exit 0
+2026-09-19T01:46:58.0313217Z 2026/09/19 01:46:58 INFO <job_1582741952> Total execution time: 0.0 seconds
+2026-09-19T01:46:58.2753211Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> DEBUG filter_excluded: entries=15, exclude_paths=[]
+2026-09-19T01:46:58.2824105Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> DEBUG filter_excluded: entries=11, exclude_paths=[]
+2026-09-19T01:46:58.2828945Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> DEBUG filter_excluded: entries=7, exclude_paths=[]
+2026-09-19T01:46:58.2835173Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> DEBUG filter_excluded: entries=15, exclude_paths=[]
+2026-09-19T01:46:58.2862868Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> DEBUG filter_excluded: entries=77, exclude_paths=[]
+2026-09-19T01:46:58.2871438Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> DEBUG filter_excluded: entries=30, exclude_paths=[]
+2026-09-19T01:46:58.2880077Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> DEBUG filter_excluded: entries=20, exclude_paths=[]
+2026-09-19T01:46:58.2928057Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> DEBUG filter_excluded: entries=219, exclude_paths=[]
+2026-09-19T01:46:58.5096397Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> Started process PID: 1143 with command: {} pyenv install --list {}
+2026-09-19T01:46:58.5440935Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> Process PID: 1143 completed with status: pid 1143 exit 0
+2026-09-19T01:46:58.5442350Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> Total execution time: 0.04 seconds
+2026-09-19T01:46:58.6266130Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> Started process PID: 1178 with command: {} pyenv install --list {}
+2026-09-19T01:46:58.6655886Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> Process PID: 1178 completed with status: pid 1178 exit 0
+2026-09-19T01:46:58.6657503Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> Total execution time: 0.04 seconds
+2026-09-19T01:46:58.7424308Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> Started process PID: 1213 with command: {} pyenv install --list {}
+2026-09-19T01:46:58.7777287Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> Process PID: 1213 completed with status: pid 1213 exit 0
+2026-09-19T01:46:58.7778152Z 2026/09/19 01:46:58 INFO <job_1582741952> Total execution time: 0.04 seconds
+2026-09-19T01:46:58.7789158Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> Dependabot is using Python version '3.10.20'.
+2026-09-19T01:46:58.8509735Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> Started process PID: 1248 with command: {} pyenv install --list {}
+2026-09-19T01:46:58.8858710Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> Process PID: 1248 completed with status: pid 1248 exit 0
+2026-09-19T01:46:58.8859810Z updater | 2026/09/19 01:46:58 INFO <job_1582741952> Total execution time: 0.04 seconds
+2026-09-19T01:46:59.0260757Z   proxy | 2026/09/19 01:46:59 [008] POST /update_jobs/1582741952/record_ecosystem_versions
+2026-09-19T01:46:59.0836811Z   proxy | 2026/09/19 01:46:59 [008] 204 /update_jobs/1582741952/record_ecosystem_versions
+2026-09-19T01:46:59.0841777Z updater | 2026/09/19 01:46:59 INFO <job_1582741952> Base commit SHA: 50113da16fec53b66b80d75e80a89296de4fa5a5
+2026-09-19T01:46:59.0843001Z 2026/09/19 01:46:59 INFO <job_1582741952> Finished job processing
+2026-09-19T01:46:59.0856328Z updater | 2026/09/19 01:46:59 INFO <job_1582741952> Starting job processing
+2026-09-19T01:46:59.1692331Z   proxy | 2026/09/19 01:46:59 [010] GET /update_jobs/1582741952/blocked_versions?package-manager=uv
+2026-09-19T01:46:59.2024169Z   proxy | 2026/09/19 01:46:59 [010] 200 /update_jobs/1582741952/blocked_versions?package-manager=uv
+2026-09-19T01:46:59.2056384Z updater | 2026/09/19 01:46:59 INFO <job_1582741952> Started process PID: 1283 with command: {} pyenv exec uv --version {}
+2026-09-19T01:46:59.2643740Z updater | 2026/09/19 01:46:59 INFO <job_1582741952> Process PID: 1283 completed with status: pid 1283 exit 0
+2026-09-19T01:46:59.2644396Z 2026/09/19 01:46:59 INFO <job_1582741952> Total execution time: 0.06 seconds
+2026-09-19T01:46:59.2645014Z updater | 2026/09/19 01:46:59 INFO <job_1582741952> Package manager uv, Info : uv 0.12.7 (x86_64-unknown-linux-gnu)
+2026-09-19T01:46:59.2645704Z 
+2026-09-19T01:46:59.3327177Z updater | 2026/09/19 01:46:59 INFO <job_1582741952> Started process PID: 1330 with command: {} pyenv install --list {}
+2026-09-19T01:46:59.3681558Z updater | 2026/09/19 01:46:59 INFO <job_1582741952> Process PID: 1330 completed with status: pid 1330 exit 0
+2026-09-19T01:46:59.3682579Z 2026/09/19 01:46:59 INFO <job_1582741952> Total execution time: 0.04 seconds
+2026-09-19T01:46:59.4396131Z updater | 2026/09/19 01:46:59 INFO <job_1582741952> Started process PID: 1365 with command: {} pyenv install --list {}
+2026-09-19T01:46:59.4756031Z updater | 2026/09/19 01:46:59 INFO <job_1582741952> Process PID: 1365 completed with status: pid 1365 exit 0
+2026-09-19T01:46:59.4757254Z updater | 2026/09/19 01:46:59 INFO <job_1582741952> Total execution time: 0.04 seconds
+2026-09-19T01:46:59.5417131Z updater | 2026/09/19 01:46:59 INFO <job_1582741952> Started process PID: 1400 with command: {} pyenv install --list {}
+2026-09-19T01:46:59.5758486Z updater | 2026/09/19 01:46:59 INFO <job_1582741952> Process PID: 1400 completed with status: pid 1400 exit 0
+2026-09-19T01:46:59.5759592Z 2026/09/19 01:46:59 INFO <job_1582741952> Total execution time: 0.03 seconds
+2026-09-19T01:46:59.5796455Z updater | 2026/09/19 01:46:59 INFO <job_1582741952> Started process PID: 1435 with command: {} pyenv exec python --version {}
+2026-09-19T01:46:59.6298098Z updater | 2026/09/19 01:46:59 INFO <job_1582741952> Process PID: 1435 completed with status: pid 1435 exit 0
+2026-09-19T01:46:59.6299189Z updater | 2026/09/19 01:46:59 INFO <job_1582741952> Total execution time: 0.05 seconds
+2026-09-19T01:46:59.7746139Z updater | 2026/09/19 01:46:59 INFO <job_1582741952> Started process PID: 1482 with command: pyenv exec python3 /opt/python/run.py
+2026-09-19T01:47:03.2755712Z updater | 2026/09/19 01:47:03 INFO <job_1582741952> Process PID: 1482 completed with status: pid 1482 exit 0
+2026-09-19T01:47:03.2756771Z 2026/09/19 01:47:03 INFO <job_1582741952> Total execution time: 3.5 seconds
+2026-09-19T01:47:07.7383183Z   proxy | 2026/09/19 01:47:07 [012] POST /update_jobs/1582741952/update_dependency_list
+2026-09-19T01:47:07.7688558Z   proxy | 2026/09/19 01:47:07 [012] 204 /update_jobs/1582741952/update_dependency_list
+2026-09-19T01:47:07.8522803Z   proxy | 2026/09/19 01:47:07 [014] POST /update_jobs/1582741952/increment_metric
+2026-09-19T01:47:07.8739236Z   proxy | 2026/09/19 01:47:07 [014] 204 /update_jobs/1582741952/increment_metric
+2026-09-19T01:47:07.8748547Z updater | 2026/09/19 01:47:07 INFO <job_1582741952> Starting security update job for fastapi/fastapi
+2026-09-19T01:47:07.8777882Z updater | 2026/09/19 01:47:07 INFO <job_1582741952> Checking if mcp 1.26.0 needs updating
+2026-09-19T01:47:08.0189526Z updater | 2026/09/19 01:47:08 INFO <job_1582741952> Fetching release information from json registry at https://pypi.org/pypi/ for mcp
+2026-09-19T01:47:08.2480887Z   proxy | 2026/09/19 01:47:08 [016] GET https://pypi.org:443/pypi/mcp/json
+2026-09-19T01:47:08.2728489Z   proxy | 2026/09/19 01:47:08 [016] 200 https://pypi.org:443/pypi/mcp/json
+2026-09-19T01:47:08.4025948Z updater | 2026/09/19 01:47:08 INFO <job_1582741952> Filtered out 8 pre-release versions
+2026-09-19T01:47:08.4040069Z updater | 2026/09/19 01:47:08 INFO <job_1582741952> Latest version is 2.2.0
+2026-09-19T01:47:08.4966993Z updater | 2026/09/19 01:47:08 INFO <job_1582741952> Started process PID: 1530 with command: {} pyenv install --list {}
+2026-09-19T01:47:08.5326924Z updater | 2026/09/19 01:47:08 INFO <job_1582741952> Process PID: 1530 completed with status: pid 1530 exit 0
+2026-09-19T01:47:08.5327662Z 2026/09/19 01:47:08 INFO <job_1582741952> Total execution time: 0.04 seconds
+2026-09-19T01:47:08.6019127Z updater | 2026/09/19 01:47:08 INFO <job_1582741952> Started process PID: 1565 with command: {} pyenv install --list {}
+2026-09-19T01:47:08.6368691Z updater | 2026/09/19 01:47:08 INFO <job_1582741952> Process PID: 1565 completed with status: pid 1565 exit 0
+2026-09-19T01:47:08.6370189Z updater | 2026/09/19 01:47:08 INFO <job_1582741952> Total execution time: 0.04 seconds
+2026-09-19T01:47:08.7073220Z updater | 2026/09/19 01:47:08 INFO <job_1582741952> Started process PID: 1600 with command: {} pyenv install --list {}
+2026-09-19T01:47:08.7422971Z updater | 2026/09/19 01:47:08 INFO <job_1582741952> Process PID: 1600 completed with status: pid 1600 exit 0
+2026-09-19T01:47:08.7424034Z 2026/09/19 01:47:08 INFO <job_1582741952> Total execution time: 0.04 seconds
+2026-09-19T01:47:08.8768941Z updater | 2026/09/19 01:47:08 INFO <job_1582741952> Fetching release information from json registry at https://pypi.org/pypi/ for mcp
+2026-09-19T01:47:08.9593134Z   proxy | 2026/09/19 01:47:08 [018] GET https://pypi.org:443/pypi/mcp/json
+2026-09-19T01:47:08.9594375Z   proxy | 2026/09/19 01:47:08 [018] 200 https://pypi.org:443/pypi/mcp/json (cached)
+2026-09-19T01:47:09.0028191Z updater | 2026/09/19 01:47:09 INFO <job_1582741952> Started process PID: 1635 with command: {} git reset HEAD --hard {}
+2026-09-19T01:47:09.2862855Z updater | 2026/09/19 01:47:09 INFO <job_1582741952> Process PID: 1635 completed with status: pid 1635 exit 0
+2026-09-19T01:47:09.2863734Z 2026/09/19 01:47:09 INFO <job_1582741952> Total execution time: 0.28 seconds
+2026-09-19T01:47:09.2914547Z updater | 2026/09/19 01:47:09 INFO <job_1582741952> Started process PID: 1643 with command: {} git clean -fx {}
+2026-09-19T01:47:09.3072605Z updater | 2026/09/19 01:47:09 INFO <job_1582741952> Process PID: 1643 completed with status: pid 1643 exit 0
+2026-09-19T01:47:09.3073662Z 2026/09/19 01:47:09 INFO <job_1582741952> Total execution time: 0.02 seconds
+2026-09-19T01:47:09.5353922Z updater | 2026/09/19 01:47:09 INFO <job_1582741952> Setting up Python environment using LanguageVersionManager
+2026-09-19T01:47:09.5359876Z updater | 2026/09/19 01:47:09 INFO <job_1582741952> Started process PID: 1737 with command: {} pyenv versions {}
+2026-09-19T01:47:09.6253251Z updater | 2026/09/19 01:47:09 INFO <job_1582741952> Process PID: 1737 completed with status: pid 1737 exit 0
+2026-09-19T01:47:09.6256391Z updater | 2026/09/19 01:47:09 INFO <job_1582741952> Total execution time: 0.09 seconds
+2026-09-19T01:47:09.6982927Z updater | 2026/09/19 01:47:09 INFO <job_1582741952> Started process PID: 1843 with command: {} pyenv install --list {}
+2026-09-19T01:47:09.7342878Z updater | 2026/09/19 01:47:09 INFO <job_1582741952> Process PID: 1843 completed with status: pid 1843 exit 0
+2026-09-19T01:47:09.7343927Z 2026/09/19 01:47:09 INFO <job_1582741952> Total execution time: 0.04 seconds
+2026-09-19T01:47:09.8062812Z updater | 2026/09/19 01:47:09 INFO <job_1582741952> Started process PID: 1878 with command: {} pyenv install --list {}
+2026-09-19T01:47:09.8417688Z updater | 2026/09/19 01:47:09 INFO <job_1582741952> Process PID: 1878 completed with status: pid 1878 exit 0
+2026-09-19T01:47:09.8418461Z 2026/09/19 01:47:09 INFO <job_1582741952> Total execution time: 0.04 seconds
+2026-09-19T01:47:09.9247131Z updater | 2026/09/19 01:47:09 INFO <job_1582741952> Started process PID: 1913 with command: {} pyenv install --list {}
+2026-09-19T01:47:09.9590878Z updater | 2026/09/19 01:47:09 INFO <job_1582741952> Process PID: 1913 completed with status: pid 1913 exit 0
+2026-09-19T01:47:09.9591514Z 2026/09/19 01:47:09 INFO <job_1582741952> Total execution time: 0.04 seconds
+2026-09-19T01:47:09.9602332Z updater | 2026/09/19 01:47:09 INFO <job_1582741952> Started process PID: 1948 with command: {} tar -axf /usr/local/.pyenv/versions/3.10.20.tar.zst -C /usr/local/.pyenv/versions {}
+2026-09-19T01:47:10.5178682Z updater | 2026/09/19 01:47:10 INFO <job_1582741952> Process PID: 1948 completed with status: pid 1948 exit 0
+2026-09-19T01:47:10.5179373Z 2026/09/19 01:47:10 INFO <job_1582741952> Total execution time: 0.56 seconds
+2026-09-19T01:47:10.5180460Z updater | 2026/09/19 01:47:10 INFO <job_1582741952> Setting Python version to 3.10.20
+2026-09-19T01:47:10.5184673Z updater | 2026/09/19 01:47:10 INFO <job_1582741952> Started process PID: 1953 with command: {} pyenv local 3.10.20 {}
+2026-09-19T01:47:10.5439612Z updater | 2026/09/19 01:47:10 INFO <job_1582741952> Process PID: 1953 completed with status: pid 1953 exit 0
+2026-09-19T01:47:10.5440753Z updater | 2026/09/19 01:47:10 INFO <job_1582741952> Total execution time: 0.03 seconds
+2026-09-19T01:47:10.5441898Z 2026/09/19 01:47:10 INFO <job_1582741952> Using pre-installed uv package
+2026-09-19T01:47:14.5808900Z updater | 2026/09/19 01:47:14 INFO <job_1582741952> Running command: pyenv exec uv lock --upgrade-package mcp==1.28.1 
+2026-09-19T01:47:14.5812980Z updater | 2026/09/19 01:47:14 INFO <job_1582741952> Started process PID: 1979 with command: {} pyenv exec uv lock --upgrade-package mcp\=\=1.28.1 {}
+2026-09-19T01:47:14.9108815Z   proxy | 2026/09/19 01:47:14 [020] GET https://pypi.org:443/simple/pdm-backend/
+2026-09-19T01:47:14.9200477Z   proxy | 2026/09/19 01:47:14 [020] 200 https://pypi.org:443/simple/pdm-backend/
+2026-09-19T01:47:15.0539429Z   proxy | 2026/09/19 01:47:15 [022] GET https://files.pythonhosted.org:443/packages/55/30/c8bd9fab1f3811462451e4a41a36e2d85b361560416ec874131611cc7982/pdm_backend-2.4.9-py3-none-any.whl.metadata
+2026-09-19T01:47:15.0783693Z   proxy | 2026/09/19 01:47:15 [022] 200 https://files.pythonhosted.org:443/packages/55/30/c8bd9fab1f3811462451e4a41a36e2d85b361560416ec874131611cc7982/pdm_backend-2.4.9-py3-none-any.whl.metadata
+2026-09-19T01:47:15.0808163Z   proxy | 2026/09/19 01:47:15 [023] GET https://files.pythonhosted.org:443/packages/55/30/c8bd9fab1f3811462451e4a41a36e2d85b361560416ec874131611cc7982/pdm_backend-2.4.9-py3-none-any.whl
+2026-09-19T01:47:15.0891092Z   proxy | 2026/09/19 01:47:15 [023] 200 https://files.pythonhosted.org:443/packages/55/30/c8bd9fab1f3811462451e4a41a36e2d85b361560416ec874131611cc7982/pdm_backend-2.4.9-py3-none-any.whl
+2026-09-19T01:47:15.6807720Z   proxy | 2026/09/19 01:47:15 [024] GET https://pypi.org:443/simple/annotated-doc/
+2026-09-19T01:47:15.6882842Z   proxy | 2026/09/19 01:47:15 [024] 200 https://pypi.org:443/simple/annotated-doc/
+2026-09-19T01:47:15.7038527Z   proxy | 2026/09/19 01:47:15 [062] GET https://pypi.org:443/simple/typing-inspection/
+2026-09-19T01:47:15.7189451Z   proxy | 2026/09/19 01:47:15 [063] GET https://pypi.org:443/simple/playwright/
+2026-09-19T01:47:15.7190681Z 2026/09/19 01:47:15 [064] GET https://pypi.org:443/simple/pwdlib/
+2026-09-19T01:47:15.7191483Z 2026/09/19 01:47:15 [083] GET https://pypi.org:443/simple/mdx-include/
+2026-09-19T01:47:15.7250601Z   proxy | 2026/09/19 01:47:15 [084] GET https://pypi.org:443/simple/pillow/
+2026-09-19T01:47:15.7258114Z   proxy | 2026/09/19 01:47:15 [085] GET https://pypi.org:443/simple/prek/
+2026-09-19T01:47:15.7259059Z 2026/09/19 01:47:15 [086] GET https://pypi.org:443/simple/coverage/
+2026-09-19T01:47:15.7270756Z   proxy | 2026/09/19 01:47:15 [065] GET https://pypi.org:443/simple/mkdocstrings/
+2026-09-19T01:47:15.7271852Z 2026/09/19 01:47:15 [087] GET https://pypi.org:443/simple/pydantic-settings/
+2026-09-19T01:47:15.7272788Z 2026/09/19 01:47:15 [066] GET https://pypi.org:443/simple/mypy/
+2026-09-19T01:47:15.7273693Z 2026/09/19 01:47:15 [080] GET https://pypi.org:443/simple/typing-extensions/
+2026-09-19T01:47:15.7274606Z 2026/09/19 01:47:15 [081] GET https://pypi.org:443/simple/pydantic/
+2026-09-19T01:47:15.7275753Z 2026/09/19 01:47:15 [082] GET https://pypi.org:443/simple/starlette/
+2026-09-19T01:47:15.7316713Z   proxy | 2026/09/19 01:47:15 [088] GET https://pypi.org:443/simple/typer/
+2026-09-19T01:47:15.7324044Z   proxy | 2026/09/19 01:47:15 [089] GET https://pypi.org:443/simple/pygithub/
+2026-09-19T01:47:15.7343358Z   proxy | 2026/09/19 01:47:15 [090] GET https://pypi.org:443/simple/ty/
+2026-09-19T01:47:15.7349889Z   proxy | 2026/09/19 01:47:15 [091] GET https://pypi.org:443/simple/a2wsgi/
+2026-09-19T01:47:15.7376711Z   proxy | 2026/09/19 01:47:15 [092] GET https://pypi.org:443/simple/fastar/
+2026-09-19T01:47:15.7385042Z   proxy | 2026/09/19 01:47:15 [093] GET https://pypi.org:443/simple/gitpython/
+2026-09-19T01:47:15.7393817Z   proxy | 2026/09/19 01:47:15 [094] GET https://pypi.org:443/simple/email-validator/
+2026-09-19T01:47:15.7408465Z   proxy | 2026/09/19 01:47:15 [095] GET https://pypi.org:443/simple/zizmor/
+2026-09-19T01:47:15.7409433Z 2026/09/19 01:47:15 [096] GET https://pypi.org:443/simple/pydantic-ai/
+2026-09-19T01:47:15.7410380Z 2026/09/19 01:47:15 [097] GET https://pypi.org:443/simple/strawberry-graphql/
+2026-09-19T01:47:15.7418686Z   proxy | 2026/09/19 01:47:15 [098] GET https://pypi.org:443/simple/anyio/
+2026-09-19T01:47:15.7441687Z   proxy | 2026/09/19 01:47:15 [099] GET https://pypi.org:443/simple/dirty-equals/
+2026-09-19T01:47:15.7449953Z   proxy | 2026/09/19 01:47:15 [100] GET https://pypi.org:443/simple/pyyaml/
+2026-09-19T01:47:15.7478782Z   proxy | 2026/09/19 01:47:15 [101] GET https://pypi.org:443/simple/itsdangerous/
+2026-09-19T01:47:15.7479809Z 2026/09/19 01:47:15 [102] GET https://pypi.org:443/simple/pytest-cov/
+2026-09-19T01:47:15.7480685Z 2026/09/19 01:47:15 [103] GET https://pypi.org:443/simple/pyjwt/
+2026-09-19T01:47:15.7481554Z 2026/09/19 01:47:15 [104] GET https://pypi.org:443/simple/python-slugify/
+2026-09-19T01:47:15.7482483Z 2026/09/19 01:47:15 [105] GET https://pypi.org:443/simple/jinja2/
+2026-09-19T01:47:15.7483487Z 2026/09/19 01:47:15 [062] 200 https://pypi.org:443/simple/typing-inspection/
+2026-09-19T01:47:15.7484588Z   proxy | 2026/09/19 01:47:15 [106] GET https://pypi.org:443/simple/pytest/
+2026-09-19T01:47:15.7488239Z   proxy | 2026/09/19 01:47:15 [107] GET https://pypi.org:443/simple/pydantic-extra-types/
+2026-09-19T01:47:15.7492151Z   proxy | 2026/09/19 01:47:15 [108] GET https://pypi.org:443/simple/pytest-sugar/
+2026-09-19T01:47:15.7496127Z   proxy | 2026/09/19 01:47:15 [109] GET https://pypi.org:443/simple/ruff/
+2026-09-19T01:47:15.7498757Z   proxy | 2026/09/19 01:47:15 [110] GET https://pypi.org:443/simple/uvicorn/
+2026-09-19T01:47:15.7500527Z   proxy | 2026/09/19 01:47:15 [111] GET https://pypi.org:443/simple/pytest-codspeed/
+2026-09-19T01:47:15.7502257Z   proxy | 2026/09/19 01:47:15 [112] GET https://pypi.org:443/simple/zensical/
+2026-09-19T01:47:15.7504968Z   proxy | 2026/09/19 01:47:15 [113] GET https://pypi.org:443/simple/pytest-timeout/
+2026-09-19T01:47:15.7506754Z   proxy | 2026/09/19 01:47:15 [114] GET https://pypi.org:443/simple/cairosvg/
+2026-09-19T01:47:15.7509582Z   proxy | 2026/09/19 01:47:15 [115] GET https://pypi.org:443/simple/black/
+2026-09-19T01:47:15.7530209Z   proxy | 2026/09/19 01:47:15 [116] GET https://pypi.org:443/simple/python-multipart/
+2026-09-19T01:47:15.7531294Z   proxy | 2026/09/19 01:47:15 [117] GET https://pypi.org:443/simple/sqlmodel/
+2026-09-19T01:47:15.7533661Z   proxy | 2026/09/19 01:47:15 [118] GET https://pypi.org:443/simple/pytest-xdist/
+2026-09-19T01:47:15.7569446Z   proxy | 2026/09/19 01:47:15 [119] GET https://pypi.org:443/simple/flask/
+2026-09-19T01:47:15.7592190Z   proxy | 2026/09/19 01:47:15 [120] GET https://pypi.org:443/simple/smokeshow/
+2026-09-19T01:47:15.7598868Z   proxy | 2026/09/19 01:47:15 [121] GET https://pypi.org:443/simple/jieba/
+2026-09-19T01:47:15.7624634Z   proxy | 2026/09/19 01:47:15 [063] 200 https://pypi.org:443/simple/playwright/
+2026-09-19T01:47:15.7650716Z   proxy | 2026/09/19 01:47:15 [064] 200 https://pypi.org:443/simple/pwdlib/
+2026-09-19T01:47:15.7657507Z   proxy | 2026/09/19 01:47:15 [122] GET https://pypi.org:443/simple/markdown-include-variants/
+2026-09-19T01:47:15.7659542Z   proxy | 2026/09/19 01:47:15 [123] GET https://pypi.org:443/simple/httpx/
+2026-09-19T01:47:15.7664778Z   proxy | 2026/09/19 01:47:15 [124] GET https://pypi.org:443/simple/fastapi-cli/
+2026-09-19T01:47:15.7681502Z   proxy | 2026/09/19 01:47:15 [087] 200 https://pypi.org:443/simple/pydantic-settings/
+2026-09-19T01:47:15.7718832Z   proxy | 2026/09/19 01:47:15 [085] 200 https://pypi.org:443/simple/prek/
+2026-09-19T01:47:15.7744276Z   proxy | 2026/09/19 01:47:15 [125] GET https://pypi.org:443/simple/inline-snapshot/
+2026-09-19T01:47:15.7748074Z   proxy | 2026/09/19 01:47:15 [126] GET https://pypi.org:443/simple/griffe-warnings-deprecated/
+2026-09-19T01:47:15.7754391Z   proxy | 2026/09/19 01:47:15 [089] 200 https://pypi.org:443/simple/pygithub/
+2026-09-19T01:47:15.7780671Z   proxy | 2026/09/19 01:47:15 [086] 200 https://pypi.org:443/simple/coverage/
+2026-09-19T01:47:15.7818128Z   proxy | 2026/09/19 01:47:15 [096] 200 https://pypi.org:443/simple/pydantic-ai/
+2026-09-19T01:47:15.7836682Z   proxy | 2026/09/19 01:47:15 [080] 200 https://pypi.org:443/simple/typing-extensions/
+2026-09-19T01:47:15.7841822Z   proxy | 2026/09/19 01:47:15 [106] 200 https://pypi.org:443/simple/pytest/
+2026-09-19T01:47:15.7843207Z   proxy | 2026/09/19 01:47:15 [093] 200 https://pypi.org:443/simple/gitpython/
+2026-09-19T01:47:15.7844438Z   proxy | 2026/09/19 01:47:15 [081] 200 https://pypi.org:443/simple/pydantic/
+2026-09-19T01:47:15.7872815Z   proxy | 2026/09/19 01:47:15 [088] 200 https://pypi.org:443/simple/typer/
+2026-09-19T01:47:15.7883087Z   proxy | 2026/09/19 01:47:15 [082] 200 https://pypi.org:443/simple/starlette/
+2026-09-19T01:47:15.7888576Z   proxy | 2026/09/19 01:47:15 [107] 200 https://pypi.org:443/simple/pydantic-extra-types/
+2026-09-19T01:47:15.7915021Z   proxy | 2026/09/19 01:47:15 [091] 200 https://pypi.org:443/simple/a2wsgi/
+2026-09-19T01:47:15.7951550Z   proxy | 2026/09/19 01:47:15 [083] 200 https://pypi.org:443/simple/mdx-include/
+2026-09-19T01:47:15.7956824Z   proxy | 2026/09/19 01:47:15 [102] 200 https://pypi.org:443/simple/pytest-cov/
+2026-09-19T01:47:15.7963014Z   proxy | 2026/09/19 01:47:15 [128] GET https://pypi.org:443/simple/httpx2/
+2026-09-19T01:47:15.7964195Z   proxy | 2026/09/19 01:47:15 [084] 200 https://pypi.org:443/simple/pillow/
+2026-09-19T01:47:15.7980947Z   proxy | 2026/09/19 01:47:15 [113] 200 https://pypi.org:443/simple/pytest-timeout/
+2026-09-19T01:47:15.7988350Z   proxy | 2026/09/19 01:47:15 [065] 200 https://pypi.org:443/simple/mkdocstrings/
+2026-09-19T01:47:15.7999974Z   proxy | 2026/09/19 01:47:15 [121] 200 https://pypi.org:443/simple/jieba/
+2026-09-19T01:47:15.8032428Z   proxy | 2026/09/19 01:47:15 [090] 200 https://pypi.org:443/simple/ty/
+2026-09-19T01:47:15.8050753Z   proxy | 2026/09/19 01:47:15 [101] 200 https://pypi.org:443/simple/itsdangerous/
+2026-09-19T01:47:15.8061377Z   proxy | 2026/09/19 01:47:15 [099] 200 https://pypi.org:443/simple/dirty-equals/
+2026-09-19T01:47:15.8062811Z   proxy | 2026/09/19 01:47:15 [066] 200 https://pypi.org:443/simple/mypy/
+2026-09-19T01:47:15.8064747Z   proxy | 2026/09/19 01:47:15 [095] 200 https://pypi.org:443/simple/zizmor/
+2026-09-19T01:47:15.8068266Z   proxy | 2026/09/19 01:47:15 [127] GET https://pypi.org:443/simple/griffe-typingdoc/
+2026-09-19T01:47:15.8074621Z   proxy | 2026/09/19 01:47:15 [116] 200 https://pypi.org:443/simple/python-multipart/
+2026-09-19T01:47:15.8076747Z   proxy | 2026/09/19 01:47:15 [108] 200 https://pypi.org:443/simple/pytest-sugar/
+2026-09-19T01:47:15.8078032Z   proxy | 2026/09/19 01:47:15 [120] 200 https://pypi.org:443/simple/smokeshow/
+2026-09-19T01:47:15.8101971Z   proxy | 2026/09/19 01:47:15 [109] 200 https://pypi.org:443/simple/ruff/
+2026-09-19T01:47:15.8103431Z   proxy | 2026/09/19 01:47:15 [118] 200 https://pypi.org:443/simple/pytest-xdist/
+2026-09-19T01:47:15.8115701Z   proxy | 2026/09/19 01:47:15 [122] 200 https://pypi.org:443/simple/markdown-include-variants/
+2026-09-19T01:47:15.8122901Z   proxy | 2026/09/19 01:47:15 [110] 200 https://pypi.org:443/simple/uvicorn/
+2026-09-19T01:47:15.8124538Z 2026/09/19 01:47:15 [111] 200 https://pypi.org:443/simple/pytest-codspeed/
+2026-09-19T01:47:15.8126024Z 2026/09/19 01:47:15 [097] 200 https://pypi.org:443/simple/strawberry-graphql/
+2026-09-19T01:47:15.8130184Z   proxy | 2026/09/19 01:47:15 [104] 200 https://pypi.org:443/simple/python-slugify/
+2026-09-19T01:47:15.8146234Z   proxy | 2026/09/19 01:47:15 [130] GET https://files.pythonhosted.org:443/packages/3e/30/e900b21425a860e195f32e37657aa1f7c7f2b1bfb26f03ca209b90933c06/annotated_doc-0.0.5-py3-none-any.whl.metadata
+2026-09-19T01:47:15.8169102Z   proxy | 2026/09/19 01:47:15 [123] 200 https://pypi.org:443/simple/httpx/
+2026-09-19T01:47:15.8170214Z   proxy | 2026/09/19 01:47:15 [124] 200 https://pypi.org:443/simple/fastapi-cli/
+2026-09-19T01:47:15.8171495Z   proxy | 2026/09/19 01:47:15 [100] 200 https://pypi.org:443/simple/pyyaml/
+2026-09-19T01:47:15.8176425Z   proxy | 2026/09/19 01:47:15 [092] 200 https://pypi.org:443/simple/fastar/
+2026-09-19T01:47:15.8372226Z   proxy | 2026/09/19 01:47:15 [103] 200 https://pypi.org:443/simple/pyjwt/
+2026-09-19T01:47:15.8373385Z 2026/09/19 01:47:15 [114] 200 https://pypi.org:443/simple/cairosvg/
+2026-09-19T01:47:15.8374741Z   proxy | 2026/09/19 01:47:15 [126] 200 https://pypi.org:443/simple/griffe-warnings-deprecated/
+2026-09-19T01:47:15.8376303Z 2026/09/19 01:47:15 [105] 200 https://pypi.org:443/simple/jinja2/
+2026-09-19T01:47:15.8377330Z 2026/09/19 01:47:15 [094] 200 https://pypi.org:443/simple/email-validator/
+2026-09-19T01:47:15.8378365Z 2026/09/19 01:47:15 [125] 200 https://pypi.org:443/simple/inline-snapshot/
+2026-09-19T01:47:15.8379377Z 2026/09/19 01:47:15 [115] 200 https://pypi.org:443/simple/black/
+2026-09-19T01:47:15.8380346Z 2026/09/19 01:47:15 [127] 200 https://pypi.org:443/simple/griffe-typingdoc/
+2026-09-19T01:47:15.8381364Z 2026/09/19 01:47:15 [098] 200 https://pypi.org:443/simple/anyio/
+2026-09-19T01:47:15.8382251Z 2026/09/19 01:47:15 [119] 200 https://pypi.org:443/simple/flask/
+2026-09-19T01:47:15.8383136Z 2026/09/19 01:47:15 [128] 200 https://pypi.org:443/simple/httpx2/
+2026-09-19T01:47:15.8384020Z 2026/09/19 01:47:15 [117] 200 https://pypi.org:443/simple/sqlmodel/
+2026-09-19T01:47:15.8384905Z 2026/09/19 01:47:15 [112] 200 https://pypi.org:443/simple/zensical/
+2026-09-19T01:47:15.8387860Z 2026/09/19 01:47:15 [130] 200 https://files.pythonhosted.org:443/packages/3e/30/e900b21425a860e195f32e37657aa1f7c7f2b1bfb26f03ca209b90933c06/annotated_doc-0.0.5-py3-none-any.whl.metadata
+2026-09-19T01:47:15.8498864Z   proxy | 2026/09/19 01:47:15 [136] GET https://files.pythonhosted.org:443/packages/62/0c/9086a357d02a050fbb3270bf5043ac284dbfb845670e16c9389a41defc9e/pwdlib-0.3.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.8774726Z   proxy | 2026/09/19 01:47:15 [144] GET https://files.pythonhosted.org:443/packages/6c/5b/ca2abcf3aa69f9fb510215e3064f30b57fe57657c8d04ede45bb966d5606/playwright-1.62.0-py3-none-macosx_10_13_x86_64.whl.metadata
+2026-09-19T01:47:15.8777708Z 2026/09/19 01:47:15 [147] GET https://files.pythonhosted.org:443/packages/67/81/4add07e5172b7ac40d8ed5ff580409a7801a4fe26d529bdd915401dabfbe/typing_inspection-0.4.4-py3-none-any.whl.metadata
+2026-09-19T01:47:15.8780568Z 2026/09/19 01:47:15 [150] GET https://files.pythonhosted.org:443/packages/30/a4/2bffa9f8e804325a09867f0e9d30795c80ea9f8d62560bd1b6ad6220eb2f/pydantic_settings-2.15.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.8784408Z 2026/09/19 01:47:15 [151] GET https://files.pythonhosted.org:443/packages/fe/17/fabd56da47096d240dd45ba627bead0333b0cf0ee8ada9bec579287dadf3/pydantic_extra_types-2.11.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.8788116Z 2026/09/19 01:47:15 [153] GET https://files.pythonhosted.org:443/packages/91/71/f314841697a1d52af3e1ea7c5e1c3f09685b64ae4c58ff16b605a866255d/pygithub-2.10.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.8790770Z 2026/09/19 01:47:15 [154] GET https://files.pythonhosted.org:443/packages/c6/cb/18eeb235f833b726522d7ebed54f2278ce28ba9438e3135ab0278d9792a2/jieba-0.42.1.tar.gz
+2026-09-19T01:47:15.8793230Z   proxy | 2026/09/19 01:47:15 [155] GET https://files.pythonhosted.org:443/packages/c8/cb/6a6a47d5b464bd08695d254f3da6e7986cc70c9fa5d778eda57538edfe56/starlette-1.6.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.8869707Z   proxy | 2026/09/19 01:47:15 [156] GET https://files.pythonhosted.org:443/packages/fa/b6/3127540ecdf1464a00e5a01ee60a1b09175f6913f0644ac748494d9c4b21/pytest_timeout-2.4.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.8874920Z   proxy | 2026/09/19 01:47:15 [157] GET https://files.pythonhosted.org:443/packages/4e/0e/130958e7ec50d13f2ee7b6c142df5c352520a9251baf1652e41262703857/markdown_include_variants-0.0.8-py3-none-any.whl.metadata
+2026-09-19T01:47:15.8882921Z   proxy | 2026/09/19 01:47:15 [158] GET https://files.pythonhosted.org:443/packages/43/89/9518bc0c3929bee36b3a4a8e3daddd6e03f92f9961c66d4983b837160543/typer-0.27.1-py3-none-any.whl.metadata
+2026-09-19T01:47:15.8897071Z   proxy | 2026/09/19 01:47:15 [176] GET https://files.pythonhosted.org:443/packages/71/63/ba28697918b7c190af9f3f21940d03e8814e25dd4ddd39d6929f3a553995/gitpython-3.1.60-py3-none-any.whl.metadata
+2026-09-19T01:47:15.8899775Z   proxy | 2026/09/19 01:47:15 [175] GET https://files.pythonhosted.org:443/packages/24/25/1de2678b631f5a49215c6c96fff41ba892b0a34df68d6d80292b1b48aa7f/pytest-9.1.1-py3-none-any.whl.metadata
+2026-09-19T01:47:15.8902393Z   proxy | 2026/09/19 01:47:15 [177] GET https://files.pythonhosted.org:443/packages/c0/40/6844997dee251103c5a4c4eb0d1d2f2162b7c29ffc4e86de3cd68d269be2/mdx_include-1.4.2-py3-none-any.whl.metadata
+2026-09-19T01:47:15.8905177Z   proxy | 2026/09/19 01:47:15 [178] GET https://files.pythonhosted.org:443/packages/77/10/0d23e4953eb7c1e1ad848084b3115f19234f34f907658ed11bed0d826aee/smokeshow-0.5.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.8928454Z   proxy | 2026/09/19 01:47:15 [179] GET https://files.pythonhosted.org:443/packages/02/d5/349aba3dc421e73cbd4958c0ce0a4f1aa3a738bc0d7de75d2f40ed43a535/a2wsgi-1.10.10-py3-none-any.whl.metadata
+2026-09-19T01:47:15.8948861Z   proxy | 2026/09/19 01:47:15 [180] GET https://files.pythonhosted.org:443/packages/6e/94/be70f8ee9c45f2f62b39a1f0e9303bc20e138a8f3b8e50ffd89498e177e1/mkdocstrings-1.0.4-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9094950Z   proxy | 2026/09/19 01:47:15 [181] GET https://files.pythonhosted.org:443/packages/bb/8d/dbff05239043271dbeace563a7686212a3dd517864a35623fe4d4a64ca19/dirty_equals-0.11-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9099319Z   proxy | 2026/09/19 01:47:15 [182] GET https://files.pythonhosted.org:443/packages/2f/3c/c2a9eee79bf2c8002d2fa370534bee93fdca39e8b1fc82e83d552d5d2c07/griffe_warnings_deprecated-1.1.1-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9103862Z   proxy | 2026/09/19 01:47:15 [183] GET https://files.pythonhosted.org:443/packages/87/d5/81d38a91c1fdafb6711f053f5a9b92ff788013b19821257c2c38c1e132df/pytest_sugar-1.1.1-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9108227Z   proxy | 2026/09/19 01:47:15 [184] GET https://files.pythonhosted.org:443/packages/c8/95/411ba65569158e862368917aaf56597f3e5fa3b91b0502919638465a08f3/httpx2-2.12.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9118673Z   proxy | 2026/09/19 01:47:15 [185] GET https://files.pythonhosted.org:443/packages/ca/31/d4e37e9e550c2b92a9cbc2e4d0b7420a27224968580b5a447f420847c975/pytest_xdist-3.8.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9127917Z   proxy | 2026/09/19 01:47:15 [186] GET https://files.pythonhosted.org:443/packages/04/96/92447566d16df59b2a776c0fb82dbc4d9e07cd95062562af01e408583fc4/itsdangerous-2.2.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9145165Z   proxy | 2026/09/19 01:47:15 [187] GET https://files.pythonhosted.org:443/packages/de/15/545e2b6cf2e3be84bc1ed85613edd75b8aea69807a71c26f4ca6a9258e82/email_validator-2.3.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9154894Z   proxy | 2026/09/19 01:47:15 [188] GET https://files.pythonhosted.org:443/packages/d5/53/56ae5ae17bb0a5d89d1d31e5320eb1865553ebbfbde91cdc4c221245f2a8/fastapi_cli-0.0.32-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9209176Z   proxy | 2026/09/19 01:47:15 [189] GET https://files.pythonhosted.org:443/packages/e1/04/e8135ebd1ad02c56ec633277529b2602ff99ff634be76cdba5744cf554fd/python_multipart-0.0.32-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9212863Z   proxy | 2026/09/19 01:47:15 [190] GET https://files.pythonhosted.org:443/packages/7f/9c/34f6962f9b9e9c71f6e5ed806e0d0ff03c9d1b0b2340088a0cf4bce09b18/flask-3.1.3-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9215850Z   proxy | 2026/09/19 01:47:15 [191] GET https://files.pythonhosted.org:443/packages/a4/62/02da182e544a51a5c3ccf4b03ab79df279f9c60c5e82d5e8bec7ca26ac11/python_slugify-8.0.4-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:15.9218979Z   proxy | 2026/09/19 01:47:15 [192] GET https://files.pythonhosted.org:443/packages/cf/7d/b9813a582d4eb310be35e1fc7dfaae71207d7b62e9e53be314ebd251b53b/sqlmodel-0.0.39-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9280596Z   proxy | 2026/09/19 01:47:15 [197] GET https://files.pythonhosted.org:443/packages/b6/c4/cf543fbde49e1ae44830ef0840a4d6ee9f4e4f338138a7766d4e37cf6440/griffe_typingdoc-0.3.1-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9368298Z   proxy | 2026/09/19 01:47:15 [199] GET https://files.pythonhosted.org:443/packages/1b/81/ea21685d3d1e54150d2cc696e015a9704146a26fb5ea6742d0a247e7fe51/pydantic_ai-2.34.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9392110Z   proxy | 2026/09/19 01:47:15 [200] GET https://files.pythonhosted.org:443/packages/2a/39/e50c7c3a983047577ee07d2a9e53faf5a69493943ec3f6a384bdc792deb2/httpx-0.28.1-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9404348Z   proxy | 2026/09/19 01:47:15 [201] GET https://files.pythonhosted.org:443/packages/9d/75/727724174d419cab6e11e0c22c3fbcdd083312b0a0202dfa6befdb7f1bcb/prek-0.4.14-py3-none-linux_armv6l.whl.metadata
+2026-09-19T01:47:15.9510897Z   proxy | 2026/09/19 01:47:15 [202] GET https://files.pythonhosted.org:443/packages/38/0e/27be9fdef66e72d64c0cdc3cc2823101b80585f8119b5c112c2e8f5f7dab/anyio-4.12.1-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9574688Z   proxy | 2026/09/19 01:47:15 [144] 200 https://files.pythonhosted.org:443/packages/6c/5b/ca2abcf3aa69f9fb510215e3064f30b57fe57657c8d04ede45bb966d5606/playwright-1.62.0-py3-none-macosx_10_13_x86_64.whl.metadata
+2026-09-19T01:47:15.9604395Z   proxy | 2026/09/19 01:47:15 [136] 200 https://files.pythonhosted.org:443/packages/62/0c/9086a357d02a050fbb3270bf5043ac284dbfb845670e16c9389a41defc9e/pwdlib-0.3.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9702178Z   proxy | 2026/09/19 01:47:15 [150] 200 https://files.pythonhosted.org:443/packages/30/a4/2bffa9f8e804325a09867f0e9d30795c80ea9f8d62560bd1b6ad6220eb2f/pydantic_settings-2.15.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9724843Z   proxy | 2026/09/19 01:47:15 [200] 200 https://files.pythonhosted.org:443/packages/2a/39/e50c7c3a983047577ee07d2a9e53faf5a69493943ec3f6a384bdc792deb2/httpx-0.28.1-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9753363Z   proxy | 2026/09/19 01:47:15 [199] 200 https://files.pythonhosted.org:443/packages/1b/81/ea21685d3d1e54150d2cc696e015a9704146a26fb5ea6742d0a247e7fe51/pydantic_ai-2.34.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9773053Z   proxy | 2026/09/19 01:47:15 [197] 200 https://files.pythonhosted.org:443/packages/b6/c4/cf543fbde49e1ae44830ef0840a4d6ee9f4e4f338138a7766d4e37cf6440/griffe_typingdoc-0.3.1-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9787653Z   proxy | 2026/09/19 01:47:15 [188] 200 https://files.pythonhosted.org:443/packages/d5/53/56ae5ae17bb0a5d89d1d31e5320eb1865553ebbfbde91cdc4c221245f2a8/fastapi_cli-0.0.32-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9800062Z   proxy | 2026/09/19 01:47:15 [209] GET https://files.pythonhosted.org:443/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9822318Z   proxy | 2026/09/19 01:47:15 [147] 200 https://files.pythonhosted.org:443/packages/67/81/4add07e5172b7ac40d8ed5ff580409a7801a4fe26d529bdd915401dabfbe/typing_inspection-0.4.4-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9834472Z   proxy | 2026/09/19 01:47:15 [154] 200 https://files.pythonhosted.org:443/packages/c6/cb/18eeb235f833b726522d7ebed54f2278ce28ba9438e3135ab0278d9792a2/jieba-0.42.1.tar.gz
+2026-09-19T01:47:15.9838857Z 2026/09/19 01:47:15 [203] GET https://files.pythonhosted.org:443/packages/a3/5e/ecf12fdb62546d64385c158514e9b2b671f7832108ef2ecd2020ce0af2d1/pyjwt-2.13.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9841497Z 2026/09/19 01:47:15 [207] GET https://files.pythonhosted.org:443/packages/3d/d8/2083a1daa7439a66f3a48589a57d576aa117726762618f6bb09fe3798796/uvicorn-0.40.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9844036Z 2026/09/19 01:47:15 [208] GET https://files.pythonhosted.org:443/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9847166Z 2026/09/19 01:47:15 [186] 200 https://files.pythonhosted.org:443/packages/04/96/92447566d16df59b2a776c0fb82dbc4d9e07cd95062562af01e408583fc4/itsdangerous-2.2.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9849865Z 2026/09/19 01:47:15 [153] 200 https://files.pythonhosted.org:443/packages/91/71/f314841697a1d52af3e1ea7c5e1c3f09685b64ae4c58ff16b605a866255d/pygithub-2.10.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9852392Z 2026/09/19 01:47:15 [181] 200 https://files.pythonhosted.org:443/packages/bb/8d/dbff05239043271dbeace563a7686212a3dd517864a35623fe4d4a64ca19/dirty_equals-0.11-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9855102Z 2026/09/19 01:47:15 [210] GET https://files.pythonhosted.org:443/packages/a7/f5/a8f70147216e4b84046ca406d03ecc8e83e3ea56ba1bdca0bb79cca79fee/pytest_codspeed-5.0.3-cp310-cp310-macosx_11_0_arm64.whl.metadata
+2026-09-19T01:47:15.9858172Z 2026/09/19 01:47:15 [211] GET https://files.pythonhosted.org:443/packages/97/b3/dc18eb603de18daf5cacc27bb4c5e80c5403d9ca3eade7342fe4228652bf/inline_snapshot-0.35.4-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9861197Z 2026/09/19 01:47:15 [212] GET https://files.pythonhosted.org:443/packages/92/b9/49c37dc65105d1ca4a8b600a02c84ece00218d2293b2630611c620185ca3/zensical-0.0.57-cp310-abi3-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:15.9909651Z   proxy | 2026/09/19 01:47:15 [177] 200 https://files.pythonhosted.org:443/packages/c0/40/6844997dee251103c5a4c4eb0d1d2f2162b7c29ffc4e86de3cd68d269be2/mdx_include-1.4.2-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9912540Z   proxy | 2026/09/19 01:47:15 [158] 200 https://files.pythonhosted.org:443/packages/43/89/9518bc0c3929bee36b3a4a8e3daddd6e03f92f9961c66d4983b837160543/typer-0.27.1-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9920594Z   proxy | 2026/09/19 01:47:15 [151] 200 https://files.pythonhosted.org:443/packages/fe/17/fabd56da47096d240dd45ba627bead0333b0cf0ee8ada9bec579287dadf3/pydantic_extra_types-2.11.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9923755Z 2026/09/19 01:47:15 [176] 200 https://files.pythonhosted.org:443/packages/71/63/ba28697918b7c190af9f3f21940d03e8814e25dd4ddd39d6929f3a553995/gitpython-3.1.60-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9954849Z   proxy | 2026/09/19 01:47:15 [214] GET https://files.pythonhosted.org:443/packages/9d/7a/d968e294073affff457b041c2be9868a40c1c71f4a35fcc1e45e5493067b/pytest_cov-7.1.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9958069Z   proxy | 2026/09/19 01:47:15 [216] GET https://files.pythonhosted.org:443/packages/bf/e0/5011747466414c12cac8a8df77aa235068669a6a5a5df301a96209db6054/cairosvg-2.9.0-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9961012Z   proxy | 2026/09/19 01:47:15 [157] 200 https://files.pythonhosted.org:443/packages/4e/0e/130958e7ec50d13f2ee7b6c142df5c352520a9251baf1652e41262703857/markdown_include_variants-0.0.8-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9987100Z   proxy | 2026/09/19 01:47:15 [179] 200 https://files.pythonhosted.org:443/packages/02/d5/349aba3dc421e73cbd4958c0ce0a4f1aa3a738bc0d7de75d2f40ed43a535/a2wsgi-1.10.10-py3-none-any.whl.metadata
+2026-09-19T01:47:15.9990043Z   proxy | 2026/09/19 01:47:15 [215] GET https://files.pythonhosted.org:443/packages/eb/b9/de8f67e12d721cdcc8ba6cfc440b989a4ba4dfabe4402ae94dfdd8bb30a4/mypy-2.3.1-cp310-cp310-macosx_11_0_arm64.whl.metadata
+2026-09-19T01:47:16.0009009Z   proxy | 2026/09/19 01:47:16 [218] GET https://files.pythonhosted.org:443/packages/c3/c2/3b7dccb2a49a9778c88007c6188c10f765e0651969ca75fa30ea0648f5b3/fastar-0.12.0-cp310-cp310-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:16.0018727Z   proxy | 2026/09/19 01:47:16 [183] 200 https://files.pythonhosted.org:443/packages/87/d5/81d38a91c1fdafb6711f053f5a9b92ff788013b19821257c2c38c1e132df/pytest_sugar-1.1.1-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0021816Z   proxy | 2026/09/19 01:47:16 [219] GET https://files.pythonhosted.org:443/packages/f4/a0/39350dd17dd6d6c6507025c0e53aef67a9293a6d37d3511f23ea510d5800/pyyaml-6.0.3-cp310-cp310-macosx_10_13_x86_64.whl.metadata
+2026-09-19T01:47:16.0024947Z 2026/09/19 01:47:16 [220] GET https://files.pythonhosted.org:443/packages/be/84/b3f55026206a9e8820a91503308075ca48eadc515e436731ca01dbe043b3/black-26.5.1-cp310-cp310-macosx_10_9_x86_64.whl.metadata
+2026-09-19T01:47:16.0028509Z   proxy | 2026/09/19 01:47:16 [221] GET https://files.pythonhosted.org:443/packages/fd/7b/122376b1fd3c62c1ed9dc80c931ace4844b3c55407b6fb2d199377c9736f/pydantic-2.13.4-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0031479Z   proxy | 2026/09/19 01:47:16 [222] GET https://files.pythonhosted.org:443/packages/23/97/667ef4db0ca9225ee402c1b947b5b6f17fd234d72c15a71db150b7695c62/zizmor-1.29.0-py3-none-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:16.0034414Z 2026/09/19 01:47:16 [184] 200 https://files.pythonhosted.org:443/packages/c8/95/411ba65569158e862368917aaf56597f3e5fa3b91b0502919638465a08f3/httpx2-2.12.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0046325Z   proxy | 2026/09/19 01:47:16 [223] GET https://files.pythonhosted.org:443/packages/2c/95/6ded58bc97885c6d88fa1f9cd815031489200738f961cbf0466663213f80/ty-0.0.74-py3-none-linux_armv6l.whl.metadata
+2026-09-19T01:47:16.0070549Z   proxy | 2026/09/19 01:47:16 [182] 200 https://files.pythonhosted.org:443/packages/2f/3c/c2a9eee79bf2c8002d2fa370534bee93fdca39e8b1fc82e83d552d5d2c07/griffe_warnings_deprecated-1.1.1-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0123036Z   proxy | 2026/09/19 01:47:16 [211] 200 https://files.pythonhosted.org:443/packages/97/b3/dc18eb603de18daf5cacc27bb4c5e80c5403d9ca3eade7342fe4228652bf/inline_snapshot-0.35.4-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0138740Z   proxy | 2026/09/19 01:47:16 [210] 200 https://files.pythonhosted.org:443/packages/a7/f5/a8f70147216e4b84046ca406d03ecc8e83e3ea56ba1bdca0bb79cca79fee/pytest_codspeed-5.0.3-cp310-cp310-macosx_11_0_arm64.whl.metadata
+2026-09-19T01:47:16.0158304Z   proxy | 2026/09/19 01:47:16 [202] 200 https://files.pythonhosted.org:443/packages/38/0e/27be9fdef66e72d64c0cdc3cc2823101b80585f8119b5c112c2e8f5f7dab/anyio-4.12.1-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0250177Z   proxy | 2026/09/19 01:47:16 [175] 200 https://files.pythonhosted.org:443/packages/24/25/1de2678b631f5a49215c6c96fff41ba892b0a34df68d6d80292b1b48aa7f/pytest-9.1.1-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0257050Z 2026/09/19 01:47:16 [192] 200 https://files.pythonhosted.org:443/packages/cf/7d/b9813a582d4eb310be35e1fc7dfaae71207d7b62e9e53be314ebd251b53b/sqlmodel-0.0.39-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0259768Z 2026/09/19 01:47:16 [185] 200 https://files.pythonhosted.org:443/packages/ca/31/d4e37e9e550c2b92a9cbc2e4d0b7420a27224968580b5a447f420847c975/pytest_xdist-3.8.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0262442Z 2026/09/19 01:47:16 [180] 200 https://files.pythonhosted.org:443/packages/6e/94/be70f8ee9c45f2f62b39a1f0e9303bc20e138a8f3b8e50ffd89498e177e1/mkdocstrings-1.0.4-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0265118Z 2026/09/19 01:47:16 [209] 200 https://files.pythonhosted.org:443/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0268108Z 2026/09/19 01:47:16 [201] 200 https://files.pythonhosted.org:443/packages/9d/75/727724174d419cab6e11e0c22c3fbcdd083312b0a0202dfa6befdb7f1bcb/prek-0.4.14-py3-none-linux_armv6l.whl.metadata
+2026-09-19T01:47:16.0270818Z 2026/09/19 01:47:16 [178] 200 https://files.pythonhosted.org:443/packages/77/10/0d23e4953eb7c1e1ad848084b3115f19234f34f907658ed11bed0d826aee/smokeshow-0.5.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0330235Z   proxy | 2026/09/19 01:47:16 [156] 200 https://files.pythonhosted.org:443/packages/fa/b6/3127540ecdf1464a00e5a01ee60a1b09175f6913f0644ac748494d9c4b21/pytest_timeout-2.4.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0333320Z 2026/09/19 01:47:16 [215] 200 https://files.pythonhosted.org:443/packages/eb/b9/de8f67e12d721cdcc8ba6cfc440b989a4ba4dfabe4402ae94dfdd8bb30a4/mypy-2.3.1-cp310-cp310-macosx_11_0_arm64.whl.metadata
+2026-09-19T01:47:16.0337795Z 2026/09/19 01:47:16 [218] 200 https://files.pythonhosted.org:443/packages/c3/c2/3b7dccb2a49a9778c88007c6188c10f765e0651969ca75fa30ea0648f5b3/fastar-0.12.0-cp310-cp310-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:16.0340621Z 2026/09/19 01:47:16 [189] 200 https://files.pythonhosted.org:443/packages/e1/04/e8135ebd1ad02c56ec633277529b2602ff99ff634be76cdba5744cf554fd/python_multipart-0.0.32-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0343213Z 2026/09/19 01:47:16 [190] 200 https://files.pythonhosted.org:443/packages/7f/9c/34f6962f9b9e9c71f6e5ed806e0d0ff03c9d1b0b2340088a0cf4bce09b18/flask-3.1.3-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0346142Z 2026/09/19 01:47:16 [221] 200 https://files.pythonhosted.org:443/packages/fd/7b/122376b1fd3c62c1ed9dc80c931ace4844b3c55407b6fb2d199377c9736f/pydantic-2.13.4-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0348841Z 2026/09/19 01:47:16 [187] 200 https://files.pythonhosted.org:443/packages/de/15/545e2b6cf2e3be84bc1ed85613edd75b8aea69807a71c26f4ca6a9258e82/email_validator-2.3.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0352546Z 2026/09/19 01:47:16 [191] 200 https://files.pythonhosted.org:443/packages/a4/62/02da182e544a51a5c3ccf4b03ab79df279f9c60c5e82d5e8bec7ca26ac11/python_slugify-8.0.4-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:16.0355803Z 2026/09/19 01:47:16 [214] 200 https://files.pythonhosted.org:443/packages/9d/7a/d968e294073affff457b041c2be9868a40c1c71f4a35fcc1e45e5493067b/pytest_cov-7.1.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0359392Z 2026/09/19 01:47:16 [203] 200 https://files.pythonhosted.org:443/packages/a3/5e/ecf12fdb62546d64385c158514e9b2b671f7832108ef2ecd2020ce0af2d1/pyjwt-2.13.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0377600Z   proxy | 2026/09/19 01:47:16 [208] 200 https://files.pythonhosted.org:443/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0383505Z   proxy | 2026/09/19 01:47:16 [216] 200 https://files.pythonhosted.org:443/packages/bf/e0/5011747466414c12cac8a8df77aa235068669a6a5a5df301a96209db6054/cairosvg-2.9.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0395228Z   proxy | 2026/09/19 01:47:16 [207] 200 https://files.pythonhosted.org:443/packages/3d/d8/2083a1daa7439a66f3a48589a57d576aa117726762618f6bb09fe3798796/uvicorn-0.40.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0398674Z   proxy | 2026/09/19 01:47:16 [212] 200 https://files.pythonhosted.org:443/packages/92/b9/49c37dc65105d1ca4a8b600a02c84ece00218d2293b2630611c620185ca3/zensical-0.0.57-cp310-abi3-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:16.0462746Z   proxy | 2026/09/19 01:47:16 [155] 200 https://files.pythonhosted.org:443/packages/c8/cb/6a6a47d5b464bd08695d254f3da6e7986cc70c9fa5d778eda57538edfe56/starlette-1.6.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0533121Z   proxy | 2026/09/19 01:47:16 [219] 200 https://files.pythonhosted.org:443/packages/f4/a0/39350dd17dd6d6c6507025c0e53aef67a9293a6d37d3511f23ea510d5800/pyyaml-6.0.3-cp310-cp310-macosx_10_13_x86_64.whl.metadata
+2026-09-19T01:47:16.0546000Z   proxy | 2026/09/19 01:47:16 [223] 200 https://files.pythonhosted.org:443/packages/2c/95/6ded58bc97885c6d88fa1f9cd815031489200738f961cbf0466663213f80/ty-0.0.74-py3-none-linux_armv6l.whl.metadata
+2026-09-19T01:47:16.0561270Z   proxy | 2026/09/19 01:47:16 [222] 200 https://files.pythonhosted.org:443/packages/23/97/667ef4db0ca9225ee402c1b947b5b6f17fd234d72c15a71db150b7695c62/zizmor-1.29.0-py3-none-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:16.0564168Z   proxy | 2026/09/19 01:47:16 [220] 200 https://files.pythonhosted.org:443/packages/be/84/b3f55026206a9e8820a91503308075ca48eadc515e436731ca01dbe043b3/black-26.5.1-cp310-cp310-macosx_10_9_x86_64.whl.metadata
+2026-09-19T01:47:16.0584744Z   proxy | 2026/09/19 01:47:16 [230] GET https://pypi.org:443/simple/pydantic-core/
+2026-09-19T01:47:16.0588551Z   proxy | 2026/09/19 01:47:16 [231] GET https://pypi.org:443/simple/annotated-types/
+2026-09-19T01:47:16.0651509Z   proxy | 2026/09/19 01:47:16 [230] 200 https://pypi.org:443/simple/pydantic-core/
+2026-09-19T01:47:16.0668739Z   proxy | 2026/09/19 01:47:16 [231] 200 https://pypi.org:443/simple/annotated-types/
+2026-09-19T01:47:16.0941563Z   proxy | 2026/09/19 01:47:16 [232] GET https://files.pythonhosted.org:443/packages/25/c2/669d88644cddb1485bd9534e63e8cf476c8e51cb3c3a1297677023505c0e/pillow-12.3.0-cp310-cp310-macosx_10_10_x86_64.whl.metadata
+2026-09-19T01:47:16.0971785Z   proxy | 2026/09/19 01:47:16 [233] GET https://files.pythonhosted.org:443/packages/78/b6/6307fbef88d9b5ee7421e68d78a9f162e0da4900bc5f5793f6d3d0e34fb8/annotated_types-0.7.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.0984990Z   proxy | 2026/09/19 01:47:16 [234] GET https://files.pythonhosted.org:443/packages/bc/56/52b78a3e8de057aadc42f61c82727a914fbb95accc6aae1b5ff0d54e43c9/strawberry_graphql-0.324.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.1114718Z   proxy | 2026/09/19 01:47:16 [233] 200 https://files.pythonhosted.org:443/packages/78/b6/6307fbef88d9b5ee7421e68d78a9f162e0da4900bc5f5793f6d3d0e34fb8/annotated_types-0.7.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.1118562Z 2026/09/19 01:47:16 [232] 200 https://files.pythonhosted.org:443/packages/25/c2/669d88644cddb1485bd9534e63e8cf476c8e51cb3c3a1297677023505c0e/pillow-12.3.0-cp310-cp310-macosx_10_10_x86_64.whl.metadata
+2026-09-19T01:47:16.1191595Z   proxy | 2026/09/19 01:47:16 [234] 200 https://files.pythonhosted.org:443/packages/bc/56/52b78a3e8de057aadc42f61c82727a914fbb95accc6aae1b5ff0d54e43c9/strawberry_graphql-0.324.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.1533360Z   proxy | 2026/09/19 01:47:16 [235] GET https://files.pythonhosted.org:443/packages/ab/07/1c8099563a8a6c389a31c2d0aa1497cee86d6248bb4b9ba5e779215db9f9/coverage-7.13.3-cp310-cp310-macosx_10_9_x86_64.whl.metadata
+2026-09-19T01:47:16.1607060Z   proxy | 2026/09/19 01:47:16 [235] 200 https://files.pythonhosted.org:443/packages/ab/07/1c8099563a8a6c389a31c2d0aa1497cee86d6248bb4b9ba5e779215db9f9/coverage-7.13.3-cp310-cp310-macosx_10_9_x86_64.whl.metadata
+2026-09-19T01:47:16.1744025Z   proxy | 2026/09/19 01:47:16 [236] GET https://files.pythonhosted.org:443/packages/23/18/ee54b7ae1e121be7a28ea6da4b67564ebb0530e183a54415ab7e3bcd2c4e/ruff-0.15.22-py3-none-linux_armv6l.whl.metadata
+2026-09-19T01:47:16.1878899Z   proxy | 2026/09/19 01:47:16 [236] 200 https://files.pythonhosted.org:443/packages/23/18/ee54b7ae1e121be7a28ea6da4b67564ebb0530e183a54415ab7e3bcd2c4e/ruff-0.15.22-py3-none-linux_armv6l.whl.metadata
+2026-09-19T01:47:16.2880826Z   proxy | 2026/09/19 01:47:16 [237] GET https://files.pythonhosted.org:443/packages/e7/08/f1ba952f1c8ae5581c70fa9c6da89f247b83e3dd8c09c035d5d7931fc23d/pydantic_core-2.46.4-cp310-cp310-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:16.2954030Z   proxy | 2026/09/19 01:47:16 [237] 200 https://files.pythonhosted.org:443/packages/e7/08/f1ba952f1c8ae5581c70fa9c6da89f247b83e3dd8c09c035d5d7931fc23d/pydantic_core-2.46.4-cp310-cp310-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:16.3006334Z   proxy | 2026/09/19 01:47:16 [238] GET https://pypi.org:443/simple/platformdirs/
+2026-09-19T01:47:16.3017416Z   proxy | 2026/09/19 01:47:16 [262] GET https://pypi.org:443/simple/fastapi-cloud-cli/
+2026-09-19T01:47:16.3027458Z   proxy | 2026/09/19 01:47:16 [267] GET https://pypi.org:443/simple/rich-toolkit/
+2026-09-19T01:47:16.3036827Z   proxy | 2026/09/19 01:47:16 [240] GET https://pypi.org:443/simple/packaging/
+2026-09-19T01:47:16.3065669Z   proxy | 2026/09/19 01:47:16 [241] GET https://pypi.org:443/simple/mypy-extensions/
+2026-09-19T01:47:16.3097901Z   proxy | 2026/09/19 01:47:16 [242] GET https://pypi.org:443/simple/python-dotenv/
+2026-09-19T01:47:16.3140951Z   proxy | 2026/09/19 01:47:16 [243] GET https://pypi.org:443/simple/trio/
+2026-09-19T01:47:16.3148457Z   proxy | 2026/09/19 01:47:16 [244] GET https://pypi.org:443/simple/websockets/
+2026-09-19T01:47:16.3150041Z 2026/09/19 01:47:16 [245] GET https://pypi.org:443/simple/watchfiles/
+2026-09-19T01:47:16.3151116Z 2026/09/19 01:47:16 [246] GET https://pypi.org:443/simple/uvloop/
+2026-09-19T01:47:16.3152095Z 2026/09/19 01:47:16 [247] GET https://pypi.org:443/simple/httptools/
+2026-09-19T01:47:16.3161963Z   proxy | 2026/09/19 01:47:16 [248] GET https://pypi.org:443/simple/colorama/
+2026-09-19T01:47:16.3163482Z 2026/09/19 01:47:16 [249] GET https://pypi.org:443/simple/h11/
+2026-09-19T01:47:16.3164490Z 2026/09/19 01:47:16 [250] GET https://pypi.org:443/simple/click/
+2026-09-19T01:47:16.3165706Z 2026/09/19 01:47:16 [251] GET https://pypi.org:443/simple/certifi/
+2026-09-19T01:47:16.3169800Z   proxy | 2026/09/19 01:47:16 [252] GET https://pypi.org:443/simple/markupsafe/
+2026-09-19T01:47:16.3178336Z   proxy | 2026/09/19 01:47:16 [253] GET https://pypi.org:443/simple/httpcore/
+2026-09-19T01:47:16.3217104Z   proxy | 2026/09/19 01:47:16 [276] GET https://pypi.org:443/simple/griffelib/
+2026-09-19T01:47:16.3218602Z 2026/09/19 01:47:16 [268] GET https://pypi.org:443/simple/idna/
+2026-09-19T01:47:16.3219668Z 2026/09/19 01:47:16 [269] GET https://pypi.org:443/simple/dnspython/
+2026-09-19T01:47:16.3220672Z 2026/09/19 01:47:16 [239] GET https://pypi.org:443/simple/pathspec/
+2026-09-19T01:47:16.3221655Z 2026/09/19 01:47:16 [270] GET https://pypi.org:443/simple/gitdb/
+2026-09-19T01:47:16.3223129Z 2026/09/19 01:47:16 [238] 200 https://pypi.org:443/simple/platformdirs/
+2026-09-19T01:47:16.3232518Z   proxy | 2026/09/19 01:47:16 [277] GET https://pypi.org:443/simple/defusedxml/
+2026-09-19T01:47:16.3257813Z   proxy | 2026/09/19 01:47:16 [278] GET https://pypi.org:443/simple/httpcore2/
+2026-09-19T01:47:16.3268152Z   proxy | 2026/09/19 01:47:16 [271] GET https://pypi.org:443/simple/truststore/
+2026-09-19T01:47:16.3280173Z   proxy | 2026/09/19 01:47:16 [279] GET https://pypi.org:443/simple/cssselect2/
+2026-09-19T01:47:16.3290116Z   proxy | 2026/09/19 01:47:16 [280] GET https://pypi.org:443/simple/cairocffi/
+2026-09-19T01:47:16.3299561Z   proxy | 2026/09/19 01:47:16 [281] GET https://pypi.org:443/simple/werkzeug/
+2026-09-19T01:47:16.3308350Z   proxy | 2026/09/19 01:47:16 [273] GET https://pypi.org:443/simple/tinycss2/
+2026-09-19T01:47:16.3309798Z   proxy | 2026/09/19 01:47:16 [274] GET https://pypi.org:443/simple/blinker/
+2026-09-19T01:47:16.3312093Z   proxy | 2026/09/19 01:47:16 [275] GET https://pypi.org:443/simple/httpx2-jsfetch/
+2026-09-19T01:47:16.3313862Z   proxy | 2026/09/19 01:47:16 [262] 200 https://pypi.org:443/simple/fastapi-cloud-cli/
+2026-09-19T01:47:16.3338950Z   proxy | 2026/09/19 01:47:16 [282] GET https://files.pythonhosted.org:443/packages/cb/28/3bfe2fa5a7b9c46fe7e13c97bda14c895fb10fa2ebf1d0abb90e0cea7ee1/platformdirs-4.5.1-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3358546Z   proxy | 2026/09/19 01:47:16 [272] GET https://pypi.org:443/simple/pytokens/
+2026-09-19T01:47:16.3359811Z 2026/09/19 01:47:16 [267] 200 https://pypi.org:443/simple/rich-toolkit/
+2026-09-19T01:47:16.3393327Z   proxy | 2026/09/19 01:47:16 [283] GET https://files.pythonhosted.org:443/packages/1a/07/60f79270a3320780be7e2ae8a1740cb98a692920b569ba420b97bcc6e175/fastapi_cloud_cli-0.11.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3455037Z   proxy | 2026/09/19 01:47:16 [240] 200 https://pypi.org:443/simple/packaging/
+2026-09-19T01:47:16.3463558Z   proxy | 2026/09/19 01:47:16 [251] 200 https://pypi.org:443/simple/certifi/
+2026-09-19T01:47:16.3464794Z   proxy | 2026/09/19 01:47:16 [241] 200 https://pypi.org:443/simple/mypy-extensions/
+2026-09-19T01:47:16.3478270Z   proxy | 2026/09/19 01:47:16 [252] 200 https://pypi.org:443/simple/markupsafe/
+2026-09-19T01:47:16.3493260Z   proxy | 2026/09/19 01:47:16 [284] GET https://files.pythonhosted.org:443/packages/da/43/6f9860c4bfb1f181c347941542a8955ce24b228f84550253765aa1854d53/rich_toolkit-0.18.1-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3498304Z   proxy | 2026/09/19 01:47:16 [242] 200 https://pypi.org:443/simple/python-dotenv/
+2026-09-19T01:47:16.3527723Z   proxy | 2026/09/19 01:47:16 [282] 200 https://files.pythonhosted.org:443/packages/cb/28/3bfe2fa5a7b9c46fe7e13c97bda14c895fb10fa2ebf1d0abb90e0cea7ee1/platformdirs-4.5.1-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3614921Z   proxy | 2026/09/19 01:47:16 [244] 200 https://pypi.org:443/simple/websockets/
+2026-09-19T01:47:16.3617851Z 2026/09/19 01:47:16 [285] GET https://files.pythonhosted.org:443/packages/20/12/38679034af332785aac8774540895e234f4d07f7545804097de4b666afd8/packaging-25.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3619881Z 2026/09/19 01:47:16 [243] 200 https://pypi.org:443/simple/trio/
+2026-09-19T01:47:16.3624483Z 2026/09/19 01:47:16 [286] GET https://files.pythonhosted.org:443/packages/79/7b/2c79738432f5c924bef5071f933bcc9efd0473bac3b4aa584a6f7c1c8df8/mypy_extensions-1.1.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3626598Z 2026/09/19 01:47:16 [249] 200 https://pypi.org:443/simple/h11/
+2026-09-19T01:47:16.3627542Z 2026/09/19 01:47:16 [250] 200 https://pypi.org:443/simple/click/
+2026-09-19T01:47:16.3628484Z 2026/09/19 01:47:16 [280] 200 https://pypi.org:443/simple/cairocffi/
+2026-09-19T01:47:16.3629447Z 2026/09/19 01:47:16 [277] 200 https://pypi.org:443/simple/defusedxml/
+2026-09-19T01:47:16.3631536Z 2026/09/19 01:47:16 [287] GET https://files.pythonhosted.org:443/packages/0b/d7/1959b9648791274998a9c3526f6d0ec8fd2233e4d4acce81bbae76b44b2a/python_dotenv-1.2.2-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3634654Z 2026/09/19 01:47:16 [283] 200 https://files.pythonhosted.org:443/packages/1a/07/60f79270a3320780be7e2ae8a1740cb98a692920b569ba420b97bcc6e175/fastapi_cloud_cli-0.11.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3638739Z   proxy | 2026/09/19 01:47:16 [239] 200 https://pypi.org:443/simple/pathspec/
+2026-09-19T01:47:16.3640131Z   proxy | 2026/09/19 01:47:16 [274] 200 https://pypi.org:443/simple/blinker/
+2026-09-19T01:47:16.3670036Z   proxy | 2026/09/19 01:47:16 [269] 200 https://pypi.org:443/simple/dnspython/
+2026-09-19T01:47:16.3681821Z   proxy | 2026/09/19 01:47:16 [288] GET https://files.pythonhosted.org:443/packages/e6/ad/3cc14f097111b4de0040c83a525973216457bbeeb63739ef1ed275c1c021/certifi-2026.1.4-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3684324Z 2026/09/19 01:47:16 [247] 200 https://pypi.org:443/simple/httptools/
+2026-09-19T01:47:16.3685642Z   proxy | 2026/09/19 01:47:16 [278] 200 https://pypi.org:443/simple/httpcore2/
+2026-09-19T01:47:16.3687003Z 2026/09/19 01:47:16 [279] 200 https://pypi.org:443/simple/cssselect2/
+2026-09-19T01:47:16.3688007Z 2026/09/19 01:47:16 [268] 200 https://pypi.org:443/simple/idna/
+2026-09-19T01:47:16.3688926Z 2026/09/19 01:47:16 [270] 200 https://pypi.org:443/simple/gitdb/
+2026-09-19T01:47:16.3689890Z   proxy | 2026/09/19 01:47:16 [281] 200 https://pypi.org:443/simple/werkzeug/
+2026-09-19T01:47:16.3690948Z   proxy | 2026/09/19 01:47:16 [273] 200 https://pypi.org:443/simple/tinycss2/
+2026-09-19T01:47:16.3691992Z   proxy | 2026/09/19 01:47:16 [245] 200 https://pypi.org:443/simple/watchfiles/
+2026-09-19T01:47:16.3697876Z   proxy | 2026/09/19 01:47:16 [276] 200 https://pypi.org:443/simple/griffelib/
+2026-09-19T01:47:16.3842882Z   proxy | 2026/09/19 01:47:16 [289] GET https://files.pythonhosted.org:443/packages/41/bf/945d527ff706233636c73880b22c7c953f3faeb9d6c7e2e85bfbfd0134a0/trio-0.32.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3847451Z   proxy | 2026/09/19 01:47:16 [290] GET https://files.pythonhosted.org:443/packages/ef/3c/2c197d226f9ea224a9ab8d197933f9da0ae0aac5b6e0f884e2b8d9c8e9f7/pathspec-1.0.4-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3874972Z   proxy | 2026/09/19 01:47:16 [291] GET https://files.pythonhosted.org:443/packages/07/6c/aa3f2f849e01cb6a001cd8554a88d4c77c5c1a31c95bdf1cf9301e6d9ef4/defusedxml-0.7.1-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:16.3879317Z   proxy | 2026/09/19 01:47:16 [294] GET https://files.pythonhosted.org:443/packages/93/d8/ba13451aa6b745c49536e87b6bf8f629b950e84bd0e8308f7dc6883b67e2/cairocffi-1.7.1-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3881378Z   proxy | 2026/09/19 01:47:16 [275] 200 https://pypi.org:443/simple/httpx2-jsfetch/
+2026-09-19T01:47:16.3888897Z   proxy | 2026/09/19 01:47:16 [295] GET https://files.pythonhosted.org:443/packages/c7/e5/c07e0bcf4ec8db8164e9f6738c048b2e66aabf30e7506f440c4cc6953f60/httptools-0.7.1-cp310-cp310-macosx_10_9_universal2.whl.metadata
+2026-09-19T01:47:16.3907344Z   proxy | 2026/09/19 01:47:16 [296] GET https://files.pythonhosted.org:443/packages/4d/ec/d58832f89ede95652fd01f4f24236af7d32b70cab2196dfcc2d2fd13c5c2/werkzeug-3.1.6-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3911657Z   proxy | 2026/09/19 01:47:16 [297] GET https://files.pythonhosted.org:443/packages/e8/4b/3541d44f3937ba468b75da9eebcae497dcf67adb65caa16760b0a6807ebb/markupsafe-3.0.3-cp310-cp310-macosx_10_9_x86_64.whl.metadata
+2026-09-19T01:47:16.3914494Z   proxy | 2026/09/19 01:47:16 [272] 200 https://pypi.org:443/simple/pytokens/
+2026-09-19T01:47:16.3923060Z   proxy | 2026/09/19 01:47:16 [298] GET https://files.pythonhosted.org:443/packages/a0/61/5c78b91c3143ed5c14207f463aecfc8f9dbb5092fb2869baf37c273b2705/gitdb-4.0.12-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3925663Z   proxy | 2026/09/19 01:47:16 [271] 200 https://pypi.org:443/simple/truststore/
+2026-09-19T01:47:16.3927733Z   proxy | 2026/09/19 01:47:16 [299] GET https://files.pythonhosted.org:443/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3930599Z   proxy | 2026/09/19 01:47:16 [300] GET https://files.pythonhosted.org:443/packages/85/32/10bb5764d90a8eee674e9dc6f4db6a0ab47c8c4d0d83c27f7c39ac415a4d/click-8.2.1-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3932532Z   proxy | 2026/09/19 01:47:16 [246] 200 https://pypi.org:443/simple/uvloop/
+2026-09-19T01:47:16.3934305Z 2026/09/19 01:47:16 [253] 200 https://pypi.org:443/simple/httpcore/
+2026-09-19T01:47:16.3935959Z 2026/09/19 01:47:16 [248] 200 https://pypi.org:443/simple/colorama/
+2026-09-19T01:47:16.3937902Z 2026/09/19 01:47:16 [292] GET https://files.pythonhosted.org:443/packages/ba/5a/18ad964b0086c6e62e2e7500f7edc89e3faa45033c71c1893d34eed2b2de/dnspython-2.8.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3940628Z   proxy | 2026/09/19 01:47:16 [293] GET https://files.pythonhosted.org:443/packages/d2/74/d370e55600d9bcfa0d9794b0166126d49291a3d2b20c268fc98c453a4948/httpcore2-2.12.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3943514Z   proxy | 2026/09/19 01:47:16 [285] 200 https://files.pythonhosted.org:443/packages/20/12/38679034af332785aac8774540895e234f4d07f7545804097de4b666afd8/packaging-25.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.3954219Z   proxy | 2026/09/19 01:47:16 [284] 200 https://files.pythonhosted.org:443/packages/da/43/6f9860c4bfb1f181c347941542a8955ce24b228f84550253765aa1854d53/rich_toolkit-0.18.1-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4005930Z   proxy | 2026/09/19 01:47:16 [302] GET https://files.pythonhosted.org:443/packages/9b/43/832f631d32e4f1211caa2ba368317739fe71f0b8530e4c9d15dc454bac2a/httpx2_jsfetch-1.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4009352Z   proxy | 2026/09/19 01:47:16 [288] 200 https://files.pythonhosted.org:443/packages/e6/ad/3cc14f097111b4de0040c83a525973216457bbeeb63739ef1ed275c1c021/certifi-2026.1.4-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4012173Z   proxy | 2026/09/19 01:47:16 [301] GET https://files.pythonhosted.org:443/packages/4d/51/c936033e16d12b627ea334aaaaf42229c37620d0f15593456ab69ab48161/griffelib-2.0.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4025583Z   proxy | 2026/09/19 01:47:16 [303] GET https://files.pythonhosted.org:443/packages/1e/5e/d4e9f1a599fb8e573b7b87160658329fbf28d19eac2718f51fc3def3aa5a/idna-3.18-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4054905Z   proxy | 2026/09/19 01:47:16 [304] GET https://files.pythonhosted.org:443/packages/60/45/c7b5c3168458db837e8ceab06dc77824e18202679d0463f0e8f002143a97/tinycss2-1.5.1-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4058444Z   proxy | 2026/09/19 01:47:16 [305] GET https://files.pythonhosted.org:443/packages/10/cb/f2ad4230dc2eb1a74edf38f1a38b9b52277f75bef262d8908e60d957e13c/blinker-1.9.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4067768Z   proxy | 2026/09/19 01:47:16 [287] 200 https://files.pythonhosted.org:443/packages/0b/d7/1959b9648791274998a9c3526f6d0ec8fd2233e4d4acce81bbae76b44b2a/python_dotenv-1.2.2-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4072232Z   proxy | 2026/09/19 01:47:16 [286] 200 https://files.pythonhosted.org:443/packages/79/7b/2c79738432f5c924bef5071f933bcc9efd0473bac3b4aa584a6f7c1c8df8/mypy_extensions-1.1.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4081266Z   proxy | 2026/09/19 01:47:16 [311] GET https://files.pythonhosted.org:443/packages/0f/e7/aa315e6a749d9b96c2504a1ba0ba031ba2d0517e972ce22682e3fccecb09/cssselect2-0.8.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4117171Z   proxy | 2026/09/19 01:47:16 [312] GET https://files.pythonhosted.org:443/packages/42/24/f206113e05cb8ef51b3850e7ef88f20da6f4bf932190ceb48bd3da103e10/pytokens-0.4.1-cp310-cp310-macosx_11_0_arm64.whl.metadata
+2026-09-19T01:47:16.4121152Z   proxy | 2026/09/19 01:47:16 [290] 200 https://files.pythonhosted.org:443/packages/ef/3c/2c197d226f9ea224a9ab8d197933f9da0ae0aac5b6e0f884e2b8d9c8e9f7/pathspec-1.0.4-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4150098Z   proxy | 2026/09/19 01:47:16 [313] GET https://files.pythonhosted.org:443/packages/19/97/56608b2249fe206a67cd573bc93cd9896e1efb9e98bce9c163bcdc704b88/truststore-0.10.4-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4179919Z   proxy | 2026/09/19 01:47:16 [289] 200 https://files.pythonhosted.org:443/packages/41/bf/945d527ff706233636c73880b22c7c953f3faeb9d6c7e2e85bfbfd0134a0/trio-0.32.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4191594Z   proxy | 2026/09/19 01:47:16 [296] 200 https://files.pythonhosted.org:443/packages/4d/ec/d58832f89ede95652fd01f4f24236af7d32b70cab2196dfcc2d2fd13c5c2/werkzeug-3.1.6-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4197143Z   proxy | 2026/09/19 01:47:16 [298] 200 https://files.pythonhosted.org:443/packages/a0/61/5c78b91c3143ed5c14207f463aecfc8f9dbb5092fb2869baf37c273b2705/gitdb-4.0.12-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4203645Z   proxy | 2026/09/19 01:47:16 [299] 200 https://files.pythonhosted.org:443/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4209324Z   proxy | 2026/09/19 01:47:16 [315] GET https://files.pythonhosted.org:443/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:16.4226980Z   proxy | 2026/09/19 01:47:16 [294] 200 https://files.pythonhosted.org:443/packages/93/d8/ba13451aa6b745c49536e87b6bf8f629b950e84bd0e8308f7dc6883b67e2/cairocffi-1.7.1-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4230654Z   proxy | 2026/09/19 01:47:16 [291] 200 https://files.pythonhosted.org:443/packages/07/6c/aa3f2f849e01cb6a001cd8554a88d4c77c5c1a31c95bdf1cf9301e6d9ef4/defusedxml-0.7.1-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:16.4272700Z   proxy | 2026/09/19 01:47:16 [301] 200 https://files.pythonhosted.org:443/packages/4d/51/c936033e16d12b627ea334aaaaf42229c37620d0f15593456ab69ab48161/griffelib-2.0.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4328844Z   proxy | 2026/09/19 01:47:16 [297] 200 https://files.pythonhosted.org:443/packages/e8/4b/3541d44f3937ba468b75da9eebcae497dcf67adb65caa16760b0a6807ebb/markupsafe-3.0.3-cp310-cp310-macosx_10_9_x86_64.whl.metadata
+2026-09-19T01:47:16.4362293Z   proxy | 2026/09/19 01:47:16 [312] 200 https://files.pythonhosted.org:443/packages/42/24/f206113e05cb8ef51b3850e7ef88f20da6f4bf932190ceb48bd3da103e10/pytokens-0.4.1-cp310-cp310-macosx_11_0_arm64.whl.metadata
+2026-09-19T01:47:16.4370330Z   proxy | 2026/09/19 01:47:16 [315] 200 https://files.pythonhosted.org:443/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:16.4386628Z   proxy | 2026/09/19 01:47:16 [311] 200 https://files.pythonhosted.org:443/packages/0f/e7/aa315e6a749d9b96c2504a1ba0ba031ba2d0517e972ce22682e3fccecb09/cssselect2-0.8.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4391066Z   proxy | 2026/09/19 01:47:16 [304] 200 https://files.pythonhosted.org:443/packages/60/45/c7b5c3168458db837e8ceab06dc77824e18202679d0463f0e8f002143a97/tinycss2-1.5.1-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4398607Z   proxy | 2026/09/19 01:47:16 [313] 200 https://files.pythonhosted.org:443/packages/19/97/56608b2249fe206a67cd573bc93cd9896e1efb9e98bce9c163bcdc704b88/truststore-0.10.4-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4402660Z   proxy | 2026/09/19 01:47:16 [303] 200 https://files.pythonhosted.org:443/packages/1e/5e/d4e9f1a599fb8e573b7b87160658329fbf28d19eac2718f51fc3def3aa5a/idna-3.18-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4409104Z   proxy | 2026/09/19 01:47:16 [293] 200 https://files.pythonhosted.org:443/packages/d2/74/d370e55600d9bcfa0d9794b0166126d49291a3d2b20c268fc98c453a4948/httpcore2-2.12.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4416808Z   proxy | 2026/09/19 01:47:16 [292] 200 https://files.pythonhosted.org:443/packages/ba/5a/18ad964b0086c6e62e2e7500f7edc89e3faa45033c71c1893d34eed2b2de/dnspython-2.8.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4450505Z   proxy | 2026/09/19 01:47:16 [305] 200 https://files.pythonhosted.org:443/packages/10/cb/f2ad4230dc2eb1a74edf38f1a38b9b52277f75bef262d8908e60d957e13c/blinker-1.9.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4457124Z   proxy | 2026/09/19 01:47:16 [316] GET https://files.pythonhosted.org:443/packages/eb/14/ecceb239b65adaaf7fde510aa8bd534075695d1e5f8dadfa32b5723d9cfb/uvloop-0.22.1-cp310-cp310-macosx_10_9_universal2.whl.metadata
+2026-09-19T01:47:16.4460306Z   proxy | 2026/09/19 01:47:16 [317] GET https://files.pythonhosted.org:443/packages/a7/1a/206e8cf2dd86fddf939165a57b4df61607a1e0add2785f170a3f616b7d9f/watchfiles-1.1.1-cp310-cp310-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:16.4471282Z   proxy | 2026/09/19 01:47:16 [300] 200 https://files.pythonhosted.org:443/packages/85/32/10bb5764d90a8eee674e9dc6f4db6a0ab47c8c4d0d83c27f7c39ac415a4d/click-8.2.1-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4476695Z   proxy | 2026/09/19 01:47:16 [302] 200 https://files.pythonhosted.org:443/packages/9b/43/832f631d32e4f1211caa2ba368317739fe71f0b8530e4c9d15dc454bac2a/httpx2_jsfetch-1.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4492870Z   proxy | 2026/09/19 01:47:16 [318] GET https://files.pythonhosted.org:443/packages/7e/f5/f66802a942d491edb555dd61e3a9961140fd64c90bce1eafd741609d334d/httpcore-1.0.9-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4516416Z   proxy | 2026/09/19 01:47:16 [319] GET https://files.pythonhosted.org:443/packages/1e/da/6462a9f510c0c49837bbc9345aca92d767a56c1fb2939e1579df1e1cdcf7/websockets-15.0.1-cp310-cp310-macosx_10_9_universal2.whl.metadata
+2026-09-19T01:47:16.4540627Z   proxy | 2026/09/19 01:47:16 [316] 200 https://files.pythonhosted.org:443/packages/eb/14/ecceb239b65adaaf7fde510aa8bd534075695d1e5f8dadfa32b5723d9cfb/uvloop-0.22.1-cp310-cp310-macosx_10_9_universal2.whl.metadata
+2026-09-19T01:47:16.4546689Z   proxy | 2026/09/19 01:47:16 [320] GET https://pypi.org:443/simple/executing/
+2026-09-19T01:47:16.4550244Z   proxy | 2026/09/19 01:47:16 [321] GET https://pypi.org:443/simple/rich/
+2026-09-19T01:47:16.4563245Z   proxy | 2026/09/19 01:47:16 [322] GET https://pypi.org:443/simple/asttokens/
+2026-09-19T01:47:16.4565859Z   proxy | 2026/09/19 01:47:16 [318] 200 https://files.pythonhosted.org:443/packages/7e/f5/f66802a942d491edb555dd61e3a9961140fd64c90bce1eafd741609d334d/httpcore-1.0.9-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4582564Z   proxy | 2026/09/19 01:47:16 [295] 200 https://files.pythonhosted.org:443/packages/c7/e5/c07e0bcf4ec8db8164e9f6738c048b2e66aabf30e7506f440c4cc6953f60/httptools-0.7.1-cp310-cp310-macosx_10_9_universal2.whl.metadata
+2026-09-19T01:47:16.4586903Z   proxy | 2026/09/19 01:47:16 [317] 200 https://files.pythonhosted.org:443/packages/a7/1a/206e8cf2dd86fddf939165a57b4df61607a1e0add2785f170a3f616b7d9f/watchfiles-1.1.1-cp310-cp310-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:16.4610461Z   proxy | 2026/09/19 01:47:16 [320] 200 https://pypi.org:443/simple/executing/
+2026-09-19T01:47:16.4612252Z   proxy | 2026/09/19 01:47:16 [321] 200 https://pypi.org:443/simple/rich/
+2026-09-19T01:47:16.4652511Z   proxy | 2026/09/19 01:47:16 [323] GET https://files.pythonhosted.org:443/packages/c1/ea/53f2148663b321f21b5a606bd5f191517cf40b7072c0497d3c92c4a13b1e/executing-2.2.1-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:16.4681484Z   proxy | 2026/09/19 01:47:16 [319] 200 https://files.pythonhosted.org:443/packages/1e/da/6462a9f510c0c49837bbc9345aca92d767a56c1fb2939e1579df1e1cdcf7/websockets-15.0.1-cp310-cp310-macosx_10_9_universal2.whl.metadata
+2026-09-19T01:47:16.4687982Z   proxy | 2026/09/19 01:47:16 [322] 200 https://pypi.org:443/simple/asttokens/
+2026-09-19T01:47:16.4713363Z   proxy | 2026/09/19 01:47:16 [323] 200 https://files.pythonhosted.org:443/packages/c1/ea/53f2148663b321f21b5a606bd5f191517cf40b7072c0497d3c92c4a13b1e/executing-2.2.1-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:16.4719736Z   proxy | 2026/09/19 01:47:16 [324] GET https://files.pythonhosted.org:443/packages/ef/45/615f5babd880b4bd7d405cc0dc348234c5ffb6ed1ea33e152ede08b2072d/rich-14.3.2-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4744910Z   proxy | 2026/09/19 01:47:16 [325] GET https://files.pythonhosted.org:443/packages/d2/39/e7eaf1799466a4aef85b6a4fe7bd175ad2b1c6345066aa33f1f58d4b18d0/asttokens-3.0.1-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4814702Z   proxy | 2026/09/19 01:47:16 [324] 200 https://files.pythonhosted.org:443/packages/ef/45/615f5babd880b4bd7d405cc0dc348234c5ffb6ed1ea33e152ede08b2072d/rich-14.3.2-py3-none-any.whl.metadata
+2026-09-19T01:47:16.4828884Z   proxy | 2026/09/19 01:47:16 [325] 200 https://files.pythonhosted.org:443/packages/d2/39/e7eaf1799466a4aef85b6a4fe7bd175ad2b1c6345066aa33f1f58d4b18d0/asttokens-3.0.1-py3-none-any.whl.metadata
+2026-09-19T01:47:16.5488626Z   proxy | 2026/09/19 01:47:16 [326] GET https://pypi.org:443/simple/setuptools/
+2026-09-19T01:47:16.5571477Z   proxy | 2026/09/19 01:47:16 [326] 200 https://pypi.org:443/simple/setuptools/
+2026-09-19T01:47:16.5742434Z   proxy | 2026/09/19 01:47:16 [327] GET https://files.pythonhosted.org:443/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.5799821Z   proxy | 2026/09/19 01:47:16 [327] 200 https://files.pythonhosted.org:443/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl.metadata
+2026-09-19T01:47:16.5814570Z   proxy | 2026/09/19 01:47:16 [328] GET https://files.pythonhosted.org:443/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl
+2026-09-19T01:47:16.5873516Z   proxy | 2026/09/19 01:47:16 [328] 200 https://files.pythonhosted.org:443/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl
+2026-09-19T01:47:17.1653512Z   proxy | 2026/09/19 01:47:17 [329] GET https://pypi.org:443/simple/markdown/
+2026-09-19T01:47:17.1658512Z   proxy | 2026/09/19 01:47:17 [330] GET https://pypi.org:443/simple/pymdown-extensions/
+2026-09-19T01:47:17.1660658Z   proxy | 2026/09/19 01:47:17 [332] GET https://pypi.org:443/simple/rcslice/
+2026-09-19T01:47:17.1662660Z 2026/09/19 01:47:17 [333] GET https://pypi.org:443/simple/cyclic/
+2026-09-19T01:47:17.1663768Z 2026/09/19 01:47:17 [334] GET https://pypi.org:443/simple/mkdocs/
+2026-09-19T01:47:17.1664804Z 2026/09/19 01:47:17 [331] GET https://pypi.org:443/simple/mkdocs-autorefs/
+2026-09-19T01:47:17.1665858Z 2026/09/19 01:47:17 [335] GET https://pypi.org:443/simple/argon2-cffi/
+2026-09-19T01:47:17.1666989Z 2026/09/19 01:47:17 [336] GET https://pypi.org:443/simple/greenlet/
+2026-09-19T01:47:17.1667741Z   proxy | 2026/09/19 01:47:17 [337] GET https://pypi.org:443/simple/librt/
+2026-09-19T01:47:17.1668790Z   proxy | 2026/09/19 01:47:17 [339] GET https://pypi.org:443/simple/ast-serialize/
+2026-09-19T01:47:17.1670116Z   proxy | 2026/09/19 01:47:17 [338] GET https://pypi.org:443/simple/mkdocstrings-python/
+2026-09-19T01:47:17.1673493Z   proxy | 2026/09/19 01:47:17 [341] GET https://pypi.org:443/simple/pydantic-ai-slim/
+2026-09-19T01:47:17.1675012Z   proxy | 2026/09/19 01:47:17 [340] GET https://pypi.org:443/simple/pyee/
+2026-09-19T01:47:17.1719204Z   proxy | 2026/09/19 01:47:17 [330] 200 https://pypi.org:443/simple/pymdown-extensions/
+2026-09-19T01:47:17.1736178Z   proxy | 2026/09/19 01:47:17 [329] 200 https://pypi.org:443/simple/markdown/
+2026-09-19T01:47:17.1749902Z   proxy | 2026/09/19 01:47:17 [342] GET https://files.pythonhosted.org:443/packages/59/1b/6ef961f543593969d25b2afe57a3564200280528caa9bd1082eecdd7b3bc/markdown-3.10.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.1771338Z   proxy | 2026/09/19 01:47:17 [343] GET https://files.pythonhosted.org:443/packages/d6/54/da572c98c0b77626a91b5d3b89f0231d8bff5125c225420908632f8b342d/pymdown_extensions-11.0.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.1824302Z   proxy | 2026/09/19 01:47:17 [333] 200 https://pypi.org:443/simple/cyclic/
+2026-09-19T01:47:17.1831617Z   proxy | 2026/09/19 01:47:17 [342] 200 https://files.pythonhosted.org:443/packages/59/1b/6ef961f543593969d25b2afe57a3564200280528caa9bd1082eecdd7b3bc/markdown-3.10.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.1840999Z   proxy | 2026/09/19 01:47:17 [344] GET https://files.pythonhosted.org:443/packages/c0/c0/9f59d2ebd9d585e1681c51767eb138bcd9d0ea770f6fc003cd875c7f5e62/cyclic-1.0.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.1867127Z   proxy | 2026/09/19 01:47:17 [331] 200 https://pypi.org:443/simple/mkdocs-autorefs/
+2026-09-19T01:47:17.1868804Z   proxy | 2026/09/19 01:47:17 [343] 200 https://files.pythonhosted.org:443/packages/d6/54/da572c98c0b77626a91b5d3b89f0231d8bff5125c225420908632f8b342d/pymdown_extensions-11.0.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.1870473Z 2026/09/19 01:47:17 [334] 200 https://pypi.org:443/simple/mkdocs/
+2026-09-19T01:47:17.1871318Z   proxy | 2026/09/19 01:47:17 [335] 200 https://pypi.org:443/simple/argon2-cffi/
+2026-09-19T01:47:17.1873482Z   proxy | 2026/09/19 01:47:17 [336] 200 https://pypi.org:443/simple/greenlet/
+2026-09-19T01:47:17.1889029Z   proxy | 2026/09/19 01:47:17 [340] 200 https://pypi.org:443/simple/pyee/
+2026-09-19T01:47:17.1896548Z   proxy | 2026/09/19 01:47:17 [339] 200 https://pypi.org:443/simple/ast-serialize/
+2026-09-19T01:47:17.1927566Z   proxy | 2026/09/19 01:47:17 [345] GET https://files.pythonhosted.org:443/packages/22/5b/dbc6a8cddc9cfa9c4971d59fb12bb8d42e161b7e7f8cc89e49137c5b279c/mkdocs-1.6.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.1929819Z   proxy | 2026/09/19 01:47:17 [338] 200 https://pypi.org:443/simple/mkdocstrings-python/
+2026-09-19T01:47:17.1932067Z   proxy | 2026/09/19 01:47:17 [344] 200 https://files.pythonhosted.org:443/packages/c0/c0/9f59d2ebd9d585e1681c51767eb138bcd9d0ea770f6fc003cd875c7f5e62/cyclic-1.0.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.1935002Z   proxy | 2026/09/19 01:47:17 [341] 200 https://pypi.org:443/simple/pydantic-ai-slim/
+2026-09-19T01:47:17.1949204Z   proxy | 2026/09/19 01:47:17 [346] GET https://files.pythonhosted.org:443/packages/9f/4d/7123b6fa2278000688ebd338e2a06d16870aaf9eceae6ba047ea05f92df1/mkdocs_autorefs-1.4.3-py3-none-any.whl.metadata
+2026-09-19T01:47:17.1951213Z   proxy | 2026/09/19 01:47:17 [337] 200 https://pypi.org:443/simple/librt/
+2026-09-19T01:47:17.1964654Z   proxy | 2026/09/19 01:47:17 [332] 200 https://pypi.org:443/simple/rcslice/
+2026-09-19T01:47:17.1999043Z   proxy | 2026/09/19 01:47:17 [347] GET https://files.pythonhosted.org:443/packages/aa/96/7935186fba032312eb8a75e6503440b0e6de76c901421f791408e4debd93/rcslice-1.1.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2010402Z   proxy | 2026/09/19 01:47:17 [348] GET https://files.pythonhosted.org:443/packages/9b/4d/b9add7c84060d4c1906abe9a7e5359f2a60f7a9a4f67268b2766673427d8/pyee-13.0.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2014064Z   proxy | 2026/09/19 01:47:17 [350] GET https://files.pythonhosted.org:443/packages/32/28/79f0f8de97cce916d5ae88a7bee1ad724855e83e6019c0b4d5b3fabc80f3/mkdocstrings_python-2.0.3-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2036872Z   proxy | 2026/09/19 01:47:17 [349] GET https://files.pythonhosted.org:443/packages/4f/d3/a8b22fa575b297cd6e3e3b0155c7e25db170edf1c74783d6a31a2490b8d9/argon2_cffi-25.1.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2039454Z 2026/09/19 01:47:17 [345] 200 https://files.pythonhosted.org:443/packages/22/5b/dbc6a8cddc9cfa9c4971d59fb12bb8d42e161b7e7f8cc89e49137c5b279c/mkdocs-1.6.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2051366Z   proxy | 2026/09/19 01:47:17 [346] 200 https://files.pythonhosted.org:443/packages/9f/4d/7123b6fa2278000688ebd338e2a06d16870aaf9eceae6ba047ea05f92df1/mkdocs_autorefs-1.4.3-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2084040Z   proxy | 2026/09/19 01:47:17 [351] GET https://files.pythonhosted.org:443/packages/3f/12/3e5f575f156555547c250a8b0d1347517a3a20fc7f4492e9703a69d4f45e/ast_serialize-0.6.0-cp314-cp314t-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:17.2151511Z   proxy | 2026/09/19 01:47:17 [348] 200 https://files.pythonhosted.org:443/packages/9b/4d/b9add7c84060d4c1906abe9a7e5359f2a60f7a9a4f67268b2766673427d8/pyee-13.0.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2167275Z   proxy | 2026/09/19 01:47:17 [347] 200 https://files.pythonhosted.org:443/packages/aa/96/7935186fba032312eb8a75e6503440b0e6de76c901421f791408e4debd93/rcslice-1.1.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2220959Z   proxy | 2026/09/19 01:47:17 [352] GET https://files.pythonhosted.org:443/packages/40/70/cdc87d6a8d85405a4730bca7fb9fd1481c4e05d921a6c31f3a34fb900d02/pydantic_ai_slim-2.34.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2234870Z   proxy | 2026/09/19 01:47:17 [349] 200 https://files.pythonhosted.org:443/packages/4f/d3/a8b22fa575b297cd6e3e3b0155c7e25db170edf1c74783d6a31a2490b8d9/argon2_cffi-25.1.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2262348Z   proxy | 2026/09/19 01:47:17 [350] 200 https://files.pythonhosted.org:443/packages/32/28/79f0f8de97cce916d5ae88a7bee1ad724855e83e6019c0b4d5b3fabc80f3/mkdocstrings_python-2.0.3-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2309843Z   proxy | 2026/09/19 01:47:17 [352] 200 https://files.pythonhosted.org:443/packages/40/70/cdc87d6a8d85405a4730bca7fb9fd1481c4e05d921a6c31f3a34fb900d02/pydantic_ai_slim-2.34.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2424595Z   proxy | 2026/09/19 01:47:17 [351] 200 https://files.pythonhosted.org:443/packages/3f/12/3e5f575f156555547c250a8b0d1347517a3a20fc7f4492e9703a69d4f45e/ast_serialize-0.6.0-cp314-cp314t-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:17.2433255Z   proxy | 2026/09/19 01:47:17 [353] GET https://files.pythonhosted.org:443/packages/89/2f/ec5241c38e7fa0fe6c26bfc450e78b9489a6c3c08b394b85d2c10e506975/librt-0.13.0-cp310-cp310-macosx_10_9_x86_64.whl.metadata
+2026-09-19T01:47:17.2436625Z   proxy | 2026/09/19 01:47:17 [354] GET https://files.pythonhosted.org:443/packages/fe/65/5b235b40581ad75ab97dcd8b4218022ae8e3ab77c13c919f1a1dfe9171fd/greenlet-3.3.1-cp310-cp310-macosx_11_0_universal2.whl.metadata
+2026-09-19T01:47:17.2438714Z   proxy | 2026/09/19 01:47:17 [355] GET https://pypi.org:443/simple/genai-prices/
+2026-09-19T01:47:17.2440747Z   proxy | 2026/09/19 01:47:17 [357] GET https://pypi.org:443/simple/pydantic-graph/
+2026-09-19T01:47:17.2443419Z   proxy | 2026/09/19 01:47:17 [358] GET https://pypi.org:443/simple/argcomplete/
+2026-09-19T01:47:17.2444490Z 2026/09/19 01:47:17 [359] GET https://pypi.org:443/simple/opentelemetry-api/
+2026-09-19T01:47:17.2445838Z   proxy | 2026/09/19 01:47:17 [360] GET https://pypi.org:443/simple/google-genai/
+2026-09-19T01:47:17.2446895Z 2026/09/19 01:47:17 [361] GET https://pypi.org:443/simple/pyperclip/
+2026-09-19T01:47:17.2448470Z   proxy | 2026/09/19 01:47:17 [356] GET https://pypi.org:443/simple/anthropic/
+2026-09-19T01:47:17.2452815Z   proxy | 2026/09/19 01:47:17 [365] GET https://pypi.org:443/simple/fastmcp-slim/
+2026-09-19T01:47:17.2454069Z   proxy | 2026/09/19 01:47:17 [366] GET https://pypi.org:443/simple/opentelemetry-instrumentation-httpx/
+2026-09-19T01:47:17.2455510Z   proxy | 2026/09/19 01:47:17 [362] GET https://pypi.org:443/simple/prompt-toolkit/
+2026-09-19T01:47:17.2456610Z   proxy | 2026/09/19 01:47:17 [367] GET https://pypi.org:443/simple/logfire/
+2026-09-19T01:47:17.2457800Z   proxy | 2026/09/19 01:47:17 [363] GET https://pypi.org:443/simple/pydantic-evals/
+2026-09-19T01:47:17.2458917Z   proxy | 2026/09/19 01:47:17 [364] GET https://pypi.org:443/simple/openai/
+2026-09-19T01:47:17.2459916Z 2026/09/19 01:47:17 [368] GET https://pypi.org:443/simple/tiktoken/
+2026-09-19T01:47:17.2532454Z   proxy | 2026/09/19 01:47:17 [357] 200 https://pypi.org:443/simple/pydantic-graph/
+2026-09-19T01:47:17.2549792Z   proxy | 2026/09/19 01:47:17 [354] 200 https://files.pythonhosted.org:443/packages/fe/65/5b235b40581ad75ab97dcd8b4218022ae8e3ab77c13c919f1a1dfe9171fd/greenlet-3.3.1-cp310-cp310-macosx_11_0_universal2.whl.metadata
+2026-09-19T01:47:17.2552742Z   proxy | 2026/09/19 01:47:17 [353] 200 https://files.pythonhosted.org:443/packages/89/2f/ec5241c38e7fa0fe6c26bfc450e78b9489a6c3c08b394b85d2c10e506975/librt-0.13.0-cp310-cp310-macosx_10_9_x86_64.whl.metadata
+2026-09-19T01:47:17.2563769Z   proxy | 2026/09/19 01:47:17 [355] 200 https://pypi.org:443/simple/genai-prices/
+2026-09-19T01:47:17.2613341Z   proxy | 2026/09/19 01:47:17 [369] GET https://files.pythonhosted.org:443/packages/a5/14/28f578fa25391bb8983522f3e365e8735310f4b741e54cfed3a614f50384/genai_prices-0.1.5-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2653692Z   proxy | 2026/09/19 01:47:17 [358] 200 https://pypi.org:443/simple/argcomplete/
+2026-09-19T01:47:17.2666060Z   proxy | 2026/09/19 01:47:17 [359] 200 https://pypi.org:443/simple/opentelemetry-api/
+2026-09-19T01:47:17.2679733Z   proxy | 2026/09/19 01:47:17 [369] 200 https://files.pythonhosted.org:443/packages/a5/14/28f578fa25391bb8983522f3e365e8735310f4b741e54cfed3a614f50384/genai_prices-0.1.5-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2681755Z 2026/09/19 01:47:17 [366] 200 https://pypi.org:443/simple/opentelemetry-instrumentation-httpx/
+2026-09-19T01:47:17.2696072Z   proxy | 2026/09/19 01:47:17 [361] 200 https://pypi.org:443/simple/pyperclip/
+2026-09-19T01:47:17.2697154Z 2026/09/19 01:47:17 [360] 200 https://pypi.org:443/simple/google-genai/
+2026-09-19T01:47:17.2715966Z   proxy | 2026/09/19 01:47:17 [370] GET https://files.pythonhosted.org:443/packages/74/f5/9373290775639cb67a2fce7f629a1c240dce9f12fe927bc32b2736e16dfc/argcomplete-3.6.3-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2724206Z   proxy | 2026/09/19 01:47:17 [367] 200 https://pypi.org:443/simple/logfire/
+2026-09-19T01:47:17.2734802Z   proxy | 2026/09/19 01:47:17 [372] GET https://files.pythonhosted.org:443/packages/9d/0f/c6144096b4914bbf44b43ba21c962e8f333ff045770b50a3e79ed8bd455f/opentelemetry_instrumentation_httpx-0.65b0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2744146Z   proxy | 2026/09/19 01:47:17 [365] 200 https://pypi.org:443/simple/fastmcp-slim/
+2026-09-19T01:47:17.2755045Z   proxy | 2026/09/19 01:47:17 [362] 200 https://pypi.org:443/simple/prompt-toolkit/
+2026-09-19T01:47:17.2767187Z   proxy | 2026/09/19 01:47:17 [356] 200 https://pypi.org:443/simple/anthropic/
+2026-09-19T01:47:17.2777351Z   proxy | 2026/09/19 01:47:17 [368] 200 https://pypi.org:443/simple/tiktoken/
+2026-09-19T01:47:17.2785516Z   proxy | 2026/09/19 01:47:17 [364] 200 https://pypi.org:443/simple/openai/
+2026-09-19T01:47:17.2787578Z 2026/09/19 01:47:17 [371] GET https://files.pythonhosted.org:443/packages/ed/f3/090aa40d7dd5130e5b570b2b25673c2162b3790b23c0a152fb84f28d9c05/pydantic_graph-2.34.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2790492Z   proxy | 2026/09/19 01:47:17 [373] GET https://files.pythonhosted.org:443/packages/df/80/fc9d01d5ed37ba4c42ca2b55b4339ae6e200b456be3a1aaddf4a9fa99b8c/pyperclip-1.11.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2810709Z   proxy | 2026/09/19 01:47:17 [363] 200 https://pypi.org:443/simple/pydantic-evals/
+2026-09-19T01:47:17.2819295Z   proxy | 2026/09/19 01:47:17 [370] 200 https://files.pythonhosted.org:443/packages/74/f5/9373290775639cb67a2fce7f629a1c240dce9f12fe927bc32b2736e16dfc/argcomplete-3.6.3-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2822355Z 2026/09/19 01:47:17 [374] GET https://files.pythonhosted.org:443/packages/ca/6f/a04e900f465ff3221ccc395522503e2d10e79fa21f2723c8e177aae1e0d1/opentelemetry_api-1.44.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2825115Z 2026/09/19 01:47:17 [375] GET https://files.pythonhosted.org:443/packages/fb/d7/c2419dd5fedd5803ce09810e4e39561a0a13a960b3f48d2581c12e42af3e/google_genai-2.21.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2843436Z   proxy | 2026/09/19 01:47:17 [376] GET https://files.pythonhosted.org:443/packages/84/03/0d3ce49e2505ae70cf43bc5bb3033955d2fc9f932163e84dc0779cc47f48/prompt_toolkit-3.0.52-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2886781Z   proxy | 2026/09/19 01:47:17 [378] GET https://files.pythonhosted.org:443/packages/fc/e1/ee33bf0e3f85c00a4235c8c9c4e23f3955154d842f15f0377936461ec6a3/logfire-4.41.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2889575Z   proxy | 2026/09/19 01:47:17 [377] GET https://files.pythonhosted.org:443/packages/7a/ee/97047f4cc2d7b1d46670d08d8ad01a96e7a748cc01c0b4b351ad8eddbc7a/fastmcp_slim-3.3.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2892821Z   proxy | 2026/09/19 01:47:17 [372] 200 https://files.pythonhosted.org:443/packages/9d/0f/c6144096b4914bbf44b43ba21c962e8f333ff045770b50a3e79ed8bd455f/opentelemetry_instrumentation_httpx-0.65b0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2901908Z   proxy | 2026/09/19 01:47:17 [379] GET https://files.pythonhosted.org:443/packages/c7/b9/34cb910d1b5f90ae8a4e4cd923138780a173721382113b4787f14497ae63/pydantic_evals-2.34.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2937578Z   proxy | 2026/09/19 01:47:17 [371] 200 https://files.pythonhosted.org:443/packages/ed/f3/090aa40d7dd5130e5b570b2b25673c2162b3790b23c0a152fb84f28d9c05/pydantic_graph-2.34.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2942354Z   proxy | 2026/09/19 01:47:17 [380] GET https://files.pythonhosted.org:443/packages/2c/5d/7863a9961d320c23787c7b594956afe4e878f9c0ae2376b11a20e416791d/anthropic-1.3.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2952265Z   proxy | 2026/09/19 01:47:17 [375] 200 https://files.pythonhosted.org:443/packages/fb/d7/c2419dd5fedd5803ce09810e4e39561a0a13a960b3f48d2581c12e42af3e/google_genai-2.21.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.2989402Z   proxy | 2026/09/19 01:47:17 [381] GET https://files.pythonhosted.org:443/packages/89/b3/2cb7c17b6c4cf8ca983204255d3f1d95eda7213e247e6947a0ee2c747a2c/tiktoken-0.12.0-cp310-cp310-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:17.3003883Z   proxy | 2026/09/19 01:47:17 [382] GET https://pypi.org:443/simple/logfire-api/
+2026-09-19T01:47:17.3007254Z 2026/09/19 01:47:17 [383] GET https://files.pythonhosted.org:443/packages/a1/94/805b87ecc951c49ec8f247f5e8eb324ab064bd2ad73b6a0e704dd49aa073/openai-3.6.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.3010959Z   proxy | 2026/09/19 01:47:17 [373] 200 https://files.pythonhosted.org:443/packages/df/80/fc9d01d5ed37ba4c42ca2b55b4339ae6e200b456be3a1aaddf4a9fa99b8c/pyperclip-1.11.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.3035935Z   proxy | 2026/09/19 01:47:17 [374] 200 https://files.pythonhosted.org:443/packages/ca/6f/a04e900f465ff3221ccc395522503e2d10e79fa21f2723c8e177aae1e0d1/opentelemetry_api-1.44.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.3038864Z   proxy | 2026/09/19 01:47:17 [376] 200 https://files.pythonhosted.org:443/packages/84/03/0d3ce49e2505ae70cf43bc5bb3033955d2fc9f932163e84dc0779cc47f48/prompt_toolkit-3.0.52-py3-none-any.whl.metadata
+2026-09-19T01:47:17.3053338Z   proxy | 2026/09/19 01:47:17 [378] 200 https://files.pythonhosted.org:443/packages/fc/e1/ee33bf0e3f85c00a4235c8c9c4e23f3955154d842f15f0377936461ec6a3/logfire-4.41.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.3085218Z   proxy | 2026/09/19 01:47:17 [380] 200 https://files.pythonhosted.org:443/packages/2c/5d/7863a9961d320c23787c7b594956afe4e878f9c0ae2376b11a20e416791d/anthropic-1.3.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.3090513Z   proxy | 2026/09/19 01:47:17 [377] 200 https://files.pythonhosted.org:443/packages/7a/ee/97047f4cc2d7b1d46670d08d8ad01a96e7a748cc01c0b4b351ad8eddbc7a/fastmcp_slim-3.3.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.3097551Z   proxy | 2026/09/19 01:47:17 [382] 200 https://pypi.org:443/simple/logfire-api/
+2026-09-19T01:47:17.3102747Z   proxy | 2026/09/19 01:47:17 [381] 200 https://files.pythonhosted.org:443/packages/89/b3/2cb7c17b6c4cf8ca983204255d3f1d95eda7213e247e6947a0ee2c747a2c/tiktoken-0.12.0-cp310-cp310-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:17.3127354Z   proxy | 2026/09/19 01:47:17 [383] 200 https://files.pythonhosted.org:443/packages/a1/94/805b87ecc951c49ec8f247f5e8eb324ab064bd2ad73b6a0e704dd49aa073/openai-3.6.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.3163102Z   proxy | 2026/09/19 01:47:17 [384] GET https://files.pythonhosted.org:443/packages/1e/93/4e8395f3e4b1951b1de8d06cb7d7ef1105efd294ea3443bf39b3594390af/logfire_api-4.22.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.3227772Z   proxy | 2026/09/19 01:47:17 [384] 200 https://files.pythonhosted.org:443/packages/1e/93/4e8395f3e4b1951b1de8d06cb7d7ef1105efd294ea3443bf39b3594390af/logfire_api-4.22.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.3260533Z   proxy | 2026/09/19 01:47:17 [379] 200 https://files.pythonhosted.org:443/packages/c7/b9/34cb910d1b5f90ae8a4e4cd923138780a173721382113b4787f14497ae63/pydantic_evals-2.34.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.3293323Z   proxy | 2026/09/19 01:47:17 [385] GET https://pypi.org:443/simple/pynacl/
+2026-09-19T01:47:17.3300730Z   proxy | 2026/09/19 01:47:17 [386] GET https://pypi.org:443/simple/requests/
+2026-09-19T01:47:17.3356370Z   proxy | 2026/09/19 01:47:17 [387] GET https://pypi.org:443/simple/sentry-sdk/
+2026-09-19T01:47:17.3363861Z   proxy | 2026/09/19 01:47:17 [388] GET https://pypi.org:443/simple/graphql-core/
+2026-09-19T01:47:17.3365005Z   proxy | 2026/09/19 01:47:17 [390] GET https://pypi.org:443/simple/execnet/
+2026-09-19T01:47:17.3366301Z 2026/09/19 01:47:17 [389] GET https://pypi.org:443/simple/python-dateutil/
+2026-09-19T01:47:17.3367331Z 2026/09/19 01:47:17 [392] GET https://pypi.org:443/simple/psutil/
+2026-09-19T01:47:17.3368408Z 2026/09/19 01:47:17 [393] GET https://pypi.org:443/simple/deepmerge/
+2026-09-19T01:47:17.3369502Z 2026/09/19 01:47:17 [394] GET https://pypi.org:443/simple/text-unidecode/
+2026-09-19T01:47:17.3370333Z 2026/09/19 01:47:17 [395] GET https://pypi.org:443/simple/tomli/
+2026-09-19T01:47:17.3371101Z 2026/09/19 01:47:17 [396] GET https://pypi.org:443/simple/sqlalchemy/
+2026-09-19T01:47:17.3371897Z 2026/09/19 01:47:17 [397] GET https://pypi.org:443/simple/cross-web/
+2026-09-19T01:47:17.3372967Z 2026/09/19 01:47:17 [391] GET https://pypi.org:443/simple/shellingham/
+2026-09-19T01:47:17.3373751Z 2026/09/19 01:47:17 [417] GET https://pypi.org:443/simple/urllib3/
+2026-09-19T01:47:17.3374751Z 2026/09/19 01:47:17 [422] GET https://pypi.org:443/simple/cryptography/
+2026-09-19T01:47:17.3375837Z 2026/09/19 01:47:17 [426] GET https://pypi.org:443/simple/iniconfig/
+2026-09-19T01:47:17.3376592Z 2026/09/19 01:47:17 [427] GET https://pypi.org:443/simple/pluggy/
+2026-09-19T01:47:17.3377349Z 2026/09/19 01:47:17 [428] GET https://pypi.org:443/simple/rignore/
+2026-09-19T01:47:17.3378142Z   proxy | 2026/09/19 01:47:17 [429] GET https://pypi.org:443/simple/pygments/
+2026-09-19T01:47:17.3378974Z   proxy | 2026/09/19 01:47:17 [430] GET https://pypi.org:443/simple/termcolor/
+2026-09-19T01:47:17.3413302Z   proxy | 2026/09/19 01:47:17 [431] GET https://pypi.org:443/simple/argon2-cffi-bindings/
+2026-09-19T01:47:17.3464019Z   proxy | 2026/09/19 01:47:17 [385] 200 https://pypi.org:443/simple/pynacl/
+2026-09-19T01:47:17.3470422Z   proxy | 2026/09/19 01:47:17 [433] GET https://pypi.org:443/simple/opentelemetry-exporter-otlp-proto-http/
+2026-09-19T01:47:17.3477056Z   proxy | 2026/09/19 01:47:17 [434] GET https://pypi.org:443/simple/wcwidth/
+2026-09-19T01:47:17.3484803Z   proxy | 2026/09/19 01:47:17 [435] GET https://pypi.org:443/simple/opentelemetry-instrumentation/
+2026-09-19T01:47:17.3531212Z   proxy | 2026/09/19 01:47:17 [436] GET https://pypi.org:443/simple/jiter/
+2026-09-19T01:47:17.3532618Z   proxy | 2026/09/19 01:47:17 [437] GET https://pypi.org:443/simple/watchdog/
+2026-09-19T01:47:17.3533985Z   proxy | 2026/09/19 01:47:17 [438] GET https://pypi.org:443/simple/docstring-parser/
+2026-09-19T01:47:17.3564144Z   proxy | 2026/09/19 01:47:17 [439] GET https://pypi.org:443/simple/tenacity/
+2026-09-19T01:47:17.3604124Z   proxy | 2026/09/19 01:47:17 [440] GET https://pypi.org:443/simple/pyyaml-env-tag/
+2026-09-19T01:47:17.3621674Z   proxy | 2026/09/19 01:47:17 [441] GET https://pypi.org:443/simple/attrs/
+2026-09-19T01:47:17.3624040Z   proxy | 2026/09/19 01:47:17 [442] GET https://pypi.org:443/simple/wrapt/
+2026-09-19T01:47:17.3627009Z   proxy | 2026/09/19 01:47:17 [443] GET https://files.pythonhosted.org:443/packages/4b/79/0e3c34dc3c4671f67d251c07aa8eb100916f250ee470df230b0ab89551b4/pynacl-1.6.2-cp314-cp314t-macosx_10_10_universal2.whl.metadata
+2026-09-19T01:47:17.3629146Z   proxy | 2026/09/19 01:47:17 [444] GET https://pypi.org:443/simple/mkdocs-get-deps/
+2026-09-19T01:47:17.3633069Z   proxy | 2026/09/19 01:47:17 [445] GET https://pypi.org:443/simple/mergedeep/
+2026-09-19T01:47:17.3684981Z   proxy | 2026/09/19 01:47:17 [391] 200 https://pypi.org:443/simple/shellingham/
+2026-09-19T01:47:17.3686390Z   proxy | 2026/09/19 01:47:17 [388] 200 https://pypi.org:443/simple/graphql-core/
+2026-09-19T01:47:17.3727266Z   proxy | 2026/09/19 01:47:17 [426] 200 https://pypi.org:443/simple/iniconfig/
+2026-09-19T01:47:17.3730156Z   proxy | 2026/09/19 01:47:17 [430] 200 https://pypi.org:443/simple/termcolor/
+2026-09-19T01:47:17.3731678Z   proxy | 2026/09/19 01:47:17 [431] 200 https://pypi.org:443/simple/argon2-cffi-bindings/
+2026-09-19T01:47:17.3736828Z   proxy | 2026/09/19 01:47:17 [446] GET https://pypi.org:443/simple/distro/
+2026-09-19T01:47:17.3740425Z   proxy | 2026/09/19 01:47:17 [447] GET https://pypi.org:443/simple/sortedcontainers/
+2026-09-19T01:47:17.3758528Z   proxy | 2026/09/19 01:47:17 [448] GET https://pypi.org:443/simple/opentelemetry-util-http/
+2026-09-19T01:47:17.3760589Z 2026/09/19 01:47:17 [443] 200 https://files.pythonhosted.org:443/packages/4b/79/0e3c34dc3c4671f67d251c07aa8eb100916f250ee470df230b0ab89551b4/pynacl-1.6.2-cp314-cp314t-macosx_10_10_universal2.whl.metadata
+2026-09-19T01:47:17.3763042Z 2026/09/19 01:47:17 [387] 200 https://pypi.org:443/simple/sentry-sdk/
+2026-09-19T01:47:17.3763982Z 2026/09/19 01:47:17 [417] 200 https://pypi.org:443/simple/urllib3/
+2026-09-19T01:47:17.3764972Z 2026/09/19 01:47:17 [386] 200 https://pypi.org:443/simple/requests/
+2026-09-19T01:47:17.3767022Z 2026/09/19 01:47:17 [392] 200 https://pypi.org:443/simple/psutil/
+2026-09-19T01:47:17.3770621Z   proxy | 2026/09/19 01:47:17 [390] 200 https://pypi.org:443/simple/execnet/
+2026-09-19T01:47:17.3772371Z   proxy | 2026/09/19 01:47:17 [396] 200 https://pypi.org:443/simple/sqlalchemy/
+2026-09-19T01:47:17.3776115Z   proxy | 2026/09/19 01:47:17 [397] 200 https://pypi.org:443/simple/cross-web/
+2026-09-19T01:47:17.3778470Z   proxy | 2026/09/19 01:47:17 [429] 200 https://pypi.org:443/simple/pygments/
+2026-09-19T01:47:17.3784737Z   proxy | 2026/09/19 01:47:17 [393] 200 https://pypi.org:443/simple/deepmerge/
+2026-09-19T01:47:17.3786650Z   proxy | 2026/09/19 01:47:17 [389] 200 https://pypi.org:443/simple/python-dateutil/
+2026-09-19T01:47:17.3790254Z   proxy | 2026/09/19 01:47:17 [427] 200 https://pypi.org:443/simple/pluggy/
+2026-09-19T01:47:17.3800621Z   proxy | 2026/09/19 01:47:17 [434] 200 https://pypi.org:443/simple/wcwidth/
+2026-09-19T01:47:17.3801915Z   proxy | 2026/09/19 01:47:17 [437] 200 https://pypi.org:443/simple/watchdog/
+2026-09-19T01:47:17.3803172Z   proxy | 2026/09/19 01:47:17 [438] 200 https://pypi.org:443/simple/docstring-parser/
+2026-09-19T01:47:17.3804489Z   proxy | 2026/09/19 01:47:17 [433] 200 https://pypi.org:443/simple/opentelemetry-exporter-otlp-proto-http/
+2026-09-19T01:47:17.3818740Z   proxy | 2026/09/19 01:47:17 [428] 200 https://pypi.org:443/simple/rignore/
+2026-09-19T01:47:17.3819789Z 2026/09/19 01:47:17 [394] 200 https://pypi.org:443/simple/text-unidecode/
+2026-09-19T01:47:17.3821507Z 2026/09/19 01:47:17 [435] 200 https://pypi.org:443/simple/opentelemetry-instrumentation/
+2026-09-19T01:47:17.3823514Z 2026/09/19 01:47:17 [449] GET https://files.pythonhosted.org:443/packages/e0/f9/0595336914c5619e5f28a1fb793285925a8cd4b432c9da0a987836c7f822/shellingham-1.5.4-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.3826917Z   proxy | 2026/09/19 01:47:17 [439] 200 https://pypi.org:443/simple/tenacity/
+2026-09-19T01:47:17.3836285Z   proxy | 2026/09/19 01:47:17 [450] GET https://pypi.org:443/simple/opentelemetry-semantic-conventions/
+2026-09-19T01:47:17.3840274Z   proxy | 2026/09/19 01:47:17 [395] 200 https://pypi.org:443/simple/tomli/
+2026-09-19T01:47:17.3858540Z   proxy | 2026/09/19 01:47:17 [444] 200 https://pypi.org:443/simple/mkdocs-get-deps/
+2026-09-19T01:47:17.3880848Z   proxy | 2026/09/19 01:47:17 [436] 200 https://pypi.org:443/simple/jiter/
+2026-09-19T01:47:17.3906219Z   proxy | 2026/09/19 01:47:17 [451] GET https://files.pythonhosted.org:443/packages/9f/d4/029f984e8d3f3b6b726bd33cafc473b75e9e44c0f7e80a5b29abc466bdea/mkdocs_get_deps-0.2.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.3912529Z   proxy | 2026/09/19 01:47:17 [440] 200 https://pypi.org:443/simple/pyyaml-env-tag/
+2026-09-19T01:47:17.3915327Z   proxy | 2026/09/19 01:47:17 [452] GET https://pypi.org:443/simple/ghp-import/
+2026-09-19T01:47:17.3919194Z   proxy | 2026/09/19 01:47:17 [453] GET https://pypi.org:443/simple/google-auth/
+2026-09-19T01:47:17.3939977Z   proxy | 2026/09/19 01:47:17 [454] GET https://files.pythonhosted.org:443/packages/33/d1/8bb87d21e9aeb323cc03034f5eaf2c8f69841e40e4853c2627edf8111ed3/termcolor-3.3.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.3943482Z   proxy | 2026/09/19 01:47:17 [441] 200 https://pypi.org:443/simple/attrs/
+2026-09-19T01:47:17.3949444Z   proxy | 2026/09/19 01:47:17 [455] GET https://files.pythonhosted.org:443/packages/cb/b1/3846dd7f199d53cb17f49cba7e651e9ce294d8497c8c150530ed11865bb8/iniconfig-2.3.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.3956182Z   proxy | 2026/09/19 01:47:17 [445] 200 https://pypi.org:443/simple/mergedeep/
+2026-09-19T01:47:17.3962048Z   proxy | 2026/09/19 01:47:17 [456] GET https://pypi.org:443/simple/webencodings/
+2026-09-19T01:47:17.3964599Z   proxy | 2026/09/19 01:47:17 [442] 200 https://pypi.org:443/simple/wrapt/
+2026-09-19T01:47:17.3966829Z   proxy | 2026/09/19 01:47:17 [457] GET https://pypi.org:443/simple/markdown-it-py/
+2026-09-19T01:47:17.3971379Z   proxy | 2026/09/19 01:47:17 [458] GET https://files.pythonhosted.org:443/packages/ab/84/02fc1827e8cdded4aa65baef11296a9bbe595c474f0d6d758af082d849fd/execnet-2.1.2-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4006149Z   proxy | 2026/09/19 01:47:17 [447] 200 https://pypi.org:443/simple/sortedcontainers/
+2026-09-19T01:47:17.4014555Z   proxy | 2026/09/19 01:47:17 [461] GET https://pypi.org:443/simple/outcome/
+2026-09-19T01:47:17.4021001Z   proxy | 2026/09/19 01:47:17 [459] GET https://pypi.org:443/simple/sniffio/
+2026-09-19T01:47:17.4029627Z   proxy | 2026/09/19 01:47:17 [460] GET https://files.pythonhosted.org:443/packages/0a/14/933037032608787fb92e365883ad6a741c235e0ff992865ec5d904a38f1e/graphql_core-3.2.7-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4036781Z   proxy | 2026/09/19 01:47:17 [446] 200 https://pypi.org:443/simple/distro/
+2026-09-19T01:47:17.4052420Z   proxy | 2026/09/19 01:47:17 [462] GET https://pypi.org:443/simple/smmap/
+2026-09-19T01:47:17.4053927Z   proxy | 2026/09/19 01:47:17 [463] GET https://pypi.org:443/simple/protobuf/
+2026-09-19T01:47:17.4055788Z   proxy | 2026/09/19 01:47:17 [464] GET https://pypi.org:443/simple/opentelemetry-sdk/
+2026-09-19T01:47:17.4084441Z   proxy | 2026/09/19 01:47:17 [465] GET https://files.pythonhosted.org:443/packages/7a/4a/78b52ec2edcbd9b123638f4e0421fd8699ebe653ebf63ac5f82abd2665bc/cross_web-0.7.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4091341Z   proxy | 2026/09/19 01:47:17 [466] GET https://files.pythonhosted.org:443/packages/3c/d9/3dc2289e1f3b32eb19b9785b6a006b28ee99acb37d1d47f78d4c10e28bf8/tomli-2.4.0-cp311-cp311-macosx_10_9_x86_64.whl.metadata
+2026-09-19T01:47:17.4117851Z   proxy | 2026/09/19 01:47:17 [467] GET https://files.pythonhosted.org:443/packages/60/97/3c0a35f46e52108d4707c44b95cfe2afcafc50800b5450c197454569b776/argon2_cffi_bindings-25.1.0-cp314-cp314t-macosx_10_13_universal2.whl.metadata
+2026-09-19T01:47:17.4120661Z   proxy | 2026/09/19 01:47:17 [450] 200 https://pypi.org:443/simple/opentelemetry-semantic-conventions/
+2026-09-19T01:47:17.4122411Z   proxy | 2026/09/19 01:47:17 [422] 200 https://pypi.org:443/simple/cryptography/
+2026-09-19T01:47:17.4130239Z   proxy | 2026/09/19 01:47:17 [457] 200 https://pypi.org:443/simple/markdown-it-py/
+2026-09-19T01:47:17.4138600Z   proxy | 2026/09/19 01:47:17 [459] 200 https://pypi.org:443/simple/sniffio/
+2026-09-19T01:47:17.4151734Z   proxy | 2026/09/19 01:47:17 [454] 200 https://files.pythonhosted.org:443/packages/33/d1/8bb87d21e9aeb323cc03034f5eaf2c8f69841e40e4853c2627edf8111ed3/termcolor-3.3.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4183542Z   proxy | 2026/09/19 01:47:17 [456] 200 https://pypi.org:443/simple/webencodings/
+2026-09-19T01:47:17.4185624Z   proxy | 2026/09/19 01:47:17 [461] 200 https://pypi.org:443/simple/outcome/
+2026-09-19T01:47:17.4188543Z   proxy | 2026/09/19 01:47:17 [469] GET https://files.pythonhosted.org:443/packages/3a/2a/7cc015f5b9f5db42b7d48157e23356022889fc354a2813c15934b7cb5c0e/attrs-25.4.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4196658Z   proxy | 2026/09/19 01:47:17 [470] GET https://files.pythonhosted.org:443/packages/2c/19/04f9b178c2d8a15b076c8b5140708fa6ffc5601fb6f1e975537072df5b2a/mergedeep-1.3.4-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4204883Z   proxy | 2026/09/19 01:47:17 [468] GET https://files.pythonhosted.org:443/packages/56/5d/c814546c2333ceea4ba42262d8c4d55763003e767fa169adc693bd524478/requests-2.33.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4208231Z   proxy | 2026/09/19 01:47:17 [448] 200 https://pypi.org:443/simple/opentelemetry-util-http/
+2026-09-19T01:47:17.4210949Z   proxy | 2026/09/19 01:47:17 [451] 200 https://files.pythonhosted.org:443/packages/9f/d4/029f984e8d3f3b6b726bd33cafc473b75e9e44c0f7e80a5b29abc466bdea/mkdocs_get_deps-0.2.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4212896Z   proxy | 2026/09/19 01:47:17 [452] 200 https://pypi.org:443/simple/ghp-import/
+2026-09-19T01:47:17.4261423Z   proxy | 2026/09/19 01:47:17 [471] GET https://files.pythonhosted.org:443/packages/f4/7e/a72dd26f3b0f4f2bf1dd8923c85f7ceb43172af56d63c7383eb62b332364/pygments-2.20.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4264754Z   proxy | 2026/09/19 01:47:17 [472] GET https://files.pythonhosted.org:443/packages/32/46/9cb0e58b2deb7f82b84065f37f3bffeb12413f947f9388e4cac22c4621ce/sortedcontainers-2.4.0-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.4268854Z   proxy | 2026/09/19 01:47:17 [473] GET https://files.pythonhosted.org:443/packages/12/b3/231ffd4ab1fc9d679809f356cebee130ac7daa00d6d6f3206dd4fd137e9e/distro-1.9.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4273489Z   proxy | 2026/09/19 01:47:17 [474] GET https://files.pythonhosted.org:443/packages/ca/63/2c6daf59d86b1c30600bff679d039f57fd1932af82c43c0bde1cbc55e8d4/sentry_sdk-2.52.0-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.4302305Z   proxy | 2026/09/19 01:47:17 [462] 200 https://pypi.org:443/simple/smmap/
+2026-09-19T01:47:17.4318448Z   proxy | 2026/09/19 01:47:17 [475] GET https://pypi.org:443/simple/cffi/
+2026-09-19T01:47:17.4334181Z   proxy | 2026/09/19 01:47:17 [455] 200 https://files.pythonhosted.org:443/packages/cb/b1/3846dd7f199d53cb17f49cba7e651e9ce294d8497c8c150530ed11865bb8/iniconfig-2.3.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4338013Z   proxy | 2026/09/19 01:47:17 [476] GET https://files.pythonhosted.org:443/packages/94/54/e7d793b573f298e1c9013b8c4dade17d481164aa517d1d7148619c2cedbf/markdown_it_py-4.0.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4342290Z   proxy | 2026/09/19 01:47:17 [477] GET https://files.pythonhosted.org:443/packages/e9/44/75a9c9421471a6c4805dbf2356f7c181a29c1879239abab1ea2cc8f38b40/sniffio-1.3.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4346316Z   proxy | 2026/09/19 01:47:17 [478] GET https://files.pythonhosted.org:443/packages/04/11/432f32f8097b03e3cd5fe57e88efb685d964e2e5178a48ed61e841f7fdce/pyyaml_env_tag-1.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4350704Z   proxy | 2026/09/19 01:47:17 [479] GET https://files.pythonhosted.org:443/packages/f4/24/2a3e3df732393fed8b3ebf2ec078f05546de641fe1b667ee316ec1dcf3b7/webencodings-0.5.1-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.4352888Z   proxy | 2026/09/19 01:47:17 [453] 200 https://pypi.org:443/simple/google-auth/
+2026-09-19T01:47:17.4357264Z   proxy | 2026/09/19 01:47:17 [480] GET https://files.pythonhosted.org:443/packages/55/8b/5ab7257531a5d830fc8000c476e63c935488d74609b50f9384a643ec0a62/outcome-1.3.0.post0-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.4373159Z   proxy | 2026/09/19 01:47:17 [481] GET https://files.pythonhosted.org:443/packages/2d/82/e5d2c1c67d19841e9edc74954c827444ae826978499bde3dfc1d007c8c11/deepmerge-2.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4441674Z   proxy | 2026/09/19 01:47:17 [464] 200 https://pypi.org:443/simple/opentelemetry-sdk/
+2026-09-19T01:47:17.4459223Z   proxy | 2026/09/19 01:47:17 [463] 200 https://pypi.org:443/simple/protobuf/
+2026-09-19T01:47:17.4496131Z   proxy | 2026/09/19 01:47:17 [475] 200 https://pypi.org:443/simple/cffi/
+2026-09-19T01:47:17.4520933Z   proxy | 2026/09/19 01:47:17 [458] 200 https://files.pythonhosted.org:443/packages/ab/84/02fc1827e8cdded4aa65baef11296a9bbe595c474f0d6d758af082d849fd/execnet-2.1.2-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4535150Z   proxy | 2026/09/19 01:47:17 [472] 200 https://files.pythonhosted.org:443/packages/32/46/9cb0e58b2deb7f82b84065f37f3bffeb12413f947f9388e4cac22c4621ce/sortedcontainers-2.4.0-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.4552461Z   proxy | 2026/09/19 01:47:17 [487] GET https://files.pythonhosted.org:443/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.4579622Z   proxy | 2026/09/19 01:47:17 [460] 200 https://files.pythonhosted.org:443/packages/0a/14/933037032608787fb92e365883ad6a741c235e0ff992865ec5d904a38f1e/graphql_core-3.2.7-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4596439Z   proxy | 2026/09/19 01:47:17 [493] GET https://files.pythonhosted.org:443/packages/a6/a5/c0b6468d3824fe3fde30dbb5e1f687b291608f9473681bbf7dabbf5a87d7/text_unidecode-1.3-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.4609042Z   proxy | 2026/09/19 01:47:17 [470] 200 https://files.pythonhosted.org:443/packages/2c/19/04f9b178c2d8a15b076c8b5140708fa6ffc5601fb6f1e975537072df5b2a/mergedeep-1.3.4-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4618151Z   proxy | 2026/09/19 01:47:17 [494] GET https://files.pythonhosted.org:443/packages/a6/0e/49df70d9b81fb5cbae4bbf2a49d865b09bcbcbc4eb53f5851b1027738d78/opentelemetry_semantic_conventions-0.65b0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4635270Z   proxy | 2026/09/19 01:47:17 [495] GET https://files.pythonhosted.org:443/packages/7f/3e/5db95bcf282c52709639744ca2a8b149baccf648e39c8cc87553df9eae0c/urllib3-2.7.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4687548Z   proxy | 2026/09/19 01:47:17 [488] GET https://files.pythonhosted.org:443/packages/f7/ec/67fbef5d497f86283db54c22eec6f6140243aae73265799baaaa19cd17fb/ghp_import-2.1.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4712567Z   proxy | 2026/09/19 01:47:17 [498] GET https://files.pythonhosted.org:443/packages/55/e2/2537ebcff11c1ee1ff17d8d0b6f4db75873e3b0fb32c2d4a2ee31ecb310a/docstring_parser-0.17.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4746977Z   proxy | 2026/09/19 01:47:17 [499] GET https://files.pythonhosted.org:443/packages/3c/c1/d73f12f8cdb1891334a2ccf7389eed244d3941e74d80dd220badb937f3fb/wcwidth-0.5.3-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4806129Z   proxy | 2026/09/19 01:47:17 [500] GET https://files.pythonhosted.org:443/packages/23/3f/ab8d29df207ce5f470a07fa96ebb48af4e95b7fab7e7635311b9a32f2fab/opentelemetry_util_http-0.65b0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4845872Z   proxy | 2026/09/19 01:47:17 [478] 200 https://files.pythonhosted.org:443/packages/04/11/432f32f8097b03e3cd5fe57e88efb685d964e2e5178a48ed61e841f7fdce/pyyaml_env_tag-1.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4896397Z   proxy | 2026/09/19 01:47:17 [501] GET https://files.pythonhosted.org:443/packages/e7/23/ff077e61886ee020a17ce9c8b6fa11c601c8d8345b09ea24f605445df62a/opentelemetry_sdk-1.44.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4942272Z   proxy | 2026/09/19 01:47:17 [511] GET https://files.pythonhosted.org:443/packages/64/6b/cdc85edb15e384d8e934aad89638cc8646e118c80de94c60125d0fc0a185/tenacity-9.1.3-py3-none-any.whl.metadata
+2026-09-19T01:47:17.4992877Z   proxy | 2026/09/19 01:47:17 [467] 200 https://files.pythonhosted.org:443/packages/60/97/3c0a35f46e52108d4707c44b95cfe2afcafc50800b5450c197454569b776/argon2_cffi_bindings-25.1.0-cp314-cp314t-macosx_10_13_universal2.whl.metadata
+2026-09-19T01:47:17.5005259Z   proxy | 2026/09/19 01:47:17 [480] 200 https://files.pythonhosted.org:443/packages/55/8b/5ab7257531a5d830fc8000c476e63c935488d74609b50f9384a643ec0a62/outcome-1.3.0.post0-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.5012325Z   proxy | 2026/09/19 01:47:17 [498] 200 https://files.pythonhosted.org:443/packages/55/e2/2537ebcff11c1ee1ff17d8d0b6f4db75873e3b0fb32c2d4a2ee31ecb310a/docstring_parser-0.17.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5019229Z   proxy | 2026/09/19 01:47:17 [488] 200 https://files.pythonhosted.org:443/packages/f7/ec/67fbef5d497f86283db54c22eec6f6140243aae73265799baaaa19cd17fb/ghp_import-2.1.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5049965Z   proxy | 2026/09/19 01:47:17 [466] 200 https://files.pythonhosted.org:443/packages/3c/d9/3dc2289e1f3b32eb19b9785b6a006b28ee99acb37d1d47f78d4c10e28bf8/tomli-2.4.0-cp311-cp311-macosx_10_9_x86_64.whl.metadata
+2026-09-19T01:47:17.5054333Z   proxy | 2026/09/19 01:47:17 [476] 200 https://files.pythonhosted.org:443/packages/94/54/e7d793b573f298e1c9013b8c4dade17d481164aa517d1d7148619c2cedbf/markdown_it_py-4.0.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5058870Z   proxy | 2026/09/19 01:47:17 [499] 200 https://files.pythonhosted.org:443/packages/3c/c1/d73f12f8cdb1891334a2ccf7389eed244d3941e74d80dd220badb937f3fb/wcwidth-0.5.3-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5082381Z   proxy | 2026/09/19 01:47:17 [512] GET https://files.pythonhosted.org:443/packages/0c/56/90994d789c61df619bfc5ce2ecdabd5eeff564e1eb47512bd01b5e019569/watchdog-6.0.0-cp310-cp310-macosx_10_9_universal2.whl.metadata
+2026-09-19T01:47:17.5086985Z   proxy | 2026/09/19 01:47:17 [513] GET https://files.pythonhosted.org:443/packages/51/08/510cbdb69c25a96f4ae523f733cdc963ae654904e8db864c07585ef99875/psutil-7.2.2-cp313-cp313t-macosx_10_13_x86_64.whl.metadata
+2026-09-19T01:47:17.5090657Z   proxy | 2026/09/19 01:47:17 [479] 200 https://files.pythonhosted.org:443/packages/f4/24/2a3e3df732393fed8b3ebf2ec078f05546de641fe1b667ee316ec1dcf3b7/webencodings-0.5.1-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.5093502Z   proxy | 2026/09/19 01:47:17 [468] 200 https://files.pythonhosted.org:443/packages/56/5d/c814546c2333ceea4ba42262d8c4d55763003e767fa169adc693bd524478/requests-2.33.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5096557Z   proxy | 2026/09/19 01:47:17 [465] 200 https://files.pythonhosted.org:443/packages/7a/4a/78b52ec2edcbd9b123638f4e0421fd8699ebe653ebf63ac5f82abd2665bc/cross_web-0.7.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5101262Z   proxy | 2026/09/19 01:47:17 [503] GET https://files.pythonhosted.org:443/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5106829Z   proxy | 2026/09/19 01:47:17 [473] 200 https://files.pythonhosted.org:443/packages/12/b3/231ffd4ab1fc9d679809f356cebee130ac7daa00d6d6f3206dd4fd137e9e/distro-1.9.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5109364Z   proxy | 2026/09/19 01:47:17 [477] 200 https://files.pythonhosted.org:443/packages/e9/44/75a9c9421471a6c4805dbf2356f7c181a29c1879239abab1ea2cc8f38b40/sniffio-1.3.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5118027Z   proxy | 2026/09/19 01:47:17 [469] 200 https://files.pythonhosted.org:443/packages/3a/2a/7cc015f5b9f5db42b7d48157e23356022889fc354a2813c15934b7cb5c0e/attrs-25.4.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5120886Z   proxy | 2026/09/19 01:47:17 [471] 200 https://files.pythonhosted.org:443/packages/f4/7e/a72dd26f3b0f4f2bf1dd8923c85f7ceb43172af56d63c7383eb62b332364/pygments-2.20.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5124258Z   proxy | 2026/09/19 01:47:17 [494] 200 https://files.pythonhosted.org:443/packages/a6/0e/49df70d9b81fb5cbae4bbf2a49d865b09bcbcbc4eb53f5851b1027738d78/opentelemetry_semantic_conventions-0.65b0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5128070Z   proxy | 2026/09/19 01:47:17 [487] 200 https://files.pythonhosted.org:443/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.5130706Z   proxy | 2026/09/19 01:47:17 [493] 200 https://files.pythonhosted.org:443/packages/a6/a5/c0b6468d3824fe3fde30dbb5e1f687b291608f9473681bbf7dabbf5a87d7/text_unidecode-1.3-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.5133500Z   proxy | 2026/09/19 01:47:17 [514] GET https://files.pythonhosted.org:443/packages/00/f3/8508a702c094af5f6e89773f4dfdeee74913df0f41a02c21b5e7dc3d75cd/google_auth-2.57.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5136411Z   proxy | 2026/09/19 01:47:17 [474] 200 https://files.pythonhosted.org:443/packages/ca/63/2c6daf59d86b1c30600bff679d039f57fd1932af82c43c0bde1cbc55e8d4/sentry_sdk-2.52.0-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.5140796Z   proxy | 2026/09/19 01:47:17 [481] 200 https://files.pythonhosted.org:443/packages/2d/82/e5d2c1c67d19841e9edc74954c827444ae826978499bde3dfc1d007c8c11/deepmerge-2.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5167400Z   proxy | 2026/09/19 01:47:17 [449] 200 https://files.pythonhosted.org:443/packages/e0/f9/0595336914c5619e5f28a1fb793285925a8cd4b432c9da0a987836c7f822/shellingham-1.5.4-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.5174721Z   proxy | 2026/09/19 01:47:17 [515] GET https://files.pythonhosted.org:443/packages/cd/d0/fdeb1a98d8d3a6205f5f297c51b4a9bfe65126ab60339669bbe3dd54c2e2/opentelemetry_exporter_otlp_proto_http-1.44.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5179235Z   proxy | 2026/09/19 01:47:17 [516] GET https://files.pythonhosted.org:443/packages/04/be/d09147ad1ec7934636ad912901c5fd7667e1c858e19d355237db0d0cd5e4/smmap-5.0.2-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5182896Z   proxy | 2026/09/19 01:47:17 [502] GET https://files.pythonhosted.org:443/packages/40/7b/85eab1215f72adf0e68d3dc4a679b9bff993fa679ff34cd8dd378e2659fd/opentelemetry_instrumentation-0.65b0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5246604Z   proxy | 2026/09/19 01:47:17 [501] 200 https://files.pythonhosted.org:443/packages/e7/23/ff077e61886ee020a17ce9c8b6fa11c601c8d8345b09ea24f605445df62a/opentelemetry_sdk-1.44.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5319888Z   proxy | 2026/09/19 01:47:17 [516] 200 https://files.pythonhosted.org:443/packages/04/be/d09147ad1ec7934636ad912901c5fd7667e1c858e19d355237db0d0cd5e4/smmap-5.0.2-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5340033Z   proxy | 2026/09/19 01:47:17 [518] GET https://files.pythonhosted.org:443/packages/93/d7/516d984057745a6cd96575eea814fe1edd6646ee6efd552fb7b0921dec83/cffi-2.0.0-cp310-cp310-macosx_10_13_x86_64.whl.metadata
+2026-09-19T01:47:17.5344038Z   proxy | 2026/09/19 01:47:17 [511] 200 https://files.pythonhosted.org:443/packages/64/6b/cdc85edb15e384d8e934aad89638cc8646e118c80de94c60125d0fc0a185/tenacity-9.1.3-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5350073Z   proxy | 2026/09/19 01:47:17 [514] 200 https://files.pythonhosted.org:443/packages/00/f3/8508a702c094af5f6e89773f4dfdeee74913df0f41a02c21b5e7dc3d75cd/google_auth-2.57.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5356222Z   proxy | 2026/09/19 01:47:17 [517] GET https://files.pythonhosted.org:443/packages/76/d8/b959609e44012a42b1f3e5ba98ea3b33c7e41e6d4b77cd8f00fd19b1d3ad/jiter-0.16.0-cp310-cp310-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:17.5360959Z   proxy | 2026/09/19 01:47:17 [513] 200 https://files.pythonhosted.org:443/packages/51/08/510cbdb69c25a96f4ae523f733cdc963ae654904e8db864c07585ef99875/psutil-7.2.2-cp313-cp313t-macosx_10_13_x86_64.whl.metadata
+2026-09-19T01:47:17.5370673Z   proxy | 2026/09/19 01:47:17 [495] 200 https://files.pythonhosted.org:443/packages/7f/3e/5db95bcf282c52709639744ca2a8b149baccf648e39c8cc87553df9eae0c/urllib3-2.7.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5376336Z   proxy | 2026/09/19 01:47:17 [503] 200 https://files.pythonhosted.org:443/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5382193Z   proxy | 2026/09/19 01:47:17 [515] 200 https://files.pythonhosted.org:443/packages/cd/d0/fdeb1a98d8d3a6205f5f297c51b4a9bfe65126ab60339669bbe3dd54c2e2/opentelemetry_exporter_otlp_proto_http-1.44.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5386511Z   proxy | 2026/09/19 01:47:17 [500] 200 https://files.pythonhosted.org:443/packages/23/3f/ab8d29df207ce5f470a07fa96ebb48af4e95b7fab7e7635311b9a32f2fab/opentelemetry_util_http-0.65b0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5391915Z   proxy | 2026/09/19 01:47:17 [502] 200 https://files.pythonhosted.org:443/packages/40/7b/85eab1215f72adf0e68d3dc4a679b9bff993fa679ff34cd8dd378e2659fd/opentelemetry_instrumentation-0.65b0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5397843Z   proxy | 2026/09/19 01:47:17 [512] 200 https://files.pythonhosted.org:443/packages/0c/56/90994d789c61df619bfc5ce2ecdabd5eeff564e1eb47512bd01b5e019569/watchdog-6.0.0-cp310-cp310-macosx_10_9_universal2.whl.metadata
+2026-09-19T01:47:17.5415636Z   proxy | 2026/09/19 01:47:17 [518] 200 https://files.pythonhosted.org:443/packages/93/d7/516d984057745a6cd96575eea814fe1edd6646ee6efd552fb7b0921dec83/cffi-2.0.0-cp310-cp310-macosx_10_13_x86_64.whl.metadata
+2026-09-19T01:47:17.5465124Z   proxy | 2026/09/19 01:47:17 [517] 200 https://files.pythonhosted.org:443/packages/76/d8/b959609e44012a42b1f3e5ba98ea3b33c7e41e6d4b77cd8f00fd19b1d3ad/jiter-0.16.0-cp310-cp310-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:17.5498578Z   proxy | 2026/09/19 01:47:17 [519] GET https://files.pythonhosted.org:443/packages/86/7a/b970cd0138b0ece72eb28f086e933f9ed75b795716ad3de5ab22994b3b54/rignore-0.7.6-cp310-cp310-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:17.5519021Z   proxy | 2026/09/19 01:47:17 [520] GET https://pypi.org:443/simple/authlib/
+2026-09-19T01:47:17.5580398Z   proxy | 2026/09/19 01:47:17 [521] GET https://pypi.org:443/simple/mcp/
+2026-09-19T01:47:17.5586384Z 2026/09/19 01:47:17 [522] GET https://pypi.org:443/simple/exceptiongroup/
+2026-09-19T01:47:17.5587613Z 2026/09/19 01:47:17 [523] GET https://pypi.org:443/simple/py-key-value-aio/
+2026-09-19T01:47:17.5598664Z   proxy | 2026/09/19 01:47:17 [520] 200 https://pypi.org:443/simple/authlib/
+2026-09-19T01:47:17.5612217Z   proxy | 2026/09/19 01:47:17 [519] 200 https://files.pythonhosted.org:443/packages/86/7a/b970cd0138b0ece72eb28f086e933f9ed75b795716ad3de5ab22994b3b54/rignore-0.7.6-cp310-cp310-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:17.5618389Z   proxy | 2026/09/19 01:47:17 [521] 200 https://pypi.org:443/simple/mcp/
+2026-09-19T01:47:17.5667015Z   proxy | 2026/09/19 01:47:17 [524] GET https://files.pythonhosted.org:443/packages/b1/79/af92d0a8369732b027e6d6084251dd8e782c685c72da161bd4a2e00fbabb/protobuf-6.33.5-cp310-abi3-win32.whl.metadata
+2026-09-19T01:47:17.5686218Z   proxy | 2026/09/19 01:47:17 [525] GET https://files.pythonhosted.org:443/packages/fb/95/adcb68e20c34162e9135f370d6e31737719c2b6f94bc953fe7ed1f10fe21/authlib-1.7.2-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.5707146Z   proxy | 2026/09/19 01:47:17 [526] GET https://files.pythonhosted.org:443/packages/e2/5e/d118fce19f87a2e7d8101c35c8ae0ec289098a4df0ff244cec23e415aca0/mcp-1.28.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5709223Z   proxy | 2026/09/19 01:47:17 [522] 200 https://pypi.org:443/simple/exceptiongroup/
+2026-09-19T01:47:17.5721938Z   proxy | 2026/09/19 01:47:17 [523] 200 https://pypi.org:443/simple/py-key-value-aio/
+2026-09-19T01:47:17.5731896Z   proxy | 2026/09/19 01:47:17 [524] 200 https://files.pythonhosted.org:443/packages/b1/79/af92d0a8369732b027e6d6084251dd8e782c685c72da161bd4a2e00fbabb/protobuf-6.33.5-cp310-abi3-win32.whl.metadata
+2026-09-19T01:47:17.5767251Z   proxy | 2026/09/19 01:47:17 [525] 200 https://files.pythonhosted.org:443/packages/fb/95/adcb68e20c34162e9135f370d6e31737719c2b6f94bc953fe7ed1f10fe21/authlib-1.7.2-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.5820361Z   proxy | 2026/09/19 01:47:17 [527] GET https://files.pythonhosted.org:443/packages/c5/5c/59086b4aac5e879d38ddbcf74e4be7ade89cebc3eb199a55da998c3bb46a/cryptography-50.0.0-cp311-abi3-macosx_11_0_arm64.whl.metadata
+2026-09-19T01:47:17.5824680Z   proxy | 2026/09/19 01:47:17 [528] GET https://files.pythonhosted.org:443/packages/32/69/f1b537ee70b7def42d63124a539ed3026a11a3ffc3086947a1ca6e861868/py_key_value_aio-0.4.4-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5830458Z   proxy | 2026/09/19 01:47:17 [529] GET https://files.pythonhosted.org:443/packages/8a/0e/97c33bf5009bdbac74fd2beace167cab3f978feb69cc36f1ef79360d6c4e/exceptiongroup-1.3.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5860891Z   proxy | 2026/09/19 01:47:17 [526] 200 https://files.pythonhosted.org:443/packages/e2/5e/d118fce19f87a2e7d8101c35c8ae0ec289098a4df0ff244cec23e415aca0/mcp-1.28.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5877919Z   proxy | 2026/09/19 01:47:17 [527] 200 https://files.pythonhosted.org:443/packages/c5/5c/59086b4aac5e879d38ddbcf74e4be7ade89cebc3eb199a55da998c3bb46a/cryptography-50.0.0-cp311-abi3-macosx_11_0_arm64.whl.metadata
+2026-09-19T01:47:17.5917736Z   proxy | 2026/09/19 01:47:17 [528] 200 https://files.pythonhosted.org:443/packages/32/69/f1b537ee70b7def42d63124a539ed3026a11a3ffc3086947a1ca6e861868/py_key_value_aio-0.4.4-py3-none-any.whl.metadata
+2026-09-19T01:47:17.5941704Z   proxy | 2026/09/19 01:47:17 [529] 200 https://files.pythonhosted.org:443/packages/8a/0e/97c33bf5009bdbac74fd2beace167cab3f978feb69cc36f1ef79360d6c4e/exceptiongroup-1.3.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.6066099Z   proxy | 2026/09/19 01:47:17 [530] GET https://files.pythonhosted.org:443/packages/40/26/66ba59328dc25e523bfcb0f8db48bdebe2035e0159d600e1f01c0fc93967/sqlalchemy-2.0.46-cp310-cp310-macosx_11_0_arm64.whl.metadata
+2026-09-19T01:47:17.6067980Z   proxy | 2026/09/19 01:47:17 [532] GET https://pypi.org:443/simple/pywin32/
+2026-09-19T01:47:17.6068879Z 2026/09/19 01:47:17 [533] GET https://pypi.org:443/simple/jsonschema/
+2026-09-19T01:47:17.6069753Z 2026/09/19 01:47:17 [534] GET https://pypi.org:443/simple/regex/
+2026-09-19T01:47:17.6076448Z   proxy | 2026/09/19 01:47:17 [535] GET https://pypi.org:443/simple/httpx-sse/
+2026-09-19T01:47:17.6077036Z   proxy | 2026/09/19 01:47:17 [531] GET https://pypi.org:443/simple/sse-starlette/
+2026-09-19T01:47:17.6077585Z   proxy | 2026/09/19 01:47:17 [536] GET https://pypi.org:443/simple/charset-normalizer/
+2026-09-19T01:47:17.6125189Z   proxy | 2026/09/19 01:47:17 [533] 200 https://pypi.org:443/simple/jsonschema/
+2026-09-19T01:47:17.6146008Z   proxy | 2026/09/19 01:47:17 [530] 200 https://files.pythonhosted.org:443/packages/40/26/66ba59328dc25e523bfcb0f8db48bdebe2035e0159d600e1f01c0fc93967/sqlalchemy-2.0.46-cp310-cp310-macosx_11_0_arm64.whl.metadata
+2026-09-19T01:47:17.6181908Z   proxy | 2026/09/19 01:47:17 [532] 200 https://pypi.org:443/simple/pywin32/
+2026-09-19T01:47:17.6242631Z   proxy | 2026/09/19 01:47:17 [534] 200 https://pypi.org:443/simple/regex/
+2026-09-19T01:47:17.6249825Z   proxy | 2026/09/19 01:47:17 [535] 200 https://pypi.org:443/simple/httpx-sse/
+2026-09-19T01:47:17.6268785Z   proxy | 2026/09/19 01:47:17 [531] 200 https://pypi.org:443/simple/sse-starlette/
+2026-09-19T01:47:17.6280222Z   proxy | 2026/09/19 01:47:17 [536] 200 https://pypi.org:443/simple/charset-normalizer/
+2026-09-19T01:47:17.6444062Z   proxy | 2026/09/19 01:47:17 [537] GET https://files.pythonhosted.org:443/packages/7b/40/44efbb0dfbd33aca6a6483191dae0716070ed99e2ecb0c53683f400a0b4f/pywin32-311-cp310-cp310-win32.whl.metadata
+2026-09-19T01:47:17.6454269Z   proxy | 2026/09/19 01:47:17 [538] GET https://pypi.org:443/simple/opentelemetry-exporter-otlp-proto-common/
+2026-09-19T01:47:17.6462137Z   proxy | 2026/09/19 01:47:17 [539] GET https://pypi.org:443/simple/opentelemetry-proto/
+2026-09-19T01:47:17.6463782Z 2026/09/19 01:47:17 [540] GET https://pypi.org:443/simple/pyasn1-modules/
+2026-09-19T01:47:17.6464944Z 2026/09/19 01:47:17 [541] GET https://pypi.org:443/simple/googleapis-common-protos/
+2026-09-19T01:47:17.6474054Z   proxy | 2026/09/19 01:47:17 [542] GET https://pypi.org:443/simple/mdurl/
+2026-09-19T01:47:17.6475725Z 2026/09/19 01:47:17 [543] GET https://pypi.org:443/simple/six/
+2026-09-19T01:47:17.6476778Z 2026/09/19 01:47:17 [544] GET https://pypi.org:443/simple/pycparser/
+2026-09-19T01:47:17.6478677Z 2026/09/19 01:47:17 [545] GET https://files.pythonhosted.org:443/packages/3f/23/bb82321b86411eb51e5a5db3fb8f8032fd30bd7c2d74bfe936136b2fa1d6/wrapt-1.17.3-cp310-cp310-macosx_10_9_universal2.whl.metadata
+2026-09-19T01:47:17.6481380Z 2026/09/19 01:47:17 [546] GET https://files.pythonhosted.org:443/packages/d2/fd/6668e5aec43ab844de6fc74927e155a3b37bf40d7c3790e49fc0406b6578/httpx_sse-0.4.3-py3-none-any.whl.metadata
+2026-09-19T01:47:17.6483950Z 2026/09/19 01:47:17 [547] GET https://files.pythonhosted.org:443/packages/69/90/f63fb5873511e014207a475e2bb4e8b2e570d655b00ac19a9a0ca0a385ee/jsonschema-4.26.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.6486817Z 2026/09/19 01:47:17 [548] GET https://files.pythonhosted.org:443/packages/96/7f/832f015020844a8b8f7a9cbc103dd76ba8e3875004c41e08440ea3a2b41a/sse_starlette-3.2.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.6518239Z   proxy | 2026/09/19 01:47:17 [538] 200 https://pypi.org:443/simple/opentelemetry-exporter-otlp-proto-common/
+2026-09-19T01:47:17.6552426Z   proxy | 2026/09/19 01:47:17 [537] 200 https://files.pythonhosted.org:443/packages/7b/40/44efbb0dfbd33aca6a6483191dae0716070ed99e2ecb0c53683f400a0b4f/pywin32-311-cp310-cp310-win32.whl.metadata
+2026-09-19T01:47:17.6556673Z   proxy | 2026/09/19 01:47:17 [539] 200 https://pypi.org:443/simple/opentelemetry-proto/
+2026-09-19T01:47:17.6571300Z   proxy | 2026/09/19 01:47:17 [545] 200 https://files.pythonhosted.org:443/packages/3f/23/bb82321b86411eb51e5a5db3fb8f8032fd30bd7c2d74bfe936136b2fa1d6/wrapt-1.17.3-cp310-cp310-macosx_10_9_universal2.whl.metadata
+2026-09-19T01:47:17.6583835Z   proxy | 2026/09/19 01:47:17 [549] GET https://files.pythonhosted.org:443/packages/5e/71/65fd9d54c10b860f87c045ccee1264cab7011268895d3528818a29c1172a/opentelemetry_exporter_otlp_proto_common-1.44.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.6644017Z   proxy | 2026/09/19 01:47:17 [550] GET https://files.pythonhosted.org:443/packages/d1/7c/8be563d68e93bbefa5c8affb82ddcff91b3ad858ce49957ba7b16fd3e0ab/opentelemetry_proto-1.44.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.6667181Z   proxy | 2026/09/19 01:47:17 [546] 200 https://files.pythonhosted.org:443/packages/d2/fd/6668e5aec43ab844de6fc74927e155a3b37bf40d7c3790e49fc0406b6578/httpx_sse-0.4.3-py3-none-any.whl.metadata
+2026-09-19T01:47:17.6673823Z   proxy | 2026/09/19 01:47:17 [548] 200 https://files.pythonhosted.org:443/packages/96/7f/832f015020844a8b8f7a9cbc103dd76ba8e3875004c41e08440ea3a2b41a/sse_starlette-3.2.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.6676034Z   proxy | 2026/09/19 01:47:17 [542] 200 https://pypi.org:443/simple/mdurl/
+2026-09-19T01:47:17.6677761Z   proxy | 2026/09/19 01:47:17 [541] 200 https://pypi.org:443/simple/googleapis-common-protos/
+2026-09-19T01:47:17.6679976Z   proxy | 2026/09/19 01:47:17 [540] 200 https://pypi.org:443/simple/pyasn1-modules/
+2026-09-19T01:47:17.6681556Z   proxy | 2026/09/19 01:47:17 [544] 200 https://pypi.org:443/simple/pycparser/
+2026-09-19T01:47:17.6684097Z   proxy | 2026/09/19 01:47:17 [547] 200 https://files.pythonhosted.org:443/packages/69/90/f63fb5873511e014207a475e2bb4e8b2e570d655b00ac19a9a0ca0a385ee/jsonschema-4.26.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.6714976Z   proxy | 2026/09/19 01:47:17 [543] 200 https://pypi.org:443/simple/six/
+2026-09-19T01:47:17.6748187Z   proxy | 2026/09/19 01:47:17 [549] 200 https://files.pythonhosted.org:443/packages/5e/71/65fd9d54c10b860f87c045ccee1264cab7011268895d3528818a29c1172a/opentelemetry_exporter_otlp_proto_common-1.44.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.6818472Z   proxy | 2026/09/19 01:47:17 [550] 200 https://files.pythonhosted.org:443/packages/d1/7c/8be563d68e93bbefa5c8affb82ddcff91b3ad858ce49957ba7b16fd3e0ab/opentelemetry_proto-1.44.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.6925619Z   proxy | 2026/09/19 01:47:17 [551] GET https://files.pythonhosted.org:443/packages/47/8d/d529b5d697919ba8c11ad626e835d4039be708a35b0d22de83a269a6682c/pyasn1_modules-0.4.2-py3-none-any.whl.metadata
+2026-09-19T01:47:17.6927824Z   proxy | 2026/09/19 01:47:17 [552] GET https://pypi.org:443/simple/rpds-py/
+2026-09-19T01:47:17.6929095Z 2026/09/19 01:47:17 [553] GET https://pypi.org:443/simple/referencing/
+2026-09-19T01:47:17.6930513Z 2026/09/19 01:47:17 [554] GET https://pypi.org:443/simple/jsonschema-specifications/
+2026-09-19T01:47:17.6931795Z 2026/09/19 01:47:17 [555] GET https://pypi.org:443/simple/aiofile/
+2026-09-19T01:47:17.6933004Z 2026/09/19 01:47:17 [556] GET https://pypi.org:443/simple/beartype/
+2026-09-19T01:47:17.6934586Z 2026/09/19 01:47:17 [557] GET https://pypi.org:443/simple/joserfc/
+2026-09-19T01:47:17.6937005Z   proxy | 2026/09/19 01:47:17 [558] GET https://files.pythonhosted.org:443/packages/0c/c3/44f3fbbfa403ea2a7c779186dc20772604442dde72947e7d01069cbe98e3/pycparser-3.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.6939795Z 2026/09/19 01:47:17 [559] GET https://files.pythonhosted.org:443/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl.metadata
+2026-09-19T01:47:17.6947881Z   proxy | 2026/09/19 01:47:17 [560] GET https://files.pythonhosted.org:443/packages/c4/ab/09169d5a4612a5f92490806649ac8d41e3ec9129c636754575b3553f4ea4/googleapis_common_protos-1.72.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.6949676Z   proxy | 2026/09/19 01:47:17 [562] GET https://pypi.org:443/simple/keyring/
+2026-09-19T01:47:17.6951281Z 2026/09/19 01:47:17 [563] GET https://files.pythonhosted.org:443/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.6952874Z   proxy | 2026/09/19 01:47:17 [561] GET https://pypi.org:443/simple/cachetools/
+2026-09-19T01:47:17.6955088Z   proxy | 2026/09/19 01:47:17 [564] GET https://files.pythonhosted.org:443/packages/1f/b8/6d51fc1d52cbd52cd4ccedd5b5b2f0f6a11bbf6765c782298b0f3e808541/charset_normalizer-3.4.4-cp310-cp310-macosx_10_9_universal2.whl.metadata
+2026-09-19T01:47:17.6998687Z   proxy | 2026/09/19 01:47:17 [553] 200 https://pypi.org:443/simple/referencing/
+2026-09-19T01:47:17.7010429Z   proxy | 2026/09/19 01:47:17 [562] 200 https://pypi.org:443/simple/keyring/
+2026-09-19T01:47:17.7034027Z   proxy | 2026/09/19 01:47:17 [551] 200 https://files.pythonhosted.org:443/packages/47/8d/d529b5d697919ba8c11ad626e835d4039be708a35b0d22de83a269a6682c/pyasn1_modules-0.4.2-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7040442Z   proxy | 2026/09/19 01:47:17 [560] 200 https://files.pythonhosted.org:443/packages/c4/ab/09169d5a4612a5f92490806649ac8d41e3ec9129c636754575b3553f4ea4/googleapis_common_protos-1.72.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7042182Z 2026/09/19 01:47:17 [552] 200 https://pypi.org:443/simple/rpds-py/
+2026-09-19T01:47:17.7096429Z   proxy | 2026/09/19 01:47:17 [554] 200 https://pypi.org:443/simple/jsonschema-specifications/
+2026-09-19T01:47:17.7110279Z   proxy | 2026/09/19 01:47:17 [561] 200 https://pypi.org:443/simple/cachetools/
+2026-09-19T01:47:17.7122580Z   proxy | 2026/09/19 01:47:17 [563] 200 https://files.pythonhosted.org:443/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl.metadata
+2026-09-19T01:47:17.7129500Z   proxy | 2026/09/19 01:47:17 [555] 200 https://pypi.org:443/simple/aiofile/
+2026-09-19T01:47:17.7140919Z   proxy | 2026/09/19 01:47:17 [564] 200 https://files.pythonhosted.org:443/packages/1f/b8/6d51fc1d52cbd52cd4ccedd5b5b2f0f6a11bbf6765c782298b0f3e808541/charset_normalizer-3.4.4-cp310-cp310-macosx_10_9_universal2.whl.metadata
+2026-09-19T01:47:17.7167703Z   proxy | 2026/09/19 01:47:17 [558] 200 https://files.pythonhosted.org:443/packages/0c/c3/44f3fbbfa403ea2a7c779186dc20772604442dde72947e7d01069cbe98e3/pycparser-3.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7172416Z   proxy | 2026/09/19 01:47:17 [559] 200 https://files.pythonhosted.org:443/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7174018Z   proxy | 2026/09/19 01:47:17 [556] 200 https://pypi.org:443/simple/beartype/
+2026-09-19T01:47:17.7174712Z 2026/09/19 01:47:17 [557] 200 https://pypi.org:443/simple/joserfc/
+2026-09-19T01:47:17.7457844Z   proxy | 2026/09/19 01:47:17 [565] GET https://files.pythonhosted.org:443/packages/c1/b1/3baf80dc6d2b7bc27a95a67752d0208e410351e3feb4eb78de5f77454d8d/referencing-0.36.2-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7506718Z   proxy | 2026/09/19 01:47:17 [566] GET https://files.pythonhosted.org:443/packages/ea/d2/e6ee96b7dff201a83f650241c52db8e5bd080967cb93211f57aa448dc9d6/regex-2026.1.15-cp310-cp310-macosx_10_9_universal2.whl.metadata
+2026-09-19T01:47:17.7515758Z   proxy | 2026/09/19 01:47:17 [567] GET https://files.pythonhosted.org:443/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7518543Z   proxy | 2026/09/19 01:47:17 [568] GET https://files.pythonhosted.org:443/packages/81/db/e655086b7f3a705df045bf0933bdd9c2f79bb3c97bfef1384598bb79a217/keyring-25.7.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7532863Z   proxy | 2026/09/19 01:47:17 [565] 200 https://files.pythonhosted.org:443/packages/c1/b1/3baf80dc6d2b7bc27a95a67752d0208e410351e3feb4eb78de5f77454d8d/referencing-0.36.2-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7535894Z 2026/09/19 01:47:17 [569] GET https://files.pythonhosted.org:443/packages/28/df/2dd32cce20cbcf6f2ec456b58d44368161ad28320729f64e5e1d5d7bd0ae/cachetools-7.0.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7557437Z   proxy | 2026/09/19 01:47:17 [570] GET https://files.pythonhosted.org:443/packages/98/8c/5cdce2cf3ce8155849baf9a5e2ce77e89dc87ec3bdb38259e5d85fbc45bd/joserfc-1.6.8-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7562262Z   proxy | 2026/09/19 01:47:17 [571] GET https://files.pythonhosted.org:443/packages/50/25/da1f0b4dd970e52bf5a36c204c107e11a0c6d3ed195eba0bfbc664c312b2/aiofile-3.9.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7564895Z 2026/09/19 01:47:17 [572] GET https://files.pythonhosted.org:443/packages/71/cc/18245721fa7747065ab478316c7fea7c74777d07f37ae60db2e84f8172e8/beartype-0.22.9-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7588376Z   proxy | 2026/09/19 01:47:17 [566] 200 https://files.pythonhosted.org:443/packages/ea/d2/e6ee96b7dff201a83f650241c52db8e5bd080967cb93211f57aa448dc9d6/regex-2026.1.15-cp310-cp310-macosx_10_9_universal2.whl.metadata
+2026-09-19T01:47:17.7604791Z   proxy | 2026/09/19 01:47:17 [567] 200 https://files.pythonhosted.org:443/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7644113Z   proxy | 2026/09/19 01:47:17 [573] GET https://pypi.org:443/simple/pyasn1/
+2026-09-19T01:47:17.7687164Z   proxy | 2026/09/19 01:47:17 [568] 200 https://files.pythonhosted.org:443/packages/81/db/e655086b7f3a705df045bf0933bdd9c2f79bb3c97bfef1384598bb79a217/keyring-25.7.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7710103Z   proxy | 2026/09/19 01:47:17 [569] 200 https://files.pythonhosted.org:443/packages/28/df/2dd32cce20cbcf6f2ec456b58d44368161ad28320729f64e5e1d5d7bd0ae/cachetools-7.0.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7712210Z   proxy | 2026/09/19 01:47:17 [573] 200 https://pypi.org:443/simple/pyasn1/
+2026-09-19T01:47:17.7722232Z   proxy | 2026/09/19 01:47:17 [572] 200 https://files.pythonhosted.org:443/packages/71/cc/18245721fa7747065ab478316c7fea7c74777d07f37ae60db2e84f8172e8/beartype-0.22.9-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7762915Z   proxy | 2026/09/19 01:47:17 [571] 200 https://files.pythonhosted.org:443/packages/50/25/da1f0b4dd970e52bf5a36c204c107e11a0c6d3ed195eba0bfbc664c312b2/aiofile-3.9.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7772248Z   proxy | 2026/09/19 01:47:17 [574] GET https://files.pythonhosted.org:443/packages/9a/3b/6163796d69c3977d1e4287bea4a6979161cbbdd170ebb430511e8e1999ce/pyasn1-0.6.4-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7781436Z   proxy | 2026/09/19 01:47:17 [570] 200 https://files.pythonhosted.org:443/packages/98/8c/5cdce2cf3ce8155849baf9a5e2ce77e89dc87ec3bdb38259e5d85fbc45bd/joserfc-1.6.8-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7802536Z   proxy | 2026/09/19 01:47:17 [575] GET https://pypi.org:443/simple/jeepney/
+2026-09-19T01:47:17.7807093Z   proxy | 2026/09/19 01:47:17 [576] GET https://pypi.org:443/simple/secretstorage/
+2026-09-19T01:47:17.7810084Z   proxy | 2026/09/19 01:47:17 [577] GET https://pypi.org:443/simple/jaraco-context/
+2026-09-19T01:47:17.7826408Z   proxy | 2026/09/19 01:47:17 [578] GET https://pypi.org:443/simple/jaraco-classes/
+2026-09-19T01:47:17.7827597Z 2026/09/19 01:47:17 [579] GET https://pypi.org:443/simple/caio/
+2026-09-19T01:47:17.7828613Z 2026/09/19 01:47:17 [580] GET https://pypi.org:443/simple/pywin32-ctypes/
+2026-09-19T01:47:17.7829671Z 2026/09/19 01:47:17 [581] GET https://pypi.org:443/simple/jaraco-functools/
+2026-09-19T01:47:17.7871030Z   proxy | 2026/09/19 01:47:17 [574] 200 https://files.pythonhosted.org:443/packages/9a/3b/6163796d69c3977d1e4287bea4a6979161cbbdd170ebb430511e8e1999ce/pyasn1-0.6.4-py3-none-any.whl.metadata
+2026-09-19T01:47:17.7874899Z   proxy | 2026/09/19 01:47:17 [575] 200 https://pypi.org:443/simple/jeepney/
+2026-09-19T01:47:17.7891799Z   proxy | 2026/09/19 01:47:17 [577] 200 https://pypi.org:443/simple/jaraco-context/
+2026-09-19T01:47:17.7892748Z 2026/09/19 01:47:17 [576] 200 https://pypi.org:443/simple/secretstorage/
+2026-09-19T01:47:17.7945086Z   proxy | 2026/09/19 01:47:17 [579] 200 https://pypi.org:443/simple/caio/
+2026-09-19T01:47:17.7950505Z   proxy | 2026/09/19 01:47:17 [580] 200 https://pypi.org:443/simple/pywin32-ctypes/
+2026-09-19T01:47:17.7998209Z   proxy | 2026/09/19 01:47:17 [578] 200 https://pypi.org:443/simple/jaraco-classes/
+2026-09-19T01:47:17.8015811Z   proxy | 2026/09/19 01:47:17 [582] GET https://files.pythonhosted.org:443/packages/06/0c/0c411a0ec64ccb6d104dcabe0e713e05e153a9a2c3c2bd2b32ce412166fe/rpds_py-0.30.0-cp310-cp310-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:17.8028818Z   proxy | 2026/09/19 01:47:17 [584] GET https://files.pythonhosted.org:443/packages/b2/a3/e137168c9c44d18eff0376253da9f1e9234d0239e0ee230d2fee6cea8e55/jeepney-0.9.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8033150Z 2026/09/19 01:47:17 [585] GET https://files.pythonhosted.org:443/packages/b7/46/f5af3402b579fd5e11573ce652019a67074317e18c1935cc0b4ba9b35552/secretstorage-3.5.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8035720Z 2026/09/19 01:47:17 [583] GET https://files.pythonhosted.org:443/packages/de/3d/8161f7711c017e01ac9f008dfddd9410dff3674334c233bde66e7ba65bbf/pywin32_ctypes-0.2.3-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8046865Z   proxy | 2026/09/19 01:47:17 [586] GET https://files.pythonhosted.org:443/packages/8d/48/aa685dbf1024c7bd82bede569e3a85f82c32fd3d79ba5fea578f0159571a/jaraco_context-6.1.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8049807Z 2026/09/19 01:47:17 [587] GET https://files.pythonhosted.org:443/packages/7f/66/b15ce62552d84bbfcec9a4873ab79d993a1dd4edb922cbfccae192bd5b5f/jaraco.classes-3.4.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8052664Z   proxy | 2026/09/19 01:47:17 [581] 200 https://pypi.org:443/simple/jaraco-functools/
+2026-09-19T01:47:17.8077301Z   proxy | 2026/09/19 01:47:17 [582] 200 https://files.pythonhosted.org:443/packages/06/0c/0c411a0ec64ccb6d104dcabe0e713e05e153a9a2c3c2bd2b32ce412166fe/rpds_py-0.30.0-cp310-cp310-macosx_10_12_x86_64.whl.metadata
+2026-09-19T01:47:17.8084001Z   proxy | 2026/09/19 01:47:17 [588] GET https://files.pythonhosted.org:443/packages/fd/c4/813bb09f0985cb21e959f21f2464169eca882656849adf727ac7bb7e1767/jaraco_functools-4.4.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8096006Z   proxy | 2026/09/19 01:47:17 [584] 200 https://files.pythonhosted.org:443/packages/b2/a3/e137168c9c44d18eff0376253da9f1e9234d0239e0ee230d2fee6cea8e55/jeepney-0.9.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8098536Z   proxy | 2026/09/19 01:47:17 [589] GET https://files.pythonhosted.org:443/packages/6a/80/ea4ead0c5d52a9828692e7df20f0eafe8d26e671ce4883a0a146bb91049e/caio-0.9.25-cp310-cp310-macosx_10_9_universal2.whl.metadata
+2026-09-19T01:47:17.8137018Z   proxy | 2026/09/19 01:47:17 [585] 200 https://files.pythonhosted.org:443/packages/b7/46/f5af3402b579fd5e11573ce652019a67074317e18c1935cc0b4ba9b35552/secretstorage-3.5.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8158493Z   proxy | 2026/09/19 01:47:17 [583] 200 https://files.pythonhosted.org:443/packages/de/3d/8161f7711c017e01ac9f008dfddd9410dff3674334c233bde66e7ba65bbf/pywin32_ctypes-0.2.3-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8216873Z   proxy | 2026/09/19 01:47:17 [586] 200 https://files.pythonhosted.org:443/packages/8d/48/aa685dbf1024c7bd82bede569e3a85f82c32fd3d79ba5fea578f0159571a/jaraco_context-6.1.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8223359Z   proxy | 2026/09/19 01:47:17 [588] 200 https://files.pythonhosted.org:443/packages/fd/c4/813bb09f0985cb21e959f21f2464169eca882656849adf727ac7bb7e1767/jaraco_functools-4.4.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8233604Z   proxy | 2026/09/19 01:47:17 [587] 200 https://files.pythonhosted.org:443/packages/7f/66/b15ce62552d84bbfcec9a4873ab79d993a1dd4edb922cbfccae192bd5b5f/jaraco.classes-3.4.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8275886Z   proxy | 2026/09/19 01:47:17 [589] 200 https://files.pythonhosted.org:443/packages/6a/80/ea4ead0c5d52a9828692e7df20f0eafe8d26e671ce4883a0a146bb91049e/caio-0.9.25-cp310-cp310-macosx_10_9_universal2.whl.metadata
+2026-09-19T01:47:17.8290878Z   proxy | 2026/09/19 01:47:17 [590] GET https://pypi.org:443/simple/more-itertools/
+2026-09-19T01:47:17.8351476Z   proxy | 2026/09/19 01:47:17 [590] 200 https://pypi.org:443/simple/more-itertools/
+2026-09-19T01:47:17.8372903Z   proxy | 2026/09/19 01:47:17 [591] GET https://files.pythonhosted.org:443/packages/a4/8e/469e5a4a2f5855992e425f3cb33804cc07bf18d48f2db061aec61ce50270/more_itertools-10.8.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8451990Z   proxy | 2026/09/19 01:47:17 [591] 200 https://files.pythonhosted.org:443/packages/a4/8e/469e5a4a2f5855992e425f3cb33804cc07bf18d48f2db061aec61ce50270/more_itertools-10.8.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8624810Z   proxy | 2026/09/19 01:47:17 [592] GET https://pypi.org:443/simple/importlib-metadata/
+2026-09-19T01:47:17.8684952Z   proxy | 2026/09/19 01:47:17 [592] 200 https://pypi.org:443/simple/importlib-metadata/
+2026-09-19T01:47:17.8722602Z   proxy | 2026/09/19 01:47:17 [593] GET https://files.pythonhosted.org:443/packages/fa/5e/f8e9a1d23b9c20a551a8a02ea3637b4642e22c2626e3a13a9a29cdea99eb/importlib_metadata-8.7.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8785622Z   proxy | 2026/09/19 01:47:17 [593] 200 https://files.pythonhosted.org:443/packages/fa/5e/f8e9a1d23b9c20a551a8a02ea3637b4642e22c2626e3a13a9a29cdea99eb/importlib_metadata-8.7.1-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8793389Z   proxy | 2026/09/19 01:47:17 [594] GET https://pypi.org:443/simple/zipp/
+2026-09-19T01:47:17.8795997Z   proxy | 2026/09/19 01:47:17 [595] GET https://pypi.org:443/simple/backports-tarfile/
+2026-09-19T01:47:17.8852967Z   proxy | 2026/09/19 01:47:17 [594] 200 https://pypi.org:443/simple/zipp/
+2026-09-19T01:47:17.8862681Z   proxy | 2026/09/19 01:47:17 [595] 200 https://pypi.org:443/simple/backports-tarfile/
+2026-09-19T01:47:17.8879405Z   proxy | 2026/09/19 01:47:17 [596] GET https://files.pythonhosted.org:443/packages/b9/fa/123043af240e49752f1c4bd24da5053b6bd00cad78c2be53c0d1e8b975bc/backports.tarfile-1.2.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8882330Z   proxy | 2026/09/19 01:47:17 [597] GET https://files.pythonhosted.org:443/packages/2e/54/647ade08bf0db230bfea292f893923872fd20be6ac6f53b2b936ba839d75/zipp-3.23.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8940422Z   proxy | 2026/09/19 01:47:17 [596] 200 https://files.pythonhosted.org:443/packages/b9/fa/123043af240e49752f1c4bd24da5053b6bd00cad78c2be53c0d1e8b975bc/backports.tarfile-1.2.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.8944124Z   proxy | 2026/09/19 01:47:17 [597] 200 https://files.pythonhosted.org:443/packages/2e/54/647ade08bf0db230bfea292f893923872fd20be6ac6f53b2b936ba839d75/zipp-3.23.0-py3-none-any.whl.metadata
+2026-09-19T01:47:17.9377001Z updater | 2026/09/19 01:47:17 INFO <job_1582741952> Process PID: 1979 completed with status: pid 1979 exit 0
+2026-09-19T01:47:17.9377645Z 2026/09/19 01:47:17 INFO <job_1582741952> Total execution time: 3.36 seconds
+2026-09-19T01:47:26.6210382Z updater | 2026/09/19 01:47:26 INFO <job_1582741952> Requirements to unlock own
+2026-09-19T01:47:26.6211388Z 2026/09/19 01:47:26 INFO <job_1582741952> Requirements update strategy bump_versions
+2026-09-19T01:47:26.6278256Z updater | 2026/09/19 01:47:26 INFO <job_1582741952> Updating mcp from 1.26.0 to 1.28.1
+2026-09-19T01:47:26.6978858Z updater | 2026/09/19 01:47:26 INFO <job_1582741952> Started process PID: 2058 with command: {} pyenv install --list {}
+2026-09-19T01:47:26.7365958Z updater | 2026/09/19 01:47:26 INFO <job_1582741952> Process PID: 2058 completed with status: pid 2058 exit 0
+2026-09-19T01:47:26.7367197Z updater | 2026/09/19 01:47:26 INFO <job_1582741952> Total execution time: 0.04 seconds
+2026-09-19T01:47:26.8030449Z updater | 2026/09/19 01:47:26 INFO <job_1582741952> Started process PID: 2093 with command: {} pyenv install --list {}
+2026-09-19T01:47:26.8366086Z updater | 2026/09/19 01:47:26 INFO <job_1582741952> Process PID: 2093 completed with status: pid 2093 exit 0
+2026-09-19T01:47:26.8366952Z 2026/09/19 01:47:26 INFO <job_1582741952> Total execution time: 0.03 seconds
+2026-09-19T01:47:26.9031136Z updater | 2026/09/19 01:47:26 INFO <job_1582741952> Started process PID: 2128 with command: {} pyenv install --list {}
+2026-09-19T01:47:26.9383874Z updater | 2026/09/19 01:47:26 INFO <job_1582741952> Process PID: 2128 completed with status: pid 2128 exit 0
+2026-09-19T01:47:26.9384572Z 2026/09/19 01:47:26 INFO <job_1582741952> Total execution time: 0.04 seconds
+2026-09-19T01:47:26.9394955Z updater | 2026/09/19 01:47:26 INFO <job_1582741952> Started process PID: 2163 with command: {} pyenv versions {}
+2026-09-19T01:47:27.0061510Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Process PID: 2163 completed with status: pid 2163 exit 0
+2026-09-19T01:47:27.0062936Z 2026/09/19 01:47:27 INFO <job_1582741952> Total execution time: 0.07 seconds
+2026-09-19T01:47:27.0078174Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Started process PID: 2238 with command: {} git reset HEAD --hard {}
+2026-09-19T01:47:27.0365275Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Process PID: 2238 completed with status: pid 2238 exit 0
+2026-09-19T01:47:27.0366429Z 2026/09/19 01:47:27 INFO <job_1582741952> Total execution time: 0.03 seconds
+2026-09-19T01:47:27.0377709Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Started process PID: 2246 with command: {} git clean -fx {}
+2026-09-19T01:47:27.0489531Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Process PID: 2246 completed with status: pid 2246 exit 0
+2026-09-19T01:47:27.0490943Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Total execution time: 0.01 seconds
+2026-09-19T01:47:27.1636181Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Setting up Python environment using LanguageVersionManager
+2026-09-19T01:47:27.1642162Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Started process PID: 2339 with command: {} pyenv versions {}
+2026-09-19T01:47:27.2563309Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Process PID: 2339 completed with status: pid 2339 exit 0
+2026-09-19T01:47:27.2564366Z 2026/09/19 01:47:27 INFO <job_1582741952> Total execution time: 0.09 seconds
+2026-09-19T01:47:27.3220338Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Started process PID: 2445 with command: {} pyenv install --list {}
+2026-09-19T01:47:27.3572712Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Process PID: 2445 completed with status: pid 2445 exit 0
+2026-09-19T01:47:27.3573797Z 2026/09/19 01:47:27 INFO <job_1582741952> Total execution time: 0.04 seconds
+2026-09-19T01:47:27.4237691Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Started process PID: 2480 with command: {} pyenv install --list {}
+2026-09-19T01:47:27.4586170Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Process PID: 2480 completed with status: pid 2480 exit 0
+2026-09-19T01:47:27.4587533Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Total execution time: 0.04 seconds
+2026-09-19T01:47:27.5248820Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Started process PID: 2515 with command: {} pyenv install --list {}
+2026-09-19T01:47:27.5580023Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Process PID: 2515 completed with status: pid 2515 exit 0
+2026-09-19T01:47:27.5581042Z 2026/09/19 01:47:27 INFO <job_1582741952> Total execution time: 0.03 seconds
+2026-09-19T01:47:27.5586072Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Setting Python version to 3.10.20
+2026-09-19T01:47:27.7416087Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Started process PID: 2550 with command: {} pyenv local 3.10.20 {}
+2026-09-19T01:47:27.7418007Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Process PID: 2550 completed with status: pid 2550 exit 0
+2026-09-19T01:47:27.7419190Z updater | 2026/09/19 01:47:27 INFO <job_1582741952> Total execution time: 0.18 seconds
+2026-09-19T01:47:27.7419880Z 2026/09/19 01:47:27 INFO <job_1582741952> Using pre-installed uv package
+2026-09-19T01:47:32.2833556Z updater | 2026/09/19 01:47:32 INFO <job_1582741952> Running command: pyenv exec uv lock --upgrade-package mcp==1.28.1 
+2026-09-19T01:47:32.2861011Z updater | 2026/09/19 01:47:32 INFO <job_1582741952> Started process PID: 2576 with command: {} pyenv exec uv lock --upgrade-package mcp\=\=1.28.1 {}
+2026-09-19T01:47:32.7958017Z   proxy | 2026/09/19 01:47:32 [599] GET https://pypi.org:443/simple/mcp/
+2026-09-19T01:47:32.8018753Z   proxy | 2026/09/19 01:47:32 [599] 304 https://pypi.org:443/simple/mcp/
+2026-09-19T01:47:32.8546480Z updater | 2026/09/19 01:47:32 INFO <job_1582741952> Process PID: 2576 completed with status: pid 2576 exit 0
+2026-09-19T01:47:32.8547547Z 2026/09/19 01:47:32 INFO <job_1582741952> Total execution time: 0.57 seconds
+2026-09-19T01:47:32.9442739Z   proxy | 2026/09/19 01:47:32 [601] POST /update_jobs/1582741952/record_update_job_error
+2026-09-19T01:47:32.9740504Z   proxy | 2026/09/19 01:47:32 [601] 204 /update_jobs/1582741952/record_update_job_error
+2026-09-19T01:47:32.9747086Z updater | 2026/09/19 01:47:32 INFO <job_1582741952> Pull request already exists for mcp@1.28.1
+2026-09-19T01:47:33.0590914Z   proxy | 2026/09/19 01:47:33 [603] POST /update_jobs/1582741952/record_ecosystem_meta
+2026-09-19T01:47:33.0808035Z   proxy | 2026/09/19 01:47:33 [603] 204 /update_jobs/1582741952/record_ecosystem_meta
+2026-09-19T01:47:33.1652198Z   proxy | 2026/09/19 01:47:33 [605] PATCH /update_jobs/1582741952/mark_as_processed
+2026-09-19T01:47:33.2354828Z   proxy | 2026/09/19 01:47:33 [605] 204 /update_jobs/1582741952/mark_as_processed
+2026-09-19T01:47:33.2360815Z updater | 2026/09/19 01:47:33 INFO <job_1582741952> Finished job processing
+2026-09-19T01:47:33.2374794Z updater | 2026/09/19 01:47:33 INFO Results:
+2026-09-19T01:47:33.2375991Z Dependabot encountered '1' error(s) during execution, please check the logs for more details.
+2026-09-19T01:47:33.2376894Z +--------------------------------------------------------------------------------+
+2026-09-19T01:47:33.2377600Z |                                     Errors                                     |
+2026-09-19T01:47:33.2378318Z +-----------------------------------------+--------------------------------------+
+2026-09-19T01:47:33.2378885Z | Type                                    | Details                              |
+2026-09-19T01:47:33.2379353Z +-----------------------------------------+--------------------------------------+
+2026-09-19T01:47:33.2379888Z | pull_request_exists_for_security_update | {                                    |
+2026-09-19T01:47:33.2380400Z |                                         |   "updated-dependencies": [          |
+2026-09-19T01:47:33.2380805Z |                                         |     {                                |
+2026-09-19T01:47:33.2381494Z |                                         |       "dependency-name": "mcp",      |
+2026-09-19T01:47:33.2381923Z |                                         |       "dependency-version": "1.28.1" |
+2026-09-19T01:47:33.2382323Z |                                         |     }                                |
+2026-09-19T01:47:33.2382710Z |                                         |   ]                                  |
+2026-09-19T01:47:33.2383097Z |                                         | }                                    |
+2026-09-19T01:47:33.2383556Z +-----------------------------------------+--------------------------------------+
+2026-09-19T01:47:33.5129369Z Failure running container c042f8ed37df8eeac9440ab3b57b97e81f1fa7b0ac64ea57522953ebb7140eea: Error: Command failed with exit code 1: /bin/sh -c $DEPENDABOT_HOME/dependabot-updater/bin/run update_files
+2026-09-19T01:47:34.5026835Z Cleaned up container c042f8ed37df8eeac9440ab3b57b97e81f1fa7b0ac64ea57522953ebb7140eea
+2026-09-19T01:47:34.5158287Z   proxy | 2026/09/19 01:47:34 1/428 calls cached (0%)
+2026-09-19T01:47:34.5159645Z   proxy | 2026/09/19 01:47:34 Posting metrics to remote API endpoint
+2026-09-19T01:47:34.5431090Z   proxy | 2026/09/19 01:47:34 Successfully posted metrics data via api client
+2026-09-19T01:47:34.9799762Z ##[error]Dependabot encountered an error performing the update
+
+Error: The updater encountered one or more errors.
+
+For more information see: https://github.com/fastapi/fastapi/network/updates/1582741952 (write access to the repository is required to view the log)
+2026-09-19T01:47:34.9812743Z 🤖 ~ finished: error reported to Dependabot ~
+2026-09-19T01:47:34.9945120Z Post job cleanup.
+2026-09-19T01:47:35.1363061Z Cleaning up orphan processes

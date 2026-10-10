@@ -1,0 +1,311 @@
+﻿2026-07-08T10:22:52.2283478Z Current runner version: '2.335.1'
+2026-07-08T10:22:52.2310656Z ##[group]Runner Image Provisioner
+2026-07-08T10:22:52.2312483Z Hosted Compute Agent
+2026-07-08T10:22:52.2313391Z Version: 20260624.560
+2026-07-08T10:22:52.2314534Z Commit: 925d229a51159bc391ae97e54a2dd1fe20af789d
+2026-07-08T10:22:52.2315328Z Build Date: 2026-06-24T18:26:47Z
+2026-07-08T10:22:52.2316092Z Worker ID: {37153926-8f26-4c75-b9d9-a719b53751cc}
+2026-07-08T10:22:52.2316822Z Azure Region: eastus2
+2026-07-08T10:22:52.2317392Z ##[endgroup]
+2026-07-08T10:22:52.2319030Z ##[group]Operating System
+2026-07-08T10:22:52.2319666Z Ubuntu
+2026-07-08T10:22:52.2320248Z 24.04.4
+2026-07-08T10:22:52.2320861Z LTS
+2026-07-08T10:22:52.2321389Z ##[endgroup]
+2026-07-08T10:22:52.2322065Z ##[group]Runner Image
+2026-07-08T10:22:52.2322697Z Image: ubuntu-24.04
+2026-07-08T10:22:52.2323253Z Version: 20260705.232.1
+2026-07-08T10:22:52.2324947Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260705.232/images/ubuntu/Ubuntu2404-Readme.md
+2026-07-08T10:22:52.2326510Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260705.232
+2026-07-08T10:22:52.2327566Z ##[endgroup]
+2026-07-08T10:22:52.2328814Z ##[group]GITHUB_TOKEN Permissions
+2026-07-08T10:22:52.2331041Z Contents: read
+2026-07-08T10:22:52.2331662Z Metadata: read
+2026-07-08T10:22:52.2332352Z Packages: read
+2026-07-08T10:22:52.2332922Z ##[endgroup]
+2026-07-08T10:22:52.2335573Z Secret source: None
+2026-07-08T10:22:52.2336692Z Prepare workflow directory
+2026-07-08T10:22:52.2669939Z Prepare all required actions
+2026-07-08T10:22:52.2709489Z Getting action download info
+2026-07-08T10:22:52.5202714Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2026-07-08T10:22:52.6045949Z Download action repository 'astral-sh/setup-uv@f0ec1fc3b38f5e7cd731bb6ce540c5af426746bb' (SHA:f0ec1fc3b38f5e7cd731bb6ce540c5af426746bb)
+2026-07-08T10:22:52.8984094Z Download action repository 'actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-07-08T10:22:52.9755509Z Download action repository 'actions/cache@5a3ec84eff668545956fd18022155c47e93e2684' (SHA:5a3ec84eff668545956fd18022155c47e93e2684)
+2026-07-08T10:22:53.1337605Z Download action repository 'pre-commit-ci/lite-action@5d6cc0eb514c891a40562a58a8e71576c5c7fb43' (SHA:5d6cc0eb514c891a40562a58a8e71576c5c7fb43)
+2026-07-08T10:22:53.4129443Z Complete job name: main
+2026-07-08T10:22:53.5079386Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-08T10:22:53.5092559Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+2026-07-08T10:22:53.5094338Z with:
+2026-07-08T10:22:53.5095009Z   repository: pallets/jinja
+2026-07-08T10:22:53.5103749Z   token: ***
+2026-07-08T10:22:53.5104377Z   ssh-strict: true
+2026-07-08T10:22:53.5105051Z   ssh-user: git
+2026-07-08T10:22:53.5105719Z   persist-credentials: true
+2026-07-08T10:22:53.5106480Z   clean: true
+2026-07-08T10:22:53.5107168Z   sparse-checkout-cone-mode: true
+2026-07-08T10:22:53.5107962Z   fetch-depth: 1
+2026-07-08T10:22:53.5108561Z   fetch-tags: false
+2026-07-08T10:22:53.5109284Z   show-progress: true
+2026-07-08T10:22:53.5110101Z   lfs: false
+2026-07-08T10:22:53.5110755Z   submodules: false
+2026-07-08T10:22:53.5111415Z   set-safe-directory: true
+2026-07-08T10:22:53.5112466Z ##[endgroup]
+2026-07-08T10:22:53.6148396Z Syncing repository: pallets/jinja
+2026-07-08T10:22:53.6150907Z ##[group]Getting Git version info
+2026-07-08T10:22:53.6151987Z Working directory is '/home/runner/work/jinja/jinja'
+2026-07-08T10:22:53.6153781Z [command]/usr/bin/git version
+2026-07-08T10:22:53.7902841Z git version 2.54.0
+2026-07-08T10:22:53.7956897Z ##[endgroup]
+2026-07-08T10:22:53.7972309Z Temporarily overriding HOME='/home/runner/work/_temp/be1d8b94-e075-4139-be91-1be473db4daa' before making global git config changes
+2026-07-08T10:22:53.7975824Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-08T10:22:53.7978657Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/jinja/jinja
+2026-07-08T10:22:53.8025908Z Deleting the contents of '/home/runner/work/jinja/jinja'
+2026-07-08T10:22:53.8030525Z ##[group]Initializing the repository
+2026-07-08T10:22:53.8034787Z [command]/usr/bin/git init /home/runner/work/jinja/jinja
+2026-07-08T10:22:53.8108992Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-07-08T10:22:53.8111684Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-07-08T10:22:53.8114959Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-07-08T10:22:53.8117369Z hint: call:
+2026-07-08T10:22:53.8118575Z hint:
+2026-07-08T10:22:53.8120307Z hint: 	git config --global init.defaultBranch <name>
+2026-07-08T10:22:53.8122401Z hint:
+2026-07-08T10:22:53.8124549Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-07-08T10:22:53.8127850Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-07-08T10:22:53.8130403Z hint:
+2026-07-08T10:22:53.8132181Z hint: 	git branch -m <name>
+2026-07-08T10:22:53.8133371Z hint:
+2026-07-08T10:22:53.8135217Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-07-08T10:22:53.8138615Z Initialized empty Git repository in /home/runner/work/jinja/jinja/.git/
+2026-07-08T10:22:53.8143736Z [command]/usr/bin/git remote add origin https://github.com/pallets/jinja
+2026-07-08T10:22:53.8169490Z ##[endgroup]
+2026-07-08T10:22:53.8171419Z ##[group]Disabling automatic garbage collection
+2026-07-08T10:22:53.8173752Z [command]/usr/bin/git config --local gc.auto 0
+2026-07-08T10:22:53.8203896Z ##[endgroup]
+2026-07-08T10:22:53.8205896Z ##[group]Setting up auth
+2026-07-08T10:22:53.8209357Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-08T10:22:53.8318763Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-08T10:22:53.8568238Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-08T10:22:53.8601480Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-08T10:22:53.8839041Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-07-08T10:22:53.8877074Z ##[endgroup]
+2026-07-08T10:22:53.8878741Z ##[group]Fetching the repository
+2026-07-08T10:22:53.8886912Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +4668a3b1801a7590922725289d98f0e417d8005e:refs/remotes/pull/2213/merge
+2026-07-08T10:22:54.1615061Z From https://github.com/pallets/jinja
+2026-07-08T10:22:54.1617367Z  * [new ref]         4668a3b1801a7590922725289d98f0e417d8005e -> pull/2213/merge
+2026-07-08T10:22:54.1649182Z ##[endgroup]
+2026-07-08T10:22:54.1650980Z ##[group]Determining the checkout info
+2026-07-08T10:22:54.1652920Z ##[endgroup]
+2026-07-08T10:22:54.1658213Z [command]/usr/bin/git sparse-checkout disable
+2026-07-08T10:22:54.1701531Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-07-08T10:22:54.1729853Z ##[group]Checking out the ref
+2026-07-08T10:22:54.1733298Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/2213/merge
+2026-07-08T10:22:54.1857373Z Note: switching to 'refs/remotes/pull/2213/merge'.
+2026-07-08T10:22:54.1858378Z 
+2026-07-08T10:22:54.1859140Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-07-08T10:22:54.1861137Z changes and commit them, and you can discard any commits you make in this
+2026-07-08T10:22:54.1862337Z state without impacting any branches by switching back to a branch.
+2026-07-08T10:22:54.1862991Z 
+2026-07-08T10:22:54.1863944Z If you want to create a new branch to retain commits you create, you may
+2026-07-08T10:22:54.1865405Z do so (now or later) by using -c with the switch command. Example:
+2026-07-08T10:22:54.1866187Z 
+2026-07-08T10:22:54.1866632Z   git switch -c <new-branch-name>
+2026-07-08T10:22:54.1867143Z 
+2026-07-08T10:22:54.1867536Z Or undo this operation with:
+2026-07-08T10:22:54.1868037Z 
+2026-07-08T10:22:54.1868471Z   git switch -
+2026-07-08T10:22:54.1868980Z 
+2026-07-08T10:22:54.1869609Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-07-08T10:22:54.1870566Z 
+2026-07-08T10:22:54.1871505Z HEAD is now at 4668a3b Merge 6606f672bdb09e59b4ad1e6802395999a78c42a5 into 5ef70112a1ff19c05324ff889dd30405b1002044
+2026-07-08T10:22:54.1874938Z ##[endgroup]
+2026-07-08T10:22:54.1910242Z [command]/usr/bin/git log -1 --format=%H
+2026-07-08T10:22:54.1944917Z 4668a3b1801a7590922725289d98f0e417d8005e
+2026-07-08T10:22:54.2270000Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-08T10:22:54.2273095Z ##[group]Run astral-sh/setup-uv@f0ec1fc3b38f5e7cd731bb6ce540c5af426746bb
+2026-07-08T10:22:54.2274345Z with:
+2026-07-08T10:22:54.2275107Z   enable-cache: true
+2026-07-08T10:22:54.2275901Z   prune-cache: false
+2026-07-08T10:22:54.2276707Z   activate-environment: false
+2026-07-08T10:22:54.2277596Z   working-directory: /home/runner/work/jinja/jinja
+2026-07-08T10:22:54.2278522Z   server-url: https://github.com
+2026-07-08T10:22:54.2282152Z   github-token: ***
+2026-07-08T10:22:54.2283367Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+
+2026-07-08T10:22:54.2284973Z   ignore-nothing-to-cache: false
+2026-07-08T10:22:54.2285847Z   ignore-empty-workdir: false
+2026-07-08T10:22:54.2286709Z ##[endgroup]
+2026-07-08T10:22:54.4227776Z (node:2265) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-07-08T10:22:54.4230093Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-07-08T10:22:54.4323151Z Trying to find required-version for uv in: /home/runner/work/jinja/jinja/uv.toml
+2026-07-08T10:22:54.4325275Z Could not find file: /home/runner/work/jinja/jinja/uv.toml
+2026-07-08T10:22:54.4327057Z Trying to find required-version for uv in: /home/runner/work/jinja/jinja/pyproject.toml
+2026-07-08T10:22:54.4348006Z Could not determine uv version from uv.toml or pyproject.toml. Falling back to latest.
+2026-07-08T10:22:54.6295981Z Downloading uv from "https://github.com/astral-sh/uv/releases/download/0.11.28/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-07-08T10:22:54.9359008Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/9fd51432-41ad-4c53-a194-503c4a633ae5 -f /home/runner/work/_temp/7dc5919f-2b4f-407c-a439-e8c3e900afda
+2026-07-08T10:22:55.4909771Z Added /home/runner/.local/bin to the path
+2026-07-08T10:22:55.4913179Z Added /opt/hostedtoolcache/uv/0.11.28/x86_64 to the path
+2026-07-08T10:22:55.4946389Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+2026-07-08T10:22:55.4947048Z Successfully installed uv version 0.11.28
+2026-07-08T10:22:55.4948171Z Searching files using cache dependency glob: **/*requirements*.txt,**/*requirements*.in,**/*constraints*.txt,**/*constraints*.in,**/pyproject.toml,**/uv.lock
+2026-07-08T10:22:55.5098280Z /home/runner/work/jinja/jinja/pyproject.toml
+2026-07-08T10:22:55.5173901Z /home/runner/work/jinja/jinja/uv.lock
+2026-07-08T10:22:55.5183464Z Found 2 files to hash.
+2026-07-08T10:22:55.6015388Z Trying to restore uv cache from GitHub Actions cache with key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.3-5de7a1413e631eb75ee7d8fd78b801eb5bf91766984c2b3d0128fa4593770b17
+2026-07-08T10:22:55.6618604Z No GitHub Actions cache found for key: setup-uv-1-x86_64-unknown-linux-gnu-3.12.3-5de7a1413e631eb75ee7d8fd78b801eb5bf91766984c2b3d0128fa4593770b17
+2026-07-08T10:22:55.6860115Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-08T10:22:55.6861436Z ##[group]Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+2026-07-08T10:22:55.6861812Z with:
+2026-07-08T10:22:55.6862039Z   python-version-file: pyproject.toml
+2026-07-08T10:22:55.6862337Z   check-latest: false
+2026-07-08T10:22:55.6865094Z   token: ***
+2026-07-08T10:22:55.6865355Z   update-environment: true
+2026-07-08T10:22:55.6865614Z   allow-prereleases: false
+2026-07-08T10:22:55.6865853Z   freethreaded: false
+2026-07-08T10:22:55.6866086Z env:
+2026-07-08T10:22:55.6866335Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-08T10:22:55.6866649Z ##[endgroup]
+2026-07-08T10:22:55.8318550Z Extracted >=3.10 from pyproject.toml
+2026-07-08T10:22:55.8339597Z ##[group]Installed versions
+2026-07-08T10:22:55.8411032Z (node:2290) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-07-08T10:22:55.8411795Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-07-08T10:22:55.8412452Z Successfully set up CPython (3.14.6)
+2026-07-08T10:22:55.8413161Z ##[endgroup]
+2026-07-08T10:22:55.9199934Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-08T10:22:55.9201338Z ##[group]Run actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
+2026-07-08T10:22:55.9201737Z with:
+2026-07-08T10:22:55.9201955Z   path: ~/.cache/pre-commit
+2026-07-08T10:22:55.9202353Z   key: pre-commit|12c817d9b3934045f2afd04baee1c35c7e8bc93771b0cde835de9080ac83bdb1
+2026-07-08T10:22:55.9202782Z   enableCrossOsArchive: false
+2026-07-08T10:22:55.9203040Z   fail-on-cache-miss: false
+2026-07-08T10:22:55.9203276Z   lookup-only: false
+2026-07-08T10:22:55.9203496Z   save-always: false
+2026-07-08T10:22:55.9203966Z env:
+2026-07-08T10:22:55.9204219Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-08T10:22:55.9204658Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-07-08T10:22:55.9205098Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+2026-07-08T10:22:55.9205523Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-07-08T10:22:55.9205911Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-07-08T10:22:55.9206288Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-07-08T10:22:55.9206657Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+2026-07-08T10:22:55.9206981Z ##[endgroup]
+2026-07-08T10:22:56.0297028Z (node:2309) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-07-08T10:22:56.0297894Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-07-08T10:22:56.1069399Z Cache not found for input keys: pre-commit|12c817d9b3934045f2afd04baee1c35c7e8bc93771b0cde835de9080ac83bdb1
+2026-07-08T10:22:56.1206697Z ##[group]Run uv run --locked --group pre-commit pre-commit run --show-diff-on-failure --color=always --all-files
+2026-07-08T10:22:56.1207598Z [36;1muv run --locked --group pre-commit pre-commit run --show-diff-on-failure --color=always --all-files[0m
+2026-07-08T10:22:56.1351266Z shell: /usr/bin/bash -e {0}
+2026-07-08T10:22:56.1351767Z env:
+2026-07-08T10:22:56.1352040Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-08T10:22:56.1352441Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-07-08T10:22:56.1352878Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+2026-07-08T10:22:56.1353311Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-07-08T10:22:56.1354057Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-07-08T10:22:56.1354452Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-07-08T10:22:56.1354829Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+2026-07-08T10:22:56.1355204Z ##[endgroup]
+2026-07-08T10:22:56.2418313Z Using CPython 3.14.6 interpreter at: /opt/hostedtoolcache/Python/3.14.6/x64/bin/python3
+2026-07-08T10:22:56.2419168Z Creating virtual environment at: .venv
+2026-07-08T10:22:56.2550484Z    Building jinja2 @ file:///home/runner/work/jinja/jinja
+2026-07-08T10:22:56.3488594Z Downloading virtualenv (5.8MiB)
+2026-07-08T10:22:56.3489413Z Downloading pyright (5.4MiB)
+2026-07-08T10:22:56.3491066Z Downloading mypy (2.1MiB)
+2026-07-08T10:22:56.3499083Z Downloading uv (16.6MiB)
+2026-07-08T10:22:56.3501540Z Downloading ruff (11.0MiB)
+2026-07-08T10:22:56.3897698Z    Building markupsafe==3.0.2
+2026-07-08T10:22:56.8300996Z       Built jinja2 @ file:///home/runner/work/jinja/jinja
+2026-07-08T10:22:56.9403421Z  Downloaded ruff
+2026-07-08T10:22:56.9500260Z  Downloaded virtualenv
+2026-07-08T10:22:56.9631403Z  Downloaded uv
+2026-07-08T10:22:56.9754285Z    Building pyyaml==6.0.2
+2026-07-08T10:22:57.2135051Z  Downloaded mypy
+2026-07-08T10:22:57.7487503Z  Downloaded pyright
+2026-07-08T10:22:59.0735491Z       Built markupsafe==3.0.2
+2026-07-08T10:23:05.7532934Z       Built pyyaml==6.0.2
+2026-07-08T10:23:05.8689762Z Installed 35 packages in 109ms
+2026-07-08T10:23:06.2699163Z [INFO][m Initializing environment for https://github.com/astral-sh/ruff-pre-commit.
+2026-07-08T10:23:06.4459136Z [INFO][m Initializing environment for https://github.com/astral-sh/uv-pre-commit.
+2026-07-08T10:23:06.6292235Z [INFO][m Initializing environment for https://github.com/pre-commit/pre-commit-hooks.
+2026-07-08T10:23:06.8124610Z [INFO][m Installing environment for https://github.com/astral-sh/ruff-pre-commit.
+2026-07-08T10:23:06.8125521Z [INFO][m Once installed this environment will be reused.
+2026-07-08T10:23:06.8126125Z [INFO][m This may take a few minutes...
+2026-07-08T10:23:06.8137076Z [INFO][m Using pre-commit with uv 0.7.8 via pre-commit-uv 4.1.4
+2026-07-08T10:23:08.0788815Z [INFO][m Installing environment for https://github.com/astral-sh/uv-pre-commit.
+2026-07-08T10:23:08.0789781Z [INFO][m Once installed this environment will be reused.
+2026-07-08T10:23:08.0790377Z [INFO][m This may take a few minutes...
+2026-07-08T10:23:08.0791004Z [INFO][m Using pre-commit with uv 0.7.8 via pre-commit-uv 4.1.4
+2026-07-08T10:23:09.1090639Z [INFO][m Installing environment for https://github.com/pre-commit/pre-commit-hooks.
+2026-07-08T10:23:09.1091623Z [INFO][m Once installed this environment will be reused.
+2026-07-08T10:23:09.1092215Z [INFO][m This may take a few minutes...
+2026-07-08T10:23:09.1092840Z [INFO][m Using pre-commit with uv 0.7.8 via pre-commit-uv 4.1.4
+2026-07-08T10:23:10.7148018Z ruff (legacy alias)......................................................[42mPassed[m
+2026-07-08T10:23:10.7525129Z ruff format..............................................................[41mFailed[m
+2026-07-08T10:23:10.7525948Z [2m- hook id: ruff-format[m
+2026-07-08T10:23:10.7526423Z [2m- files were modified by this hook[m
+2026-07-08T10:23:10.7526734Z 
+2026-07-08T10:23:10.7527296Z 1 file reformatted, 59 files left unchanged
+2026-07-08T10:23:10.7527614Z 
+2026-07-08T10:23:10.8276311Z uv-lock..................................................................[42mPassed[m
+2026-07-08T10:23:10.9367906Z check for merge conflicts................................................[42mPassed[m
+2026-07-08T10:23:11.1899729Z debug statements (python)................................................[42mPassed[m
+2026-07-08T10:23:11.2803359Z fix utf-8 byte order marker..............................................[42mPassed[m
+2026-07-08T10:23:11.3764098Z trim trailing whitespace.................................................[42mPassed[m
+2026-07-08T10:23:11.4644413Z fix end of files.........................................................[42mPassed[m
+2026-07-08T10:23:11.4644931Z pre-commit hook(s) made changes.
+2026-07-08T10:23:11.4645398Z If you are seeing this message in CI, reproduce locally with: `pre-commit run --all-files`.
+2026-07-08T10:23:11.4645978Z To run `pre-commit` as part of git workflow, use `pre-commit install`.
+2026-07-08T10:23:11.4646351Z All changes made by hooks:
+2026-07-08T10:23:11.4705593Z [1mdiff --git a/tests/test_filters.py b/tests/test_filters.py[m
+2026-07-08T10:23:11.4706166Z [1mindex 9b5bc3b..270bbbc 100644[m
+2026-07-08T10:23:11.4706605Z [1m--- a/tests/test_filters.py[m
+2026-07-08T10:23:11.4707013Z [1m+++ b/tests/test_filters.py[m
+2026-07-08T10:23:11.4707537Z [36m@@ -83,9 +83,7 @@[m [mclass TestFilter:[m
+2026-07-08T10:23:11.4708093Z          # not be appended because no slice is missing a value[m
+2026-07-08T10:23:11.4708798Z          tmpl = env.from_string("{{ foo|slice(4)|list }}|{{ foo|slice(4, 'X')|list }}")[m
+2026-07-08T10:23:11.4709477Z          out = tmpl.render(foo=list(range(4)))[m
+2026-07-08T10:23:11.4709985Z [31m-        assert out == ([m
+2026-07-08T10:23:11.4710439Z [31m-            "[[0], [1], [2], [3]]|[[0], [1], [2], [3]]"[m
+2026-07-08T10:23:11.4710764Z [31m-        )[m
+2026-07-08T10:23:11.4711152Z [32m+[m[32m        assert out == ("[[0], [1], [2], [3]]|[[0], [1], [2], [3]]")[m
+2026-07-08T10:23:11.4711513Z  [m
+2026-07-08T10:23:11.4711751Z      def test_escape(self, env):[m
+2026-07-08T10:23:11.4712126Z          tmpl = env.from_string("""{{ '<">&'|escape }}""")[m
+2026-07-08T10:23:11.5304818Z ##[error]Process completed with exit code 1.
+2026-07-08T10:23:11.5372184Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-08T10:23:11.5373714Z ##[group]Run pre-commit-ci/lite-action@5d6cc0eb514c891a40562a58a8e71576c5c7fb43
+2026-07-08T10:23:11.5374314Z with:
+2026-07-08T10:23:11.5374657Z   msg: [pre-commit.ci lite] apply automatic fixes
+2026-07-08T10:23:11.5375092Z env:
+2026-07-08T10:23:11.5375390Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-07-08T10:23:11.5375760Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-07-08T10:23:11.5376176Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib/pkgconfig
+2026-07-08T10:23:11.5376583Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-07-08T10:23:11.5376989Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-07-08T10:23:11.5377356Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.6/x64
+2026-07-08T10:23:11.5377718Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.6/x64/lib
+2026-07-08T10:23:11.5378036Z ##[endgroup]
+2026-07-08T10:23:11.6341767Z tests/test_filters.py: needs update
+2026-07-08T10:23:11.6367313Z fetching pr...
+2026-07-08T10:23:11.9259787Z saving artifact...
+2026-07-08T10:23:12.7185262Z artifact published!
+2026-07-08T10:23:12.7415715Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-08T10:23:12.7418597Z Post job cleanup.
+2026-07-08T10:23:12.7838232Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-08T10:23:12.7839597Z Post job cleanup.
+2026-07-08T10:23:12.8746839Z [command]/usr/bin/git version
+2026-07-08T10:23:12.8787045Z git version 2.54.0
+2026-07-08T10:23:12.8824653Z Temporarily overriding HOME='/home/runner/work/_temp/25a73244-7caa-4b24-ad08-afdc9e4fe718' before making global git config changes
+2026-07-08T10:23:12.8826282Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-08T10:23:12.8830949Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/jinja/jinja
+2026-07-08T10:23:12.8870852Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-08T10:23:12.8907987Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-08T10:23:12.9187481Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-08T10:23:12.9215341Z http.https://github.com/.extraheader
+2026-07-08T10:23:12.9227299Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-07-08T10:23:12.9261438Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-08T10:23:12.9649653Z Cleaning up orphan processes
+2026-07-08T10:23:12.9952738Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684, actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065, astral-sh/setup-uv@f0ec1fc3b38f5e7cd731bb6ce540c5af426746bb, pre-commit-ci/lite-action@5d6cc0eb514c891a40562a58a8e71576c5c7fb43. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

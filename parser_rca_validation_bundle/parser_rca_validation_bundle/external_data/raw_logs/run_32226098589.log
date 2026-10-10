@@ -1,0 +1,580 @@
+﻿2026-08-19T07:03:52.7657411Z Current runner version: '2.336.0'
+2026-08-19T07:03:52.7682836Z ##[group]Runner Image Provisioner
+2026-08-19T07:03:52.7683853Z Hosted Compute Agent
+2026-08-19T07:03:52.7684436Z Version: 20260729.566
+2026-08-19T07:03:52.7685144Z Commit: cf7153fe6e25b664e8693c24944bf2b00355d109
+2026-08-19T07:03:52.7685876Z Build Date: 2026-07-29T19:17:02Z
+2026-08-19T07:03:52.7686538Z Worker ID: {9da7bf02-ba86-4ef5-a421-4fff61ce2746}
+2026-08-19T07:03:52.7687294Z Azure Region: westus
+2026-08-19T07:03:52.7687932Z ##[endgroup]
+2026-08-19T07:03:52.7689436Z ##[group]Operating System
+2026-08-19T07:03:52.7690360Z Ubuntu
+2026-08-19T07:03:52.7690845Z 24.04.4
+2026-08-19T07:03:52.7691469Z LTS
+2026-08-19T07:03:52.7691935Z ##[endgroup]
+2026-08-19T07:03:52.7692473Z ##[group]Runner Image
+2026-08-19T07:03:52.7693149Z Image: ubuntu-24.04
+2026-08-19T07:03:52.7693730Z Version: 20260810.271.1
+2026-08-19T07:03:52.7694996Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260810.271/images/ubuntu/Ubuntu2404-Readme.md
+2026-08-19T07:03:52.7696523Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260810.271
+2026-08-19T07:03:52.7697499Z ##[endgroup]
+2026-08-19T07:03:52.7698585Z ##[group]GITHUB_TOKEN Permissions
+2026-08-19T07:03:52.7700897Z Contents: read
+2026-08-19T07:03:52.7701501Z Metadata: read
+2026-08-19T07:03:52.7702087Z ##[endgroup]
+2026-08-19T07:03:52.7704598Z Secret source: None
+2026-08-19T07:03:52.7705635Z Prepare workflow directory
+2026-08-19T07:03:52.8050355Z Prepare all required actions
+2026-08-19T07:03:52.8101282Z Getting action download info
+2026-08-19T07:03:53.1914168Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-08-19T07:03:53.3446248Z Download action repository 'astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9' (SHA:c771a70e6277c0a99b617c7a806ffedaca235ff9)
+2026-08-19T07:03:53.7946963Z Download action repository 'CodSpeedHQ/action@0ca9cbbf4623b599a6c3ed4fc8a922942705d9f1' (SHA:0ca9cbbf4623b599a6c3ed4fc8a922942705d9f1)
+2026-08-19T07:03:54.1577364Z Getting action download info
+2026-08-19T07:03:54.2949198Z Download action repository 'actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7' (SHA:668228422ae6a00e4ad889ee87cd7109ec5666a7)
+2026-08-19T07:03:54.4092294Z Download action repository 'actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd' (SHA:ed597411d8f924073f98dfc5c65a23a2325f34cd)
+2026-08-19T07:03:54.7540763Z Complete job name: Run benchmarks
+2026-08-19T07:03:54.8382852Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-08-19T07:03:54.8384045Z with:
+2026-08-19T07:03:54.8384586Z   persist-credentials: false
+2026-08-19T07:03:54.8385146Z   repository: Kludex/starlette
+2026-08-19T07:03:54.8388146Z   token: ***
+2026-08-19T07:03:54.8388649Z   ssh-strict: true
+2026-08-19T07:03:54.8389171Z   ssh-user: git
+2026-08-19T07:03:54.8389963Z   clean: true
+2026-08-19T07:03:54.8390488Z   sparse-checkout-cone-mode: true
+2026-08-19T07:03:54.8391102Z   fetch-depth: 1
+2026-08-19T07:03:54.8391638Z   fetch-tags: false
+2026-08-19T07:03:54.8392184Z   show-progress: true
+2026-08-19T07:03:54.8392725Z   lfs: false
+2026-08-19T07:03:54.8393196Z   submodules: false
+2026-08-19T07:03:54.8393680Z   set-safe-directory: true
+2026-08-19T07:03:54.8394290Z   allow-unsafe-pr-checkout: false
+2026-08-19T07:03:54.8395220Z ##[endgroup]
+2026-08-19T07:03:54.9539802Z Syncing repository: Kludex/starlette
+2026-08-19T07:03:54.9542347Z ##[group]Getting Git version info
+2026-08-19T07:03:54.9543459Z Working directory is '/home/runner/work/starlette/starlette'
+2026-08-19T07:03:54.9544982Z [command]/usr/bin/git version
+2026-08-19T07:03:54.9642202Z git version 2.54.0
+2026-08-19T07:03:54.9665813Z ##[endgroup]
+2026-08-19T07:03:54.9678136Z Temporarily overriding HOME='/home/runner/work/_temp/e9a0dea4-56c2-4a8d-8d9c-47a70d68f289' before making global git config changes
+2026-08-19T07:03:54.9680285Z Adding repository directory to the temporary git global config as a safe directory
+2026-08-19T07:03:54.9686520Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/starlette/starlette
+2026-08-19T07:03:54.9742693Z Deleting the contents of '/home/runner/work/starlette/starlette'
+2026-08-19T07:03:54.9745808Z ##[group]Determining repository object format
+2026-08-19T07:03:54.9747281Z ##[endgroup]
+2026-08-19T07:03:54.9748531Z ##[group]Initializing the repository
+2026-08-19T07:03:54.9752341Z [command]/usr/bin/git init /home/runner/work/starlette/starlette
+2026-08-19T07:03:54.9873813Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-08-19T07:03:54.9875276Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-08-19T07:03:54.9876404Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-08-19T07:03:54.9877030Z hint: call:
+2026-08-19T07:03:54.9877410Z hint:
+2026-08-19T07:03:54.9878094Z hint: 	git config --global init.defaultBranch <name>
+2026-08-19T07:03:54.9879038Z hint:
+2026-08-19T07:03:54.9880210Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-08-19T07:03:54.9881635Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-08-19T07:03:54.9882732Z hint:
+2026-08-19T07:03:54.9883502Z hint: 	git branch -m <name>
+2026-08-19T07:03:54.9884346Z hint:
+2026-08-19T07:03:54.9885347Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-08-19T07:03:54.9886878Z Initialized empty Git repository in /home/runner/work/starlette/starlette/.git/
+2026-08-19T07:03:54.9893581Z [command]/usr/bin/git remote add origin https://github.com/Kludex/starlette
+2026-08-19T07:03:54.9960569Z ##[endgroup]
+2026-08-19T07:03:54.9961352Z ##[group]Disabling automatic garbage collection
+2026-08-19T07:03:54.9961977Z [command]/usr/bin/git config --local gc.auto 0
+2026-08-19T07:03:54.9996566Z ##[endgroup]
+2026-08-19T07:03:54.9997846Z ##[group]Setting up auth
+2026-08-19T07:03:54.9998734Z Removing SSH command configuration
+2026-08-19T07:03:55.0003298Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-08-19T07:03:55.0044022Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-08-19T07:03:55.0419725Z Removing HTTP extra header
+2026-08-19T07:03:55.0426009Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-08-19T07:03:55.0464748Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-08-19T07:03:55.0688573Z Removing includeIf entries pointing to credentials config files
+2026-08-19T07:03:55.0694798Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-08-19T07:03:55.0732028Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-08-19T07:03:55.0963146Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-1d4f348c-6631-4bbb-abaa-73a0eecdd398.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-08-19T07:03:55.1004361Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/starlette/starlette/.git.path /home/runner/work/_temp/git-credentials-1d4f348c-6631-4bbb-abaa-73a0eecdd398.config
+2026-08-19T07:03:55.1039367Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-1d4f348c-6631-4bbb-abaa-73a0eecdd398.config
+2026-08-19T07:03:55.1078517Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-1d4f348c-6631-4bbb-abaa-73a0eecdd398.config
+2026-08-19T07:03:55.1112976Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-1d4f348c-6631-4bbb-abaa-73a0eecdd398.config
+2026-08-19T07:03:55.1145468Z ##[endgroup]
+2026-08-19T07:03:55.1146700Z ##[group]Fetching the repository
+2026-08-19T07:03:55.1153046Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +f2fcd74fa7c20fa763bb394d948bab88c514fc56:refs/remotes/pull/3445/merge
+2026-08-19T07:03:55.7875187Z From https://github.com/Kludex/starlette
+2026-08-19T07:03:55.7876182Z  * [new ref]         f2fcd74fa7c20fa763bb394d948bab88c514fc56 -> pull/3445/merge
+2026-08-19T07:03:55.7913834Z ##[endgroup]
+2026-08-19T07:03:55.7914375Z ##[group]Determining the checkout info
+2026-08-19T07:03:55.7915250Z ##[endgroup]
+2026-08-19T07:03:55.7920427Z [command]/usr/bin/git sparse-checkout disable
+2026-08-19T07:03:55.7970518Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-08-19T07:03:55.8003099Z ##[group]Checking out the ref
+2026-08-19T07:03:55.8009252Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/3445/merge
+2026-08-19T07:03:55.8274083Z Note: switching to 'refs/remotes/pull/3445/merge'.
+2026-08-19T07:03:55.8274618Z 
+2026-08-19T07:03:55.8275048Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-08-19T07:03:55.8276010Z changes and commit them, and you can discard any commits you make in this
+2026-08-19T07:03:55.8276972Z state without impacting any branches by switching back to a branch.
+2026-08-19T07:03:55.8288471Z 
+2026-08-19T07:03:55.8288915Z If you want to create a new branch to retain commits you create, you may
+2026-08-19T07:03:55.8290093Z do so (now or later) by using -c with the switch command. Example:
+2026-08-19T07:03:55.8290595Z 
+2026-08-19T07:03:55.8290817Z   git switch -c <new-branch-name>
+2026-08-19T07:03:55.8291157Z 
+2026-08-19T07:03:55.8291371Z Or undo this operation with:
+2026-08-19T07:03:55.8291692Z 
+2026-08-19T07:03:55.8291876Z   git switch -
+2026-08-19T07:03:55.8292155Z 
+2026-08-19T07:03:55.8292590Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-08-19T07:03:55.8293195Z 
+2026-08-19T07:03:55.8293883Z HEAD is now at f2fcd74 Merge 0f5cea856cdf0185a07369e83369598d95252046 into 398e5a3430eb1ddd33e1d48d766efe41426e231f
+2026-08-19T07:03:55.8296658Z ##[endgroup]
+2026-08-19T07:03:55.8348824Z [command]/usr/bin/git log -1 --format=%H
+2026-08-19T07:03:55.8378829Z f2fcd74fa7c20fa763bb394d948bab88c514fc56
+2026-08-19T07:03:55.8390064Z ##[group]Removing auth
+2026-08-19T07:03:55.8390954Z Removing SSH command configuration
+2026-08-19T07:03:55.8395213Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-08-19T07:03:55.8432855Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-08-19T07:03:55.8680363Z Removing HTTP extra header
+2026-08-19T07:03:55.8685973Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-08-19T07:03:55.8729421Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-08-19T07:03:55.8993107Z Removing includeIf entries pointing to credentials config files
+2026-08-19T07:03:55.8997408Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-08-19T07:03:55.9029793Z includeif.gitdir:/home/runner/work/starlette/starlette/.git.path
+2026-08-19T07:03:55.9030892Z includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path
+2026-08-19T07:03:55.9031847Z includeif.gitdir:/github/workspace/.git.path
+2026-08-19T07:03:55.9032662Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-08-19T07:03:55.9039977Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/starlette/starlette/.git.path
+2026-08-19T07:03:55.9066621Z /home/runner/work/_temp/git-credentials-1d4f348c-6631-4bbb-abaa-73a0eecdd398.config
+2026-08-19T07:03:55.9078602Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/starlette/starlette/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-1d4f348c\-6631\-4bbb\-abaa\-73a0eecdd398\.config
+2026-08-19T07:03:55.9116469Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path
+2026-08-19T07:03:55.9150625Z /home/runner/work/_temp/git-credentials-1d4f348c-6631-4bbb-abaa-73a0eecdd398.config
+2026-08-19T07:03:55.9159460Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/starlette/starlette/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-1d4f348c\-6631\-4bbb\-abaa\-73a0eecdd398\.config
+2026-08-19T07:03:55.9193968Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-08-19T07:03:55.9219447Z /github/runner_temp/git-credentials-1d4f348c-6631-4bbb-abaa-73a0eecdd398.config
+2026-08-19T07:03:55.9227501Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-1d4f348c\-6631\-4bbb\-abaa\-73a0eecdd398\.config
+2026-08-19T07:03:55.9273682Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-08-19T07:03:55.9324871Z /github/runner_temp/git-credentials-1d4f348c-6631-4bbb-abaa-73a0eecdd398.config
+2026-08-19T07:03:55.9343024Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-1d4f348c\-6631\-4bbb\-abaa\-73a0eecdd398\.config
+2026-08-19T07:03:55.9381841Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-08-19T07:03:55.9601810Z Removing credentials config '/home/runner/work/_temp/git-credentials-1d4f348c-6631-4bbb-abaa-73a0eecdd398.config'
+2026-08-19T07:03:55.9609375Z ##[endgroup]
+2026-08-19T07:03:55.9874410Z ##[group]Run astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
+2026-08-19T07:03:55.9874896Z with:
+2026-08-19T07:03:55.9875145Z   python-version: 3.14
+2026-08-19T07:03:55.9875421Z   enable-cache: true
+2026-08-19T07:03:55.9875698Z   activate-environment: false
+2026-08-19T07:03:55.9875994Z   no-project: false
+2026-08-19T07:03:55.9876320Z   working-directory: /home/runner/work/starlette/starlette
+2026-08-19T07:03:55.9878879Z   github-token: ***
+2026-08-19T07:03:55.9879754Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-08-19T07:03:55.9880468Z   restore-cache: true
+2026-08-19T07:03:55.9880731Z   save-cache: true
+2026-08-19T07:03:55.9880978Z   prune-cache: false
+2026-08-19T07:03:55.9881251Z   cache-python: false
+2026-08-19T07:03:55.9881529Z   ignore-nothing-to-cache: false
+2026-08-19T07:03:55.9881832Z   ignore-empty-workdir: false
+2026-08-19T07:03:55.9882176Z   download-from-astral-mirror: true
+2026-08-19T07:03:55.9882501Z   add-problem-matchers: true
+2026-08-19T07:03:55.9882778Z   quiet: false
+2026-08-19T07:03:55.9883025Z   resolution-strategy: highest
+2026-08-19T07:03:55.9883304Z ##[endgroup]
+2026-08-19T07:03:56.1645732Z Trying to find version for uv in: /home/runner/work/starlette/starlette/uv.toml
+2026-08-19T07:03:56.1647202Z Could not find file: /home/runner/work/starlette/starlette/uv.toml
+2026-08-19T07:03:56.1660045Z Trying to find version for uv in: /home/runner/work/starlette/starlette/pyproject.toml
+2026-08-19T07:03:56.1661632Z Found version for uv in /home/runner/work/starlette/starlette/pyproject.toml: >=0.8.6
+2026-08-19T07:03:56.1665237Z Found minimum version specifier, using latest version
+2026-08-19T07:03:56.1666744Z Fetching manifest data from https://raw.githubusercontent.com/astral-sh/versions/main/v1/uv.ndjson ...
+2026-08-19T07:03:56.2125081Z Downloading uv from "https://releases.astral.sh/github/uv/releases/download/0.12.5/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-08-19T07:03:56.3908480Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/02b929ff-bf04-4898-af5c-5cdb4281f72d -f /home/runner/work/_temp/1ee4e3b3-b6a4-4f5a-8858-e03c96ec893e
+2026-08-19T07:03:56.8579767Z Added /home/runner/.local/bin to the path
+2026-08-19T07:03:56.8583151Z Added /opt/hostedtoolcache/uv/0.12.5/x86_64 to the path
+2026-08-19T07:03:56.8584708Z Set UV_PYTHON_INSTALL_DIR to /home/runner/work/_temp/uv-python-dir
+2026-08-19T07:03:56.8585626Z Added /home/runner/work/_temp/uv-python-dir to the path
+2026-08-19T07:03:56.8586162Z Set UV_PYTHON to 3.14
+2026-08-19T07:03:56.8604592Z Set UV_CACHE_DIR to /home/runner/work/_temp/setup-uv-cache
+2026-08-19T07:03:56.8605193Z Successfully installed uv version 0.12.5
+2026-08-19T07:03:56.8607393Z Searching files using cache dependency glob: /home/runner/work/starlette/starlette/**/*requirements*.txt,/home/runner/work/starlette/starlette/**/*requirements*.in,/home/runner/work/starlette/starlette/**/*constraints*.txt,/home/runner/work/starlette/starlette/**/*constraints*.in,/home/runner/work/starlette/starlette/**/pyproject.toml,/home/runner/work/starlette/starlette/**/uv.lock,/home/runner/work/starlette/starlette/**/*.py.lock
+2026-08-19T07:03:56.8798614Z /home/runner/work/starlette/starlette/pyproject.toml
+2026-08-19T07:03:56.8936566Z /home/runner/work/starlette/starlette/uv.lock
+2026-08-19T07:03:56.8951080Z Found 2 files to hash.
+2026-08-19T07:03:56.9021282Z Trying to restore cache from GitHub Actions cache with key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.14-ffda3db480c4a353a685146bb4d994f82267a2462fbd6341d31ee2942a67cbcf
+2026-08-19T07:03:57.1621502Z Cache hit for: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.14-ffda3db480c4a353a685146bb4d994f82267a2462fbd6341d31ee2942a67cbcf
+2026-08-19T07:03:58.4515437Z Received 0 of 54321095 (0.0%), 0.0 MBs/sec
+2026-08-19T07:03:58.9763172Z Received 54321095 of 54321095 (100.0%), 34.0 MBs/sec
+2026-08-19T07:03:58.9764702Z Cache Size: ~52 MB (54321095 B)
+2026-08-19T07:03:58.9808034Z [command]/usr/bin/tar -xf /home/runner/work/_temp/d7ac76ce-2107-4852-8c65-00f812238627/cache.tzst -P -C /home/runner/work/starlette/starlette --use-compress-program unzstd
+2026-08-19T07:04:00.0853526Z Cache restored successfully
+2026-08-19T07:04:00.0883980Z cache restored from GitHub Actions cache with key: setup-uv-2-x86_64-unknown-linux-gnu-ubuntu-24.04-3.14-ffda3db480c4a353a685146bb4d994f82267a2462fbd6341d31ee2942a67cbcf
+2026-08-19T07:04:00.2042445Z ##[group]Run scripts/install
+2026-08-19T07:04:00.2042835Z [36;1mscripts/install[0m
+2026-08-19T07:04:00.2085400Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-08-19T07:04:00.2085779Z env:
+2026-08-19T07:04:00.2086079Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-08-19T07:04:00.2086431Z   UV_PYTHON: 3.14
+2026-08-19T07:04:00.2086709Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-08-19T07:04:00.2087020Z ##[endgroup]
+2026-08-19T07:04:00.2174443Z + uv sync --frozen
+2026-08-19T07:04:00.3976758Z Downloading cpython-3.14.7-linux-x86_64-gnu (download) (34.2MiB)
+2026-08-19T07:04:01.3075865Z  Downloaded cpython-3.14.7-linux-x86_64-gnu (download)
+2026-08-19T07:04:01.4897421Z Using CPython 3.14.7
+2026-08-19T07:04:01.4898416Z Creating virtual environment at: .venv
+2026-08-19T07:04:01.4971457Z    Building starlette @ file:///home/runner/work/starlette/starlette
+2026-08-19T07:04:02.3041973Z       Built starlette @ file:///home/runner/work/starlette/starlette
+2026-08-19T07:04:02.3051173Z Prepared 1 package in 808ms
+2026-08-19T07:04:02.7076233Z Installed 81 packages in 402ms
+2026-08-19T07:04:02.7077384Z  + anyio==4.14.2
+2026-08-19T07:04:02.7077897Z  + ast-serialize==0.6.0
+2026-08-19T07:04:02.7078400Z  + attrs==25.3.0
+2026-08-19T07:04:02.7078851Z  + black==26.5.1
+2026-08-19T07:04:02.7079301Z  + certifi==2025.8.3
+2026-08-19T07:04:02.7080045Z  + cffi==2.0.0
+2026-08-19T07:04:02.7080704Z  + charset-normalizer==3.4.3
+2026-08-19T07:04:02.7081207Z  + click==8.2.1
+2026-08-19T07:04:02.7081606Z  + coverage==7.15.2
+2026-08-19T07:04:02.7082974Z  + cryptography==48.0.1
+2026-08-19T07:04:02.7083392Z  + deepmerge==2.0
+2026-08-19T07:04:02.7083636Z  + docutils==0.22
+2026-08-19T07:04:02.7083849Z  + ghp-import==2.1.0
+2026-08-19T07:04:02.7084312Z  + griffelib==2.0.0
+2026-08-19T07:04:02.7084777Z  + h11==0.16.0
+2026-08-19T07:04:02.7085228Z  + httpcore==1.0.9
+2026-08-19T07:04:02.7085694Z  + httpcore2==2.9.1
+2026-08-19T07:04:02.7086161Z  + httpx==0.28.1
+2026-08-19T07:04:02.7086623Z  + httpx2==2.9.1
+2026-08-19T07:04:02.7087156Z  + id==1.5.0
+2026-08-19T07:04:02.7087426Z  + idna==3.18
+2026-08-19T07:04:02.7087643Z  + importlib-metadata==9.0.0
+2026-08-19T07:04:02.7088068Z  + iniconfig==2.1.0
+2026-08-19T07:04:02.7088391Z  + itsdangerous==2.2.0
+2026-08-19T07:04:02.7088785Z  + jaraco-classes==3.4.0
+2026-08-19T07:04:02.7089271Z  + jaraco-context==6.0.1
+2026-08-19T07:04:02.7090016Z  + jaraco-functools==4.3.0
+2026-08-19T07:04:02.7090588Z  + jeepney==0.9.0
+2026-08-19T07:04:02.7090944Z  + jinja2==3.1.6
+2026-08-19T07:04:02.7091290Z  + keyring==25.6.0
+2026-08-19T07:04:02.7091683Z  + librt==0.13.0
+2026-08-19T07:04:02.7092022Z  + markdown==3.9
+2026-08-19T07:04:02.7092376Z  + markdown-it-py==4.0.0
+2026-08-19T07:04:02.7092782Z  + markupsafe==3.0.2
+2026-08-19T07:04:02.7093130Z  + mdurl==0.1.2
+2026-08-19T07:04:02.7093466Z  + mergedeep==1.3.4
+2026-08-19T07:04:02.7093825Z  + mkdocs==1.6.1
+2026-08-19T07:04:02.7094175Z  + mkdocs-autorefs==1.4.3
+2026-08-19T07:04:02.7094581Z  + mkdocs-get-deps==0.2.0
+2026-08-19T07:04:02.7094981Z  + mkdocstrings==1.0.6
+2026-08-19T07:04:02.7095387Z  + mkdocstrings-python==2.0.5
+2026-08-19T07:04:02.7095806Z  + more-itertools==10.8.0
+2026-08-19T07:04:02.7096180Z  + mypy==2.1.0
+2026-08-19T07:04:02.7096539Z  + mypy-extensions==1.1.0
+2026-08-19T07:04:02.7096914Z  + nh3==0.3.0
+2026-08-19T07:04:02.7097248Z  + outcome==1.3.0.post0
+2026-08-19T07:04:02.7097620Z  + packaging==26.2
+2026-08-19T07:04:02.7097975Z  + pathspec==1.0.4
+2026-08-19T07:04:02.7098379Z  + platformdirs==4.4.0
+2026-08-19T07:04:02.7099028Z  + pluggy==1.6.0
+2026-08-19T07:04:02.7099452Z  + pycparser==2.22
+2026-08-19T07:04:02.7100392Z  + pygments==2.20.0
+2026-08-19T07:04:02.7101025Z  + pymdown-extensions==11.0.1
+2026-08-19T07:04:02.7101513Z  + pytest==9.1.1
+2026-08-19T07:04:02.7101948Z  + pytest-codspeed==5.0.3
+2026-08-19T07:04:02.7102626Z  + python-dateutil==2.9.0.post0
+2026-08-19T07:04:02.7103239Z  + python-multipart==0.0.32
+2026-08-19T07:04:02.7103741Z  + pytokens==0.4.1
+2026-08-19T07:04:02.7104248Z  + pyyaml==6.0.3
+2026-08-19T07:04:02.7104954Z  + pyyaml-env-tag==1.1
+2026-08-19T07:04:02.7105367Z  + readme-renderer==44.0
+2026-08-19T07:04:02.7105771Z  + requests==2.33.0
+2026-08-19T07:04:02.7106213Z  + requests-toolbelt==1.0.0
+2026-08-19T07:04:02.7106832Z  + rfc3986==2.0.0
+2026-08-19T07:04:02.7107358Z  + rich==15.0.0
+2026-08-19T07:04:02.7107884Z  + ruff==0.16.0
+2026-08-19T07:04:02.7108534Z  + secretstorage==3.3.3
+2026-08-19T07:04:02.7109166Z  + six==1.17.0
+2026-08-19T07:04:02.7110058Z  + sniffio==1.3.1
+2026-08-19T07:04:02.7110593Z  + sortedcontainers==2.4.0
+2026-08-19T07:04:02.7135009Z  + starlette==1.6.0 (from file:///home/runner/work/starlette/starlette)
+2026-08-19T07:04:02.7135428Z  + tomli==2.4.1
+2026-08-19T07:04:02.7135650Z  + trio==0.33.0
+2026-08-19T07:04:02.7135857Z  + truststore==0.10.4
+2026-08-19T07:04:02.7136076Z  + twine==7.0.0
+2026-08-19T07:04:02.7136286Z  + types-pyyaml==6.0.12.20250516
+2026-08-19T07:04:02.7136553Z  + typing-extensions==4.15.0
+2026-08-19T07:04:02.7136801Z  + urllib3==2.7.0
+2026-08-19T07:04:02.7137015Z  + watchdog==6.0.0
+2026-08-19T07:04:02.7137242Z  + zensical==0.0.51
+2026-08-19T07:04:02.7137446Z  + zipp==3.23.0
+2026-08-19T07:04:02.7410257Z ##[group]Run CodSpeedHQ/action@0ca9cbbf4623b599a6c3ed4fc8a922942705d9f1
+2026-08-19T07:04:02.7410703Z with:
+2026-08-19T07:04:02.7411105Z   run: uv run pytest benchmarks/gzip_benchmark.py benchmarks/routing_benchmark.py --codspeed
+2026-08-19T07:04:02.7411578Z   mode: simulation,memory
+2026-08-19T07:04:02.7411824Z   cache-instruments: true
+2026-08-19T07:04:02.7412092Z   instruments-cache-dir: ~/.cache/codspeed-action
+2026-08-19T07:04:02.7412580Z   allow-empty: false
+2026-08-19T07:04:02.7412815Z   skip-hash-check-warning: false
+2026-08-19T07:04:02.7413064Z env:
+2026-08-19T07:04:02.7413323Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-08-19T07:04:02.7413655Z   UV_PYTHON: 3.14
+2026-08-19T07:04:02.7413899Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-08-19T07:04:02.7414200Z ##[endgroup]
+2026-08-19T07:04:02.7471488Z ##[start-action display=Determine runner and kernel version;id=__CodSpeedHQ_action.versions]
+2026-08-19T07:04:02.7516438Z ##[group]Run RUNNER_VERSION=""
+2026-08-19T07:04:02.7516750Z [36;1mRUNNER_VERSION=""[0m
+2026-08-19T07:04:02.7517024Z [36;1mif [ -z "$RUNNER_VERSION" ]; then[0m
+2026-08-19T07:04:02.7517456Z [36;1m  RUNNER_VERSION=$(cat $GITHUB_ACTION_PATH/.codspeed-runner-version)[0m
+2026-08-19T07:04:02.7517851Z [36;1mfi[0m
+2026-08-19T07:04:02.7518136Z [36;1m# Strip 'v' prefix if present to normalize version format[0m
+2026-08-19T07:04:02.7518523Z [36;1mRUNNER_VERSION="${RUNNER_VERSION#v}"[0m
+2026-08-19T07:04:02.7518819Z [36;1m[0m
+2026-08-19T07:04:02.7519157Z [36;1m# Detect version type (priority: latest > version number > branch/rev prefixes)[0m
+2026-08-19T07:04:02.7519933Z [36;1mif [ "$RUNNER_VERSION" = "latest" ]; then[0m
+2026-08-19T07:04:02.7520251Z [36;1m  VERSION_TYPE="latest"[0m
+2026-08-19T07:04:02.7520622Z [36;1melif echo "$RUNNER_VERSION" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+-'; then[0m
+2026-08-19T07:04:02.7521016Z [36;1m  VERSION_TYPE="prerelease"[0m
+2026-08-19T07:04:02.7521396Z [36;1melif echo "$RUNNER_VERSION" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+'; then[0m
+2026-08-19T07:04:02.7521781Z [36;1m  VERSION_TYPE="release"[0m
+2026-08-19T07:04:02.7522107Z [36;1melif echo "$RUNNER_VERSION" | grep -q '^branch:'; then[0m
+2026-08-19T07:04:02.7522446Z [36;1m  VERSION_TYPE="branch"[0m
+2026-08-19T07:04:02.7522805Z [36;1m  RUNNER_VERSION=$(echo "$RUNNER_VERSION" | sed 's/^branch://')[0m
+2026-08-19T07:04:02.7523244Z [36;1melif echo "$RUNNER_VERSION" | grep -q '^rev:'; then[0m
+2026-08-19T07:04:02.7523578Z [36;1m  VERSION_TYPE="rev"[0m
+2026-08-19T07:04:02.7523899Z [36;1m  RUNNER_VERSION=$(echo "$RUNNER_VERSION" | sed 's/^rev://')[0m
+2026-08-19T07:04:02.7524243Z [36;1melse[0m
+2026-08-19T07:04:02.7524452Z [36;1m  # Default to release version[0m
+2026-08-19T07:04:02.7524722Z [36;1m  VERSION_TYPE="release"[0m
+2026-08-19T07:04:02.7524960Z [36;1mfi[0m
+2026-08-19T07:04:02.7525144Z [36;1m[0m
+2026-08-19T07:04:02.7525406Z [36;1mecho "runner-version=$RUNNER_VERSION" >> $GITHUB_OUTPUT[0m
+2026-08-19T07:04:02.7525817Z [36;1mecho "version-type=$VERSION_TYPE" >> $GITHUB_OUTPUT[0m
+2026-08-19T07:04:02.7526131Z [36;1m[0m
+2026-08-19T07:04:02.7526336Z [36;1m# Get kernel version for cache key[0m
+2026-08-19T07:04:02.7526628Z [36;1mKERNEL_VERSION=$(uname -r)[0m
+2026-08-19T07:04:02.7526961Z [36;1mecho "kernel-version=$KERNEL_VERSION" >> $GITHUB_OUTPUT[0m
+2026-08-19T07:04:02.7527285Z [36;1m[0m
+2026-08-19T07:04:02.7527576Z [36;1m# Normalize mode for cache key (commas are not allowed in cache keys)[0m
+2026-08-19T07:04:02.7528030Z [36;1mMODE_CACHE_KEY=$(echo "simulation,memory" | tr ',' '-')[0m
+2026-08-19T07:04:02.7528429Z [36;1mecho "mode-cache-key=$MODE_CACHE_KEY" >> $GITHUB_OUTPUT[0m
+2026-08-19T07:04:02.7565492Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-08-19T07:04:02.7565834Z env:
+2026-08-19T07:04:02.7566106Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-08-19T07:04:02.7566440Z   UV_PYTHON: 3.14
+2026-08-19T07:04:02.7566865Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-08-19T07:04:02.7567180Z ##[endgroup]
+2026-08-19T07:04:02.7724357Z ##[end-action id=__CodSpeedHQ_action.versions;outcome=success;conclusion=success;duration_ms=25]
+2026-08-19T07:04:02.7728565Z ##[start-action display=Cache CodSpeed instruments;id=__CodSpeedHQ_action.__actions_cache]
+2026-08-19T07:04:02.7791527Z ##[group]Run actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7
+2026-08-19T07:04:02.7791875Z with:
+2026-08-19T07:04:02.7792079Z   path: ~/.cache/codspeed-action
+2026-08-19T07:04:02.7792658Z   key: codspeed-instruments-simulation-memory-Linux-X64-6.17.0-1022-azure-5.0.1
+2026-08-19T07:04:02.7793275Z   restore-keys: codspeed-instruments-simulation-memory-Linux-X64-6.17.0-1022-azure-
+
+2026-08-19T07:04:02.7793738Z   enableCrossOsArchive: false
+2026-08-19T07:04:02.7793994Z   fail-on-cache-miss: false
+2026-08-19T07:04:02.7794224Z   lookup-only: false
+2026-08-19T07:04:02.7794433Z   save-always: false
+2026-08-19T07:04:02.7794636Z env:
+2026-08-19T07:04:02.7794907Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-08-19T07:04:02.7795247Z   UV_PYTHON: 3.14
+2026-08-19T07:04:02.7795499Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-08-19T07:04:02.7795796Z ##[endgroup]
+2026-08-19T07:04:03.1552691Z Cache not found for input keys: codspeed-instruments-simulation-memory-Linux-X64-6.17.0-1022-azure-5.0.1, codspeed-instruments-simulation-memory-Linux-X64-6.17.0-1022-azure-
+2026-08-19T07:04:03.1661013Z ##[end-action id=__CodSpeedHQ_action.__actions_cache;outcome=success;conclusion=success;duration_ms=393]
+2026-08-19T07:04:03.1666549Z ##[start-action display=Lookup installer hash;id=__CodSpeedHQ_action.installer-hash]
+2026-08-19T07:04:03.1741382Z ##[group]Run actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+2026-08-19T07:04:03.1741854Z with:
+2026-08-19T07:04:03.1742769Z   script: const hashes = require(`${process.env.GITHUB_ACTION_PATH}/.codspeed-runner-installer-hashes.json`)
+const version = process.env.RUNNER_VERSION
+core.setOutput('hash', hashes[version] || '')
+
+2026-08-19T07:04:03.1746615Z   github-token: ***
+2026-08-19T07:04:03.1746883Z   debug: false
+2026-08-19T07:04:03.1747138Z   user-agent: actions/github-script
+2026-08-19T07:04:03.1747461Z   result-encoding: json
+2026-08-19T07:04:03.1747725Z   retries: 0
+2026-08-19T07:04:03.1748000Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-19T07:04:03.1748347Z env:
+2026-08-19T07:04:03.1748656Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-08-19T07:04:03.1749077Z   UV_PYTHON: 3.14
+2026-08-19T07:04:03.1749370Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-08-19T07:04:03.1749996Z   RUNNER_VERSION: 5.0.1
+2026-08-19T07:04:03.1750258Z ##[endgroup]
+2026-08-19T07:04:03.2595835Z ##[end-action id=__CodSpeedHQ_action.installer-hash;outcome=success;conclusion=success;duration_ms=92]
+2026-08-19T07:04:03.2598788Z ##[start-action display=Install CodSpeed runner;id=__CodSpeedHQ_action.__run]
+2026-08-19T07:04:03.2619351Z ##[group]Run RUNNER_VERSION="5.0.1"
+2026-08-19T07:04:03.2620289Z [36;1mRUNNER_VERSION="5.0.1"[0m
+2026-08-19T07:04:03.2620571Z [36;1mVERSION_TYPE="release"[0m
+2026-08-19T07:04:03.2620821Z [36;1m[0m
+2026-08-19T07:04:03.2621031Z [36;1mSKIP_HASH_CHECK_WARNING="false"[0m
+2026-08-19T07:04:03.2621305Z [36;1m[0m
+2026-08-19T07:04:03.2621532Z [36;1mif [ "$VERSION_TYPE" = "latest" ]; then[0m
+2026-08-19T07:04:03.2621878Z [36;1m  if [ "$SKIP_HASH_CHECK_WARNING" != "true" ]; then[0m
+2026-08-19T07:04:03.2622570Z [36;1m    echo "::warning::Hash verification is not available when using 'latest' version. Consider pinning a specific version for supply chain security."[0m
+2026-08-19T07:04:03.2623427Z [36;1m  fi[0m
+2026-08-19T07:04:03.2623764Z [36;1m  curl -fsSL https://codspeed.io/install.sh | bash -s -- --quiet[0m
+2026-08-19T07:04:03.2624190Z [36;1melif [ "$VERSION_TYPE" = "prerelease" ]; then[0m
+2026-08-19T07:04:03.2624718Z [36;1m  # Prereleases are not pinned, so install from the versioned installer without hash verification.[0m
+2026-08-19T07:04:03.2625432Z [36;1m  if [ "$SKIP_HASH_CHECK_WARNING" != "true" ]; then[0m
+2026-08-19T07:04:03.2625946Z [36;1m    echo "::warning::Hash verification is not available for prerelease version $RUNNER_VERSION."[0m
+2026-08-19T07:04:03.2626410Z [36;1m  fi[0m
+2026-08-19T07:04:03.2626770Z [36;1m  curl -fsSL "https://codspeed.io/v$RUNNER_VERSION/install.sh" | bash -s -- --quiet[0m
+2026-08-19T07:04:03.2627272Z [36;1melif [ "$VERSION_TYPE" = "branch" ]; then[0m
+2026-08-19T07:04:03.2627744Z [36;1m  # Install from specific branch using cargo[0m
+2026-08-19T07:04:03.2628098Z [36;1m  if [ "$SKIP_HASH_CHECK_WARNING" != "true" ]; then[0m
+2026-08-19T07:04:03.2628575Z [36;1m    echo "::warning::Hash verification is not available when installing from a branch."[0m
+2026-08-19T07:04:03.2629006Z [36;1m  fi[0m
+2026-08-19T07:04:03.2629213Z [36;1m  source $HOME/.cargo/env[0m
+2026-08-19T07:04:03.2630045Z [36;1m  cargo install --locked --git https://github.com/CodSpeedHQ/codspeed --branch "$RUNNER_VERSION" codspeed-runner[0m
+2026-08-19T07:04:03.2630628Z [36;1melif [ "$VERSION_TYPE" = "rev" ]; then[0m
+2026-08-19T07:04:03.2630967Z [36;1m  # Install from specific commit/rev using cargo[0m
+2026-08-19T07:04:03.2631326Z [36;1m  if [ "$SKIP_HASH_CHECK_WARNING" != "true" ]; then[0m
+2026-08-19T07:04:03.2631804Z [36;1m    echo "::warning::Hash verification is not available when installing from a revision."[0m
+2026-08-19T07:04:03.2632240Z [36;1m  fi[0m
+2026-08-19T07:04:03.2632445Z [36;1m  source $HOME/.cargo/env[0m
+2026-08-19T07:04:03.2632966Z [36;1m  cargo install --locked --git https://github.com/CodSpeedHQ/codspeed --rev "$RUNNER_VERSION" codspeed-runner[0m
+2026-08-19T07:04:03.2633487Z [36;1melse[0m
+2026-08-19T07:04:03.2633765Z [36;1m  # Release version - download to temp file and verify hash[0m
+2026-08-19T07:04:03.2634220Z [36;1m  INSTALLER_URL="https://codspeed.io/v$RUNNER_VERSION/install.sh"[0m
+2026-08-19T07:04:03.2634610Z [36;1m  INSTALLER_TMP=$(mktemp)[0m
+2026-08-19T07:04:03.2634888Z [36;1m  trap "rm -f $INSTALLER_TMP" EXIT[0m
+2026-08-19T07:04:03.2635380Z [36;1m[0m
+2026-08-19T07:04:03.2635671Z [36;1m  CURL_ERR=$(mktemp)[0m
+2026-08-19T07:04:03.2636186Z [36;1m  if ! HTTP_CODE=$(curl -sSL -o "$INSTALLER_TMP" -w "%{http_code}" "$INSTALLER_URL" 2>"$CURL_ERR"); then[0m
+2026-08-19T07:04:03.2637436Z [36;1m    echo "::error title=Failed to install CodSpeed CLI::Installation of CodSpeed CLI with version $RUNNER_VERSION failed.%0AReason: $(cat "$CURL_ERR")"[0m
+2026-08-19T07:04:03.2638226Z [36;1m    exit 1[0m
+2026-08-19T07:04:03.2638586Z [36;1m  fi[0m
+2026-08-19T07:04:03.2638895Z [36;1m  if [ "$HTTP_CODE" -ge 400 ]; then[0m
+2026-08-19T07:04:03.2639283Z [36;1m    error_body=$(cat "$INSTALLER_TMP")[0m
+2026-08-19T07:04:03.2640435Z [36;1m    echo "::error title=Failed to install CodSpeed CLI::Installation of CodSpeed CLI with version $RUNNER_VERSION failed.%0AReason: HTTP $HTTP_CODE - ${error_body:-no response body}"[0m
+2026-08-19T07:04:03.2641309Z [36;1m    exit 1[0m
+2026-08-19T07:04:03.2641656Z [36;1m  fi[0m
+2026-08-19T07:04:03.2641942Z [36;1m[0m
+2026-08-19T07:04:03.2642375Z [36;1m  EXPECTED_HASH="5d8abb100020c7968220ab856c776670abfdc77bb0fac532c56f695af4f4a098"[0m
+2026-08-19T07:04:03.2643023Z [36;1m  if [ -z "$EXPECTED_HASH" ]; then[0m
+2026-08-19T07:04:03.2643697Z [36;1m    echo "::error::No pinned hash found for installer version $RUNNER_VERSION. Update .codspeed-runner-installer-hashes.json."[0m
+2026-08-19T07:04:03.2644430Z [36;1m    exit 1[0m
+2026-08-19T07:04:03.2644766Z [36;1m  fi[0m
+2026-08-19T07:04:03.2645025Z [36;1m[0m
+2026-08-19T07:04:03.2645485Z [36;1m  ACTUAL_HASH=$(sha256sum "$INSTALLER_TMP" | awk '{print $1}')[0m
+2026-08-19T07:04:03.2661284Z [36;1m  if [ "$ACTUAL_HASH" != "$EXPECTED_HASH" ]; then[0m
+2026-08-19T07:04:03.2662418Z [36;1m    echo "::error::Installer hash mismatch for version $RUNNER_VERSION. Expected: $EXPECTED_HASH, Got: $ACTUAL_HASH"[0m
+2026-08-19T07:04:03.2663323Z [36;1m    exit 1[0m
+2026-08-19T07:04:03.2663591Z [36;1m  fi[0m
+2026-08-19T07:04:03.2664079Z [36;1m  echo "Installer hash verified for version $RUNNER_VERSION"[0m
+2026-08-19T07:04:03.2664457Z [36;1m[0m
+2026-08-19T07:04:03.2664669Z [36;1m  bash "$INSTALLER_TMP" --quiet[0m
+2026-08-19T07:04:03.2664931Z [36;1mfi[0m
+2026-08-19T07:04:03.2702367Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-08-19T07:04:03.2702708Z env:
+2026-08-19T07:04:03.2702982Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-08-19T07:04:03.2703341Z   UV_PYTHON: 3.14
+2026-08-19T07:04:03.2703757Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-08-19T07:04:03.2704060Z ##[endgroup]
+2026-08-19T07:04:03.8305436Z Installer hash verified for version 5.0.1
+2026-08-19T07:04:04.4041773Z ##[end-action id=__CodSpeedHQ_action.__run;outcome=success;conclusion=success;duration_ms=1144]
+2026-08-19T07:04:04.4070517Z ##[start-action display=Run the benchmarks;id=__CodSpeedHQ_action.__run_2]
+2026-08-19T07:04:04.4088895Z ##[group]Run # Validate required inputs
+2026-08-19T07:04:04.4089255Z [36;1m# Validate required inputs[0m
+2026-08-19T07:04:04.4089879Z [36;1m# (custom message for smoother v4 migration)[0m
+2026-08-19T07:04:04.4090328Z [36;1mif [ -z "simulation,memory" ]; then[0m
+2026-08-19T07:04:04.4091718Z [36;1m  echo "::error title=Missing required input 'mode'::The 'mode' input is required as of CodSpeed Action v4. Please explicitly set 'mode' to 'simulation' or 'walltime'. Before, this variable was automatically set to instrumentation on every runner except for CodSpeed macro runners where it was set to walltime by default. See https://codspeed.io/docs/instruments for details."[0m
+2026-08-19T07:04:04.4093090Z [36;1m  exit 1[0m
+2026-08-19T07:04:04.4093292Z [36;1mfi[0m
+2026-08-19T07:04:04.4093476Z [36;1m[0m
+2026-08-19T07:04:04.4093688Z [36;1m# Build the runner arguments array[0m
+2026-08-19T07:04:04.4093972Z [36;1mRUNNER_ARGS=()[0m
+2026-08-19T07:04:04.4094202Z [36;1mif [ -n "" ]; then[0m
+2026-08-19T07:04:04.4094449Z [36;1m  RUNNER_ARGS+=(--token "")[0m
+2026-08-19T07:04:04.4094693Z [36;1mfi[0m
+2026-08-19T07:04:04.4094884Z [36;1mif [ -n "" ]; then[0m
+2026-08-19T07:04:04.4095150Z [36;1m  RUNNER_ARGS+=(--working-directory="")[0m
+2026-08-19T07:04:04.4095445Z [36;1mfi[0m
+2026-08-19T07:04:04.4095637Z [36;1mif [ -n "" ]; then[0m
+2026-08-19T07:04:04.4095882Z [36;1m  RUNNER_ARGS+=(--upload-url="")[0m
+2026-08-19T07:04:04.4096152Z [36;1mfi[0m
+2026-08-19T07:04:04.4096365Z [36;1mif [ -n "simulation,memory" ]; then[0m
+2026-08-19T07:04:04.4096686Z [36;1m  RUNNER_ARGS+=(--mode="simulation,memory")[0m
+2026-08-19T07:04:04.4096977Z [36;1mfi[0m
+2026-08-19T07:04:04.4097164Z [36;1mif [ -n "" ]; then[0m
+2026-08-19T07:04:04.4097409Z [36;1m  RUNNER_ARGS+=(--instruments="")[0m
+2026-08-19T07:04:04.4097681Z [36;1mfi[0m
+2026-08-19T07:04:04.4097885Z [36;1mif [ -n "" ]; then[0m
+2026-08-19T07:04:04.4098161Z [36;1m  RUNNER_ARGS+=(--mongo-uri-env-name="")[0m
+2026-08-19T07:04:04.4098445Z [36;1mfi[0m
+2026-08-19T07:04:04.4098727Z [36;1mif [ "true" = "true" ] && [ -n "~/.cache/codspeed-action" ]; then[0m
+2026-08-19T07:04:04.4099190Z [36;1m  RUNNER_ARGS+=(--setup-cache-dir="~/.cache/codspeed-action")[0m
+2026-08-19T07:04:04.4099905Z [36;1mfi[0m
+2026-08-19T07:04:04.4100138Z [36;1mif [ "false" = "true" ]; then[0m
+2026-08-19T07:04:04.4100425Z [36;1m  RUNNER_ARGS+=(--allow-empty)[0m
+2026-08-19T07:04:04.4100685Z [36;1mfi[0m
+2026-08-19T07:04:04.4100874Z [36;1mif [ -n "" ]; then[0m
+2026-08-19T07:04:04.4101135Z [36;1m  RUNNER_ARGS+=(--go-runner-version="")[0m
+2026-08-19T07:04:04.4101424Z [36;1mfi[0m
+2026-08-19T07:04:04.4101611Z [36;1mif [ -n "" ]; then[0m
+2026-08-19T07:04:04.4101853Z [36;1m  RUNNER_ARGS+=(--config="")[0m
+2026-08-19T07:04:04.4102102Z [36;1mfi[0m
+2026-08-19T07:04:04.4102295Z [36;1mif [ -n "" ]; then[0m
+2026-08-19T07:04:04.4102555Z [36;1m  RUNNER_ARGS+=(--cycle-estimation="")[0m
+2026-08-19T07:04:04.4102832Z [36;1mfi[0m
+2026-08-19T07:04:04.4103018Z [36;1mif [ -n "" ]; then[0m
+2026-08-19T07:04:04.4103301Z [36;1m  RUNNER_ARGS+=(--exclude-allocations="")[0m
+2026-08-19T07:04:04.4103829Z [36;1mfi[0m
+2026-08-19T07:04:04.4104023Z [36;1m[0m
+2026-08-19T07:04:04.4104237Z [36;1mif [ -n "$CODSPEED_INPUT_RUN" ]; then[0m
+2026-08-19T07:04:04.4104557Z [36;1m  RUNNER_ARGS+=(-- "$CODSPEED_INPUT_RUN")[0m
+2026-08-19T07:04:04.4104833Z [36;1mfi[0m
+2026-08-19T07:04:04.4105016Z [36;1m[0m
+2026-08-19T07:04:04.4105203Z [36;1m# Run the benchmarks[0m
+2026-08-19T07:04:04.4105454Z [36;1mcodspeed run "${RUNNER_ARGS[@]}"[0m
+2026-08-19T07:04:04.4142492Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-08-19T07:04:04.4142837Z env:
+2026-08-19T07:04:04.4143105Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-08-19T07:04:04.4143434Z   UV_PYTHON: 3.14
+2026-08-19T07:04:04.4143685Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+2026-08-19T07:04:04.4143979Z   GH_MATRIX: null
+2026-08-19T07:04:04.4144328Z   GH_STRATEGY: {
+  "fail-fast": true,
+  "job-index": 0,
+  "job-total": 1,
+  "max-parallel": 1
+}
+2026-08-19T07:04:04.4144984Z   CODSPEED_INPUT_RUN: uv run pytest benchmarks/gzip_benchmark.py benchmarks/routing_benchmark.py --codspeed
+2026-08-19T07:04:04.4145472Z ##[endgroup]
+2026-08-19T07:04:04.4320845Z 
+2026-08-19T07:04:04.4321119Z    ______            __ _____                         __
+2026-08-19T07:04:04.4321761Z   / ____/____   ____/ // ___/ ____   ___   ___   ____/ /
+2026-08-19T07:04:04.4322250Z  / /    / __ \ / __  / \__ \ / __ \ / _ \ / _ \ / __  /
+2026-08-19T07:04:04.4322647Z / /___ / /_/ // /_/ / ___/ // /_/ //  __//  __// /_/ /
+2026-08-19T07:04:04.4323051Z \____/ \____/ \__,_/ /____// .___/ \___/ \___/ \__,_/
+2026-08-19T07:04:04.4323664Z   https://codspeed.io     /_/          runner v5.0.1
+2026-08-19T07:04:04.4324109Z 
+2026-08-19T07:04:04.4324588Z ##[group]Running the benchmarks
+2026-08-19T07:04:04.7148541Z Installing packages: /tmp/valgrind-codspeed.deb, libc6-dbg
+2026-08-19T13:04:38.1613729Z ##[error]The operation was canceled.
+2026-08-19T13:04:38.1617726Z ##[end-action id=__CodSpeedHQ_action.__run_2;outcome=cancelled;conclusion=cancelled;duration_ms=21633754]
+2026-08-19T13:04:38.1797066Z Post job cleanup.
+2026-08-19T13:04:38.1800547Z ##[start-action display=Cache CodSpeed instruments;id=__c6e9afd5-cd4c-438b-9a5d-e4f82b1fdf33.__actions_cache]
+2026-08-19T13:04:38.1802739Z ##[end-action id=__c6e9afd5-cd4c-438b-9a5d-e4f82b1fdf33.__actions_cache;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-08-19T13:04:38.1867168Z Post job cleanup.
+2026-08-19T13:04:38.2750350Z [command]/usr/bin/git version
+2026-08-19T13:04:38.2801198Z git version 2.54.0
+2026-08-19T13:04:38.2843955Z Temporarily overriding HOME='/home/runner/work/_temp/5a153d2a-6bad-4890-9f14-b771b74e1814' before making global git config changes
+2026-08-19T13:04:38.2845883Z Adding repository directory to the temporary git global config as a safe directory
+2026-08-19T13:04:38.2850064Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/starlette/starlette
+2026-08-19T13:04:38.2882958Z Removing SSH command configuration
+2026-08-19T13:04:38.2890783Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-08-19T13:04:38.2928389Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-08-19T13:04:38.3182592Z Removing HTTP extra header
+2026-08-19T13:04:38.3188028Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-08-19T13:04:38.3229736Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-08-19T13:04:38.3482205Z Removing includeIf entries pointing to credentials config files
+2026-08-19T13:04:38.3488995Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-08-19T13:04:38.3536652Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-08-19T13:04:38.3927827Z Cleaning up orphan processes
+2026-08-19T13:04:38.4117131Z Terminate orphan process: pid (2458) (codspeed)

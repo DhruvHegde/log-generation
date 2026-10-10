@@ -135,8 +135,9 @@ _TOOL_KEYWORDS = ["pytest", "pip", "python", "git", "flake8", "black", "mypy", "
 
 def _clean(text: str) -> str:
     """Remove ANSI escapes, BOM, and non-printable control chars."""
-    text = text.replace("\ufeff", "")
-    text = _ANSI_RE.sub("", text)
+    if "\ufeff" in text or "\x1b" in text or "\u001b" in text or "^[" in text:
+        text = text.replace("\ufeff", "")
+        text = _ANSI_RE.sub("", text)
     text = _CTRL_RE.sub("", text)
     return text
 
@@ -439,11 +440,20 @@ def parse_log_text(
     confidence: float = 0.0
 
     # -------------------------------------------------------------
-    # (A) Check for Timeout / Cancellation (F4)
+    # (A) Check for Explicit Timeout or GHA Cancellation (F4)
+    #
+    # Two distinct sub-cases:
+    #   1. gha_timeout  - runner emits an explicit timeout annotation with a
+    #                     duration (highest-confidence)
+    #   2. gha_cancellation - runner emits '##[error]The operation was canceled.'
+    #                     without a timeout annotation.  This is a definitive
+    #                     platform-level signal (not the same as exit codes 137/143
+    #                     which are OS-level and ambiguous).  Ground truth treats
+    #                     these as F4; RCA reports the limitation that the
+    #                     underlying trigger (timeout vs. manual vs. concurrency)
+    #                     cannot be determined from the log alone.
     # -------------------------------------------------------------
     m_timeout = _TIMEOUT_RE.search(clean_text)
-    m_cancel = _CANCELLATION_RE.search(clean_text) if not m_timeout else None
-
     if m_timeout:
         detected_class = "timeout"
         detected_subcat = "gha_timeout"
@@ -463,15 +473,6 @@ def parse_log_text(
                 evidence_lines.append(entry.get("raw", msg))
 
         confidence = 1.0 if (dur_min and record.orphan_process) else 0.85
-
-    elif m_cancel:
-        detected_class = "timeout"
-        detected_subcat = "gha_cancellation"
-        for entry in parsed_stream:
-            msg = entry.get("msg", "")
-            if "operation was canceled" in msg.lower() or "job cancelled" in msg.lower():
-                evidence_lines.append(entry.get("raw", msg))
-        confidence = 0.65
 
     # -------------------------------------------------------------
     # (B) Check for Syntax errors (F1) - Takes priority over generic pytest collection
@@ -600,6 +601,26 @@ def parse_log_text(
             confidence = 1.0 if (pytest_failed_tests and pytest_error_type) else 0.85
 
     # -------------------------------------------------------------
+    # (C2) GHA platform-level cancellation (F4 / gha_cancellation)
+    #
+    # Placed AFTER the test failure check (C) so that logs containing
+    # both pytest FAILED lines and a cancellation annotation are correctly
+    # classified as F3 (test failure), not F4.  Only logs where no
+    # definitive test failure, syntax error, or explicit timeout is found
+    # are classified here.
+    # -------------------------------------------------------------
+    if not detected_class:
+        m_cancel = _CANCELLATION_RE.search(clean_text)
+        if m_cancel:
+            detected_class = "timeout"
+            detected_subcat = "gha_cancellation"
+            confidence = 0.7  # Definitive platform signal, but trigger is ambiguous
+            for entry in parsed_stream:
+                msg = entry.get("msg", "")
+                if "operation was canceled" in msg.lower() or "job cancelled" in msg.lower():
+                    evidence_lines.append(entry.get("raw", msg))
+
+    # -------------------------------------------------------------
     # (D) Check for Dependency / Pip failure (F2) - Includes Docker build output
     # -------------------------------------------------------------
     if not detected_class:
@@ -661,6 +682,8 @@ def parse_log_text(
     # (E) Check for Generic Runtime Python Exception (outside pytest/syntax)
     # -------------------------------------------------------------
     if not detected_class:
+        for etype, pattern in _SYNTAX_ERROR_PATTERNS:
+            pass  # Already checked above
         for etype, pattern in _GENERIC_EXCEPTION_PATTERNS:
             m_exc = pattern.search(text)
             if m_exc:
@@ -672,7 +695,7 @@ def parse_log_text(
                 break
 
         if detected_class == "runtime_error":
-            m_tb_file = _TRACEBACK_FILE_RE.search(text)
+            m_tb_file = _TRACEBACK_FILE_RE.search(clean_text)
             if m_tb_file and m_tb_file.group(1) != "<string>":
                 record.file_path = m_tb_file.group(1)
                 record.line_number = int(m_tb_file.group(2))
@@ -685,7 +708,11 @@ def parse_log_text(
             confidence = 0.8
 
     # -------------------------------------------------------------
-    # (F) Fallback / Unknown
+    # (F) OS-level signal fallback / Unknown
+    # Note: GHA platform-level cancellation (##[error]The operation was canceled.)
+    # is handled in section (A) above, not here.
+    # Exit codes 137/143 remain ambiguous (OOM kill, SIGTERM from any source)
+    # and are kept as unknown.
     # -------------------------------------------------------------
     if not detected_class:
         if record.exit_code == 137:

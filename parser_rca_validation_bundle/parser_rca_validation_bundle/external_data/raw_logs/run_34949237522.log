@@ -1,0 +1,75 @@
+﻿2026-09-15T08:51:12.8717364Z Current runner version: '2.337.0'
+2026-09-15T08:51:12.8742049Z ##[group]Runner Image Provisioner
+2026-09-15T08:51:12.8742997Z Hosted Compute Agent
+2026-09-15T08:51:12.8743552Z Version: 20260828.587
+2026-09-15T08:51:12.8744146Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-15T08:51:12.8744821Z Build Date: 2026-08-28T16:44:25Z
+2026-09-15T08:51:12.8745441Z Worker ID: {77b4a21b-6b04-499b-a1a2-fb679228f02d}
+2026-09-15T08:51:12.8746108Z Azure Region: westus3
+2026-09-15T08:51:12.8746749Z ##[endgroup]
+2026-09-15T08:51:12.8748104Z ##[group]Operating System
+2026-09-15T08:51:12.8748722Z Ubuntu
+2026-09-15T08:51:12.8749223Z 24.04.5
+2026-09-15T08:51:12.8749715Z LTS
+2026-09-15T08:51:12.8750188Z ##[endgroup]
+2026-09-15T08:51:12.8750659Z ##[group]Runner Image
+2026-09-15T08:51:12.8751212Z Image: ubuntu-24.04
+2026-09-15T08:51:12.8751715Z Version: 20260907.300.1
+2026-09-15T08:51:12.8752911Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260907.300/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-15T08:51:12.8754293Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260907.300
+2026-09-15T08:51:12.8755172Z ##[endgroup]
+2026-09-15T08:51:12.8756485Z ##[group]GITHUB_TOKEN Permissions
+2026-09-15T08:51:12.8758368Z Contents: read
+2026-09-15T08:51:12.8758877Z Issues: write
+2026-09-15T08:51:12.8759418Z Metadata: read
+2026-09-15T08:51:12.8759934Z PullRequests: write
+2026-09-15T08:51:12.8760548Z ##[endgroup]
+2026-09-15T08:51:12.8763089Z Secret source: Actions
+2026-09-15T08:51:12.8763908Z Cache mode: read
+2026-09-15T08:51:12.8764570Z Prepare workflow directory
+2026-09-15T08:51:12.9089033Z Prepare all required actions
+2026-09-15T08:51:12.9136852Z Getting action download info
+2026-09-15T08:51:13.2518548Z Download action repository 'actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3' (SHA:3a2844b7e9c422d3c10d287c895573f7108da1b3)
+2026-09-15T08:51:13.9994842Z Complete job name: check-author
+2026-09-15T08:51:14.0707838Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-09-15T08:51:14.0710032Z with:
+2026-09-15T08:51:14.0723295Z   script: const pr = context.payload.pull_request;
+const author = pr.user.login;
+const assoc = pr.author_association;
+
+const botAllowlist = new Set(['dependabot[bot]']);
+const orgAuthorAssociations = new Set(['MEMBER', 'OWNER']);
+
+const allowed =
+  botAllowlist.has(author) ||
+  (assoc != null && orgAuthorAssociations.has(assoc));
+
+if (!allowed) {
+  await github.rest.issues.createComment({
+    owner: context.repo.owner,
+    repo: context.repo.repo,
+    issue_number: context.payload.pull_request.number,
+    body: `This PR modifies dependency files (\`pyproject.toml\` or \`uv.lock\`), which is restricted to members of the **${context.repo.owner}** organization on GitHub.\n\nIf you need a dependency change, please [open a discussion](https://github.com/${context.repo.owner}/${context.repo.repo}/discussions/new) describing what you need and why.\n\nClosing this PR automatically.`
+  });
+
+  await github.rest.pulls.update({
+    owner: context.repo.owner,
+    repo: context.repo.repo,
+    pull_number: context.payload.pull_request.number,
+    state: 'closed'
+  });
+
+  core.setFailed('Dependency changes are restricted to organization members.');
+} else {
+  console.log(`Author ${author} (author_association=${assoc}) is allowed to make dependency changes.`);
+}
+
+2026-09-15T08:51:14.0740670Z   github-token: ***
+2026-09-15T08:51:14.0741416Z   debug: false
+2026-09-15T08:51:14.0742023Z   user-agent: actions/github-script
+2026-09-15T08:51:14.0742706Z   result-encoding: json
+2026-09-15T08:51:14.0743384Z   retries: 0
+2026-09-15T08:51:14.0743994Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-09-15T08:51:14.0745287Z ##[endgroup]
+2026-09-15T08:51:16.7392818Z ##[error]Dependency changes are restricted to organization members.
+2026-09-15T08:51:16.7563511Z Cleaning up orphan processes

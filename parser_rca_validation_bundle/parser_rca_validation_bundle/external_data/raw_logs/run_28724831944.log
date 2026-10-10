@@ -1,0 +1,552 @@
+﻿2026-07-05T00:49:18.6486575Z Current runner version: '2.335.1'
+2026-07-05T00:49:18.6515767Z ##[group]Runner Image Provisioner
+2026-07-05T00:49:18.6516603Z Hosted Compute Agent
+2026-07-05T00:49:18.6517776Z Version: 20260624.560
+2026-07-05T00:49:18.6518511Z Commit: 925d229a51159bc391ae97e54a2dd1fe20af789d
+2026-07-05T00:49:18.6519216Z Build Date: 2026-06-24T18:26:47Z
+2026-07-05T00:49:18.6520025Z Worker ID: {6f37a7e6-dbd7-42d7-adf1-c90a494abcac}
+2026-07-05T00:49:18.6520748Z Azure Region: eastus
+2026-07-05T00:49:18.6521350Z ##[endgroup]
+2026-07-05T00:49:18.6523673Z ##[group]Operating System
+2026-07-05T00:49:18.6524308Z Ubuntu
+2026-07-05T00:49:18.6524895Z 24.04.4
+2026-07-05T00:49:18.6525368Z LTS
+2026-07-05T00:49:18.6525863Z ##[endgroup]
+2026-07-05T00:49:18.6526484Z ##[group]Runner Image
+2026-07-05T00:49:18.6527432Z Image: ubuntu-24.04
+2026-07-05T00:49:18.6528103Z Version: 20260628.225.1
+2026-07-05T00:49:18.6529546Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260628.225/images/ubuntu/Ubuntu2404-Readme.md
+2026-07-05T00:49:18.6531161Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260628.225
+2026-07-05T00:49:18.6532154Z ##[endgroup]
+2026-07-05T00:49:18.6533446Z ##[group]GITHUB_TOKEN Permissions
+2026-07-05T00:49:18.6536040Z Metadata: read
+2026-07-05T00:49:18.6536809Z ##[endgroup]
+2026-07-05T00:49:18.6540690Z Secret source: Actions
+2026-07-05T00:49:18.6541951Z Prepare workflow directory
+2026-07-05T00:49:18.6893921Z Prepare all required actions
+2026-07-05T00:49:18.6933765Z Getting action download info
+2026-07-05T00:49:18.9278676Z Download action repository 'actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0' (SHA:9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0)
+2026-07-05T00:49:19.0110461Z Download action repository 'actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405' (SHA:a309ff8b426b58ec0e2a45f0f869d46889d02405)
+2026-07-05T00:49:19.2569136Z Complete job name: doc-check-links
+2026-07-05T00:49:19.3336590Z ##[group]Run actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+2026-07-05T00:49:19.3338030Z with:
+2026-07-05T00:49:19.3338470Z   fetch-depth: 0
+2026-07-05T00:49:19.3338932Z   persist-credentials: false
+2026-07-05T00:49:19.3339460Z   repository: pytest-dev/pytest
+2026-07-05T00:49:19.3343501Z   token: ***
+2026-07-05T00:49:19.3343963Z   ssh-strict: true
+2026-07-05T00:49:19.3344407Z   ssh-user: git
+2026-07-05T00:49:19.3344821Z   clean: true
+2026-07-05T00:49:19.3345265Z   sparse-checkout-cone-mode: true
+2026-07-05T00:49:19.3345798Z   fetch-tags: false
+2026-07-05T00:49:19.3346243Z   show-progress: true
+2026-07-05T00:49:19.3346696Z   lfs: false
+2026-07-05T00:49:19.3347318Z   submodules: false
+2026-07-05T00:49:19.3347773Z   set-safe-directory: true
+2026-07-05T00:49:19.3348280Z   allow-unsafe-pr-checkout: false
+2026-07-05T00:49:19.3349055Z ##[endgroup]
+2026-07-05T00:49:19.4349461Z Syncing repository: pytest-dev/pytest
+2026-07-05T00:49:19.4351339Z ##[group]Getting Git version info
+2026-07-05T00:49:19.4352170Z Working directory is '/home/runner/work/pytest/pytest'
+2026-07-05T00:49:19.4353148Z [command]/usr/bin/git version
+2026-07-05T00:49:19.4455054Z git version 2.54.0
+2026-07-05T00:49:19.4478550Z ##[endgroup]
+2026-07-05T00:49:19.4490556Z Temporarily overriding HOME='/home/runner/work/_temp/617d755a-ed56-4c3f-830c-9327fab1bedb' before making global git config changes
+2026-07-05T00:49:19.4492180Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-05T00:49:19.4504494Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/pytest/pytest
+2026-07-05T00:49:19.4557345Z Deleting the contents of '/home/runner/work/pytest/pytest'
+2026-07-05T00:49:19.4561522Z ##[group]Determining repository object format
+2026-07-05T00:49:19.4563133Z ##[endgroup]
+2026-07-05T00:49:19.4563995Z ##[group]Initializing the repository
+2026-07-05T00:49:19.4567656Z [command]/usr/bin/git init /home/runner/work/pytest/pytest
+2026-07-05T00:49:19.4689365Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-07-05T00:49:19.4691325Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-07-05T00:49:19.4693243Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-07-05T00:49:19.4694665Z hint: call:
+2026-07-05T00:49:19.4695241Z hint:
+2026-07-05T00:49:19.4695881Z hint: 	git config --global init.defaultBranch <name>
+2026-07-05T00:49:19.4696631Z hint:
+2026-07-05T00:49:19.4697555Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-07-05T00:49:19.4698771Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-07-05T00:49:19.4700007Z hint:
+2026-07-05T00:49:19.4700614Z hint: 	git branch -m <name>
+2026-07-05T00:49:19.4701098Z hint:
+2026-07-05T00:49:19.4701722Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-07-05T00:49:19.4702764Z Initialized empty Git repository in /home/runner/work/pytest/pytest/.git/
+2026-07-05T00:49:19.4706126Z [command]/usr/bin/git remote add origin https://github.com/pytest-dev/pytest
+2026-07-05T00:49:19.4757973Z ##[endgroup]
+2026-07-05T00:49:19.4758760Z ##[group]Disabling automatic garbage collection
+2026-07-05T00:49:19.4762010Z [command]/usr/bin/git config --local gc.auto 0
+2026-07-05T00:49:19.4792372Z ##[endgroup]
+2026-07-05T00:49:19.4794006Z ##[group]Setting up auth
+2026-07-05T00:49:19.4794876Z Removing SSH command configuration
+2026-07-05T00:49:19.4799899Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-05T00:49:19.4837717Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-05T00:49:19.5198345Z Removing HTTP extra header
+2026-07-05T00:49:19.5204530Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-05T00:49:19.5239889Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-05T00:49:19.5463336Z Removing includeIf entries pointing to credentials config files
+2026-07-05T00:49:19.5464365Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-05T00:49:19.5498154Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-05T00:49:19.5730362Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-a211d1c6-58f8-4478-9729-348af4ae64cd.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-07-05T00:49:19.5770217Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/pytest/pytest/.git.path /home/runner/work/_temp/git-credentials-a211d1c6-58f8-4478-9729-348af4ae64cd.config
+2026-07-05T00:49:19.5802637Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/pytest/pytest/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-a211d1c6-58f8-4478-9729-348af4ae64cd.config
+2026-07-05T00:49:19.5839307Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-a211d1c6-58f8-4478-9729-348af4ae64cd.config
+2026-07-05T00:49:19.5875316Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-a211d1c6-58f8-4478-9729-348af4ae64cd.config
+2026-07-05T00:49:19.5904991Z ##[endgroup]
+2026-07-05T00:49:19.5905760Z ##[group]Fetching the repository
+2026-07-05T00:49:19.5913688Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-07-05T00:49:23.2660733Z From https://github.com/pytest-dev/pytest
+2026-07-05T00:49:23.2664412Z  * [new branch]          4.6.x             -> origin/4.6.x
+2026-07-05T00:49:23.2666288Z  * [new branch]          5.3.x             -> origin/5.3.x
+2026-07-05T00:49:23.2668604Z  * [new branch]          5.4.x             -> origin/5.4.x
+2026-07-05T00:49:23.2669674Z  * [new branch]          6.0.x             -> origin/6.0.x
+2026-07-05T00:49:23.2670736Z  * [new branch]          6.1.x             -> origin/6.1.x
+2026-07-05T00:49:23.2672004Z  * [new branch]          6.2.x             -> origin/6.2.x
+2026-07-05T00:49:23.2673066Z  * [new branch]          7.0.x             -> origin/7.0.x
+2026-07-05T00:49:23.2674098Z  * [new branch]          7.1.x             -> origin/7.1.x
+2026-07-05T00:49:23.2675135Z  * [new branch]          7.2.x             -> origin/7.2.x
+2026-07-05T00:49:23.2676272Z  * [new branch]          7.3.x             -> origin/7.3.x
+2026-07-05T00:49:23.2677784Z  * [new branch]          7.4.x             -> origin/7.4.x
+2026-07-05T00:49:23.2679080Z  * [new branch]          8.0.x             -> origin/8.0.x
+2026-07-05T00:49:23.2680337Z  * [new branch]          8.1.x             -> origin/8.1.x
+2026-07-05T00:49:23.2681626Z  * [new branch]          8.2.x             -> origin/8.2.x
+2026-07-05T00:49:23.2682923Z  * [new branch]          8.3.x             -> origin/8.3.x
+2026-07-05T00:49:23.2684162Z  * [new branch]          8.4.x             -> origin/8.4.x
+2026-07-05T00:49:23.2685394Z  * [new branch]          9.0.x             -> origin/9.0.x
+2026-07-05T00:49:23.2686619Z  * [new branch]          9.1.x             -> origin/9.1.x
+2026-07-05T00:49:23.2689065Z  * [new branch]          copilot/fix-pytest-with-python-lazy-imports -> origin/copilot/fix-pytest-with-python-lazy-imports
+2026-07-05T00:49:23.2692290Z  * [new branch]          dependabot/github_actions/codecov/codecov-action-7.0.0 -> origin/dependabot/github_actions/codecov/codecov-action-7.0.0
+2026-07-05T00:49:23.2694963Z  * [new branch]          expose-fixturedef -> origin/expose-fixturedef
+2026-07-05T00:49:23.2697206Z  * [new branch]          feat/13617-deselected-reason -> origin/feat/13617-deselected-reason
+2026-07-05T00:49:23.2699688Z  * [new branch]          fix/ellipsis      -> origin/fix/ellipsis
+2026-07-05T00:49:23.2701665Z  * [new branch]          fix/runners       -> origin/fix/runners
+2026-07-05T00:49:23.2703723Z  * [new branch]          graingert-patch-1 -> origin/graingert-patch-1
+2026-07-05T00:49:23.2705752Z  * [new branch]          main              -> origin/main
+2026-07-05T00:49:23.2707973Z  * [new branch]          module-pytest     -> origin/module-pytest
+2026-07-05T00:49:23.2710102Z  * [new branch]          report_xfails     -> origin/report_xfails
+2026-07-05T00:49:23.2712415Z  * [new branch]          stop-iteration    -> origin/stop-iteration
+2026-07-05T00:49:23.2714537Z  * [new branch]          wip_fix_capfd     -> origin/wip_fix_capfd
+2026-07-05T00:49:23.2716384Z  * [new tag]             1.0.0             -> 1.0.0
+2026-07-05T00:49:23.2718401Z  * [new tag]             1.0.0b3           -> 1.0.0b3
+2026-07-05T00:49:23.2720037Z  * [new tag]             1.0.0b6           -> 1.0.0b6
+2026-07-05T00:49:23.2721720Z  * [new tag]             1.0.0b8           -> 1.0.0b8
+2026-07-05T00:49:23.2723378Z  * [new tag]             1.0.0b9           -> 1.0.0b9
+2026-07-05T00:49:23.2725031Z  * [new tag]             1.0.1             -> 1.0.1
+2026-07-05T00:49:23.2726637Z  * [new tag]             1.0.2             -> 1.0.2
+2026-07-05T00:49:23.2728613Z  * [new tag]             1.1.0             -> 1.1.0
+2026-07-05T00:49:23.2730251Z  * [new tag]             1.1.1             -> 1.1.1
+2026-07-05T00:49:23.2731874Z  * [new tag]             1.2.0             -> 1.2.0
+2026-07-05T00:49:23.2733500Z  * [new tag]             1.2.1             -> 1.2.1
+2026-07-05T00:49:23.2735100Z  * [new tag]             1.3.0             -> 1.3.0
+2026-07-05T00:49:23.2736706Z  * [new tag]             1.3.1             -> 1.3.1
+2026-07-05T00:49:23.2738594Z  * [new tag]             1.3.2             -> 1.3.2
+2026-07-05T00:49:23.2740122Z  * [new tag]             1.3.3             -> 1.3.3
+2026-07-05T00:49:23.2741630Z  * [new tag]             1.3.4             -> 1.3.4
+2026-07-05T00:49:23.2743134Z  * [new tag]             2.0.0             -> 2.0.0
+2026-07-05T00:49:23.2744874Z  * [new tag]             2.0.1             -> 2.0.1
+2026-07-05T00:49:23.2746372Z  * [new tag]             2.0.2             -> 2.0.2
+2026-07-05T00:49:23.2748178Z  * [new tag]             2.0.3             -> 2.0.3
+2026-07-05T00:49:23.2749675Z  * [new tag]             2.1.0             -> 2.1.0
+2026-07-05T00:49:23.2751163Z  * [new tag]             2.1.2             -> 2.1.2
+2026-07-05T00:49:23.2752644Z  * [new tag]             2.1.3             -> 2.1.3
+2026-07-05T00:49:23.2754114Z  * [new tag]             2.2.0             -> 2.2.0
+2026-07-05T00:49:23.2755600Z  * [new tag]             2.2.1             -> 2.2.1
+2026-07-05T00:49:23.2757368Z  * [new tag]             2.2.2             -> 2.2.2
+2026-07-05T00:49:23.2758968Z  * [new tag]             2.2.3             -> 2.2.3
+2026-07-05T00:49:23.2760817Z  * [new tag]             2.2.4             -> 2.2.4
+2026-07-05T00:49:23.2762596Z  * [new tag]             2.3.0             -> 2.3.0
+2026-07-05T00:49:23.2764314Z  * [new tag]             2.3.1             -> 2.3.1
+2026-07-05T00:49:23.2765799Z  * [new tag]             2.3.2             -> 2.3.2
+2026-07-05T00:49:23.2767455Z  * [new tag]             2.3.3             -> 2.3.3
+2026-07-05T00:49:23.2768941Z  * [new tag]             2.3.4             -> 2.3.4
+2026-07-05T00:49:23.2770414Z  * [new tag]             2.3.5             -> 2.3.5
+2026-07-05T00:49:23.2771926Z  * [new tag]             2.4.0             -> 2.4.0
+2026-07-05T00:49:23.2773399Z  * [new tag]             2.4.1             -> 2.4.1
+2026-07-05T00:49:23.2774881Z  * [new tag]             2.4.2             -> 2.4.2
+2026-07-05T00:49:23.2776354Z  * [new tag]             2.5.0             -> 2.5.0
+2026-07-05T00:49:23.2777996Z  * [new tag]             2.5.1             -> 2.5.1
+2026-07-05T00:49:23.2779471Z  * [new tag]             2.5.2             -> 2.5.2
+2026-07-05T00:49:23.2780951Z  * [new tag]             2.6.0             -> 2.6.0
+2026-07-05T00:49:23.2782657Z  * [new tag]             2.6.1             -> 2.6.1
+2026-07-05T00:49:23.2784155Z  * [new tag]             2.6.2             -> 2.6.2
+2026-07-05T00:49:23.2785616Z  * [new tag]             2.6.3             -> 2.6.3
+2026-07-05T00:49:23.2787212Z  * [new tag]             2.6.4             -> 2.6.4
+2026-07-05T00:49:23.2788687Z  * [new tag]             2.7.0             -> 2.7.0
+2026-07-05T00:49:23.2790169Z  * [new tag]             2.7.1             -> 2.7.1
+2026-07-05T00:49:23.2791650Z  * [new tag]             2.7.2             -> 2.7.2
+2026-07-05T00:49:23.2793116Z  * [new tag]             2.7.3             -> 2.7.3
+2026-07-05T00:49:23.2794592Z  * [new tag]             2.8.0             -> 2.8.0
+2026-07-05T00:49:23.2796066Z  * [new tag]             2.8.1             -> 2.8.1
+2026-07-05T00:49:23.2797893Z  * [new tag]             2.8.2             -> 2.8.2
+2026-07-05T00:49:23.2799399Z  * [new tag]             2.8.3             -> 2.8.3
+2026-07-05T00:49:23.2800945Z  * [new tag]             2.8.4             -> 2.8.4
+2026-07-05T00:49:23.2802458Z  * [new tag]             2.8.5             -> 2.8.5
+2026-07-05T00:49:23.2803962Z  * [new tag]             2.8.6             -> 2.8.6
+2026-07-05T00:49:23.2805437Z  * [new tag]             2.8.7             -> 2.8.7
+2026-07-05T00:49:23.2806899Z  * [new tag]             2.9.0             -> 2.9.0
+2026-07-05T00:49:23.2808547Z  * [new tag]             2.9.1             -> 2.9.1
+2026-07-05T00:49:23.2809972Z  * [new tag]             2.9.2             -> 2.9.2
+2026-07-05T00:49:23.2811396Z  * [new tag]             3.0.0             -> 3.0.0
+2026-07-05T00:49:23.2812819Z  * [new tag]             3.0.1             -> 3.0.1
+2026-07-05T00:49:23.2814235Z  * [new tag]             3.0.2             -> 3.0.2
+2026-07-05T00:49:23.2815646Z  * [new tag]             3.0.3             -> 3.0.3
+2026-07-05T00:49:23.2817149Z  * [new tag]             3.0.4             -> 3.0.4
+2026-07-05T00:49:23.2818555Z  * [new tag]             3.0.5             -> 3.0.5
+2026-07-05T00:49:23.2819964Z  * [new tag]             3.0.6             -> 3.0.6
+2026-07-05T00:49:23.2821367Z  * [new tag]             3.0.7             -> 3.0.7
+2026-07-05T00:49:23.2823009Z  * [new tag]             3.1.0             -> 3.1.0
+2026-07-05T00:49:23.2824412Z  * [new tag]             3.1.1             -> 3.1.1
+2026-07-05T00:49:23.2825781Z  * [new tag]             3.1.2             -> 3.1.2
+2026-07-05T00:49:23.2827319Z  * [new tag]             3.1.3             -> 3.1.3
+2026-07-05T00:49:23.2828702Z  * [new tag]             3.10.0            -> 3.10.0
+2026-07-05T00:49:23.2830073Z  * [new tag]             3.10.1            -> 3.10.1
+2026-07-05T00:49:23.2831437Z  * [new tag]             3.2.0             -> 3.2.0
+2026-07-05T00:49:23.2832805Z  * [new tag]             3.2.1             -> 3.2.1
+2026-07-05T00:49:23.2834160Z  * [new tag]             3.2.2             -> 3.2.2
+2026-07-05T00:49:23.2835518Z  * [new tag]             3.2.3             -> 3.2.3
+2026-07-05T00:49:23.2836903Z  * [new tag]             3.2.4             -> 3.2.4
+2026-07-05T00:49:23.2838658Z  * [new tag]             3.2.5             -> 3.2.5
+2026-07-05T00:49:23.2840050Z  * [new tag]             3.3.0             -> 3.3.0
+2026-07-05T00:49:23.2841406Z  * [new tag]             3.3.1             -> 3.3.1
+2026-07-05T00:49:23.2842771Z  * [new tag]             3.3.2             -> 3.3.2
+2026-07-05T00:49:23.2844143Z  * [new tag]             3.4.0             -> 3.4.0
+2026-07-05T00:49:23.2845504Z  * [new tag]             3.4.1             -> 3.4.1
+2026-07-05T00:49:23.2846876Z  * [new tag]             3.4.2             -> 3.4.2
+2026-07-05T00:49:23.2848447Z  * [new tag]             3.5.0             -> 3.5.0
+2026-07-05T00:49:23.2849822Z  * [new tag]             3.5.1             -> 3.5.1
+2026-07-05T00:49:23.2851192Z  * [new tag]             3.6.0             -> 3.6.0
+2026-07-05T00:49:23.2852564Z  * [new tag]             3.6.1             -> 3.6.1
+2026-07-05T00:49:23.2853934Z  * [new tag]             3.6.2             -> 3.6.2
+2026-07-05T00:49:23.2855540Z  * [new tag]             3.6.3             -> 3.6.3
+2026-07-05T00:49:23.2856938Z  * [new tag]             3.6.4             -> 3.6.4
+2026-07-05T00:49:23.2858527Z  * [new tag]             3.7.0             -> 3.7.0
+2026-07-05T00:49:23.2859912Z  * [new tag]             3.7.1             -> 3.7.1
+2026-07-05T00:49:23.2861300Z  * [new tag]             3.7.2             -> 3.7.2
+2026-07-05T00:49:23.2862662Z  * [new tag]             3.7.3             -> 3.7.3
+2026-07-05T00:49:23.2864043Z  * [new tag]             3.7.4             -> 3.7.4
+2026-07-05T00:49:23.2865449Z  * [new tag]             3.8.0             -> 3.8.0
+2026-07-05T00:49:23.2866826Z  * [new tag]             3.8.1             -> 3.8.1
+2026-07-05T00:49:23.2868305Z  * [new tag]             3.8.2             -> 3.8.2
+2026-07-05T00:49:23.2869666Z  * [new tag]             3.9.0             -> 3.9.0
+2026-07-05T00:49:23.2871033Z  * [new tag]             3.9.1             -> 3.9.1
+2026-07-05T00:49:23.2872400Z  * [new tag]             3.9.2             -> 3.9.2
+2026-07-05T00:49:23.2873772Z  * [new tag]             3.9.3             -> 3.9.3
+2026-07-05T00:49:23.2875122Z  * [new tag]             4.0.0             -> 4.0.0
+2026-07-05T00:49:23.2876485Z  * [new tag]             4.0.1             -> 4.0.1
+2026-07-05T00:49:23.2878214Z  * [new tag]             4.0.2             -> 4.0.2
+2026-07-05T00:49:23.2879573Z  * [new tag]             4.1.0             -> 4.1.0
+2026-07-05T00:49:23.2880930Z  * [new tag]             4.1.1             -> 4.1.1
+2026-07-05T00:49:23.2882289Z  * [new tag]             4.2.0             -> 4.2.0
+2026-07-05T00:49:23.2883638Z  * [new tag]             4.2.1             -> 4.2.1
+2026-07-05T00:49:23.2884990Z  * [new tag]             4.3.0             -> 4.3.0
+2026-07-05T00:49:23.2886346Z  * [new tag]             4.3.1             -> 4.3.1
+2026-07-05T00:49:23.2887884Z  * [new tag]             4.4.0             -> 4.4.0
+2026-07-05T00:49:23.2889250Z  * [new tag]             4.4.1             -> 4.4.1
+2026-07-05T00:49:23.2890608Z  * [new tag]             4.4.2             -> 4.4.2
+2026-07-05T00:49:23.2891956Z  * [new tag]             4.5.0             -> 4.5.0
+2026-07-05T00:49:23.2893609Z  * [new tag]             4.6.0             -> 4.6.0
+2026-07-05T00:49:23.2894963Z  * [new tag]             4.6.1             -> 4.6.1
+2026-07-05T00:49:23.2896311Z  * [new tag]             4.6.10            -> 4.6.10
+2026-07-05T00:49:23.2897822Z  * [new tag]             4.6.11            -> 4.6.11
+2026-07-05T00:49:23.2899167Z  * [new tag]             4.6.2             -> 4.6.2
+2026-07-05T00:49:23.2900512Z  * [new tag]             4.6.3             -> 4.6.3
+2026-07-05T00:49:23.2901863Z  * [new tag]             4.6.4             -> 4.6.4
+2026-07-05T00:49:23.2903201Z  * [new tag]             4.6.5             -> 4.6.5
+2026-07-05T00:49:23.2904549Z  * [new tag]             4.6.6             -> 4.6.6
+2026-07-05T00:49:23.2905910Z  * [new tag]             4.6.7             -> 4.6.7
+2026-07-05T00:49:23.2907414Z  * [new tag]             4.6.8             -> 4.6.8
+2026-07-05T00:49:23.2908794Z  * [new tag]             4.6.9             -> 4.6.9
+2026-07-05T00:49:23.2910147Z  * [new tag]             5.0.0             -> 5.0.0
+2026-07-05T00:49:23.2911505Z  * [new tag]             5.0.1             -> 5.0.1
+2026-07-05T00:49:23.2912871Z  * [new tag]             5.1.0             -> 5.1.0
+2026-07-05T00:49:23.2914215Z  * [new tag]             5.1.1             -> 5.1.1
+2026-07-05T00:49:23.2915583Z  * [new tag]             5.1.2             -> 5.1.2
+2026-07-05T00:49:23.2917130Z  * [new tag]             5.1.3             -> 5.1.3
+2026-07-05T00:49:23.2918675Z  * [new tag]             5.2.0             -> 5.2.0
+2026-07-05T00:49:23.2920024Z  * [new tag]             5.2.1             -> 5.2.1
+2026-07-05T00:49:23.2921366Z  * [new tag]             5.2.2             -> 5.2.2
+2026-07-05T00:49:23.2922708Z  * [new tag]             5.2.3             -> 5.2.3
+2026-07-05T00:49:23.2924058Z  * [new tag]             5.2.4             -> 5.2.4
+2026-07-05T00:49:23.2925405Z  * [new tag]             5.3.0             -> 5.3.0
+2026-07-05T00:49:23.2927143Z  * [new tag]             5.3.1             -> 5.3.1
+2026-07-05T00:49:23.2928583Z  * [new tag]             5.3.2             -> 5.3.2
+2026-07-05T00:49:23.2930006Z  * [new tag]             5.3.3             -> 5.3.3
+2026-07-05T00:49:23.2931411Z  * [new tag]             5.3.4             -> 5.3.4
+2026-07-05T00:49:23.2932803Z  * [new tag]             5.3.5             -> 5.3.5
+2026-07-05T00:49:23.2934177Z  * [new tag]             5.4.0             -> 5.4.0
+2026-07-05T00:49:23.2935560Z  * [new tag]             5.4.1             -> 5.4.1
+2026-07-05T00:49:23.2936940Z  * [new tag]             5.4.2             -> 5.4.2
+2026-07-05T00:49:23.2938456Z  * [new tag]             5.4.3             -> 5.4.3
+2026-07-05T00:49:23.2939834Z  * [new tag]             6.0.0             -> 6.0.0
+2026-07-05T00:49:23.2941234Z  * [new tag]             6.0.0rc1          -> 6.0.0rc1
+2026-07-05T00:49:23.2942643Z  * [new tag]             6.0.1             -> 6.0.1
+2026-07-05T00:49:23.2944029Z  * [new tag]             6.0.2             -> 6.0.2
+2026-07-05T00:49:23.2945402Z  * [new tag]             6.1.0             -> 6.1.0
+2026-07-05T00:49:23.2946785Z  * [new tag]             6.1.1             -> 6.1.1
+2026-07-05T00:49:23.2948278Z  * [new tag]             6.1.2             -> 6.1.2
+2026-07-05T00:49:23.2949642Z  * [new tag]             6.2.0             -> 6.2.0
+2026-07-05T00:49:23.2951045Z  * [new tag]             6.2.0.dev0        -> 6.2.0.dev0
+2026-07-05T00:49:23.2952455Z  * [new tag]             6.2.1             -> 6.2.1
+2026-07-05T00:49:23.2953832Z  * [new tag]             6.2.2             -> 6.2.2
+2026-07-05T00:49:23.2955237Z  * [new tag]             6.2.3             -> 6.2.3
+2026-07-05T00:49:23.2956606Z  * [new tag]             6.2.4             -> 6.2.4
+2026-07-05T00:49:23.2958330Z  * [new tag]             6.2.5             -> 6.2.5
+2026-07-05T00:49:23.2959760Z  * [new tag]             6.3.0.dev0        -> 6.3.0.dev0
+2026-07-05T00:49:23.2961185Z  * [new tag]             7.0.0             -> 7.0.0
+2026-07-05T00:49:23.2962614Z  * [new tag]             7.0.0.dev0        -> 7.0.0.dev0
+2026-07-05T00:49:23.2964090Z  * [new tag]             7.0.0.post1       -> 7.0.0.post1
+2026-07-05T00:49:23.2966254Z  * [new tag]             7.0.0rc1          -> 7.0.0rc1
+2026-07-05T00:49:23.2968844Z  * [new tag]             7.0.1             -> 7.0.1
+2026-07-05T00:49:23.2970972Z  * [new tag]             7.1.0             -> 7.1.0
+2026-07-05T00:49:23.2972430Z  * [new tag]             7.1.0.dev0        -> 7.1.0.dev0
+2026-07-05T00:49:23.2973864Z  * [new tag]             7.1.1             -> 7.1.1
+2026-07-05T00:49:23.2975241Z  * [new tag]             7.1.2             -> 7.1.2
+2026-07-05T00:49:23.2977591Z  * [new tag]             7.1.3             -> 7.1.3
+2026-07-05T00:49:23.2979282Z  * [new tag]             7.2.0             -> 7.2.0
+2026-07-05T00:49:23.2980692Z  * [new tag]             7.2.0.dev0        -> 7.2.0.dev0
+2026-07-05T00:49:23.2982461Z  * [new tag]             7.2.1             -> 7.2.1
+2026-07-05T00:49:23.2984492Z  * [new tag]             7.2.2             -> 7.2.2
+2026-07-05T00:49:23.2986722Z  * [new tag]             7.3.0             -> 7.3.0
+2026-07-05T00:49:23.2989432Z  * [new tag]             7.3.1             -> 7.3.1
+2026-07-05T00:49:23.2991753Z  * [new tag]             7.3.2             -> 7.3.2
+2026-07-05T00:49:23.2994177Z  * [new tag]             7.4.0             -> 7.4.0
+2026-07-05T00:49:23.2996471Z  * [new tag]             7.4.0.dev0        -> 7.4.0.dev0
+2026-07-05T00:49:23.2999061Z  * [new tag]             7.4.1             -> 7.4.1
+2026-07-05T00:49:23.3001258Z  * [new tag]             7.4.2             -> 7.4.2
+2026-07-05T00:49:23.3002677Z  * [new tag]             7.4.3             -> 7.4.3
+2026-07-05T00:49:23.3004297Z  * [new tag]             7.4.4             -> 7.4.4
+2026-07-05T00:49:23.3006563Z  * [new tag]             8.0.0             -> 8.0.0
+2026-07-05T00:49:23.3009081Z  * [new tag]             8.0.0.dev0        -> 8.0.0.dev0
+2026-07-05T00:49:23.3011268Z  * [new tag]             8.0.0rc1          -> 8.0.0rc1
+2026-07-05T00:49:23.3013799Z  * [new tag]             8.0.0rc2          -> 8.0.0rc2
+2026-07-05T00:49:23.3016176Z  * [new tag]             8.0.1             -> 8.0.1
+2026-07-05T00:49:23.3018693Z  * [new tag]             8.0.2             -> 8.0.2
+2026-07-05T00:49:23.3020904Z  * [new tag]             8.1.0             -> 8.1.0
+2026-07-05T00:49:23.3023174Z  * [new tag]             8.1.0.dev0        -> 8.1.0.dev0
+2026-07-05T00:49:23.3025433Z  * [new tag]             8.1.1             -> 8.1.1
+2026-07-05T00:49:23.3027837Z  * [new tag]             8.1.2             -> 8.1.2
+2026-07-05T00:49:23.3030051Z  * [new tag]             8.2.0             -> 8.2.0
+2026-07-05T00:49:23.3032300Z  * [new tag]             8.2.0.dev0        -> 8.2.0.dev0
+2026-07-05T00:49:23.3034821Z  * [new tag]             8.2.1             -> 8.2.1
+2026-07-05T00:49:23.3037230Z  * [new tag]             8.2.2             -> 8.2.2
+2026-07-05T00:49:23.3039436Z  * [new tag]             8.3.0             -> 8.3.0
+2026-07-05T00:49:23.3041709Z  * [new tag]             8.3.0.dev0        -> 8.3.0.dev0
+2026-07-05T00:49:23.3043964Z  * [new tag]             8.3.1             -> 8.3.1
+2026-07-05T00:49:23.3046139Z  * [new tag]             8.3.2             -> 8.3.2
+2026-07-05T00:49:23.3048584Z  * [new tag]             8.3.3             -> 8.3.3
+2026-07-05T00:49:23.3050757Z  * [new tag]             8.3.4             -> 8.3.4
+2026-07-05T00:49:23.3052933Z  * [new tag]             8.3.5             -> 8.3.5
+2026-07-05T00:49:23.3055090Z  * [new tag]             8.4.0             -> 8.4.0
+2026-07-05T00:49:23.3057538Z  * [new tag]             8.4.0.dev0        -> 8.4.0.dev0
+2026-07-05T00:49:23.3059789Z  * [new tag]             8.4.1             -> 8.4.1
+2026-07-05T00:49:23.3061974Z  * [new tag]             8.4.2             -> 8.4.2
+2026-07-05T00:49:23.3064195Z  * [new tag]             8.5.0.dev0        -> 8.5.0.dev0
+2026-07-05T00:49:23.3066490Z  * [new tag]             9.0.0             -> 9.0.0
+2026-07-05T00:49:23.3068879Z  * [new tag]             9.0.1             -> 9.0.1
+2026-07-05T00:49:23.3071341Z  * [new tag]             9.0.2             -> 9.0.2
+2026-07-05T00:49:23.3074081Z  * [new tag]             9.0.3             -> 9.0.3
+2026-07-05T00:49:23.3076267Z  * [new tag]             9.1.0             -> 9.1.0
+2026-07-05T00:49:23.3078789Z  * [new tag]             9.1.0.dev0        -> 9.1.0.dev0
+2026-07-05T00:49:23.3081039Z  * [new tag]             9.1.1             -> 9.1.1
+2026-07-05T00:49:23.3083265Z  * [new tag]             9.2.0.dev0        -> 9.2.0.dev0
+2026-07-05T00:49:23.3085513Z  * [new tag]             v7.4.3            -> v7.4.3
+2026-07-05T00:49:23.3184774Z [command]/usr/bin/git branch --list --remote origin/main
+2026-07-05T00:49:23.3187587Z   origin/main
+2026-07-05T00:49:23.3191348Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-07-05T00:49:23.3193691Z 1aa747de62dd9e9f395513c25298ba604f1724d0
+2026-07-05T00:49:23.3218510Z ##[endgroup]
+2026-07-05T00:49:23.3221093Z ##[group]Determining the checkout info
+2026-07-05T00:49:23.3223913Z ##[endgroup]
+2026-07-05T00:49:23.3225589Z [command]/usr/bin/git sparse-checkout disable
+2026-07-05T00:49:23.3230749Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-07-05T00:49:23.3236364Z ##[group]Checking out the ref
+2026-07-05T00:49:23.3239320Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-07-05T00:49:23.3821700Z Switched to a new branch 'main'
+2026-07-05T00:49:23.3824358Z branch 'main' set up to track 'origin/main'.
+2026-07-05T00:49:23.3841225Z ##[endgroup]
+2026-07-05T00:49:23.3898896Z [command]/usr/bin/git log -1 --format=%H
+2026-07-05T00:49:23.3928666Z 1aa747de62dd9e9f395513c25298ba604f1724d0
+2026-07-05T00:49:23.3956375Z ##[group]Removing auth
+2026-07-05T00:49:23.3959557Z Removing SSH command configuration
+2026-07-05T00:49:23.3963375Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-05T00:49:23.3993506Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-05T00:49:23.4238711Z Removing HTTP extra header
+2026-07-05T00:49:23.4240946Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-05T00:49:23.4275126Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-05T00:49:23.4506045Z Removing includeIf entries pointing to credentials config files
+2026-07-05T00:49:23.4511017Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-05T00:49:23.4540693Z includeif.gitdir:/home/runner/work/pytest/pytest/.git.path
+2026-07-05T00:49:23.4544096Z includeif.gitdir:/home/runner/work/pytest/pytest/.git/worktrees/*.path
+2026-07-05T00:49:23.4547489Z includeif.gitdir:/github/workspace/.git.path
+2026-07-05T00:49:23.4550365Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-05T00:49:23.4557381Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/pytest/pytest/.git.path
+2026-07-05T00:49:23.4579240Z /home/runner/work/_temp/git-credentials-a211d1c6-58f8-4478-9729-348af4ae64cd.config
+2026-07-05T00:49:23.4589290Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/pytest/pytest/.git.path /home/runner/work/_temp/git-credentials-a211d1c6-58f8-4478-9729-348af4ae64cd.config
+2026-07-05T00:49:23.4628099Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/pytest/pytest/.git/worktrees/*.path
+2026-07-05T00:49:23.4655505Z /home/runner/work/_temp/git-credentials-a211d1c6-58f8-4478-9729-348af4ae64cd.config
+2026-07-05T00:49:23.4666930Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/pytest/pytest/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-a211d1c6-58f8-4478-9729-348af4ae64cd.config
+2026-07-05T00:49:23.4721507Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-07-05T00:49:23.4750565Z /github/runner_temp/git-credentials-a211d1c6-58f8-4478-9729-348af4ae64cd.config
+2026-07-05T00:49:23.4767637Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-a211d1c6-58f8-4478-9729-348af4ae64cd.config
+2026-07-05T00:49:23.4826796Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-05T00:49:23.4843969Z /github/runner_temp/git-credentials-a211d1c6-58f8-4478-9729-348af4ae64cd.config
+2026-07-05T00:49:23.4853034Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-a211d1c6-58f8-4478-9729-348af4ae64cd.config
+2026-07-05T00:49:23.4887996Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-05T00:49:23.5134449Z Removing credentials config '/home/runner/work/_temp/git-credentials-a211d1c6-58f8-4478-9729-348af4ae64cd.config'
+2026-07-05T00:49:23.5143940Z ##[endgroup]
+2026-07-05T00:49:23.5399462Z ##[group]Run actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405
+2026-07-05T00:49:23.5399985Z with:
+2026-07-05T00:49:23.5400241Z   python-version: 3.13
+2026-07-05T00:49:23.5400514Z   cache: pip
+2026-07-05T00:49:23.5400767Z   check-latest: false
+2026-07-05T00:49:23.5403681Z   token: ***
+2026-07-05T00:49:23.5403960Z   update-environment: true
+2026-07-05T00:49:23.5404268Z   allow-prereleases: false
+2026-07-05T00:49:23.5404552Z   freethreaded: false
+2026-07-05T00:49:23.5404812Z ##[endgroup]
+2026-07-05T00:49:23.6745481Z ##[group]Installed versions
+2026-07-05T00:49:23.6851557Z Successfully set up CPython (3.13.14)
+2026-07-05T00:49:23.6852676Z ##[endgroup]
+2026-07-05T00:49:23.7894436Z [command]/opt/hostedtoolcache/Python/3.13.14/x64/bin/pip cache dir
+2026-07-05T00:49:25.7635784Z /home/runner/.cache/pip
+2026-07-05T00:49:25.8454946Z pip cache is not found
+2026-07-05T00:49:25.8592746Z ##[group]Run python -m pip install --upgrade pip
+2026-07-05T00:49:25.8593267Z [36;1mpython -m pip install --upgrade pip[0m
+2026-07-05T00:49:25.8593595Z [36;1mpip install tox[0m
+2026-07-05T00:49:25.8853253Z shell: /usr/bin/bash -e {0}
+2026-07-05T00:49:25.8853610Z env:
+2026-07-05T00:49:25.8853963Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.14/x64
+2026-07-05T00:49:25.8854584Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.14/x64/lib/pkgconfig
+2026-07-05T00:49:25.8855156Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.14/x64
+2026-07-05T00:49:25.8855678Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.14/x64
+2026-07-05T00:49:25.8856192Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.14/x64
+2026-07-05T00:49:25.8856703Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.14/x64/lib
+2026-07-05T00:49:25.8857412Z ##[endgroup]
+2026-07-05T00:49:27.3238123Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages (26.1.2)
+2026-07-05T00:49:28.5488597Z Collecting tox
+2026-07-05T00:49:28.6065808Z   Downloading tox-4.56.1-py3-none-any.whl.metadata (3.8 kB)
+2026-07-05T00:49:28.6273467Z Collecting cachetools>=7.0.3 (from tox)
+2026-07-05T00:49:28.6321133Z   Downloading cachetools-7.1.4-py3-none-any.whl.metadata (5.5 kB)
+2026-07-05T00:49:28.6493624Z Collecting colorama>=0.4.6 (from tox)
+2026-07-05T00:49:28.6552059Z   Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+2026-07-05T00:49:28.6780837Z Collecting filelock>=3.25 (from tox)
+2026-07-05T00:49:28.6825775Z   Downloading filelock-3.29.5-py3-none-any.whl.metadata (2.0 kB)
+2026-07-05T00:49:28.6993321Z Collecting packaging>=26 (from tox)
+2026-07-05T00:49:28.7037576Z   Downloading packaging-26.2-py3-none-any.whl.metadata (3.5 kB)
+2026-07-05T00:49:28.7220949Z Collecting platformdirs>=4.9.4 (from tox)
+2026-07-05T00:49:28.7268865Z   Downloading platformdirs-4.10.0-py3-none-any.whl.metadata (5.5 kB)
+2026-07-05T00:49:28.7424800Z Collecting pluggy>=1.6 (from tox)
+2026-07-05T00:49:28.7493980Z   Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+2026-07-05T00:49:28.7669853Z Collecting pyproject-api>=1.10 (from tox)
+2026-07-05T00:49:28.7734963Z   Downloading pyproject_api-1.10.1-py3-none-any.whl.metadata (2.3 kB)
+2026-07-05T00:49:28.7864407Z Collecting python-discovery>=1.2.2 (from tox)
+2026-07-05T00:49:28.7914519Z   Downloading python_discovery-1.4.3-py3-none-any.whl.metadata (5.6 kB)
+2026-07-05T00:49:28.8085545Z Collecting tomli-w>=1.2 (from tox)
+2026-07-05T00:49:28.8130704Z   Downloading tomli_w-1.2.0-py3-none-any.whl.metadata (5.7 kB)
+2026-07-05T00:49:28.8460008Z Collecting virtualenv>=21.1 (from tox)
+2026-07-05T00:49:28.8506346Z   Downloading virtualenv-21.5.1-py3-none-any.whl.metadata (3.4 kB)
+2026-07-05T00:49:28.8725742Z Collecting distlib<1,>=0.3.7 (from virtualenv>=21.1->tox)
+2026-07-05T00:49:28.8771009Z   Downloading distlib-0.4.3-py2.py3-none-any.whl.metadata (5.3 kB)
+2026-07-05T00:49:28.8888185Z Downloading tox-4.56.1-py3-none-any.whl (216 kB)
+2026-07-05T00:49:28.9052807Z Downloading cachetools-7.1.4-py3-none-any.whl (16 kB)
+2026-07-05T00:49:28.9130693Z Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+2026-07-05T00:49:28.9201255Z Downloading filelock-3.29.5-py3-none-any.whl (45 kB)
+2026-07-05T00:49:28.9275811Z Downloading packaging-26.2-py3-none-any.whl (100 kB)
+2026-07-05T00:49:28.9353688Z Downloading platformdirs-4.10.0-py3-none-any.whl (22 kB)
+2026-07-05T00:49:28.9426522Z Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+2026-07-05T00:49:28.9507683Z Downloading pyproject_api-1.10.1-py3-none-any.whl (12 kB)
+2026-07-05T00:49:28.9586575Z Downloading python_discovery-1.4.3-py3-none-any.whl (33 kB)
+2026-07-05T00:49:28.9655773Z Downloading tomli_w-1.2.0-py3-none-any.whl (6.7 kB)
+2026-07-05T00:49:28.9737509Z Downloading virtualenv-21.5.1-py3-none-any.whl (4.6 MB)
+2026-07-05T00:49:29.0082119Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.6/4.6 MB 147.3 MB/s  0:00:00
+2026-07-05T00:49:29.0141866Z Downloading distlib-0.4.3-py2.py3-none-any.whl (470 kB)
+2026-07-05T00:49:29.0634931Z Installing collected packages: distlib, tomli-w, pluggy, platformdirs, packaging, filelock, colorama, cachetools, python-discovery, pyproject-api, virtualenv, tox
+2026-07-05T00:49:29.6981298Z 
+2026-07-05T00:49:29.7003028Z Successfully installed cachetools-7.1.4 colorama-0.4.6 distlib-0.4.3 filelock-3.29.5 packaging-26.2 platformdirs-4.10.0 pluggy-1.6.0 pyproject-api-1.10.1 python-discovery-1.4.3 tomli-w-1.2.0 tox-4.56.1 virtualenv-21.5.1
+2026-07-05T00:49:29.7753999Z ##[group]Run tox -e docs-checklinks
+2026-07-05T00:49:29.7754341Z [36;1mtox -e docs-checklinks[0m
+2026-07-05T00:49:29.7787863Z shell: /usr/bin/bash -e {0}
+2026-07-05T00:49:29.7788116Z env:
+2026-07-05T00:49:29.7788384Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.14/x64
+2026-07-05T00:49:29.7788834Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.14/x64/lib/pkgconfig
+2026-07-05T00:49:29.7789290Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.14/x64
+2026-07-05T00:49:29.7789694Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.14/x64
+2026-07-05T00:49:29.7790098Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.14/x64
+2026-07-05T00:49:29.7790517Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.14/x64/lib
+2026-07-05T00:49:29.7790841Z ##[endgroup]
+2026-07-05T00:49:30.9305311Z docs-checklinks: install_deps> python -I -m pip install -r /home/runner/work/pytest/pytest/doc/en/requirements.txt
+2026-07-05T00:49:37.7492036Z .pkg: install_requires> python -I -m pip install 'setuptools-scm[toml]>=6.2.3' 'setuptools>=77'
+2026-07-05T00:49:40.1074622Z .pkg: _optional_hooks> python /opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/pyproject_api/_backend.py True setuptools.build_meta
+2026-07-05T00:49:40.4151541Z .pkg: get_requires_for_build_wheel> python /opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/pyproject_api/_backend.py True setuptools.build_meta
+2026-07-05T00:49:41.8682964Z .pkg: get_requires_for_build_editable> python /opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/pyproject_api/_backend.py True setuptools.build_meta
+2026-07-05T00:49:42.4257614Z .pkg: freeze> python -m pip freeze --all
+2026-07-05T00:49:42.6833616Z .pkg: packaging==26.2,pip==26.1.2,setuptools==83.0.0,setuptools-scm==10.2.0,vcs-versioning==2.2.2
+2026-07-05T00:49:42.6839633Z .pkg: build_editable> python /opt/hostedtoolcache/Python/3.13.14/x64/lib/python3.13/site-packages/pyproject_api/_backend.py True setuptools.build_meta
+2026-07-05T00:49:43.3554151Z docs-checklinks: install_package_deps> python -I -m pip install argcomplete 'attrs>=19.2' 'colorama>=0.4; sys_platform == "win32"' 'exceptiongroup>=1; python_version < "3.11"' 'hypothesis>=3.56' 'iniconfig>=1.0.1' mock 'packaging>=22' 'pluggy<2,>=1.5' 'pygments>=2.7.2' requests setuptools 'tomli>=1; python_version < "3.11"' xmlschema
+2026-07-05T00:49:46.1939596Z docs-checklinks: install_package> python -I -m pip install --force-reinstall --no-deps /home/runner/work/pytest/pytest/.tox/.tmp/package/1/pytest-9.2.0.dev42+g1aa747de6-0.editable-py3-none-any.whl
+2026-07-05T00:49:46.6525437Z docs-checklinks: freeze> python -m pip freeze --all
+2026-07-05T00:49:46.9564488Z docs-checklinks: accessible-pygments==0.0.5,alabaster==1.0.0,argcomplete==3.7.0,attrs==26.1.0,babel==2.18.0,beautifulsoup4==4.15.0,certifi==2026.6.17,charset-normalizer==3.4.7,click==8.4.2,docutils==0.22.4,elementpath==5.1.3,furo==2025.12.19,hypothesis==6.156.1,idna==3.18,imagesize==2.0.0,iniconfig==2.3.0,Jinja2==3.1.6,MarkupSafe==3.0.3,mock==5.2.0,packaging==26.2,pip==26.1.2,pluggy==1.6.0,Pygments==2.20.0,pygments_pytest==2.5.0,pytest @ file:///home/runner/work/pytest/pytest/.tox/.tmp/package/1/pytest-9.2.0.dev42%2Bg1aa747de6-0.editable-py3-none-any.whl#sha256=3ced170826004889c58a856a4085bf7729393d84d6a494847b728a2aa450041a,requests==2.34.2,roman-numerals==4.1.0,setuptools==83.0.0,snowballstemmer==3.1.1,sortedcontainers==2.4.0,soupsieve==2.8.4,Sphinx==9.1.0,sphinx-basic-ng==1.0.0b2,sphinx-issues==6.0.0,sphinx-removed-in==0.2.3,sphinx_inline_tabs==2025.12.21.14,sphinxcontrib-applehelp==2.0.0,sphinxcontrib-devhelp==2.0.0,sphinxcontrib-htmlhelp==2.1.0,sphinxcontrib-jsmath==1.0.1,sphinxcontrib-qthelp==2.0.0,sphinxcontrib-serializinghtml==2.0.0,sphinxcontrib-svg2pdfconverter==2.1.0,sphinxcontrib-towncrier==0.5.0a0,sphinxcontrib-trio==1.2.0,towncrier==25.8.0,typing_extensions==4.16.0,urllib3==2.7.0,xmlschema==4.3.2
+2026-07-05T00:49:46.9570925Z docs-checklinks: commands[0] /home/runner/work/pytest/pytest/doc/en> sphinx-build -W -q --keep-going -b linkcheck . _build
+2026-07-05T00:50:06.4560787Z [91m/home/runner/work/pytest/pytest/doc/en/adopt.rst:56: WARNING: broken link: fixture.html ()[39;49;00m
+2026-07-05T00:50:06.4590756Z [91m/home/runner/work/pytest/pytest/doc/en/adopt.rst:55: WARNING: broken link: assert.html ()[39;49;00m
+2026-07-05T00:50:06.6332790Z [91m/home/runner/work/pytest/pytest/doc/en/announce/sprint2016.rst:7: WARNING: broken link: http://igg.me/at/pytest-sprint/x/4034848 (403 Client Error: Forbidden for url: https://www.indiegogo.com/s/pytest-sprint)[39;49;00m
+2026-07-05T00:50:06.8084177Z [91m/home/runner/work/pytest/pytest/doc/en/talks.rst:103: WARNING: broken link: http://bruynooghe.blogspot.com/2009/12/skipping-slow-test-by-default-in-pytest.html (404 Client Error: Not Found for url: http://bruynooghe.blogspot.com/2009/12/skipping-slow-test-by-default-in-pytest.html)[39;49;00m
+2026-07-05T00:50:06.9202205Z [91m/home/runner/work/pytest/pytest/doc/en/talks.rst:88: WARNING: broken link: http://bruynooghe.blogspot.com/2010/06/pytest-test-generators-and-cached-setup.html (404 Client Error: Not Found for url: http://bruynooghe.blogspot.com/2010/06/pytest-test-generators-and-cached-setup.html)[39;49;00m
+2026-07-05T00:50:07.5109190Z [91m/home/runner/work/pytest/pytest/doc/en/announce/release-2.2.0.rst:12: WARNING: broken link: http://pytest.org/en/stable/example/how-to/parametrize.html (404 Client Error: Not Found for url: https://pytest.org/en/stable/example/how-to/parametrize.html)[39;49;00m
+2026-07-05T00:50:09.6994152Z [91m/home/runner/work/pytest/pytest/doc/en/history.rst:120: WARNING: broken link: http://web.archive.org/web/20091012022829/http://codespeak.net/py/dist/test/plugin/how-to/monkeypatch.html (404 Client Error: NOT FOUND for url: http://web.archive.org/web/20091012022829/http://codespeak.net/py/dist/test/plugin/how-to/monkeypatch.html)[39;49;00m
+2026-07-05T00:50:09.9436927Z [91m/home/runner/work/pytest/pytest/doc/en/how-to/output.rst:624: WARNING: broken link: http://windyroad.com.au/dl/Open%20Source/JUnit.xsd (404 Client Error: Not Found for url: https://windyroad.com.au/dl/Open%20Source/JUnit.xsd)[39;49;00m
+2026-07-05T00:50:11.0334552Z [91m/home/runner/work/pytest/pytest/doc/en/adopt.rst:55: WARNING: broken link: https://bitbucket.org/hpk42/pycmd/overview (404 Client Error: Not Found for url: https://bitbucket.org/hpk42/pycmd/overview)[39;49;00m
+2026-07-05T00:50:11.0634879Z [91m/home/runner/work/pytest/pytest/doc/en/announce/release-2.6.0.rst:21: WARNING: broken link: https://bitbucket.org/pytest-dev/pytest/issues?status=new&status=open&sort=-votes (404 Client Error: Not Found for url: https://bitbucket.org/pytest-dev/pytest/issues?status=new&status=open&sort=-votes)[39;49;00m
+2026-07-05T00:50:11.3826502Z [91m/home/runner/work/pytest/pytest/doc/en/explanation/goodpractices.rst:112: WARNING: broken link: https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure> (Anchor 'the-structure%3E' not found)[39;49;00m
+2026-07-05T00:50:13.6303473Z [91m/home/runner/work/pytest/pytest/doc/en/talks.rst:59: WARNING: broken link: https://daniel.roygreenfeld.com/pytest-no-boilerplate-testing.html (HTTPSConnectionPool(host='daniel.roygreenfeld.com', port=443): Max retries exceeded with url: /pytest-no-boilerplate-testing.html (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1032)'))))[39;49;00m
+2026-07-05T00:50:13.6841656Z [91m/home/runner/work/pytest/pytest/doc/en/changelog.rst:3032: WARNING: broken link: https://devguide.python.org/#status-of-python-branches (Anchor 'status-of-python-branches' not found)[39;49;00m
+2026-07-05T00:50:14.2731055Z [91m/home/runner/work/pytest/pytest/doc/en/announce/release-2.3.0.rst:97: WARNING: broken link: https://docs.pytest.org/en/6.0.1/faq.html (404 Client Error: Not Found for url: https://docs.pytest.org/en/6.0.1/faq.html)[39;49;00m
+2026-07-05T00:50:14.7629374Z [91m/home/runner/work/pytest/pytest/doc/en/announce/release-8.0.0rc2.rst:22: WARNING: broken link: https://docs.pytest.org/en/release-8.0.0rc2/changelog.html (404 Client Error: Not Found for url: https://docs.pytest.org/en/release-8.0.0rc2/changelog.html)[39;49;00m
+2026-07-05T00:50:24.2988008Z [91m/home/runner/work/pytest/pytest/doc/en/reference/reference.rst:174: WARNING: broken link: https://github.com/asottile/re-assert#re_assertmatchespattern-str-args-kwargs (Anchor 're_assertmatchespattern-str-args-kwargs' not found)[39;49;00m
+2026-07-05T00:50:30.6076101Z [91m/home/runner/work/pytest/pytest/doc/en/explanation/goodpractices.rst:303: WARNING: broken link: https://github.com/pytest-dev/pytest-runner#deprecation-notice (Anchor 'deprecation-notice' not found)[39;49;00m
+2026-07-05T00:50:33.8023718Z [91m/home/runner/work/pytest/pytest/doc/en/history.rst:108: WARNING: broken link: https://github.com/pytest-dev/pytest/blob/main/doc/en/changelog.rst#091 (Anchor '091' not found)[39;49;00m
+2026-07-05T00:50:36.7306543Z [91m/home/runner/work/pytest/pytest/doc/en/announce/release-2.0.3.rst:27: WARNING: timeout   http://lists.idyll.org/pipermail/testing-in-python/2011-March/003928.htmlHTTPConnectionPool(host='lists.idyll.org', port=80): Max retries exceeded with url: /pipermail/testing-in-python/2011-March/003928.html (Caused by ConnectTimeoutError(<HTTPConnection(host='lists.idyll.org', port=80) at 0x7fc5e9157650>, 'Connection to lists.idyll.org timed out. (connect timeout=30)'))[39;49;00m
+2026-07-05T00:50:36.7311309Z [91m/home/runner/work/pytest/pytest/doc/en/contact.rst:37: WARNING: timeout   http://lists.idyll.org/listinfo/testing-in-pythonHTTPConnectionPool(host='lists.idyll.org', port=80): Max retries exceeded with url: /listinfo/testing-in-python (Caused by ConnectTimeoutError(<HTTPConnection(host='lists.idyll.org', port=80) at 0x7fc5ea212350>, 'Connection to lists.idyll.org timed out. (connect timeout=30)'))[39;49;00m
+2026-07-05T00:51:11.1756939Z [91m/home/runner/work/pytest/pytest/doc/en/contact.rst:25: WARNING: broken link: https://matrix.to/#/#pytest:matrix.org (Anchor '/%23pytest%3Amatrix.org' not found)[39;49;00m
+2026-07-05T00:51:11.2643615Z [91m/home/runner/work/pytest/pytest/doc/en/adopt.rst:13: WARNING: broken link: https://mail.python.org/mailman/listinfo/pytest-dev (404 Client Error: Not Found for url: https://mail.python.org/mailman3/lists/pytest-dev.python.org/)[39;49;00m
+2026-07-05T00:51:12.1847554Z [91m/home/runner/work/pytest/pytest/doc/en/history.rst:112: WARNING: broken link: https://holgerkrekel.net/2009/08/04/pylib-1-0-0-released-the-testing-with-python-innovations-continue/ (415 Client Error: Unsupported Media Type for url: https://holgerkrekel.net/2009/08/04/pylib-1-0-0-released-the-testing-with-python-innovations-continue/)[39;49;00m
+2026-07-05T00:51:12.4628667Z [91m/home/runner/work/pytest/pytest/doc/en/changelog.rst:7422: WARNING: broken link: https://peps.python.org/pep-0506/#recommended-filter-settings-for-test-runners (Anchor 'recommended-filter-settings-for-test-runners' not found)[39;49;00m
+2026-07-05T00:51:31.4503395Z [91m/home/runner/work/pytest/pytest/doc/en/reference/reference.rst:1255: WARNING: broken link: https://no-color.org/ (HTTPSConnectionPool(host='no-color.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPSConnection(host='no-color.org', port=443): Failed to resolve 'no-color.org' ([Errno -3] Temporary failure in name resolution)")))[39;49;00m
+2026-07-05T00:51:34.6547683Z [91m/home/runner/work/pytest/pytest/doc/en/explanation/flaky.rst:132: WARNING: broken link: https://testandcode.com/50 (404 Client Error: Not Found for url: https://testandcode.com/50)[39;49;00m
+2026-07-05T00:51:34.7066388Z [91m/home/runner/work/pytest/pytest/doc/en/contributing.rst:149: WARNING: broken link: https://tox.readthedocs.io/en/latest/config.html#configuration-discovery (Anchor 'configuration-discovery' not found)[39;49;00m
+2026-07-05T00:51:34.9613462Z [91m/home/runner/work/pytest/pytest/doc/en/contact.rst:22: WARNING: broken link: https://web.libera.chat/#pytest (Anchor 'pytest' not found)[39;49;00m
+2026-07-05T00:51:35.4771748Z [91m/home/runner/work/pytest/pytest/doc/en/talks.rst:8: WARNING: broken link: https://www.packtpub.com/web-development/pytest-quick-start-guide (403 Client Error: Forbidden for url: https://www.packtpub.com/web-development/pytest-quick-start-guide)[39;49;00m
+2026-07-05T00:51:36.0488366Z [91m/home/runner/work/pytest/pytest/doc/en/explanation/flaky.rst:147: WARNING: broken link: https://www.uber.com/blog/flaky-tests-overhaul/ (406 Client Error: Not Acceptable for url: https://www.uber.com/blog/flaky-tests-overhaul/)[39;49;00m
+2026-07-05T00:51:36.0539325Z [91m/home/runner/work/pytest/pytest/doc/en/explanation/flaky.rst:147: WARNING: broken link: https://www.uber.com/blog/handling-flaky-tests-java/ (406 Client Error: Not Acceptable for url: https://www.uber.com/blog/handling-flaky-tests-java/)[39;49;00m
+2026-07-05T00:51:39.8925143Z [91m/home/runner/work/pytest/pytest/doc/en/adopt.rst:57: WARNING: broken link: mark.html ()[39;49;00m
+2026-07-05T00:51:39.8927437Z [91m/home/runner/work/pytest/pytest/doc/en/talks.rst:83: WARNING: broken link: monkeypatch.html ()[39;49;00m
+2026-07-05T00:51:39.8929518Z [91m/home/runner/work/pytest/pytest/doc/en/talks.rst:87: WARNING: broken link: parametrize.html#test-generators ()[39;49;00m
+2026-07-05T00:51:39.8939210Z [91m/home/runner/work/pytest/pytest/doc/en/talks.rst:105: WARNING: broken link: plugins.html ()[39;49;00m
+2026-07-05T00:51:39.8950040Z [91m/home/runner/work/pytest/pytest/doc/en/adopt.rst:47: WARNING: broken link: unittest.html ()[39;49;00m
+2026-07-05T00:51:39.8951220Z [91m/home/runner/work/pytest/pytest/doc/en/changelog.rst:2819: WARNING: broken link: with-setup-nose ()[39;49;00m
+2026-07-05T00:51:39.8952471Z [91m/home/runner/work/pytest/pytest/doc/en/adopt.rst:59: WARNING: broken link: xdist.html ()[39;49;00m
+2026-07-05T00:51:39.8953318Z [91m/home/runner/work/pytest/pytest/doc/en/adopt.rst:56: WARNING: broken link: xunit_setup.html ()[39;49;00m
+2026-07-05T00:51:41.7180406Z [91m/home/runner/work/pytest/pytest/doc/en/explanation/flaky.rst:124: WARNING: timeout   https://mediatum.ub.tum.de/doc/1730194/1730194.pdfHTTPSConnectionPool(host='mediatum.ub.tum.de', port=443): Read timed out. (read timeout=30)[39;49;00m
+2026-07-05T00:51:42.5654853Z [91m/home/runner/work/pytest/pytest/doc/en/changelog.rst:1766: WARNING: broken link: https://github.com/python/cpython/blob/51aefc5bf907ddffaaf083ded0de773adcdf08c8/Lib/unittest/case.py#L419-L426 (Anchor 'L419-L426' not found)[39;49;00m
+2026-07-05T00:55:52.7870918Z [91m/home/runner/work/pytest/pytest/doc/en/changelog.rst:1484: WARNING: broken link: https://github.com/sponsors/zachsnickers (404 Client Error: Not Found for url: https://github.com/sponsors/zachsnickers)[39;49;00m
+2026-07-05T00:57:53.1915436Z docs-checklinks: exit 1 (486.23 seconds) /home/runner/work/pytest/pytest/doc/en> sphinx-build -W -q --keep-going -b linkcheck . _build pid=2612
+2026-07-05T00:57:53.1927609Z   docs-checklinks: FAIL code 1 (502.51=setup[16.27]+cmd[486.23] seconds)
+2026-07-05T00:57:53.1928034Z   evaluation failed :( (502.58 seconds)
+2026-07-05T00:57:53.2275869Z ##[error]Process completed with exit code 1.
+2026-07-05T00:57:53.2415720Z Post job cleanup.
+2026-07-05T00:57:53.3266190Z [command]/usr/bin/git version
+2026-07-05T00:57:53.3304382Z git version 2.54.0
+2026-07-05T00:57:53.3344682Z Temporarily overriding HOME='/home/runner/work/_temp/eec4d915-584a-4160-ab1a-4f68a10f6197' before making global git config changes
+2026-07-05T00:57:53.3346065Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-05T00:57:53.3350405Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/pytest/pytest
+2026-07-05T00:57:53.3383830Z Removing SSH command configuration
+2026-07-05T00:57:53.3390614Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-05T00:57:53.3425018Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-05T00:57:53.3646561Z Removing HTTP extra header
+2026-07-05T00:57:53.3651961Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-05T00:57:53.3686105Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-05T00:57:53.3903434Z Removing includeIf entries pointing to credentials config files
+2026-07-05T00:57:53.3909559Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-05T00:57:53.3941438Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-05T00:57:53.4304613Z Cleaning up orphan processes

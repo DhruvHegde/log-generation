@@ -125,6 +125,38 @@ class TestParserV2F4Timeout(unittest.TestCase):
         self.assertEqual(len(rec.traceback_lines), 0)
 
 
+class TestParserV2F4Cancellation(unittest.TestCase):
+    """F4: GHA platform-level cancellation (##[error]The operation was canceled.)."""
+
+    def test_gha_cancellation_maps_to_timeout_class(self):
+        """The definitive GHA cancellation annotation must classify as timeout/gha_cancellation."""
+        log_text = (
+            "2026-08-06T03:11:00.000Z ##[group]Run pytest\n"
+            "2026-08-06T03:11:10.000Z tests/test_app.py::test_one PASSED [ 50%]\n"
+            "2026-08-06T03:11:20.000Z ##[error]The operation was canceled.\n"
+            "2026-08-06T03:11:20.100Z ##[endgroup]\n"
+        )
+        rec = parse_log_text(log_text)
+        self.assertEqual(rec.failure_class, "timeout",
+                         "GHA cancellation annotation must map to failure_class='timeout'")
+        self.assertEqual(rec.failure_subcategory, "gha_cancellation")
+        self.assertEqual(rec.status, "failure")
+        self.assertGreaterEqual(rec.parser_confidence, 0.6)
+        self.assertTrue(len(rec.evidence_lines) > 0,
+                        "Evidence lines must contain the cancellation annotation")
+
+    def test_exit_code_137_alone_stays_unknown(self):
+        """Exit code 137 without a GHA cancellation annotation must remain unknown (ambiguous)."""
+        log_text = (
+            "job1\tstep1\t2026-08-19T14:00:00.000Z Starting step\n"
+            "job1\tstep1\t2026-08-19T14:00:10.000Z ##[error]Process completed with exit code 137.\n"
+        )
+        rec = parse_log_text(log_text)
+        self.assertEqual(rec.failure_class, "unknown",
+                         "Exit code 137 alone is ambiguous and must remain 'unknown'")
+        self.assertNotEqual(rec.failure_class, "timeout")
+
+
 class TestParserV2ClassificationRules(unittest.TestCase):
     """Classification rules & edge cases."""
 

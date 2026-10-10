@@ -1,0 +1,1182 @@
+﻿2026-09-09T13:47:19.1264036Z Current runner version: '2.337.0'
+2026-09-09T13:47:19.1282182Z ##[group]Runner Image Provisioner
+2026-09-09T13:47:19.1282917Z Hosted Compute Agent
+2026-09-09T13:47:19.1283466Z Version: 20260828.587
+2026-09-09T13:47:19.1284003Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-09T13:47:19.1284609Z Build Date: 2026-08-28T16:44:25Z
+2026-09-09T13:47:19.1285231Z Worker ID: {c3f279ac-1243-41ee-a493-e1b7ad93998a}
+2026-09-09T13:47:19.1285857Z Azure Region: centralus
+2026-09-09T13:47:19.1286355Z ##[endgroup]
+2026-09-09T13:47:19.1287472Z ##[group]Operating System
+2026-09-09T13:47:19.1287966Z Ubuntu
+2026-09-09T13:47:19.1288454Z 24.04.4
+2026-09-09T13:47:19.1288918Z LTS
+2026-09-09T13:47:19.1289569Z ##[endgroup]
+2026-09-09T13:47:19.1290055Z ##[group]Runner Image
+2026-09-09T13:47:19.1290545Z Image: ubuntu-24.04
+2026-09-09T13:47:19.1291065Z Version: 20260831.293.1
+2026-09-09T13:47:19.1292095Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260831.293/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-09T13:47:19.1293455Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260831.293
+2026-09-09T13:47:19.1294320Z ##[endgroup]
+2026-09-09T13:47:19.1295236Z ##[group]GITHUB_TOKEN Permissions
+2026-09-09T13:47:19.1296975Z Metadata: read
+2026-09-09T13:47:19.1297473Z Statuses: write
+2026-09-09T13:47:19.1297946Z ##[endgroup]
+2026-09-09T13:47:19.1299816Z Secret source: Actions
+2026-09-09T13:47:19.1300681Z Prepare workflow directory
+2026-09-09T13:47:19.1565052Z Prepare all required actions
+2026-09-09T13:47:19.1606012Z Getting action download info
+2026-09-09T13:47:19.4589458Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-09-09T13:47:19.5894010Z Download action repository 'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97' (SHA:5fda3b95a4ea91299a34e894583c3862153e4b97)
+2026-09-09T13:47:19.6878181Z Download action repository 'astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d' (SHA:20cfd1bf945f4377ade1205e4dbc17946fc9a30d)
+2026-09-09T13:47:20.3419089Z Download action repository 'actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c' (SHA:3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c)
+2026-09-09T13:47:21.0725804Z Complete job name: smokeshow
+2026-09-09T13:47:21.1387467Z ##[group]Run echo "$GITHUB_CONTEXT"
+2026-09-09T13:47:21.1388610Z [36;1mecho "$GITHUB_CONTEXT"[0m
+2026-09-09T13:47:21.1416835Z shell: /usr/bin/bash -e {0}
+2026-09-09T13:47:21.1418064Z env:
+2026-09-09T13:47:21.1640846Z   GITHUB_CONTEXT: {
+  "token": "***",
+  "job": "smokeshow",
+  "ref": "refs/heads/master",
+  "sha": "50113da16fec53b66b80d75e80a89296de4fa5a5",
+  "repository": "fastapi/fastapi",
+  "repository_owner": "fastapi",
+  "repository_owner_id": "156354296",
+  "repositoryUrl": "git://github.com/fastapi/fastapi.git",
+  "run_id": "34359326513",
+  "run_number": "19840",
+  "retention_days": "90",
+  "run_attempt": "1",
+  "artifact_cache_size_limit": "10",
+  "repository_visibility": "public",
+  "actor_id": "117423508",
+  "actor": "pre-commit-ci-lite[bot]",
+  "workflow": "Smokeshow",
+  "head_ref": "",
+  "base_ref": "",
+  "event_name": "workflow_run",
+  "server_url": "https://github.com",
+  "api_url": "https://api.github.com",
+  "graphql_url": "https://api.github.com/graphql",
+  "ref_name": "master",
+  "ref_protected": true,
+  "ref_type": "branch",
+  "secret_source": "Actions",
+  "event": {
+    "action": "completed",
+    "organization": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/156354296?v=4",
+      "description": "FastAPI and friends open source projects. Created and managed by @tiangolo.",
+      "events_url": "https://api.github.com/orgs/fastapi/events",
+      "hooks_url": "https://api.github.com/orgs/fastapi/hooks",
+      "id": 156354296,
+      "issues_url": "https://api.github.com/orgs/fastapi/issues",
+      "login": "fastapi",
+      "members_url": "https://api.github.com/orgs/fastapi/members{/member}",
+      "node_id": "O_kgDOCVHG-A",
+      "public_members_url": "https://api.github.com/orgs/fastapi/public_members{/member}",
+      "repos_url": "https://api.github.com/orgs/fastapi/repos",
+      "url": "https://api.github.com/orgs/fastapi"
+    },
+    "repository": {
+      "allow_forking": true,
+      "archive_url": "https://api.github.com/repos/fastapi/fastapi/{archive_format}{/ref}",
+      "archived": false,
+      "assignees_url": "https://api.github.com/repos/fastapi/fastapi/assignees{/user}",
+      "blobs_url": "https://api.github.com/repos/fastapi/fastapi/git/blobs{/sha}",
+      "branches_url": "https://api.github.com/repos/fastapi/fastapi/branches{/branch}",
+      "clone_url": "https://github.com/fastapi/fastapi.git",
+      "collaborators_url": "https://api.github.com/repos/fastapi/fastapi/collaborators{/collaborator}",
+      "comments_url": "https://api.github.com/repos/fastapi/fastapi/comments{/number}",
+      "commits_url": "https://api.github.com/repos/fastapi/fastapi/commits{/sha}",
+      "compare_url": "https://api.github.com/repos/fastapi/fastapi/compare/{base}...{head}",
+      "contents_url": "https://api.github.com/repos/fastapi/fastapi/contents/{+path}",
+      "contributors_url": "https://api.github.com/repos/fastapi/fastapi/contributors",
+      "created_at": "2018-12-08T08:21:47Z",
+      "custom_properties": {},
+      "default_branch": "master",
+      "deployments_url": "https://api.github.com/repos/fastapi/fastapi/deployments",
+      "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+      "disabled": false,
+      "downloads_url": "https://api.github.com/repos/fastapi/fastapi/downloads",
+      "events_url": "https://api.github.com/repos/fastapi/fastapi/events",
+      "fork": false,
+      "forks": 9868,
+      "forks_count": 9868,
+      "forks_url": "https://api.github.com/repos/fastapi/fastapi/forks",
+      "full_name": "fastapi/fastapi",
+      "git_commits_url": "https://api.github.com/repos/fastapi/fastapi/git/commits{/sha}",
+      "git_refs_url": "https://api.github.com/repos/fastapi/fastapi/git/refs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/fastapi/fastapi/git/tags{/sha}",
+      "git_url": "git://github.com/fastapi/fastapi.git",
+      "has_discussions": true,
+      "has_downloads": false,
+      "has_issues": true,
+      "has_pages": false,
+      "has_projects": true,
+      "has_pull_requests": true,
+      "has_wiki": false,
+      "homepage": "https://fastapi.tiangolo.com/",
+      "hooks_url": "https://api.github.com/repos/fastapi/fastapi/hooks",
+      "html_url": "https://github.com/fastapi/fastapi",
+      "id": 160919119,
+      "is_template": false,
+      "issue_comment_url": "https://api.github.com/repos/fastapi/fastapi/issues/comments{/number}",
+      "issue_events_url": "https://api.github.com/repos/fastapi/fastapi/issues/events{/number}",
+      "issues_url": "https://api.github.com/repos/fastapi/fastapi/issues{/number}",
+      "keys_url": "https://api.github.com/repos/fastapi/fastapi/keys{/key_id}",
+      "labels_url": "https://api.github.com/repos/fastapi/fastapi/labels{/name}",
+      "language": "Python",
+      "languages_url": "https://api.github.com/repos/fastapi/fastapi/languages",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "merges_url": "https://api.github.com/repos/fastapi/fastapi/merges",
+      "milestones_url": "https://api.github.com/repos/fastapi/fastapi/milestones{/number}",
+      "mirror_url": null,
+      "name": "fastapi",
+      "node_id": "MDEwOlJlcG9zaXRvcnkxNjA5MTkxMTk=",
+      "notifications_url": "https://api.github.com/repos/fastapi/fastapi/notifications{?since,all,participating}",
+      "open_issues": 81,
+      "open_issues_count": 81,
+      "owner": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/156354296?v=4",
+        "events_url": "https://api.github.com/users/fastapi/events{/privacy}",
+        "followers_url": "https://api.github.com/users/fastapi/followers",
+        "following_url": "https://api.github.com/users/fastapi/following{/other_user}",
+        "gists_url": "https://api.github.com/users/fastapi/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/fastapi",
+        "id": 156354296,
+        "login": "fastapi",
+        "node_id": "O_kgDOCVHG-A",
+        "organizations_url": "https://api.github.com/users/fastapi/orgs",
+        "received_events_url": "https://api.github.com/users/fastapi/received_events",
+        "repos_url": "https://api.github.com/users/fastapi/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/fastapi/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/fastapi/subscriptions",
+        "type": "Organization",
+        "url": "https://api.github.com/users/fastapi",
+        "user_view_type": "public"
+      },
+      "private": false,
+      "pull_request_creation_policy": "all",
+      "pulls_url": "https://api.github.com/repos/fastapi/fastapi/pulls{/number}",
+      "pushed_at": "2026-09-01T20:59:55Z",
+      "releases_url": "https://api.github.com/repos/fastapi/fastapi/releases{/id}",
+      "size": 55416,
+      "ssh_url": "git@github.com:fastapi/fastapi.git",
+      "stargazers_count": 102209,
+      "stargazers_url": "https://api.github.com/repos/fastapi/fastapi/stargazers",
+      "statuses_url": "https://api.github.com/repos/fastapi/fastapi/statuses/{sha}",
+      "subscribers_url": "https://api.github.com/repos/fastapi/fastapi/subscribers",
+      "subscription_url": "https://api.github.com/repos/fastapi/fastapi/subscription",
+      "svn_url": "https://github.com/fastapi/fastapi",
+      "tags_url": "https://api.github.com/repos/fastapi/fastapi/tags",
+      "teams_url": "https://api.github.com/repos/fastapi/fastapi/teams",
+      "topics": [
+        "api",
+        "async",
+        "asyncio",
+        "fastapi",
+        "framework",
+        "json",
+        "json-schema",
+        "openapi",
+        "openapi3",
+        "pydantic",
+        "python",
+        "python-types",
+        "python3",
+        "redoc",
+        "rest",
+        "starlette",
+        "swagger",
+        "swagger-ui",
+        "uvicorn",
+        "web"
+      ],
+      "trees_url": "https://api.github.com/repos/fastapi/fastapi/git/trees{/sha}",
+      "updated_at": "2026-09-09T13:38:18Z",
+      "url": "https://api.github.com/repos/fastapi/fastapi",
+      "visibility": "public",
+      "watchers": 102209,
+      "watchers_count": 102209,
+      "web_commit_signoff_required": false
+    },
+    "sender": {
+      "avatar_url": "https://avatars.githubusercontent.com/in/257897?v=4",
+      "events_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/events{/privacy}",
+      "followers_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/followers",
+      "following_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/following{/other_user}",
+      "gists_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/gists{/gist_id}",
+      "gravatar_id": "",
+      "html_url": "https://github.com/apps/pre-commit-ci-lite",
+      "id": 117423508,
+      "login": "pre-commit-ci-lite[bot]",
+      "node_id": "BOT_kgDOBv-9lA",
+      "organizations_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/orgs",
+      "received_events_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/received_events",
+      "repos_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/repos",
+      "site_admin": false,
+      "starred_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/subscriptions",
+      "type": "Bot",
+      "url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D",
+      "user_view_type": "public"
+    },
+    "workflow": {
+      "badge_url": "https://github.com/fastapi/fastapi/workflows/Test/badge.svg",
+      "created_at": "2020-07-19T10:44:45.000Z",
+      "html_url": "https://github.com/fastapi/fastapi/blob/master/.github/workflows/test.yml",
+      "id": 1929523,
+      "name": "Test",
+      "node_id": "MDg6V29ya2Zsb3cxOTI5NTIz",
+      "path": ".github/workflows/test.yml",
+      "state": "active",
+      "updated_at": "2026-03-23T10:40:35.000Z",
+      "url": "https://api.github.com/repos/fastapi/fastapi/actions/workflows/1929523"
+    },
+    "workflow_run": {
+      "actor": {
+        "avatar_url": "https://avatars.githubusercontent.com/in/257897?v=4",
+        "events_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/events{/privacy}",
+        "followers_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/followers",
+        "following_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/following{/other_user}",
+        "gists_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/apps/pre-commit-ci-lite",
+        "id": 117423508,
+        "login": "pre-commit-ci-lite[bot]",
+        "node_id": "BOT_kgDOBv-9lA",
+        "organizations_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/orgs",
+        "received_events_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/received_events",
+        "repos_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/subscriptions",
+        "type": "Bot",
+        "url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D",
+        "user_view_type": "public"
+      },
+      "artifacts_url": "https://api.github.com/repos/fastapi/fastapi/actions/runs/34359279624/artifacts",
+      "cancel_url": "https://api.github.com/repos/fastapi/fastapi/actions/runs/34359279624/cancel",
+      "check_suite_id": 93076802344,
+      "check_suite_node_id": "CS_kwDOCZduT88AAAAVq89LKA",
+      "check_suite_url": "https://api.github.com/repos/fastapi/fastapi/check-suites/93076802344",
+      "conclusion": "success",
+      "created_at": "2026-09-09T13:46:49Z",
+      "display_title": "docs(pt): translate contributing.md",
+      "event": "pull_request",
+      "head_branch": "docs/traducao-contributing",
+      "head_commit": {
+        "author": {
+          "email": "117423508+pre-commit-ci-lite[bot]@users.noreply.github.com",
+          "name": "pre-commit-ci-lite[bot]"
+        },
+        "committer": {
+          "email": "noreply@github.com",
+          "name": "GitHub"
+        },
+        "id": "040b523215c4e968f1d13b22e51a4b4043a4aff8",
+        "message": "🎨 Auto format",
+        "timestamp": "2026-09-09T13:46:28Z",
+        "tree_id": "13b7e52ad340d6524b0caf60feec7a5b2e55b58d"
+      },
+      "head_repository": {
+        "archive_url": "https://api.github.com/repos/H1lbert-kt/fastapi/{archive_format}{/ref}",
+        "assignees_url": "https://api.github.com/repos/H1lbert-kt/fastapi/assignees{/user}",
+        "blobs_url": "https://api.github.com/repos/H1lbert-kt/fastapi/git/blobs{/sha}",
+        "branches_url": "https://api.github.com/repos/H1lbert-kt/fastapi/branches{/branch}",
+        "collaborators_url": "https://api.github.com/repos/H1lbert-kt/fastapi/collaborators{/collaborator}",
+        "comments_url": "https://api.github.com/repos/H1lbert-kt/fastapi/comments{/number}",
+        "commits_url": "https://api.github.com/repos/H1lbert-kt/fastapi/commits{/sha}",
+        "compare_url": "https://api.github.com/repos/H1lbert-kt/fastapi/compare/{base}...{head}",
+        "contents_url": "https://api.github.com/repos/H1lbert-kt/fastapi/contents/{+path}",
+        "contributors_url": "https://api.github.com/repos/H1lbert-kt/fastapi/contributors",
+        "deployments_url": "https://api.github.com/repos/H1lbert-kt/fastapi/deployments",
+        "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+        "downloads_url": "https://api.github.com/repos/H1lbert-kt/fastapi/downloads",
+        "events_url": "https://api.github.com/repos/H1lbert-kt/fastapi/events",
+        "fork": true,
+        "forks_url": "https://api.github.com/repos/H1lbert-kt/fastapi/forks",
+        "full_name": "H1lbert-kt/fastapi",
+        "git_commits_url": "https://api.github.com/repos/H1lbert-kt/fastapi/git/commits{/sha}",
+        "git_refs_url": "https://api.github.com/repos/H1lbert-kt/fastapi/git/refs{/sha}",
+        "git_tags_url": "https://api.github.com/repos/H1lbert-kt/fastapi/git/tags{/sha}",
+        "hooks_url": "https://api.github.com/repos/H1lbert-kt/fastapi/hooks",
+        "html_url": "https://github.com/H1lbert-kt/fastapi",
+        "id": 1362629075,
+        "issue_comment_url": "https://api.github.com/repos/H1lbert-kt/fastapi/issues/comments{/number}",
+        "issue_events_url": "https://api.github.com/repos/H1lbert-kt/fastapi/issues/events{/number}",
+        "issues_url": "https://api.github.com/repos/H1lbert-kt/fastapi/issues{/number}",
+        "keys_url": "https://api.github.com/repos/H1lbert-kt/fastapi/keys{/key_id}",
+        "labels_url": "https://api.github.com/repos/H1lbert-kt/fastapi/labels{/name}",
+        "languages_url": "https://api.github.com/repos/H1lbert-kt/fastapi/languages",
+        "merges_url": "https://api.github.com/repos/H1lbert-kt/fastapi/merges",
+        "milestones_url": "https://api.github.com/repos/H1lbert-kt/fastapi/milestones{/number}",
+        "name": "fastapi",
+        "node_id": "R_kgDOUTgR0w",
+        "notifications_url": "https://api.github.com/repos/H1lbert-kt/fastapi/notifications{?since,all,participating}",
+        "owner": {
+          "avatar_url": "https://avatars.githubusercontent.com/u/175756952?v=4",
+          "events_url": "https://api.github.com/users/H1lbert-kt/events{/privacy}",
+          "followers_url": "https://api.github.com/users/H1lbert-kt/followers",
+          "following_url": "https://api.github.com/users/H1lbert-kt/following{/other_user}",
+          "gists_url": "https://api.github.com/users/H1lbert-kt/gists{/gist_id}",
+          "gravatar_id": "",
+          "html_url": "https://github.com/H1lbert-kt",
+          "id": 175756952,
+          "login": "H1lbert-kt",
+          "node_id": "U_kgDOCnnWmA",
+          "organizations_url": "https://api.github.com/users/H1lbert-kt/orgs",
+          "received_events_url": "https://api.github.com/users/H1lbert-kt/received_events",
+          "repos_url": "https://api.github.com/users/H1lbert-kt/repos",
+          "site_admin": false,
+          "starred_url": "https://api.github.com/users/H1lbert-kt/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/H1lbert-kt/subscriptions",
+          "type": "User",
+          "url": "https://api.github.com/users/H1lbert-kt",
+          "user_view_type": "public"
+        },
+        "private": false,
+        "pulls_url": "https://api.github.com/repos/H1lbert-kt/fastapi/pulls{/number}",
+        "releases_url": "https://api.github.com/repos/H1lbert-kt/fastapi/releases{/id}",
+        "stargazers_url": "https://api.github.com/repos/H1lbert-kt/fastapi/stargazers",
+        "statuses_url": "https://api.github.com/repos/H1lbert-kt/fastapi/statuses/{sha}",
+        "subscribers_url": "https://api.github.com/repos/H1lbert-kt/fastapi/subscribers",
+        "subscription_url": "https://api.github.com/repos/H1lbert-kt/fastapi/subscription",
+        "tags_url": "https://api.github.com/repos/H1lbert-kt/fastapi/tags",
+        "teams_url": "https://api.github.com/repos/H1lbert-kt/fastapi/teams",
+        "trees_url": "https://api.github.com/repos/H1lbert-kt/fastapi/git/trees{/sha}",
+        "url": "https://api.github.com/repos/H1lbert-kt/fastapi"
+      },
+      "head_sha": "040b523215c4e968f1d13b22e51a4b4043a4aff8",
+      "html_url": "https://github.com/fastapi/fastapi/actions/runs/34359279624",
+      "id": 34359279624,
+      "jobs_url": "https://api.github.com/repos/fastapi/fastapi/actions/runs/34359279624/jobs",
+      "logs_url": "https://api.github.com/repos/fastapi/fastapi/actions/runs/34359279624/logs",
+      "name": "Test",
+      "node_id": "WFR_kwLOCZduT88AAAAH__kACA",
+      "path": ".github/workflows/test.yml",
+      "previous_attempt_url": null,
+      "pull_requests": [],
+      "referenced_workflows": [],
+      "repository": {
+        "archive_url": "https://api.github.com/repos/fastapi/fastapi/{archive_format}{/ref}",
+        "assignees_url": "https://api.github.com/repos/fastapi/fastapi/assignees{/user}",
+        "blobs_url": "https://api.github.com/repos/fastapi/fastapi/git/blobs{/sha}",
+        "branches_url": "https://api.github.com/repos/fastapi/fastapi/branches{/branch}",
+        "collaborators_url": "https://api.github.com/repos/fastapi/fastapi/collaborators{/collaborator}",
+        "comments_url": "https://api.github.com/repos/fastapi/fastapi/comments{/number}",
+        "commits_url": "https://api.github.com/repos/fastapi/fastapi/commits{/sha}",
+        "compare_url": "https://api.github.com/repos/fastapi/fastapi/compare/{base}...{head}",
+        "contents_url": "https://api.github.com/repos/fastapi/fastapi/contents/{+path}",
+        "contributors_url": "https://api.github.com/repos/fastapi/fastapi/contributors",
+        "deployments_url": "https://api.github.com/repos/fastapi/fastapi/deployments",
+        "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+        "downloads_url": "https://api.github.com/repos/fastapi/fastapi/downloads",
+        "events_url": "https://api.github.com/repos/fastapi/fastapi/events",
+        "fork": false,
+        "forks_url": "https://api.github.com/repos/fastapi/fastapi/forks",
+        "full_name": "fastapi/fastapi",
+        "git_commits_url": "https://api.github.com/repos/fastapi/fastapi/git/commits{/sha}",
+        "git_refs_url": "https://api.github.com/repos/fastapi/fastapi/git/refs{/sha}",
+        "git_tags_url": "https://api.github.com/repos/fastapi/fastapi/git/tags{/sha}",
+        "hooks_url": "https://api.github.com/repos/fastapi/fastapi/hooks",
+        "html_url": "https://github.com/fastapi/fastapi",
+        "id": 160919119,
+        "issue_comment_url": "https://api.github.com/repos/fastapi/fastapi/issues/comments{/number}",
+        "issue_events_url": "https://api.github.com/repos/fastapi/fastapi/issues/events{/number}",
+        "issues_url": "https://api.github.com/repos/fastapi/fastapi/issues{/number}",
+        "keys_url": "https://api.github.com/repos/fastapi/fastapi/keys{/key_id}",
+        "labels_url": "https://api.github.com/repos/fastapi/fastapi/labels{/name}",
+        "languages_url": "https://api.github.com/repos/fastapi/fastapi/languages",
+        "merges_url": "https://api.github.com/repos/fastapi/fastapi/merges",
+        "milestones_url": "https://api.github.com/repos/fastapi/fastapi/milestones{/number}",
+        "name": "fastapi",
+        "node_id": "MDEwOlJlcG9zaXRvcnkxNjA5MTkxMTk=",
+        "notifications_url": "https://api.github.com/repos/fastapi/fastapi/notifications{?since,all,participating}",
+        "owner": {
+          "avatar_url": "https://avatars.githubusercontent.com/u/156354296?v=4",
+          "events_url": "https://api.github.com/users/fastapi/events{/privacy}",
+          "followers_url": "https://api.github.com/users/fastapi/followers",
+          "following_url": "https://api.github.com/users/fastapi/following{/other_user}",
+          "gists_url": "https://api.github.com/users/fastapi/gists{/gist_id}",
+          "gravatar_id": "",
+          "html_url": "https://github.com/fastapi",
+          "id": 156354296,
+          "login": "fastapi",
+          "node_id": "O_kgDOCVHG-A",
+          "organizations_url": "https://api.github.com/users/fastapi/orgs",
+          "received_events_url": "https://api.github.com/users/fastapi/received_events",
+          "repos_url": "https://api.github.com/users/fastapi/repos",
+          "site_admin": false,
+          "starred_url": "https://api.github.com/users/fastapi/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/fastapi/subscriptions",
+          "type": "Organization",
+          "url": "https://api.github.com/users/fastapi",
+          "user_view_type": "public"
+        },
+        "private": false,
+        "pulls_url": "https://api.github.com/repos/fastapi/fastapi/pulls{/number}",
+        "releases_url": "https://api.github.com/repos/fastapi/fastapi/releases{/id}",
+        "stargazers_url": "https://api.github.com/repos/fastapi/fastapi/stargazers",
+        "statuses_url": "https://api.github.com/repos/fastapi/fastapi/statuses/{sha}",
+        "subscribers_url": "https://api.github.com/repos/fastapi/fastapi/subscribers",
+        "subscription_url": "https://api.github.com/repos/fastapi/fastapi/subscription",
+        "tags_url": "https://api.github.com/repos/fastapi/fastapi/tags",
+        "teams_url": "https://api.github.com/repos/fastapi/fastapi/teams",
+        "trees_url": "https://api.github.com/repos/fastapi/fastapi/git/trees{/sha}",
+        "url": "https://api.github.com/repos/fastapi/fastapi"
+      },
+      "rerun_url": "https://api.github.com/repos/fastapi/fastapi/actions/runs/34359279624/rerun",
+      "run_attempt": 1,
+      "run_number": 25604,
+      "run_started_at": "2026-09-09T13:46:49Z",
+      "status": "completed",
+      "triggering_actor": {
+        "avatar_url": "https://avatars.githubusercontent.com/in/257897?v=4",
+        "events_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/events{/privacy}",
+        "followers_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/followers",
+        "following_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/following{/other_user}",
+        "gists_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/apps/pre-commit-ci-lite",
+        "id": 117423508,
+        "login": "pre-commit-ci-lite[bot]",
+        "node_id": "BOT_kgDOBv-9lA",
+        "organizations_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/orgs",
+        "received_events_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/received_events",
+        "repos_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/subscriptions",
+        "type": "Bot",
+        "url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D",
+        "user_view_type": "public"
+      },
+      "updated_at": "2026-09-09T13:47:13Z",
+      "url": "https://api.github.com/repos/fastapi/fastapi/actions/runs/34359279624",
+      "workflow_id": 1929523,
+      "workflow_url": "https://api.github.com/repos/fastapi/fastapi/actions/workflows/1929523"
+    }
+  },
+  "workflow_ref": "fastapi/fastapi/.github/workflows/smokeshow.yml@refs/heads/master",
+  "workflow_sha": "50113da16fec53b66b80d75e80a89296de4fa5a5",
+  "repository_id": "160919119",
+  "triggering_actor": "pre-commit-ci-lite[bot]",
+  "workspace": "/home/runner/work/fastapi/fastapi",
+  "action": "__run"
+}
+2026-09-09T13:47:21.1841589Z ##[endgroup]
+2026-09-09T13:47:21.1955437Z {
+2026-09-09T13:47:21.1963684Z   "token": "***",
+2026-09-09T13:47:21.1964933Z   "job": "smokeshow",
+2026-09-09T13:47:21.1966161Z   "ref": "refs/heads/master",
+2026-09-09T13:47:21.1967462Z   "sha": "50113da16fec53b66b80d75e80a89296de4fa5a5",
+2026-09-09T13:47:21.1968916Z   "repository": "fastapi/fastapi",
+2026-09-09T13:47:21.1970412Z   "repository_owner": "fastapi",
+2026-09-09T13:47:21.1972081Z   "repository_owner_id": "156354296",
+2026-09-09T13:47:21.1974389Z   "repositoryUrl": "git://github.com/fastapi/fastapi.git",
+2026-09-09T13:47:21.1976199Z   "run_id": "34359326513",
+2026-09-09T13:47:21.1977526Z   "run_number": "19840",
+2026-09-09T13:47:21.1979465Z   "retention_days": "90",
+2026-09-09T13:47:21.1980885Z   "run_attempt": "1",
+2026-09-09T13:47:21.1982133Z   "artifact_cache_size_limit": "10",
+2026-09-09T13:47:21.1983486Z   "repository_visibility": "public",
+2026-09-09T13:47:21.1984566Z   "actor_id": "117423508",
+2026-09-09T13:47:21.1985584Z   "actor": "pre-commit-ci-lite[bot]",
+2026-09-09T13:47:21.1986689Z   "workflow": "Smokeshow",
+2026-09-09T13:47:21.1987631Z   "head_ref": "",
+2026-09-09T13:47:21.1988820Z   "base_ref": "",
+2026-09-09T13:47:21.1990295Z   "event_name": "workflow_run",
+2026-09-09T13:47:21.1991651Z   "server_url": "https://github.com",
+2026-09-09T13:47:21.1992808Z   "api_url": "https://api.github.com",
+2026-09-09T13:47:21.1994041Z   "graphql_url": "https://api.github.com/graphql",
+2026-09-09T13:47:21.1995190Z   "ref_name": "master",
+2026-09-09T13:47:21.1996105Z   "ref_protected": true,
+2026-09-09T13:47:21.1997061Z   "ref_type": "branch",
+2026-09-09T13:47:21.1998017Z   "secret_source": "Actions",
+2026-09-09T13:47:21.1998992Z   "event": {
+2026-09-09T13:47:21.2000020Z     "action": "completed",
+2026-09-09T13:47:21.2000969Z     "organization": {
+2026-09-09T13:47:21.2002195Z       "avatar_url": "https://avatars.githubusercontent.com/u/156354296?v=4",
+2026-09-09T13:47:21.2004087Z       "description": "FastAPI and friends open source projects. Created and managed by @tiangolo.",
+2026-09-09T13:47:21.2005839Z       "events_url": "https://api.github.com/orgs/fastapi/events",
+2026-09-09T13:47:21.2007254Z       "hooks_url": "https://api.github.com/orgs/fastapi/hooks",
+2026-09-09T13:47:21.2008472Z       "id": 156354296,
+2026-09-09T13:47:21.2009700Z       "issues_url": "https://api.github.com/orgs/fastapi/issues",
+2026-09-09T13:47:21.2010991Z       "login": "fastapi",
+2026-09-09T13:47:21.2012234Z       "members_url": "https://api.github.com/orgs/fastapi/members{/member}",
+2026-09-09T13:47:21.2013590Z       "node_id": "O_kgDOCVHG-A",
+2026-09-09T13:47:21.2015003Z       "public_members_url": "https://api.github.com/orgs/fastapi/public_members{/member}",
+2026-09-09T13:47:21.2016646Z       "repos_url": "https://api.github.com/orgs/fastapi/repos",
+2026-09-09T13:47:21.2017983Z       "url": "https://api.github.com/orgs/fastapi"
+2026-09-09T13:47:21.2019118Z     },
+2026-09-09T13:47:21.2020092Z     "repository": {
+2026-09-09T13:47:21.2021035Z       "allow_forking": true,
+2026-09-09T13:47:21.2022421Z       "archive_url": "https://api.github.com/repos/fastapi/fastapi/{archive_format}{/ref}",
+2026-09-09T13:47:21.2023921Z       "archived": false,
+2026-09-09T13:47:21.2025458Z       "assignees_url": "https://api.github.com/repos/fastapi/fastapi/assignees{/user}",
+2026-09-09T13:47:21.2027688Z       "blobs_url": "https://api.github.com/repos/fastapi/fastapi/git/blobs{/sha}",
+2026-09-09T13:47:21.2029899Z       "branches_url": "https://api.github.com/repos/fastapi/fastapi/branches{/branch}",
+2026-09-09T13:47:21.2031548Z       "clone_url": "https://github.com/fastapi/fastapi.git",
+2026-09-09T13:47:21.2033308Z       "collaborators_url": "https://api.github.com/repos/fastapi/fastapi/collaborators{/collaborator}",
+2026-09-09T13:47:21.2035294Z       "comments_url": "https://api.github.com/repos/fastapi/fastapi/comments{/number}",
+2026-09-09T13:47:21.2037059Z       "commits_url": "https://api.github.com/repos/fastapi/fastapi/commits{/sha}",
+2026-09-09T13:47:21.2038824Z       "compare_url": "https://api.github.com/repos/fastapi/fastapi/compare/{base}...{head}",
+2026-09-09T13:47:21.2040826Z       "contents_url": "https://api.github.com/repos/fastapi/fastapi/contents/{+path}",
+2026-09-09T13:47:21.2042722Z       "contributors_url": "https://api.github.com/repos/fastapi/fastapi/contributors",
+2026-09-09T13:47:21.2044243Z       "created_at": "2018-12-08T08:21:47Z",
+2026-09-09T13:47:21.2045364Z       "custom_properties": {},
+2026-09-09T13:47:21.2046369Z       "default_branch": "master",
+2026-09-09T13:47:21.2047732Z       "deployments_url": "https://api.github.com/repos/fastapi/fastapi/deployments",
+2026-09-09T13:47:21.2049926Z       "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+2026-09-09T13:47:21.2051610Z       "disabled": false,
+2026-09-09T13:47:21.2052886Z       "downloads_url": "https://api.github.com/repos/fastapi/fastapi/downloads",
+2026-09-09T13:47:21.2054509Z       "events_url": "https://api.github.com/repos/fastapi/fastapi/events",
+2026-09-09T13:47:21.2055850Z       "fork": false,
+2026-09-09T13:47:21.2056708Z       "forks": 9868,
+2026-09-09T13:47:21.2057624Z       "forks_count": 9868,
+2026-09-09T13:47:21.2058927Z       "forks_url": "https://api.github.com/repos/fastapi/fastapi/forks",
+2026-09-09T13:47:21.2060419Z       "full_name": "fastapi/fastapi",
+2026-09-09T13:47:21.2061859Z       "git_commits_url": "https://api.github.com/repos/fastapi/fastapi/git/commits{/sha}",
+2026-09-09T13:47:21.2063667Z       "git_refs_url": "https://api.github.com/repos/fastapi/fastapi/git/refs{/sha}",
+2026-09-09T13:47:21.2065418Z       "git_tags_url": "https://api.github.com/repos/fastapi/fastapi/git/tags{/sha}",
+2026-09-09T13:47:21.2066906Z       "git_url": "git://github.com/fastapi/fastapi.git",
+2026-09-09T13:47:21.2068070Z       "has_discussions": true,
+2026-09-09T13:47:21.2069096Z       "has_downloads": false,
+2026-09-09T13:47:21.2070200Z       "has_issues": true,
+2026-09-09T13:47:21.2071166Z       "has_pages": false,
+2026-09-09T13:47:21.2072097Z       "has_projects": true,
+2026-09-09T13:47:21.2073047Z       "has_pull_requests": true,
+2026-09-09T13:47:21.2074057Z       "has_wiki": false,
+2026-09-09T13:47:21.2075092Z       "homepage": "https://fastapi.tiangolo.com/",
+2026-09-09T13:47:21.2076507Z       "hooks_url": "https://api.github.com/repos/fastapi/fastapi/hooks",
+2026-09-09T13:47:21.2077895Z       "html_url": "https://github.com/fastapi/fastapi",
+2026-09-09T13:47:21.2079003Z       "id": 160919119,
+2026-09-09T13:47:21.2080057Z       "is_template": false,
+2026-09-09T13:47:21.2081507Z       "issue_comment_url": "https://api.github.com/repos/fastapi/fastapi/issues/comments{/number}",
+2026-09-09T13:47:21.2083524Z       "issue_events_url": "https://api.github.com/repos/fastapi/fastapi/issues/events{/number}",
+2026-09-09T13:47:21.2085329Z       "issues_url": "https://api.github.com/repos/fastapi/fastapi/issues{/number}",
+2026-09-09T13:47:21.2086984Z       "keys_url": "https://api.github.com/repos/fastapi/fastapi/keys{/key_id}",
+2026-09-09T13:47:21.2088671Z       "labels_url": "https://api.github.com/repos/fastapi/fastapi/labels{/name}",
+2026-09-09T13:47:21.2090124Z       "language": "Python",
+2026-09-09T13:47:21.2091461Z       "languages_url": "https://api.github.com/repos/fastapi/fastapi/languages",
+2026-09-09T13:47:21.2092785Z       "license": {
+2026-09-09T13:47:21.2093670Z         "key": "mit",
+2026-09-09T13:47:21.2094550Z         "name": "MIT License",
+2026-09-09T13:47:21.2095602Z         "node_id": "MDc6TGljZW5zZTEz",
+2026-09-09T13:47:21.2096631Z         "spdx_id": "MIT",
+2026-09-09T13:47:21.2097887Z         "url": "https://api.github.com/licenses/mit"
+2026-09-09T13:47:21.2099001Z       },
+2026-09-09T13:47:21.2100193Z       "merges_url": "https://api.github.com/repos/fastapi/fastapi/merges",
+2026-09-09T13:47:21.2101916Z       "milestones_url": "https://api.github.com/repos/fastapi/fastapi/milestones{/number}",
+2026-09-09T13:47:21.2103375Z       "mirror_url": null,
+2026-09-09T13:47:21.2104267Z       "name": "fastapi",
+2026-09-09T13:47:21.2105271Z       "node_id": "MDEwOlJlcG9zaXRvcnkxNjA5MTkxMTk=",
+2026-09-09T13:47:21.2107070Z       "notifications_url": "https://api.github.com/repos/fastapi/fastapi/notifications{?since,all,participating}",
+2026-09-09T13:47:21.2108794Z       "open_issues": 81,
+2026-09-09T13:47:21.2109913Z       "open_issues_count": 81,
+2026-09-09T13:47:21.2110847Z       "owner": {
+2026-09-09T13:47:21.2112004Z         "avatar_url": "https://avatars.githubusercontent.com/u/156354296?v=4",
+2026-09-09T13:47:21.2113648Z         "events_url": "https://api.github.com/users/fastapi/events{/privacy}",
+2026-09-09T13:47:21.2115192Z         "followers_url": "https://api.github.com/users/fastapi/followers",
+2026-09-09T13:47:21.2116819Z         "following_url": "https://api.github.com/users/fastapi/following{/other_user}",
+2026-09-09T13:47:21.2118464Z         "gists_url": "https://api.github.com/users/fastapi/gists{/gist_id}",
+2026-09-09T13:47:21.2119930Z         "gravatar_id": "",
+2026-09-09T13:47:21.2120945Z         "html_url": "https://github.com/fastapi",
+2026-09-09T13:47:21.2122004Z         "id": 156354296,
+2026-09-09T13:47:21.2122920Z         "login": "fastapi",
+2026-09-09T13:47:21.2123862Z         "node_id": "O_kgDOCVHG-A",
+2026-09-09T13:47:21.2125180Z         "organizations_url": "https://api.github.com/users/fastapi/orgs",
+2026-09-09T13:47:21.2126847Z         "received_events_url": "https://api.github.com/users/fastapi/received_events",
+2026-09-09T13:47:21.2128401Z         "repos_url": "https://api.github.com/users/fastapi/repos",
+2026-09-09T13:47:21.2129728Z         "site_admin": false,
+2026-09-09T13:47:21.2131007Z         "starred_url": "https://api.github.com/users/fastapi/starred{/owner}{/repo}",
+2026-09-09T13:47:21.2132771Z         "subscriptions_url": "https://api.github.com/users/fastapi/subscriptions",
+2026-09-09T13:47:21.2134132Z         "type": "Organization",
+2026-09-09T13:47:21.2135171Z         "url": "https://api.github.com/users/fastapi",
+2026-09-09T13:47:21.2136340Z         "user_view_type": "public"
+2026-09-09T13:47:21.2137290Z       },
+2026-09-09T13:47:21.2138082Z       "private": false,
+2026-09-09T13:47:21.2139069Z       "pull_request_creation_policy": "all",
+2026-09-09T13:47:21.2140578Z       "pulls_url": "https://api.github.com/repos/fastapi/fastapi/pulls{/number}",
+2026-09-09T13:47:21.2142009Z       "pushed_at": "2026-09-01T20:59:55Z",
+2026-09-09T13:47:21.2143367Z       "releases_url": "https://api.github.com/repos/fastapi/fastapi/releases{/id}",
+2026-09-09T13:47:21.2144744Z       "size": 55416,
+2026-09-09T13:47:21.2145731Z       "ssh_url": "git@github.com:fastapi/fastapi.git",
+2026-09-09T13:47:21.2146855Z       "stargazers_count": 102209,
+2026-09-09T13:47:21.2148154Z       "stargazers_url": "https://api.github.com/repos/fastapi/fastapi/stargazers",
+2026-09-09T13:47:21.2150028Z       "statuses_url": "https://api.github.com/repos/fastapi/fastapi/statuses/{sha}",
+2026-09-09T13:47:21.2151786Z       "subscribers_url": "https://api.github.com/repos/fastapi/fastapi/subscribers",
+2026-09-09T13:47:21.2153553Z       "subscription_url": "https://api.github.com/repos/fastapi/fastapi/subscription",
+2026-09-09T13:47:21.2155047Z       "svn_url": "https://github.com/fastapi/fastapi",
+2026-09-09T13:47:21.2156374Z       "tags_url": "https://api.github.com/repos/fastapi/fastapi/tags",
+2026-09-09T13:47:21.2157836Z       "teams_url": "https://api.github.com/repos/fastapi/fastapi/teams",
+2026-09-09T13:47:21.2159123Z       "topics": [
+2026-09-09T13:47:21.2160095Z         "api",
+2026-09-09T13:47:21.2161038Z         "async",
+2026-09-09T13:47:21.2161850Z         "asyncio",
+2026-09-09T13:47:21.2162659Z         "fastapi",
+2026-09-09T13:47:21.2163508Z         "framework",
+2026-09-09T13:47:21.2164364Z         "json",
+2026-09-09T13:47:21.2165171Z         "json-schema",
+2026-09-09T13:47:21.2166029Z         "openapi",
+2026-09-09T13:47:21.2166863Z         "openapi3",
+2026-09-09T13:47:21.2167695Z         "pydantic",
+2026-09-09T13:47:21.2168507Z         "python",
+2026-09-09T13:47:21.2169474Z         "python-types",
+2026-09-09T13:47:21.2170366Z         "python3",
+2026-09-09T13:47:21.2171187Z         "redoc",
+2026-09-09T13:47:21.2172001Z         "rest",
+2026-09-09T13:47:21.2172809Z         "starlette",
+2026-09-09T13:47:21.2173641Z         "swagger",
+2026-09-09T13:47:21.2174511Z         "swagger-ui",
+2026-09-09T13:47:21.2175381Z         "uvicorn",
+2026-09-09T13:47:21.2176194Z         "web"
+2026-09-09T13:47:21.2176973Z       ],
+2026-09-09T13:47:21.2178089Z       "trees_url": "https://api.github.com/repos/fastapi/fastapi/git/trees{/sha}",
+2026-09-09T13:47:21.2179635Z       "updated_at": "2026-09-09T13:38:18Z",
+2026-09-09T13:47:21.2180920Z       "url": "https://api.github.com/repos/fastapi/fastapi",
+2026-09-09T13:47:21.2182129Z       "visibility": "public",
+2026-09-09T13:47:21.2183071Z       "watchers": 102209,
+2026-09-09T13:47:21.2183979Z       "watchers_count": 102209,
+2026-09-09T13:47:21.2184981Z       "web_commit_signoff_required": false
+2026-09-09T13:47:21.2186018Z     },
+2026-09-09T13:47:21.2186784Z     "sender": {
+2026-09-09T13:47:21.2187885Z       "avatar_url": "https://avatars.githubusercontent.com/in/257897?v=4",
+2026-09-09T13:47:21.2189825Z       "events_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/events{/privacy}",
+2026-09-09T13:47:21.2191879Z       "followers_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/followers",
+2026-09-09T13:47:21.2193905Z       "following_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/following{/other_user}",
+2026-09-09T13:47:21.2195907Z       "gists_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/gists{/gist_id}",
+2026-09-09T13:47:21.2197366Z       "gravatar_id": "",
+2026-09-09T13:47:21.2198428Z       "html_url": "https://github.com/apps/pre-commit-ci-lite",
+2026-09-09T13:47:21.2199809Z       "id": 117423508,
+2026-09-09T13:47:21.2200736Z       "login": "pre-commit-ci-lite[bot]",
+2026-09-09T13:47:21.2201814Z       "node_id": "BOT_kgDOBv-9lA",
+2026-09-09T13:47:21.2203194Z       "organizations_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/orgs",
+2026-09-09T13:47:21.2205252Z       "received_events_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/received_events",
+2026-09-09T13:47:21.2207187Z       "repos_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/repos",
+2026-09-09T13:47:21.2208550Z       "site_admin": false,
+2026-09-09T13:47:21.2210066Z       "starred_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/starred{/owner}{/repo}",
+2026-09-09T13:47:21.2212128Z       "subscriptions_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/subscriptions",
+2026-09-09T13:47:21.2213624Z       "type": "Bot",
+2026-09-09T13:47:21.2214789Z       "url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D",
+2026-09-09T13:47:21.2216071Z       "user_view_type": "public"
+2026-09-09T13:47:21.2216994Z     },
+2026-09-09T13:47:21.2217766Z     "workflow": {
+2026-09-09T13:47:21.2218923Z       "badge_url": "https://github.com/fastapi/fastapi/workflows/Test/badge.svg",
+2026-09-09T13:47:21.2220556Z       "created_at": "2020-07-19T10:44:45.000Z",
+2026-09-09T13:47:21.2222050Z       "html_url": "https://github.com/fastapi/fastapi/blob/master/.github/workflows/test.yml",
+2026-09-09T13:47:21.2223485Z       "id": 1929523,
+2026-09-09T13:47:21.2224322Z       "name": "Test",
+2026-09-09T13:47:21.2225226Z       "node_id": "MDg6V29ya2Zsb3cxOTI5NTIz",
+2026-09-09T13:47:21.2226372Z       "path": ".github/workflows/test.yml",
+2026-09-09T13:47:21.2227425Z       "state": "active",
+2026-09-09T13:47:21.2228441Z       "updated_at": "2026-03-23T10:40:35.000Z",
+2026-09-09T13:47:21.2229939Z       "url": "https://api.github.com/repos/fastapi/fastapi/actions/workflows/1929523"
+2026-09-09T13:47:21.2231290Z     },
+2026-09-09T13:47:21.2232087Z     "workflow_run": {
+2026-09-09T13:47:21.2232970Z       "actor": {
+2026-09-09T13:47:21.2234073Z         "avatar_url": "https://avatars.githubusercontent.com/in/257897?v=4",
+2026-09-09T13:47:21.2235809Z         "events_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/events{/privacy}",
+2026-09-09T13:47:21.2237702Z         "followers_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/followers",
+2026-09-09T13:47:21.2239766Z         "following_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/following{/other_user}",
+2026-09-09T13:47:21.2241895Z         "gists_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/gists{/gist_id}",
+2026-09-09T13:47:21.2243499Z         "gravatar_id": "",
+2026-09-09T13:47:21.2244596Z         "html_url": "https://github.com/apps/pre-commit-ci-lite",
+2026-09-09T13:47:21.2245774Z         "id": 117423508,
+2026-09-09T13:47:21.2246726Z         "login": "pre-commit-ci-lite[bot]",
+2026-09-09T13:47:21.2247833Z         "node_id": "BOT_kgDOBv-9lA",
+2026-09-09T13:47:21.2249243Z         "organizations_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/orgs",
+2026-09-09T13:47:21.2251351Z         "received_events_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/received_events",
+2026-09-09T13:47:21.2253206Z         "repos_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/repos",
+2026-09-09T13:47:21.2254587Z         "site_admin": false,
+2026-09-09T13:47:21.2256050Z         "starred_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/starred{/owner}{/repo}",
+2026-09-09T13:47:21.2258194Z         "subscriptions_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/subscriptions",
+2026-09-09T13:47:21.2259909Z         "type": "Bot",
+2026-09-09T13:47:21.2261033Z         "url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D",
+2026-09-09T13:47:21.2262330Z         "user_view_type": "public"
+2026-09-09T13:47:21.2263268Z       },
+2026-09-09T13:47:21.2264602Z       "artifacts_url": "https://api.github.com/repos/fastapi/fastapi/actions/runs/34359279624/artifacts",
+2026-09-09T13:47:21.2266644Z       "cancel_url": "https://api.github.com/repos/fastapi/fastapi/actions/runs/34359279624/cancel",
+2026-09-09T13:47:21.2268142Z       "check_suite_id": 93076802344,
+2026-09-09T13:47:21.2269310Z       "check_suite_node_id": "CS_kwDOCZduT88AAAAVq89LKA",
+2026-09-09T13:47:21.2270936Z       "check_suite_url": "https://api.github.com/repos/fastapi/fastapi/check-suites/93076802344",
+2026-09-09T13:47:21.2272440Z       "conclusion": "success",
+2026-09-09T13:47:21.2273426Z       "created_at": "2026-09-09T13:46:49Z",
+2026-09-09T13:47:21.2274589Z       "display_title": "docs(pt): translate contributing.md",
+2026-09-09T13:47:21.2275774Z       "event": "pull_request",
+2026-09-09T13:47:21.2276783Z       "head_branch": "docs/traducao-contributing",
+2026-09-09T13:47:21.2277916Z       "head_commit": {
+2026-09-09T13:47:21.2278776Z         "author": {
+2026-09-09T13:47:21.2279985Z           "email": "117423508+pre-commit-ci-lite[bot]@users.noreply.github.com",
+2026-09-09T13:47:21.2281374Z           "name": "pre-commit-ci-lite[bot]"
+2026-09-09T13:47:21.2282370Z         },
+2026-09-09T13:47:21.2283161Z         "committer": {
+2026-09-09T13:47:21.2284108Z           "email": "noreply@github.com",
+2026-09-09T13:47:21.2285109Z           "name": "GitHub"
+2026-09-09T13:47:21.2285990Z         },
+2026-09-09T13:47:21.2286878Z         "id": "040b523215c4e968f1d13b22e51a4b4043a4aff8",
+2026-09-09T13:47:21.2288160Z         "message": "🎨 Auto format",
+2026-09-09T13:47:21.2289216Z         "timestamp": "2026-09-09T13:46:28Z",
+2026-09-09T13:47:21.2290493Z         "tree_id": "13b7e52ad340d6524b0caf60feec7a5b2e55b58d"
+2026-09-09T13:47:21.2291615Z       },
+2026-09-09T13:47:21.2292513Z       "head_repository": {
+2026-09-09T13:47:21.2293899Z         "archive_url": "https://api.github.com/repos/H1lbert-kt/fastapi/{archive_format}{/ref}",
+2026-09-09T13:47:21.2295755Z         "assignees_url": "https://api.github.com/repos/H1lbert-kt/fastapi/assignees{/user}",
+2026-09-09T13:47:21.2297498Z         "blobs_url": "https://api.github.com/repos/H1lbert-kt/fastapi/git/blobs{/sha}",
+2026-09-09T13:47:21.2299371Z         "branches_url": "https://api.github.com/repos/H1lbert-kt/fastapi/branches{/branch}",
+2026-09-09T13:47:21.2301424Z         "collaborators_url": "https://api.github.com/repos/H1lbert-kt/fastapi/collaborators{/collaborator}",
+2026-09-09T13:47:21.2303433Z         "comments_url": "https://api.github.com/repos/H1lbert-kt/fastapi/comments{/number}",
+2026-09-09T13:47:21.2305243Z         "commits_url": "https://api.github.com/repos/H1lbert-kt/fastapi/commits{/sha}",
+2026-09-09T13:47:21.2307025Z         "compare_url": "https://api.github.com/repos/H1lbert-kt/fastapi/compare/{base}...{head}",
+2026-09-09T13:47:21.2308870Z         "contents_url": "https://api.github.com/repos/H1lbert-kt/fastapi/contents/{+path}",
+2026-09-09T13:47:21.2310987Z         "contributors_url": "https://api.github.com/repos/H1lbert-kt/fastapi/contributors",
+2026-09-09T13:47:21.2312827Z         "deployments_url": "https://api.github.com/repos/H1lbert-kt/fastapi/deployments",
+2026-09-09T13:47:21.2314800Z         "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+2026-09-09T13:47:21.2316722Z         "downloads_url": "https://api.github.com/repos/H1lbert-kt/fastapi/downloads",
+2026-09-09T13:47:21.2318353Z         "events_url": "https://api.github.com/repos/H1lbert-kt/fastapi/events",
+2026-09-09T13:47:21.2319724Z         "fork": true,
+2026-09-09T13:47:21.2320968Z         "forks_url": "https://api.github.com/repos/H1lbert-kt/fastapi/forks",
+2026-09-09T13:47:21.2322267Z         "full_name": "H1lbert-kt/fastapi",
+2026-09-09T13:47:21.2323925Z         "git_commits_url": "https://api.github.com/repos/H1lbert-kt/fastapi/git/commits{/sha}",
+2026-09-09T13:47:21.2325722Z         "git_refs_url": "https://api.github.com/repos/H1lbert-kt/fastapi/git/refs{/sha}",
+2026-09-09T13:47:21.2327468Z         "git_tags_url": "https://api.github.com/repos/H1lbert-kt/fastapi/git/tags{/sha}",
+2026-09-09T13:47:21.2329104Z         "hooks_url": "https://api.github.com/repos/H1lbert-kt/fastapi/hooks",
+2026-09-09T13:47:21.2330607Z         "html_url": "https://github.com/H1lbert-kt/fastapi",
+2026-09-09T13:47:21.2331741Z         "id": 1362629075,
+2026-09-09T13:47:21.2333152Z         "issue_comment_url": "https://api.github.com/repos/H1lbert-kt/fastapi/issues/comments{/number}",
+2026-09-09T13:47:21.2335171Z         "issue_events_url": "https://api.github.com/repos/H1lbert-kt/fastapi/issues/events{/number}",
+2026-09-09T13:47:21.2337023Z         "issues_url": "https://api.github.com/repos/H1lbert-kt/fastapi/issues{/number}",
+2026-09-09T13:47:21.2338708Z         "keys_url": "https://api.github.com/repos/H1lbert-kt/fastapi/keys{/key_id}",
+2026-09-09T13:47:21.2340557Z         "labels_url": "https://api.github.com/repos/H1lbert-kt/fastapi/labels{/name}",
+2026-09-09T13:47:21.2342303Z         "languages_url": "https://api.github.com/repos/H1lbert-kt/fastapi/languages",
+2026-09-09T13:47:21.2344025Z         "merges_url": "https://api.github.com/repos/H1lbert-kt/fastapi/merges",
+2026-09-09T13:47:21.2345762Z         "milestones_url": "https://api.github.com/repos/H1lbert-kt/fastapi/milestones{/number}",
+2026-09-09T13:47:21.2347210Z         "name": "fastapi",
+2026-09-09T13:47:21.2348149Z         "node_id": "R_kgDOUTgR0w",
+2026-09-09T13:47:21.2349935Z         "notifications_url": "https://api.github.com/repos/H1lbert-kt/fastapi/notifications{?since,all,participating}",
+2026-09-09T13:47:21.2351617Z         "owner": {
+2026-09-09T13:47:21.2352766Z           "avatar_url": "https://avatars.githubusercontent.com/u/175756952?v=4",
+2026-09-09T13:47:21.2354343Z           "events_url": "https://api.github.com/users/H1lbert-kt/events{/privacy}",
+2026-09-09T13:47:21.2356001Z           "followers_url": "https://api.github.com/users/H1lbert-kt/followers",
+2026-09-09T13:47:21.2357704Z           "following_url": "https://api.github.com/users/H1lbert-kt/following{/other_user}",
+2026-09-09T13:47:21.2359457Z           "gists_url": "https://api.github.com/users/H1lbert-kt/gists{/gist_id}",
+2026-09-09T13:47:21.2360798Z           "gravatar_id": "",
+2026-09-09T13:47:21.2361828Z           "html_url": "https://github.com/H1lbert-kt",
+2026-09-09T13:47:21.2362898Z           "id": 175756952,
+2026-09-09T13:47:21.2363875Z           "login": "H1lbert-kt",
+2026-09-09T13:47:21.2364842Z           "node_id": "U_kgDOCnnWmA",
+2026-09-09T13:47:21.2366122Z           "organizations_url": "https://api.github.com/users/H1lbert-kt/orgs",
+2026-09-09T13:47:21.2367780Z           "received_events_url": "https://api.github.com/users/H1lbert-kt/received_events",
+2026-09-09T13:47:21.2369438Z           "repos_url": "https://api.github.com/users/H1lbert-kt/repos",
+2026-09-09T13:47:21.2370751Z           "site_admin": false,
+2026-09-09T13:47:21.2372015Z           "starred_url": "https://api.github.com/users/H1lbert-kt/starred{/owner}{/repo}",
+2026-09-09T13:47:21.2373752Z           "subscriptions_url": "https://api.github.com/users/H1lbert-kt/subscriptions",
+2026-09-09T13:47:21.2375114Z           "type": "User",
+2026-09-09T13:47:21.2376131Z           "url": "https://api.github.com/users/H1lbert-kt",
+2026-09-09T13:47:21.2377333Z           "user_view_type": "public"
+2026-09-09T13:47:21.2378276Z         },
+2026-09-09T13:47:21.2379084Z         "private": false,
+2026-09-09T13:47:21.2380477Z         "pulls_url": "https://api.github.com/repos/H1lbert-kt/fastapi/pulls{/number}",
+2026-09-09T13:47:21.2382200Z         "releases_url": "https://api.github.com/repos/H1lbert-kt/fastapi/releases{/id}",
+2026-09-09T13:47:21.2384041Z         "stargazers_url": "https://api.github.com/repos/H1lbert-kt/fastapi/stargazers",
+2026-09-09T13:47:21.2385767Z         "statuses_url": "https://api.github.com/repos/H1lbert-kt/fastapi/statuses/{sha}",
+2026-09-09T13:47:21.2387534Z         "subscribers_url": "https://api.github.com/repos/H1lbert-kt/fastapi/subscribers",
+2026-09-09T13:47:21.2389501Z         "subscription_url": "https://api.github.com/repos/H1lbert-kt/fastapi/subscription",
+2026-09-09T13:47:21.2391299Z         "tags_url": "https://api.github.com/repos/H1lbert-kt/fastapi/tags",
+2026-09-09T13:47:21.2392801Z         "teams_url": "https://api.github.com/repos/H1lbert-kt/fastapi/teams",
+2026-09-09T13:47:21.2394402Z         "trees_url": "https://api.github.com/repos/H1lbert-kt/fastapi/git/trees{/sha}",
+2026-09-09T13:47:21.2395935Z         "url": "https://api.github.com/repos/H1lbert-kt/fastapi"
+2026-09-09T13:47:21.2397060Z       },
+2026-09-09T13:47:21.2398028Z       "head_sha": "040b523215c4e968f1d13b22e51a4b4043a4aff8",
+2026-09-09T13:47:21.2399540Z       "html_url": "https://github.com/fastapi/fastapi/actions/runs/34359279624",
+2026-09-09T13:47:21.2400860Z       "id": 34359279624,
+2026-09-09T13:47:21.2402193Z       "jobs_url": "https://api.github.com/repos/fastapi/fastapi/actions/runs/34359279624/jobs",
+2026-09-09T13:47:21.2404049Z       "logs_url": "https://api.github.com/repos/fastapi/fastapi/actions/runs/34359279624/logs",
+2026-09-09T13:47:21.2405502Z       "name": "Test",
+2026-09-09T13:47:21.2406425Z       "node_id": "WFR_kwLOCZduT88AAAAH__kACA",
+2026-09-09T13:47:21.2407508Z       "path": ".github/workflows/test.yml",
+2026-09-09T13:47:21.2408585Z       "previous_attempt_url": null,
+2026-09-09T13:47:21.2409656Z       "pull_requests": [],
+2026-09-09T13:47:21.2410668Z       "referenced_workflows": [],
+2026-09-09T13:47:21.2411612Z       "repository": {
+2026-09-09T13:47:21.2412845Z         "archive_url": "https://api.github.com/repos/fastapi/fastapi/{archive_format}{/ref}",
+2026-09-09T13:47:21.2414641Z         "assignees_url": "https://api.github.com/repos/fastapi/fastapi/assignees{/user}",
+2026-09-09T13:47:21.2416334Z         "blobs_url": "https://api.github.com/repos/fastapi/fastapi/git/blobs{/sha}",
+2026-09-09T13:47:21.2418121Z         "branches_url": "https://api.github.com/repos/fastapi/fastapi/branches{/branch}",
+2026-09-09T13:47:21.2420195Z         "collaborators_url": "https://api.github.com/repos/fastapi/fastapi/collaborators{/collaborator}",
+2026-09-09T13:47:21.2422092Z         "comments_url": "https://api.github.com/repos/fastapi/fastapi/comments{/number}",
+2026-09-09T13:47:21.2423801Z         "commits_url": "https://api.github.com/repos/fastapi/fastapi/commits{/sha}",
+2026-09-09T13:47:21.2425543Z         "compare_url": "https://api.github.com/repos/fastapi/fastapi/compare/{base}...{head}",
+2026-09-09T13:47:21.2427352Z         "contents_url": "https://api.github.com/repos/fastapi/fastapi/contents/{+path}",
+2026-09-09T13:47:21.2429088Z         "contributors_url": "https://api.github.com/repos/fastapi/fastapi/contributors",
+2026-09-09T13:47:21.2430972Z         "deployments_url": "https://api.github.com/repos/fastapi/fastapi/deployments",
+2026-09-09T13:47:21.2432963Z         "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+2026-09-09T13:47:21.2434903Z         "downloads_url": "https://api.github.com/repos/fastapi/fastapi/downloads",
+2026-09-09T13:47:21.2436489Z         "events_url": "https://api.github.com/repos/fastapi/fastapi/events",
+2026-09-09T13:47:21.2437740Z         "fork": false,
+2026-09-09T13:47:21.2438819Z         "forks_url": "https://api.github.com/repos/fastapi/fastapi/forks",
+2026-09-09T13:47:21.2440227Z         "full_name": "fastapi/fastapi",
+2026-09-09T13:47:21.2441627Z         "git_commits_url": "https://api.github.com/repos/fastapi/fastapi/git/commits{/sha}",
+2026-09-09T13:47:21.2443406Z         "git_refs_url": "https://api.github.com/repos/fastapi/fastapi/git/refs{/sha}",
+2026-09-09T13:47:21.2445051Z         "git_tags_url": "https://api.github.com/repos/fastapi/fastapi/git/tags{/sha}",
+2026-09-09T13:47:21.2446674Z         "hooks_url": "https://api.github.com/repos/fastapi/fastapi/hooks",
+2026-09-09T13:47:21.2448081Z         "html_url": "https://github.com/fastapi/fastapi",
+2026-09-09T13:47:21.2449205Z         "id": 160919119,
+2026-09-09T13:47:21.2450666Z         "issue_comment_url": "https://api.github.com/repos/fastapi/fastapi/issues/comments{/number}",
+2026-09-09T13:47:21.2452604Z         "issue_events_url": "https://api.github.com/repos/fastapi/fastapi/issues/events{/number}",
+2026-09-09T13:47:21.2454344Z         "issues_url": "https://api.github.com/repos/fastapi/fastapi/issues{/number}",
+2026-09-09T13:47:21.2456042Z         "keys_url": "https://api.github.com/repos/fastapi/fastapi/keys{/key_id}",
+2026-09-09T13:47:21.2457644Z         "labels_url": "https://api.github.com/repos/fastapi/fastapi/labels{/name}",
+2026-09-09T13:47:21.2459381Z         "languages_url": "https://api.github.com/repos/fastapi/fastapi/languages",
+2026-09-09T13:47:21.2461142Z         "merges_url": "https://api.github.com/repos/fastapi/fastapi/merges",
+2026-09-09T13:47:21.2462789Z         "milestones_url": "https://api.github.com/repos/fastapi/fastapi/milestones{/number}",
+2026-09-09T13:47:21.2464292Z         "name": "fastapi",
+2026-09-09T13:47:21.2465309Z         "node_id": "MDEwOlJlcG9zaXRvcnkxNjA5MTkxMTk=",
+2026-09-09T13:47:21.2467080Z         "notifications_url": "https://api.github.com/repos/fastapi/fastapi/notifications{?since,all,participating}",
+2026-09-09T13:47:21.2468706Z         "owner": {
+2026-09-09T13:47:21.2469915Z           "avatar_url": "https://avatars.githubusercontent.com/u/156354296?v=4",
+2026-09-09T13:47:21.2471585Z           "events_url": "https://api.github.com/users/fastapi/events{/privacy}",
+2026-09-09T13:47:21.2473147Z           "followers_url": "https://api.github.com/users/fastapi/followers",
+2026-09-09T13:47:21.2474742Z           "following_url": "https://api.github.com/users/fastapi/following{/other_user}",
+2026-09-09T13:47:21.2476371Z           "gists_url": "https://api.github.com/users/fastapi/gists{/gist_id}",
+2026-09-09T13:47:21.2477684Z           "gravatar_id": "",
+2026-09-09T13:47:21.2478679Z           "html_url": "https://github.com/fastapi",
+2026-09-09T13:47:21.2479903Z           "id": 156354296,
+2026-09-09T13:47:21.2480827Z           "login": "fastapi",
+2026-09-09T13:47:21.2481775Z           "node_id": "O_kgDOCVHG-A",
+2026-09-09T13:47:21.2483007Z           "organizations_url": "https://api.github.com/users/fastapi/orgs",
+2026-09-09T13:47:21.2484705Z           "received_events_url": "https://api.github.com/users/fastapi/received_events",
+2026-09-09T13:47:21.2486245Z           "repos_url": "https://api.github.com/users/fastapi/repos",
+2026-09-09T13:47:21.2487438Z           "site_admin": false,
+2026-09-09T13:47:21.2488703Z           "starred_url": "https://api.github.com/users/fastapi/starred{/owner}{/repo}",
+2026-09-09T13:47:21.2490495Z           "subscriptions_url": "https://api.github.com/users/fastapi/subscriptions",
+2026-09-09T13:47:21.2491879Z           "type": "Organization",
+2026-09-09T13:47:21.2492935Z           "url": "https://api.github.com/users/fastapi",
+2026-09-09T13:47:21.2494067Z           "user_view_type": "public"
+2026-09-09T13:47:21.2495048Z         },
+2026-09-09T13:47:21.2495836Z         "private": false,
+2026-09-09T13:47:21.2497093Z         "pulls_url": "https://api.github.com/repos/fastapi/fastapi/pulls{/number}",
+2026-09-09T13:47:21.2498738Z         "releases_url": "https://api.github.com/repos/fastapi/fastapi/releases{/id}",
+2026-09-09T13:47:21.2500730Z         "stargazers_url": "https://api.github.com/repos/fastapi/fastapi/stargazers",
+2026-09-09T13:47:21.2502433Z         "statuses_url": "https://api.github.com/repos/fastapi/fastapi/statuses/{sha}",
+2026-09-09T13:47:21.2504145Z         "subscribers_url": "https://api.github.com/repos/fastapi/fastapi/subscribers",
+2026-09-09T13:47:21.2505866Z         "subscription_url": "https://api.github.com/repos/fastapi/fastapi/subscription",
+2026-09-09T13:47:21.2507520Z         "tags_url": "https://api.github.com/repos/fastapi/fastapi/tags",
+2026-09-09T13:47:21.2508984Z         "teams_url": "https://api.github.com/repos/fastapi/fastapi/teams",
+2026-09-09T13:47:21.2510726Z         "trees_url": "https://api.github.com/repos/fastapi/fastapi/git/trees{/sha}",
+2026-09-09T13:47:21.2512240Z         "url": "https://api.github.com/repos/fastapi/fastapi"
+2026-09-09T13:47:21.2513346Z       },
+2026-09-09T13:47:21.2514563Z       "rerun_url": "https://api.github.com/repos/fastapi/fastapi/actions/runs/34359279624/rerun",
+2026-09-09T13:47:21.2516035Z       "run_attempt": 1,
+2026-09-09T13:47:21.2516898Z       "run_number": 25604,
+2026-09-09T13:47:21.2517872Z       "run_started_at": "2026-09-09T13:46:49Z",
+2026-09-09T13:47:21.2518934Z       "status": "completed",
+2026-09-09T13:47:21.2520011Z       "triggering_actor": {
+2026-09-09T13:47:21.2521225Z         "avatar_url": "https://avatars.githubusercontent.com/in/257897?v=4",
+2026-09-09T13:47:21.2523048Z         "events_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/events{/privacy}",
+2026-09-09T13:47:21.2525619Z         "followers_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/followers",
+2026-09-09T13:47:21.2528619Z         "following_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/following{/other_user}",
+2026-09-09T13:47:21.2531666Z         "gists_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/gists{/gist_id}",
+2026-09-09T13:47:21.2533831Z         "gravatar_id": "",
+2026-09-09T13:47:21.2535621Z         "html_url": "https://github.com/apps/pre-commit-ci-lite",
+2026-09-09T13:47:21.2537255Z         "id": 117423508,
+2026-09-09T13:47:21.2538648Z         "login": "pre-commit-ci-lite[bot]",
+2026-09-09T13:47:21.2540223Z         "node_id": "BOT_kgDOBv-9lA",
+2026-09-09T13:47:21.2542438Z         "organizations_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/orgs",
+2026-09-09T13:47:21.2545631Z         "received_events_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/received_events",
+2026-09-09T13:47:21.2548368Z         "repos_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/repos",
+2026-09-09T13:47:21.2550369Z         "site_admin": false,
+2026-09-09T13:47:21.2552710Z         "starred_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/starred{/owner}{/repo}",
+2026-09-09T13:47:21.2555682Z         "subscriptions_url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D/subscriptions",
+2026-09-09T13:47:21.2557800Z         "type": "Bot",
+2026-09-09T13:47:21.2558939Z         "url": "https://api.github.com/users/pre-commit-ci-lite%5Bbot%5D",
+2026-09-09T13:47:21.2560631Z         "user_view_type": "public"
+2026-09-09T13:47:21.2561582Z       },
+2026-09-09T13:47:21.2562374Z       "updated_at": "2026-09-09T13:47:13Z",
+2026-09-09T13:47:21.2563758Z       "url": "https://api.github.com/repos/fastapi/fastapi/actions/runs/34359279624",
+2026-09-09T13:47:21.2565094Z       "workflow_id": 1929523,
+2026-09-09T13:47:21.2566458Z       "workflow_url": "https://api.github.com/repos/fastapi/fastapi/actions/workflows/1929523"
+2026-09-09T13:47:21.2567899Z     }
+2026-09-09T13:47:21.2568621Z   },
+2026-09-09T13:47:21.2570092Z   "workflow_ref": "fastapi/fastapi/.github/workflows/smokeshow.yml@refs/heads/master",
+2026-09-09T13:47:21.2571686Z   "workflow_sha": "50113da16fec53b66b80d75e80a89296de4fa5a5",
+2026-09-09T13:47:21.2572872Z   "repository_id": "160919119",
+2026-09-09T13:47:21.2573866Z   "triggering_actor": "pre-commit-ci-lite[bot]",
+2026-09-09T13:47:21.2575022Z   "workspace": "/home/runner/work/fastapi/fastapi",
+2026-09-09T13:47:21.2576154Z   "action": "__run"
+2026-09-09T13:47:21.2576951Z }
+2026-09-09T13:47:21.2829729Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-09-09T13:47:21.2831112Z with:
+2026-09-09T13:47:21.2831931Z   persist-credentials: false
+2026-09-09T13:47:21.2832897Z   repository: fastapi/fastapi
+2026-09-09T13:47:21.2840036Z   token: ***
+2026-09-09T13:47:21.2840831Z   ssh-strict: true
+2026-09-09T13:47:21.2841856Z   ssh-user: git
+2026-09-09T13:47:21.2842674Z   clean: true
+2026-09-09T13:47:21.2843573Z   sparse-checkout-cone-mode: true
+2026-09-09T13:47:21.2844511Z   fetch-depth: 1
+2026-09-09T13:47:21.2845290Z   fetch-tags: false
+2026-09-09T13:47:21.2846133Z   show-progress: true
+2026-09-09T13:47:21.2846951Z   lfs: false
+2026-09-09T13:47:21.2847790Z   submodules: false
+2026-09-09T13:47:21.2848617Z   set-safe-directory: true
+2026-09-09T13:47:21.2849617Z   allow-unsafe-pr-checkout: false
+2026-09-09T13:47:21.2850609Z ##[endgroup]
+2026-09-09T13:47:21.3637165Z Syncing repository: fastapi/fastapi
+2026-09-09T13:47:21.3640883Z ##[group]Getting Git version info
+2026-09-09T13:47:21.3642448Z Working directory is '/home/runner/work/fastapi/fastapi'
+2026-09-09T13:47:21.3644644Z [command]/usr/bin/git version
+2026-09-09T13:47:21.3710041Z git version 2.55.0
+2026-09-09T13:47:21.3725985Z ##[endgroup]
+2026-09-09T13:47:21.3735518Z Temporarily overriding HOME='/home/runner/work/_temp/a6891ddf-5ad6-4a63-b2d7-ce332f462ca5' before making global git config changes
+2026-09-09T13:47:21.3738920Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-09T13:47:21.3741707Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/fastapi/fastapi
+2026-09-09T13:47:21.3784260Z Deleting the contents of '/home/runner/work/fastapi/fastapi'
+2026-09-09T13:47:21.3787127Z ##[group]Determining repository object format
+2026-09-09T13:47:21.3789703Z ##[endgroup]
+2026-09-09T13:47:21.3791650Z ##[group]Initializing the repository
+2026-09-09T13:47:21.3793378Z [command]/usr/bin/git init /home/runner/work/fastapi/fastapi
+2026-09-09T13:47:21.3870060Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-09T13:47:21.3872990Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-09T13:47:21.3875392Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-09T13:47:21.3877249Z hint: call:
+2026-09-09T13:47:21.3878456Z hint:
+2026-09-09T13:47:21.3879992Z hint: 	git config --global init.defaultBranch <name>
+2026-09-09T13:47:21.3881636Z hint:
+2026-09-09T13:47:21.3883341Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-09T13:47:21.3885966Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-09T13:47:21.3887812Z hint:
+2026-09-09T13:47:21.3888644Z hint: 	git branch -m <name>
+2026-09-09T13:47:21.3889948Z hint:
+2026-09-09T13:47:21.3891457Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-09T13:47:21.3893421Z Initialized empty Git repository in /home/runner/work/fastapi/fastapi/.git/
+2026-09-09T13:47:21.3896287Z [command]/usr/bin/git remote add origin https://github.com/fastapi/fastapi
+2026-09-09T13:47:21.3923460Z ##[endgroup]
+2026-09-09T13:47:21.3925095Z ##[group]Disabling automatic garbage collection
+2026-09-09T13:47:21.3926444Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-09T13:47:21.3947932Z ##[endgroup]
+2026-09-09T13:47:21.3950045Z ##[group]Setting up auth
+2026-09-09T13:47:21.3951413Z Removing SSH command configuration
+2026-09-09T13:47:21.3953708Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-09T13:47:21.3976626Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-09T13:47:21.4313293Z Removing HTTP extra header
+2026-09-09T13:47:21.4317053Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-09T13:47:21.4339761Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-09T13:47:21.4491018Z Removing includeIf entries pointing to credentials config files
+2026-09-09T13:47:21.4494112Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-09T13:47:21.4521046Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-09T13:47:21.4675023Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-917cf3cd-7dc7-4a27-bc2d-7b08e5c19468.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-09T13:47:21.4701132Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/fastapi/fastapi/.git.path /home/runner/work/_temp/git-credentials-917cf3cd-7dc7-4a27-bc2d-7b08e5c19468.config
+2026-09-09T13:47:21.4722246Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/fastapi/fastapi/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-917cf3cd-7dc7-4a27-bc2d-7b08e5c19468.config
+2026-09-09T13:47:21.4747257Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-917cf3cd-7dc7-4a27-bc2d-7b08e5c19468.config
+2026-09-09T13:47:21.4768488Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-917cf3cd-7dc7-4a27-bc2d-7b08e5c19468.config
+2026-09-09T13:47:21.4787860Z ##[endgroup]
+2026-09-09T13:47:21.4789199Z ##[group]Fetching the repository
+2026-09-09T13:47:21.4793294Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +50113da16fec53b66b80d75e80a89296de4fa5a5:refs/remotes/origin/master
+2026-09-09T13:47:23.3960565Z From https://github.com/fastapi/fastapi
+2026-09-09T13:47:23.3961141Z  * [new ref]         50113da16fec53b66b80d75e80a89296de4fa5a5 -> origin/master
+2026-09-09T13:47:23.3968603Z [command]/usr/bin/git branch --list --remote origin/master
+2026-09-09T13:47:23.3988662Z   origin/master
+2026-09-09T13:47:23.3995911Z [command]/usr/bin/git rev-parse refs/remotes/origin/master
+2026-09-09T13:47:23.4012826Z 50113da16fec53b66b80d75e80a89296de4fa5a5
+2026-09-09T13:47:23.4015423Z ##[endgroup]
+2026-09-09T13:47:23.4016099Z ##[group]Determining the checkout info
+2026-09-09T13:47:23.4016961Z ##[endgroup]
+2026-09-09T13:47:23.4020985Z [command]/usr/bin/git sparse-checkout disable
+2026-09-09T13:47:23.4058714Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-09T13:47:23.4078769Z ##[group]Checking out the ref
+2026-09-09T13:47:23.4082168Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
+2026-09-09T13:47:23.5870140Z Reset branch 'master'
+2026-09-09T13:47:23.5873481Z branch 'master' set up to track 'origin/master'.
+2026-09-09T13:47:23.5880044Z ##[endgroup]
+2026-09-09T13:47:23.5909614Z [command]/usr/bin/git log -1 --format=%H
+2026-09-09T13:47:23.5926896Z 50113da16fec53b66b80d75e80a89296de4fa5a5
+2026-09-09T13:47:23.5932997Z ##[group]Removing auth
+2026-09-09T13:47:23.5933357Z Removing SSH command configuration
+2026-09-09T13:47:23.5935932Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-09T13:47:23.5958554Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-09T13:47:23.6136545Z Removing HTTP extra header
+2026-09-09T13:47:23.6139476Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-09T13:47:23.6163716Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-09T13:47:23.6330349Z Removing includeIf entries pointing to credentials config files
+2026-09-09T13:47:23.6333008Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-09T13:47:23.6353517Z includeif.gitdir:/home/runner/work/fastapi/fastapi/.git.path
+2026-09-09T13:47:23.6354057Z includeif.gitdir:/home/runner/work/fastapi/fastapi/.git/worktrees/*.path
+2026-09-09T13:47:23.6354693Z includeif.gitdir:/github/workspace/.git.path
+2026-09-09T13:47:23.6355179Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-09T13:47:23.6360692Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/fastapi/fastapi/.git.path
+2026-09-09T13:47:23.6377540Z /home/runner/work/_temp/git-credentials-917cf3cd-7dc7-4a27-bc2d-7b08e5c19468.config
+2026-09-09T13:47:23.6385946Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/fastapi/fastapi/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-917cf3cd\-7dc7\-4a27\-bc2d\-7b08e5c19468\.config
+2026-09-09T13:47:23.6417590Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/fastapi/fastapi/.git/worktrees/*.path
+2026-09-09T13:47:23.6435023Z /home/runner/work/_temp/git-credentials-917cf3cd-7dc7-4a27-bc2d-7b08e5c19468.config
+2026-09-09T13:47:23.6444170Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/fastapi/fastapi/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-917cf3cd\-7dc7\-4a27\-bc2d\-7b08e5c19468\.config
+2026-09-09T13:47:23.6466733Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-09-09T13:47:23.6483608Z /github/runner_temp/git-credentials-917cf3cd-7dc7-4a27-bc2d-7b08e5c19468.config
+2026-09-09T13:47:23.6515294Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-917cf3cd\-7dc7\-4a27\-bc2d\-7b08e5c19468\.config
+2026-09-09T13:47:23.6550069Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-09T13:47:23.6565495Z /github/runner_temp/git-credentials-917cf3cd-7dc7-4a27-bc2d-7b08e5c19468.config
+2026-09-09T13:47:23.6570892Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-917cf3cd\-7dc7\-4a27\-bc2d\-7b08e5c19468\.config
+2026-09-09T13:47:23.6593040Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-09T13:47:23.6742909Z Removing credentials config '/home/runner/work/_temp/git-credentials-917cf3cd-7dc7-4a27-bc2d-7b08e5c19468.config'
+2026-09-09T13:47:23.6748472Z ##[endgroup]
+2026-09-09T13:47:23.6887483Z ##[group]Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+2026-09-09T13:47:23.6887891Z with:
+2026-09-09T13:47:23.6888152Z   python-version-file: .python-version
+2026-09-09T13:47:23.6888478Z   check-latest: false
+2026-09-09T13:47:23.6890803Z   token: ***
+2026-09-09T13:47:23.6891112Z   update-environment: true
+2026-09-09T13:47:23.6891401Z   allow-prereleases: false
+2026-09-09T13:47:23.6891660Z   freethreaded: false
+2026-09-09T13:47:23.6891955Z ##[endgroup]
+2026-09-09T13:47:23.7854093Z Resolved .python-version as 3.11
+2026-09-09T13:47:23.7855038Z ##[group]Installed versions
+2026-09-09T13:47:23.7930914Z Successfully set up CPython (3.11.16)
+2026-09-09T13:47:23.7931701Z ##[endgroup]
+2026-09-09T13:47:23.8064526Z ##[group]Run astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+2026-09-09T13:47:23.8064961Z with:
+2026-09-09T13:47:23.8065220Z   version: latest-known
+2026-09-09T13:47:23.8065596Z   cache-dependency-glob: pyproject.toml
+uv.lock
+
+2026-09-09T13:47:23.8065966Z   activate-environment: false
+2026-09-09T13:47:23.8066263Z   no-project: false
+2026-09-09T13:47:23.8066567Z   working-directory: /home/runner/work/fastapi/fastapi
+2026-09-09T13:47:23.8068606Z   github-token: ***
+2026-09-09T13:47:23.8068874Z   enable-cache: auto
+2026-09-09T13:47:23.8069156Z   restore-cache: true
+2026-09-09T13:47:23.8069556Z   save-cache: true
+2026-09-09T13:47:23.8069813Z   prune-cache: false
+2026-09-09T13:47:23.8070075Z   cache-python: false
+2026-09-09T13:47:23.8070364Z   ignore-nothing-to-cache: false
+2026-09-09T13:47:23.8070689Z   ignore-empty-workdir: false
+2026-09-09T13:47:23.8071031Z   download-from-astral-mirror: true
+2026-09-09T13:47:23.8071438Z   add-problem-matchers: true
+2026-09-09T13:47:23.8071805Z   quiet: false
+2026-09-09T13:47:23.8072088Z   resolution-strategy: highest
+2026-09-09T13:47:23.8072370Z env:
+2026-09-09T13:47:23.8072674Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-09T13:47:23.8073100Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-09-09T13:47:23.8073573Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-09T13:47:23.8073960Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-09T13:47:23.8074340Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-09T13:47:23.8074735Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-09-09T13:47:23.8075071Z ##[endgroup]
+2026-09-09T13:47:23.9360809Z Caching is disabled for the workflow_run event
+2026-09-09T13:47:23.9513929Z Fetching manifest data from https://raw.githubusercontent.com/astral-sh/versions/main/v1/uv.ndjson ...
+2026-09-09T13:47:24.0293122Z Downloading uv from "https://releases.astral.sh/github/uv/releases/download/0.12.4/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-09-09T13:47:24.3451986Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/7f3503ed-6b4b-4f42-92e3-e60ba02384eb -f /home/runner/work/_temp/853aa2de-75c9-4d51-adc8-6d90bb82e379
+2026-09-09T13:47:25.0623119Z Added /home/runner/.local/bin to the path
+2026-09-09T13:47:25.0625711Z Added /opt/hostedtoolcache/uv/0.12.4/x86_64 to the path
+2026-09-09T13:47:25.0626421Z Set UV_PYTHON_INSTALL_DIR to /home/runner/work/_temp/uv-python-dir
+2026-09-09T13:47:25.0627061Z Added /home/runner/work/_temp/uv-python-dir to the path
+2026-09-09T13:47:25.0635286Z Successfully installed uv version 0.12.4
+2026-09-09T13:47:25.2725612Z ##[group]Run uv sync --locked --no-dev --group github-actions
+2026-09-09T13:47:25.2726118Z [36;1muv sync --locked --no-dev --group github-actions[0m
+2026-09-09T13:47:25.2746997Z shell: /usr/bin/bash -e {0}
+2026-09-09T13:47:25.2747338Z env:
+2026-09-09T13:47:25.2747691Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-09T13:47:25.2748130Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-09-09T13:47:25.2748618Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-09T13:47:25.2749003Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-09T13:47:25.2749604Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-09T13:47:25.2750008Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-09-09T13:47:25.2750409Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-09-09T13:47:25.2750815Z ##[endgroup]
+2026-09-09T13:47:25.2861955Z Using CPython 3.11.16 interpreter at: /opt/hostedtoolcache/Python/3.11.16/x64/bin/python3.11
+2026-09-09T13:47:25.2913109Z Creating virtual environment at: .venv
+2026-09-09T13:47:25.2913559Z Resolved 205 packages in 0.99ms
+2026-09-09T13:47:25.3009692Z    Building fastapi @ file:///home/runner/work/fastapi/fastapi
+2026-09-09T13:47:25.3920688Z Downloading pygments (1.2MiB)
+2026-09-09T13:47:25.3924106Z Downloading pydantic-core (2.0MiB)
+2026-09-09T13:47:25.4087954Z Downloading pynacl (1.3MiB)
+2026-09-09T13:47:25.4089143Z Downloading cryptography (4.5MiB)
+2026-09-09T13:47:25.5636420Z  Downloaded pydantic-core
+2026-09-09T13:47:25.5852456Z  Downloaded pynacl
+2026-09-09T13:47:25.5972204Z  Downloaded cryptography
+2026-09-09T13:47:25.6124248Z  Downloaded pygments
+2026-09-09T13:47:26.0097323Z       Built fastapi @ file:///home/runner/work/fastapi/fastapi
+2026-09-09T13:47:26.0106143Z Prepared 33 packages in 718ms
+2026-09-09T13:47:26.0228299Z Installed 33 packages in 12ms
+2026-09-09T13:47:26.0229010Z  + annotated-doc==0.0.5
+2026-09-09T13:47:26.0229689Z  + annotated-types==0.7.0
+2026-09-09T13:47:26.0230402Z  + anyio==4.12.1
+2026-09-09T13:47:26.0231030Z  + certifi==2026.1.4
+2026-09-09T13:47:26.0231814Z  + cffi==2.0.0
+2026-09-09T13:47:26.0232308Z  + charset-normalizer==3.4.4
+2026-09-09T13:47:26.0232743Z  + cryptography==50.0.0
+2026-09-09T13:47:26.0233353Z  + fastapi==0.141.1 (from file:///home/runner/work/fastapi/fastapi)
+2026-09-09T13:47:26.0233934Z  + h11==0.16.0
+2026-09-09T13:47:26.0234272Z  + httpcore==1.0.9
+2026-09-09T13:47:26.0234637Z  + httpx==0.28.1
+2026-09-09T13:47:26.0234998Z  + idna==3.18
+2026-09-09T13:47:26.0235318Z  + markdown-it-py==4.0.0
+2026-09-09T13:47:26.0235728Z  + mdurl==0.1.2
+2026-09-09T13:47:26.0236049Z  + pycparser==3.0
+2026-09-09T13:47:26.0236377Z  + pydantic==2.13.4
+2026-09-09T13:47:26.0236743Z  + pydantic-core==2.46.4
+2026-09-09T13:47:26.0237092Z  + pydantic-settings==2.15.0
+2026-09-09T13:47:26.0237525Z  + pygithub==2.10.0
+2026-09-09T13:47:26.0237844Z  + pygments==2.20.0
+2026-09-09T13:47:26.0238167Z  + pyjwt==2.13.0
+2026-09-09T13:47:26.0238534Z  + pynacl==1.6.2
+2026-09-09T13:47:26.0238895Z  + python-dotenv==1.2.2
+2026-09-09T13:47:26.0239535Z  + pyyaml==6.0.3
+2026-09-09T13:47:26.0239884Z  + requests==2.33.0
+2026-09-09T13:47:26.0240246Z  + rich==14.3.2
+2026-09-09T13:47:26.0240614Z  + shellingham==1.5.4
+2026-09-09T13:47:26.0241006Z  + smokeshow==0.5.0
+2026-09-09T13:47:26.0241402Z  + starlette==1.6.0
+2026-09-09T13:47:26.0241743Z  + typer==0.27.1
+2026-09-09T13:47:26.0242125Z  + typing-extensions==4.16.0
+2026-09-09T13:47:26.0242569Z  + typing-inspection==0.4.4
+2026-09-09T13:47:26.0242954Z  + urllib3==2.7.0
+2026-09-09T13:47:26.0337681Z ##[group]Run actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+2026-09-09T13:47:26.0338127Z with:
+2026-09-09T13:47:26.0338405Z   name: coverage-html
+2026-09-09T13:47:26.0338678Z   path: htmlcov
+2026-09-09T13:47:26.0341647Z   github-token: ***
+2026-09-09T13:47:26.0341949Z   run-id: 34359279624
+2026-09-09T13:47:26.0342215Z   merge-multiple: false
+2026-09-09T13:47:26.0342509Z   repository: fastapi/fastapi
+2026-09-09T13:47:26.0342810Z   skip-decompress: false
+2026-09-09T13:47:26.0343081Z   digest-mismatch: error
+2026-09-09T13:47:26.0343383Z env:
+2026-09-09T13:47:26.0343700Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-09T13:47:26.0344117Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-09-09T13:47:26.0344558Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-09T13:47:26.0344940Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-09T13:47:26.0345410Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-09T13:47:26.0345830Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-09-09T13:47:26.0346253Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-09-09T13:47:26.0346594Z ##[endgroup]
+2026-09-09T13:47:26.1426826Z Downloading single artifact
+2026-09-09T13:47:26.3647044Z ##[error]Unable to download artifact(s): Artifact not found for name: coverage-html
+        Please ensure that your artifact is not expired and the artifact was uploaded using a compatible version of toolkit/upload-artifact.
+        For more information, visit the GitHub Artifacts FAQ: https://github.com/actions/toolkit/blob/main/packages/artifact/docs/faq.md
+2026-09-09T13:47:26.3956239Z Post job cleanup.
+2026-09-09T13:47:26.4615639Z [command]/usr/bin/git version
+2026-09-09T13:47:26.4643249Z git version 2.55.0
+2026-09-09T13:47:26.4671871Z Temporarily overriding HOME='/home/runner/work/_temp/eeb767c4-ad6a-4c1a-b4a7-06d42c837c61' before making global git config changes
+2026-09-09T13:47:26.4673003Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-09T13:47:26.4676626Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/fastapi/fastapi
+2026-09-09T13:47:26.4698143Z Removing SSH command configuration
+2026-09-09T13:47:26.4703748Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-09T13:47:26.4727926Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-09T13:47:26.4886701Z Removing HTTP extra header
+2026-09-09T13:47:26.4890851Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-09T13:47:26.4914690Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-09T13:47:26.5072227Z Removing includeIf entries pointing to credentials config files
+2026-09-09T13:47:26.5076809Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-09T13:47:26.5098154Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-09T13:47:26.5348667Z Cleaning up orphan processes
