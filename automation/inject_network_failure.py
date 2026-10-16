@@ -6,13 +6,13 @@ TEST_FILE = Path("tests/test_app.py")
 NETWORK_FAILURE_MUTATIONS = {
     "dns_resolution_failure": """
 def test_dns_resolution_failure():
-    \"\"\"Injected synthetic DNS resolution failure.\"\"\"
+    """Injected synthetic DNS resolution failure."""
     import socket
     socket.gethostbyname("nonexistent-domain-abc123.example.com")
 """,
     "connection_refused": """
 def test_connection_refused():
-    \"\"\"Injected synthetic connection refused error.\"\"\"
+    """Injected synthetic connection refused error."""
     import socket
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(5)
@@ -21,7 +21,7 @@ def test_connection_refused():
 """,
     "connection_timeout": """
 def test_connection_timeout():
-    \"\"\"Injected synthetic connection timeout error.\"\"\"
+    """Injected synthetic connection timeout error."""
     import socket
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(0.1)  # Very short timeout
@@ -31,7 +31,7 @@ def test_connection_timeout():
 """,
     "read_timeout": """
 def test_read_timeout():
-    \"\"\"Injected synthetic read timeout error.\"\"\"
+    """Injected synthetic read timeout error."""
     import urllib.request
     import urllib.error
     try:
@@ -42,7 +42,7 @@ def test_read_timeout():
 """,
     "remote_server_503": """
 def test_remote_server_503():
-    \"\"\"Injected synthetic 503 Service Unavailable error.\"\"\"
+    """Injected synthetic 503 Service Unavailable error."""
     import urllib.request
     import urllib.error
     try:
@@ -56,7 +56,7 @@ def test_remote_server_503():
 """,
     "pypi_unreachable": """
 def test_pypi_unreachable():
-    \"\"\"Injected synthetic PyPI unreachable error.\"\"\"
+    """Injected synthetic PyPI unreachable error."""
     import urllib.request
     import urllib.error
     # Try to access a non-existent PyPI endpoint that should timeout
@@ -66,7 +66,7 @@ def test_pypi_unreachable():
 
 def inject(failure_type: str):
     if failure_type not in NETWORK_FAILURE_MUTATIONS:
-        raise ValueError(f"Unknown failure type: {failure_type}. Valid: {list(NETWORK_FAILURE_MUTATIONS.keys())}")
+        raise ValueError(f"Unknown failure type: {failure_type}. Valid: {list(NETWORK_FAILURE_MUTATIONS.keys())}") 
     
     baseline = TEST_FILE.read_text(encoding="utf-8")
     mutation = NETWORK_FAILURE_MUTATIONS[failure_type]
@@ -76,6 +76,6 @@ def inject(failure_type: str):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Inject synthetic network failure mutation into tests/test_app.py")
-    parser.add_argument("--failure-type", type=str, required=True, help="Network failure type to inject")
+    parser.add_argument("--error-type", type=str, required=True, help="Network failure type to inject")
     args = parser.parse_args()
-    inject(args.failure_type)
+    inject(args.error_type)
