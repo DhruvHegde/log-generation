@@ -25,7 +25,7 @@ METADATA_DIR = Path("metadata/F7")
 LABELS_FILE = Path("labels.csv")
 TEST_FILE = Path("tests/test_app.py")
 BATCH_FILE = Path(".f7_batch.json")
-BATCH_SIZE = 250
+BATCH_SIZE = 20
 
 CSV_COLUMNS = [
     "run_number",
@@ -113,7 +113,7 @@ def sync_and_prepare_labels(clean_f7: bool = False) -> int:
         return 0
 
     preserved_rows = []
-    f3_count = 0
+    f7_count = 0
 
     with open(LABELS_FILE, "r", newline="", encoding="utf-8") as f:
         reader = csv.reader(f)
@@ -130,16 +130,16 @@ def sync_and_prepare_labels(clean_f7: bool = False) -> int:
             else:
                 row_dict = migrate_legacy_row(row)
 
-            is_f3 = (
+            is_f7 = (
                 row_dict.get("failure_type") == "F7"
                 or (len(row) > 5 and row[5] == "F7")
                 or (len(row) > 3 and row[3] == "F7")
             )
 
-            if is_f3:
-                if not clean_f3:
+            if is_f7:
+                if not clean_f7:
                     preserved_rows.append(row_dict)
-                    f3_count += 1
+                    f7_count += 1
             else:
                 preserved_rows.append(row_dict)
 
@@ -149,7 +149,7 @@ def sync_and_prepare_labels(clean_f7: bool = False) -> int:
         writer.writeheader()
         writer.writerows(preserved_rows)
 
-    return f3_count
+    return f7_count
 
 
 def migrate_legacy_row(row: list[str]) -> dict[str, str]:
@@ -437,13 +437,11 @@ def main():
 
     remaining = args.runs - existing_f7_runs
     batch_number = 1
+    total_batches_needed = (remaining + BATCH_SIZE - 1) // BATCH_SIZE  # Ceiling division
     print("Starting randomized F7 generator.")
-    print(f"Existing runs: {existing_f7_runs}. Target runs: {args.runs}. Batch limit: {BATCH_SIZE}...")
-
     try:
         while remaining > 0:
             batch_size = min(BATCH_SIZE, remaining)
-            print(f"\n[Batch {batch_number}] Triggering randomized matrix run ({batch_size} jobs)...")
             batch_entries = []
             if BATCH_FILE.exists():
                 batch_entries = json.loads(BATCH_FILE.read_text(encoding="utf-8")).get("include", [])
@@ -462,9 +460,9 @@ def main():
                 commit_sha = git_commit_and_push(batch_num=batch_number)
             run_data = poll_workflow_run(commit_sha)
             wait_for_matrix_jobs(run_data, expected_jobs=batch_size)
+            total_harvested = existing_f7_runs + (args.runs - remaining)
             fetch_and_save_matrix_artifacts(run_data, commit_sha, expected_jobs=batch_size)
-
-            print(f"[Batch {batch_number} Complete] Workflow Run ID: {run_data['id']}")
+            print(f"Batch {batch_number}/{total_batches_needed} complete | Total F7 logs harvested: {total_harvested}/{args.runs}")
             remaining -= batch_size
             batch_number += 1
             time.sleep(1)
