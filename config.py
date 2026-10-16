@@ -30,3 +30,21 @@ F1_LOG_FOLDER = "logs/F1"
 F1_METADATA_FOLDER = "metadata/F1"
 
 F1_STATE_FILE = "state_f1.json"
+
+# --------------------------------------------------
+# F5: Docker Build Failure
+# --------------------------------------------------
+F5_FAILURE_TYPE = "docker_build_failure"
+F5_CATEGORY_ID = "F5"
+F5_STAGE = "docker_build"
+
+F5_START_RUN = 501
+F5_TOTAL_RUNS = 500
+
+F5_LOG_FOLDER = "logs/F5"
+F5_METADATA_FOLDER = "metadata/F5"
+
+F5_STATE_FILE = "state_f5.json"
+F5_SCENARIOS_FILE = "docker_errors.json"
+F5_MANIFEST_FILE = "metadata/F5/manifest_f5.json"
+F5_MANIFEST_CSV = "metadata/F5/manifest_f5.csv"

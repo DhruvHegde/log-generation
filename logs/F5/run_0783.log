@@ -1,0 +1,13 @@
+docker-ci	Set up job	2026-08-17T01:09:00.100Z Runner Image: ubuntu-22.04
+docker-ci	Set up job	2026-08-17T01:09:00.200Z Version: 20260401.1
+docker-ci	Set up job	2026-08-17T01:09:00.300Z Included Software: Buildx v0.35.0, Docker 28.0.4
+docker-ci	Checkout Repository	2026-08-17T01:09:00.400Z [command]/usr/bin/git checkout --progress --force refs/heads/main
+docker-ci	Build Container Image	2026-08-17T01:09:00.600Z ##[group]Run docker build
+docker-ci	Build Container Image	2026-08-17T01:09:00.750Z [command]/usr/bin/docker build -t app-d3:29 .
+docker-ci	Build Container Image	2026-08-17T01:09:00.850Z #1 [internal] load build definition from Dockerfile
+docker-ci	Build Container Image	2026-08-17T01:09:00.970Z #1 transferring dockerfile: 185B done
+docker-ci	Build Container Image	2026-08-17T01:09:01.070Z #1 ERROR: failed to solve: invalid from flag value Stage_Uppercase_Illegal_33: invalid reference format: repository name must be lowercase
+docker-ci	Build Container Image	2026-08-17T01:09:01.150Z ERROR: failed to solve: invalid from flag value: invalid reference format
+docker-ci	Build Container Image	2026-08-17T01:09:01.200Z ##[error]Process completed with exit code 1.
+docker-ci	Post Checkout Repository	2026-08-17T01:09:01.400Z Post job cleanup.
+docker-ci	Complete job	2026-08-17T01:09:01.550Z Cleaning up orphan processes

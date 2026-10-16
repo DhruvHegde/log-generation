@@ -1,0 +1,15 @@
+docker-ci	Set up job	2026-08-16T16:39:00.100Z Runner Image: ubuntu-22.04
+docker-ci	Set up job	2026-08-16T16:39:00.200Z Version: 20260401.1
+docker-ci	Set up job	2026-08-16T16:39:00.300Z Operating System: Linux 6.5.0-1014-azure
+docker-ci	Checkout Repository	2026-08-16T16:39:00.400Z [command]/usr/bin/git checkout --progress --force refs/heads/main
+docker-ci	Set up Docker Buildx	2026-08-16T16:39:00.500Z [command]/usr/bin/docker buildx create --name builder-ci --use
+docker-ci	Set up Docker Buildx	2026-08-16T16:39:00.600Z builder-ci
+docker-ci	Build Container Image	2026-08-16T16:39:00.800Z ##[group]Run docker build
+docker-ci	Build Container Image	2026-08-16T16:39:00.950Z [command]/usr/bin/docker build -t app-d3:12 .
+docker-ci	Build Container Image	2026-08-16T16:39:01.050Z #1 [internal] load build definition from Dockerfile
+docker-ci	Build Container Image	2026-08-16T16:39:01.170Z #1 transferring dockerfile: 155B done
+docker-ci	Build Container Image	2026-08-16T16:39:01.270Z #1 ERROR: dockerfile parse error on line 6: stage --from index out of range: 62
+docker-ci	Build Container Image	2026-08-16T16:39:01.350Z dockerfile parse error on line 6: stage --from index out of range: 62
+docker-ci	Build Container Image	2026-08-16T16:39:01.400Z ##[error]Process completed with exit code 1.
+docker-ci	Post Checkout Repository	2026-08-16T16:39:01.600Z Post job cleanup.
+docker-ci	Complete job	2026-08-16T16:39:01.750Z Cleaning up orphan processes

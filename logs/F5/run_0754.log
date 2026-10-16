@@ -1,0 +1,17 @@
+docker-ci	Set up job	2026-08-16T23:42:00.100Z Runner Image: ubuntu-22.04
+docker-ci	Set up job	2026-08-16T23:42:00.200Z Version: 20260401.1
+docker-ci	Set up job	2026-08-16T23:42:00.300Z Operating System: Linux 6.5.0-1014-azure
+docker-ci	Checkout Repository	2026-08-16T23:42:00.400Z [command]/usr/bin/git checkout --progress --force refs/heads/main
+docker-ci	Set up Docker Buildx	2026-08-16T23:42:00.500Z [command]/usr/bin/docker buildx create --name builder-ci --use
+docker-ci	Set up Docker Buildx	2026-08-16T23:42:00.600Z builder-ci
+docker-ci	Build Container Image	2026-08-16T23:42:00.800Z ##[group]Run docker build
+docker-ci	Build Container Image	2026-08-16T23:42:00.950Z [command]/usr/bin/docker build -t app-d4:26 .
+docker-ci	Build Container Image	2026-08-16T23:42:01.050Z #1 [internal] load build definition from Dockerfile
+docker-ci	Build Container Image	2026-08-16T23:42:01.170Z #1 transferring dockerfile: 62B done
+docker-ci	Build Container Image	2026-08-16T23:42:01.250Z #1 DONE 0.1s
+docker-ci	Build Container Image	2026-08-16T23:42:01.350Z #2 [internal] load metadata for CORE_UTILITY_RUNNER:26
+docker-ci	Build Container Image	2026-08-16T23:42:01.470Z #2 ERROR: invalid reference format: repository name must be lowercase
+docker-ci	Build Container Image	2026-08-16T23:42:01.570Z ERROR: failed to solve: CORE_UTILITY_RUNNER:26: invalid reference format: repository name must be lowercase
+docker-ci	Build Container Image	2026-08-16T23:42:01.620Z ##[error]Process completed with exit code 1.
+docker-ci	Post Checkout Repository	2026-08-16T23:42:01.820Z Post job cleanup.
+docker-ci	Complete job	2026-08-16T23:42:01.970Z Cleaning up orphan processes

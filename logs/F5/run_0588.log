@@ -1,0 +1,18 @@
+docker-ci	Set up job	2026-08-16T15:24:00.100Z Runner Image: ubuntu-22.04
+docker-ci	Set up job	2026-08-16T15:24:00.200Z Version: 20260401.1
+docker-ci	Set up job	2026-08-16T15:24:00.300Z Included Software: Buildx v0.35.0, Docker 28.0.4
+docker-ci	Checkout Repository	2026-08-16T15:24:00.400Z [command]/usr/bin/git checkout --progress --force refs/heads/main
+docker-ci	Build Container Image	2026-08-16T15:24:00.600Z ##[group]Run docker build
+docker-ci	Build Container Image	2026-08-16T15:24:00.750Z [command]/usr/bin/docker build -t app-d8:09 .
+docker-ci	Build Container Image	2026-08-16T15:24:00.850Z #1 [internal] load build definition from Dockerfile
+docker-ci	Build Container Image	2026-08-16T15:24:00.970Z #1 transferring dockerfile: 75B done
+docker-ci	Build Container Image	2026-08-16T15:24:01.050Z #1 DONE 0.1s
+docker-ci	Build Container Image	2026-08-16T15:24:01.200Z #2 [1/2] FROM docker.io/library/alpine:3.19
+docker-ci	Build Container Image	2026-08-16T15:24:01.300Z #2 DONE 0.2s
+docker-ci	Build Container Image	2026-08-16T15:24:01.450Z #3 [2/2] RUN /usr/bin/systemctl ...
+docker-ci	Build Container Image	2026-08-16T15:24:01.570Z #3 0.082 /bin/sh: /usr/bin/systemctl: not found
+docker-ci	Build Container Image	2026-08-16T15:24:01.720Z #3 ERROR: process "/bin/sh -c /usr/bin/systemctl" did not complete successfully: exit code: 127
+docker-ci	Build Container Image	2026-08-16T15:24:01.820Z ERROR: failed to solve: process "/bin/sh -c /usr/bin/systemctl" did not complete successfully: exit code: 127
+docker-ci	Build Container Image	2026-08-16T15:24:01.870Z ##[error]Process completed with exit code 127.
+docker-ci	Post Checkout Repository	2026-08-16T15:24:02.070Z Post job cleanup.
+docker-ci	Complete job	2026-08-16T15:24:02.220Z Cleaning up orphan processes

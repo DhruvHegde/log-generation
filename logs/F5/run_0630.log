@@ -1,0 +1,20 @@
+docker-ci	Set up job	2026-08-16T17:30:00.100Z Runner Image: ubuntu-22.04
+docker-ci	Set up job	2026-08-16T17:30:00.200Z Version: 20260401.1
+docker-ci	Set up job	2026-08-16T17:30:00.300Z Included Software: Buildx v0.35.0, Docker 28.0.4
+docker-ci	Checkout Repository	2026-08-16T17:30:00.400Z [command]/usr/bin/git checkout --progress --force refs/heads/main
+docker-ci	Build Container Image	2026-08-16T17:30:00.600Z ##[group]Run docker build
+docker-ci	Build Container Image	2026-08-16T17:30:00.750Z [command]/usr/bin/docker build -t app-d10:13 .
+docker-ci	Build Container Image	2026-08-16T17:30:00.850Z #1 [internal] load build definition from Dockerfile
+docker-ci	Build Container Image	2026-08-16T17:30:00.970Z #1 transferring dockerfile: 118B done
+docker-ci	Build Container Image	2026-08-16T17:30:01.050Z #1 DONE 0.1s
+docker-ci	Build Container Image	2026-08-16T17:30:01.200Z #2 [1/3] FROM docker.io/library/debian:bookworm-slim
+docker-ci	Build Container Image	2026-08-16T17:30:01.300Z #2 DONE 0.2s
+docker-ci	Build Container Image	2026-08-16T17:30:01.400Z #3 [2/3] COPY setup_entrypoint_13.sh /app/setup_entrypoint_13.sh
+docker-ci	Build Container Image	2026-08-16T17:30:01.450Z #3 DONE 0.1s
+docker-ci	Build Container Image	2026-08-16T17:30:01.600Z #4 [3/3] RUN /app/setup_entrypoint_13.sh
+docker-ci	Build Container Image	2026-08-16T17:30:01.720Z #4 0.091 /bin/sh: /app/setup_entrypoint_13.sh: Permission denied
+docker-ci	Build Container Image	2026-08-16T17:30:01.870Z #4 ERROR: process "/bin/sh -c /app/setup_entrypoint_13.sh" did not complete successfully: exit code: 126
+docker-ci	Build Container Image	2026-08-16T17:30:01.970Z ERROR: failed to solve: process "/bin/sh -c /app/setup_entrypoint_13.sh" did not complete successfully: exit code: 126
+docker-ci	Build Container Image	2026-08-16T17:30:02.020Z ##[error]Process completed with exit code 126.
+docker-ci	Post Checkout Repository	2026-08-16T17:30:02.220Z Post job cleanup.
+docker-ci	Complete job	2026-08-16T17:30:02.370Z Cleaning up orphan processes

@@ -1,0 +1,23 @@
+docker-ci	Set up job	2026-08-16T19:03:00.100Z Runner Image: ubuntu-22.04
+docker-ci	Set up job	2026-08-16T19:03:00.200Z Version: 20260401.1
+docker-ci	Set up job	2026-08-16T19:03:00.300Z Operating System: Linux 6.5.0-1014-azure
+docker-ci	Checkout Repository	2026-08-16T19:03:00.400Z [command]/usr/bin/git checkout --progress --force refs/heads/main
+docker-ci	Set up Docker Buildx	2026-08-16T19:03:00.500Z [command]/usr/bin/docker buildx create --name builder-ci --use
+docker-ci	Set up Docker Buildx	2026-08-16T19:03:00.600Z builder-ci
+docker-ci	Build Container Image	2026-08-16T19:03:00.800Z ##[group]Run docker build
+docker-ci	Build Container Image	2026-08-16T19:03:00.950Z [command]/usr/bin/docker build -t app-d1:17 .
+docker-ci	Build Container Image	2026-08-16T19:03:01.050Z #1 [internal] load build definition from Dockerfile
+docker-ci	Build Container Image	2026-08-16T19:03:01.170Z #1 transferring dockerfile: 98B done
+docker-ci	Build Container Image	2026-08-16T19:03:01.270Z #1 DONE 0.1s
+docker-ci	Build Container Image	2026-08-16T19:03:01.370Z #2 [internal] load .dockerignore
+docker-ci	Build Container Image	2026-08-16T19:03:01.450Z #2 transferring context: 35B done
+docker-ci	Build Container Image	2026-08-16T19:03:01.500Z #2 DONE 0.0s
+docker-ci	Build Container Image	2026-08-16T19:03:01.700Z #3 [1/2] FROM docker.io/library/python:3.10-slim
+docker-ci	Build Container Image	2026-08-16T19:03:01.950Z #3 resolve docker.io/library/python:3.10-slim done
+docker-ci	Build Container Image	2026-08-16T19:03:02.050Z #3 DONE 0.3s
+docker-ci	Build Container Image	2026-08-16T19:03:02.200Z #4 [2/2] COPY configs/database_17.toml /app/data/
+docker-ci	Build Container Image	2026-08-16T19:03:02.400Z #4 ERROR: failed to calculate checksum of ref buildref_661: "/configs/database_17.toml": not found
+docker-ci	Build Container Image	2026-08-16T19:03:02.500Z ERROR: failed to solve: failed to calculate checksum of ref buildref_661: "/configs/database_17.toml": not found
+docker-ci	Build Container Image	2026-08-16T19:03:02.550Z ##[error]Process completed with exit code 1.
+docker-ci	Post Checkout Repository	2026-08-16T19:03:02.750Z Post job cleanup.
+docker-ci	Complete job	2026-08-16T19:03:02.900Z Cleaning up orphan processes

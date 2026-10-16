@@ -1,0 +1,22 @@
+docker-ci	Set up job	2026-08-16T13:30:00.100Z Runner Image: ubuntu-22.04
+docker-ci	Set up job	2026-08-16T13:30:00.200Z Version: 20260401.1
+docker-ci	Set up job	2026-08-16T13:30:00.300Z Operating System: Linux 6.5.0-1014-azure
+docker-ci	Checkout Repository	2026-08-16T13:30:00.400Z [command]/usr/bin/git checkout --progress --force refs/heads/main
+docker-ci	Set up Docker Buildx	2026-08-16T13:30:00.500Z [command]/usr/bin/docker buildx create --name builder-ci --use
+docker-ci	Set up Docker Buildx	2026-08-16T13:30:00.600Z builder-ci
+docker-ci	Build Container Image	2026-08-16T13:30:00.800Z ##[group]Run docker build
+docker-ci	Build Container Image	2026-08-16T13:30:00.950Z [command]/usr/bin/docker build -t app-d10:05 .
+docker-ci	Build Container Image	2026-08-16T13:30:01.050Z #1 [internal] load build definition from Dockerfile
+docker-ci	Build Container Image	2026-08-16T13:30:01.170Z #1 transferring dockerfile: 127B done
+docker-ci	Build Container Image	2026-08-16T13:30:01.250Z #1 DONE 0.1s
+docker-ci	Build Container Image	2026-08-16T13:30:01.400Z #2 [1/3] FROM docker.io/library/debian:bookworm-slim
+docker-ci	Build Container Image	2026-08-16T13:30:01.500Z #2 DONE 0.2s
+docker-ci	Build Container Image	2026-08-16T13:30:01.600Z #3 [2/3] COPY setup_entrypoint_05.sh /app/setup_entrypoint_05.sh
+docker-ci	Build Container Image	2026-08-16T13:30:01.650Z #3 DONE 0.1s
+docker-ci	Build Container Image	2026-08-16T13:30:01.800Z #4 [3/3] RUN /app/setup_entrypoint_05.sh
+docker-ci	Build Container Image	2026-08-16T13:30:01.920Z #4 0.091 /bin/sh: /app/setup_entrypoint_05.sh: Permission denied
+docker-ci	Build Container Image	2026-08-16T13:30:02.070Z #4 ERROR: process "/bin/sh -c /app/setup_entrypoint_05.sh" did not complete successfully: exit code: 126
+docker-ci	Build Container Image	2026-08-16T13:30:02.170Z ERROR: failed to solve: process "/bin/sh -c /app/setup_entrypoint_05.sh" did not complete successfully: exit code: 126
+docker-ci	Build Container Image	2026-08-16T13:30:02.220Z ##[error]Process completed with exit code 126.
+docker-ci	Post Checkout Repository	2026-08-16T13:30:02.420Z Post job cleanup.
+docker-ci	Complete job	2026-08-16T13:30:02.570Z Cleaning up orphan processes

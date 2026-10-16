@@ -1,0 +1,23 @@
+docker-ci	Set up job	2026-08-17T04:33:00.100Z Runner Image: ubuntu-22.04
+docker-ci	Set up job	2026-08-17T04:33:00.200Z Version: 20260401.1
+docker-ci	Checkout Repository	2026-08-17T04:33:00.300Z [command]/usr/bin/git checkout --progress --force refs/heads/main
+docker-ci	Lint Codebase	2026-08-17T04:33:00.400Z flake8 passed with 0 errors.
+docker-ci	Lint Codebase	2026-08-17T04:33:00.500Z black --check: 12 files left unchanged.
+docker-ci	Set up Docker Buildx	2026-08-17T04:33:00.600Z Using default buildx instance with docker-container driver.
+docker-ci	Build Container Image	2026-08-17T04:33:00.800Z ##[group]Run docker build
+docker-ci	Build Container Image	2026-08-17T04:33:00.950Z [command]/usr/bin/docker build -t app-d1:36 .
+docker-ci	Build Container Image	2026-08-17T04:33:01.050Z #1 [internal] load build definition from Dockerfile
+docker-ci	Build Container Image	2026-08-17T04:33:01.170Z #1 transferring dockerfile: 104B done
+docker-ci	Build Container Image	2026-08-17T04:33:01.270Z #1 DONE 0.1s
+docker-ci	Build Container Image	2026-08-17T04:33:01.370Z #2 [internal] load .dockerignore
+docker-ci	Build Container Image	2026-08-17T04:33:01.450Z #2 transferring context: 35B done
+docker-ci	Build Container Image	2026-08-17T04:33:01.500Z #2 DONE 0.0s
+docker-ci	Build Container Image	2026-08-17T04:33:01.700Z #3 [1/2] FROM docker.io/library/debian:bookworm-slim
+docker-ci	Build Container Image	2026-08-17T04:33:01.950Z #3 resolve docker.io/library/debian:bookworm-slim done
+docker-ci	Build Container Image	2026-08-17T04:33:02.050Z #3 DONE 0.3s
+docker-ci	Build Container Image	2026-08-17T04:33:02.200Z #4 [2/2] COPY static/styles/theme_36.css /app/data/
+docker-ci	Build Container Image	2026-08-17T04:33:02.400Z #4 ERROR: failed to calculate checksum of ref buildref_851: "/static/styles/theme_36.css": not found
+docker-ci	Build Container Image	2026-08-17T04:33:02.500Z ERROR: failed to solve: failed to calculate checksum of ref buildref_851: "/static/styles/theme_36.css": not found
+docker-ci	Build Container Image	2026-08-17T04:33:02.550Z ##[error]Process completed with exit code 1.
+docker-ci	Post Checkout Repository	2026-08-17T04:33:02.750Z Post job cleanup.
+docker-ci	Complete job	2026-08-17T04:33:02.900Z Cleaning up orphan processes

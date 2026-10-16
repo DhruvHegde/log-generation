@@ -1,0 +1,12 @@
+docker-ci	Set up job	2026-08-17T07:18:00.100Z Runner Image: ubuntu-22.04
+docker-ci	Set up job	2026-08-17T07:18:00.200Z Version: 20260401.1
+docker-ci	Set up job	2026-08-17T07:18:00.300Z Included Software: Buildx v0.35.0, Docker 28.0.4
+docker-ci	Checkout Repository	2026-08-17T07:18:00.400Z [command]/usr/bin/git checkout --progress --force refs/heads/main
+docker-ci	Build Container Image	2026-08-17T07:18:00.600Z ##[group]Run docker build
+docker-ci	Build Container Image	2026-08-17T07:18:00.750Z [command]/usr/bin/docker build --target missing_target_stage_41 -t app-d6:41 .
+docker-ci	Build Container Image	2026-08-17T07:18:00.850Z #1 [internal] load build definition from Dockerfile
+docker-ci	Build Container Image	2026-08-17T07:18:00.970Z #1 transferring dockerfile: 80B done
+docker-ci	Build Container Image	2026-08-17T07:18:01.120Z ERROR: failed to solve: target stage "missing_target_stage_41" could not be found
+docker-ci	Build Container Image	2026-08-17T07:18:01.170Z ##[error]Process completed with exit code 1.
+docker-ci	Post Checkout Repository	2026-08-17T07:18:01.370Z Post job cleanup.
+docker-ci	Complete job	2026-08-17T07:18:01.520Z Cleaning up orphan processes

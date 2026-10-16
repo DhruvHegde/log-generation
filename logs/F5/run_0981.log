@@ -1,0 +1,21 @@
+docker-ci	Set up job	2026-08-17T11:03:00.100Z Runner Image: ubuntu-22.04
+docker-ci	Set up job	2026-08-17T11:03:00.200Z Version: 20260401.1
+docker-ci	Set up job	2026-08-17T11:03:00.300Z Included Software: Buildx v0.35.0, Docker 28.0.4
+docker-ci	Checkout Repository	2026-08-17T11:03:00.400Z [command]/usr/bin/git checkout --progress --force refs/heads/main
+docker-ci	Build Container Image	2026-08-17T11:03:00.600Z ##[group]Run docker build
+docker-ci	Build Container Image	2026-08-17T11:03:00.750Z [command]/usr/bin/docker build -t app-d1:49 .
+docker-ci	Build Container Image	2026-08-17T11:03:00.850Z #1 [internal] load build definition from Dockerfile
+docker-ci	Build Container Image	2026-08-17T11:03:00.970Z #1 transferring dockerfile: 98B done
+docker-ci	Build Container Image	2026-08-17T11:03:01.070Z #1 DONE 0.1s
+docker-ci	Build Container Image	2026-08-17T11:03:01.170Z #2 [internal] load .dockerignore
+docker-ci	Build Container Image	2026-08-17T11:03:01.250Z #2 transferring context: 35B done
+docker-ci	Build Container Image	2026-08-17T11:03:01.300Z #2 DONE 0.0s
+docker-ci	Build Container Image	2026-08-17T11:03:01.500Z #3 [1/2] FROM docker.io/library/openjdk:17-slim
+docker-ci	Build Container Image	2026-08-17T11:03:01.750Z #3 resolve docker.io/library/openjdk:17-slim done
+docker-ci	Build Container Image	2026-08-17T11:03:01.850Z #3 DONE 0.3s
+docker-ci	Build Container Image	2026-08-17T11:03:02.000Z #4 [2/2] COPY data/training_seed_49.csv /app/data/
+docker-ci	Build Container Image	2026-08-17T11:03:02.200Z #4 ERROR: failed to calculate checksum of ref buildref_981: "/data/training_seed_49.csv": not found
+docker-ci	Build Container Image	2026-08-17T11:03:02.300Z ERROR: failed to solve: failed to calculate checksum of ref buildref_981: "/data/training_seed_49.csv": not found
+docker-ci	Build Container Image	2026-08-17T11:03:02.350Z ##[error]Process completed with exit code 1.
+docker-ci	Post Checkout Repository	2026-08-17T11:03:02.550Z Post job cleanup.
+docker-ci	Complete job	2026-08-17T11:03:02.700Z Cleaning up orphan processes
