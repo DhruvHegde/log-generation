@@ -1,0 +1,75 @@
+name: F7 Network Errors CI
+
+on:
+  push:
+    branches: [ "main", "feature/f7-network-errors" ]
+  workflow_dispatch:
+    inputs:
+      test_run_reason:
+        description: 'Reason for running F7 test workflow'
+        required: false
+        default: 'Manual test run'
+
+jobs:
+  prepare:
+    name: Prepare F7 matrix
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Read batch matrix
+        id: matrix
+        shell: bash
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+
+          batch_file = Path(".f7_batch.json")
+          if not batch_file.exists():
+              raise SystemExit(".f7_batch.json is required for F7 generation")
+          batch = json.loads(batch_file.read_text(encoding="utf-8"))
+          entries = batch.get("include", [])
+          if not 1 <= len(entries) <= 250:
+              raise SystemExit(f"F7 batch must contain 1-250 entries, got {len(entries)}")
+          print(f"matrix={json.dumps(batch, separators=(',', ':'))}")
+          PY
+
+  test-f7:
+    needs: prepare
+    name: "test-f7 (${{ matrix.error_type }} #${{ matrix.sample }})"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 250
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Dependencies
+        run: |
+          pip install --no-cache-dir pytest
+
+      - name: Inject Test Mutation
+        run: |
+          python automation/inject_network_failure.py --error-type "${{ matrix.error_type }}"
+
+      - name: Run Pytest Suite
+        run: |
+          pytest tests/test_app.py -v
+
+
