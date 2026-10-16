@@ -318,7 +318,7 @@ def get_matrix_jobs(run_id: int) -> list[dict]:
         page += 1
 
     unique_jobs = {job["id"]: job for job in jobs}
-    return [job for job in unique_jobs.values() if job.get("name", "").startswith("test-f3 (")]
+    return [job for job in unique_jobs.values() if job.get("name", "").startswith("test-f7 (")]
 
 
 def wait_for_matrix_jobs(run: dict, expected_jobs: int, timeout_sec: int = 900) -> None:
