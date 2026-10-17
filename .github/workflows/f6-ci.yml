@@ -1,0 +1,44 @@
+﻿name: F6 Configuration and Permission Errors
+
+on:
+  push:
+    paths:
+      - "f6_scenario.txt"
+      - ".github/workflows/f6-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  f6-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Validate Configuration and Permissions
+        env:
+          F6_REQUIRED_TOKEN: ${{ secrets.F6_REQUIRED_TOKEN }}
+          F6_REQUIRED_ENV: ${{ vars.F6_REQUIRED_ENV }}
+        run: |
+          scenario=$(cat f6_scenario.txt)
+          echo "F6 scenario: $scenario"
+
+          case "$scenario" in
+            missing_secret)
+              if [ -z "$F6_REQUIRED_TOKEN" ]; then
+                echo "Error: required secret F6_REQUIRED_TOKEN is missing"
+                exit 1
+              fi
+              ;;
+            missing_variable)
+              if [ -z "$F6_REQUIRED_ENV" ]; then
+                echo "Error: required variable F6_REQUIRED_ENV is missing"
+                exit 1
+              fi
+              ;;
+            *)
+              echo "Error: unknown F6 scenario: $scenario"
+              exit 1
+              ;;
+          esac
