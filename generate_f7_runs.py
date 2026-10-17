@@ -421,7 +421,7 @@ def fetch_and_save_matrix_artifacts(run: dict, commit_sha: str, expected_jobs: i
 
 def main():
     parser = argparse.ArgumentParser(description="High-Speed Parallel Matrix F7 Network Service Failure Generation Engine")
-    parser.add_argument("--runs", type=int, default=500, help="Total target F7 runs (default: 500)")
+    parser.add_argument("--runs", type=int, default=250, help="Total target F7 runs (default: 250)")
     parser.add_argument("--clean", action="store_true", help="Purge prior F7 data before starting")
     parser.add_argument("--seed", type=int, default=None, help="Optional seed for reproducible error selection")
     args = parser.parse_args()
