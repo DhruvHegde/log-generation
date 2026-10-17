@@ -5,6 +5,18 @@ on:
     paths:
       - "f6_scenario.txt"
       - ".github/workflows/f6-ci.yml"
+  workflow_dispatch:
+    inputs:
+      scenario:
+        description: "F6 scenario to execute"
+        required: true
+        type: choice
+        options:
+          - missing_secret
+          - missing_variable
+          - permission_denied
+          - token_lacks_permission
+          - success
 
 permissions:
   contents: read
@@ -16,12 +28,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Validate Configuration and Permissions
+      - name: Execute F6 Scenario
         env:
+          INPUT_SCENARIO: ${{ inputs.scenario }}
           F6_REQUIRED_TOKEN: ${{ secrets.F6_REQUIRED_TOKEN }}
           F6_REQUIRED_ENV: ${{ vars.F6_REQUIRED_ENV }}
+        shell: bash
         run: |
-          scenario=$(cat f6_scenario.txt)
+          scenario="${INPUT_SCENARIO:-$(cat f6_scenario.txt)}"
           echo "F6 scenario: $scenario"
 
           case "$scenario" in
@@ -30,24 +44,27 @@ jobs:
                 echo "Error: required secret F6_REQUIRED_TOKEN is missing"
                 exit 1
               fi
+              echo "Required secret is configured."
               ;;
             missing_variable)
               if [ -z "$F6_REQUIRED_ENV" ]; then
                 echo "Error: required variable F6_REQUIRED_ENV is missing"
                 exit 1
               fi
+              echo "Required variable is configured."
               ;;
-
             permission_denied)
               echo "Error: permission denied when accessing the required CI resource"
               exit 1
               ;;
-
             token_lacks_permission)
               echo "Error: token lacks the required permission to access the CI resource"
               exit 1
               ;;
-
+            success)
+              echo "F6 validation completed successfully."
+              exit 0
+              ;;
             *)
               echo "Error: unknown F6 scenario: $scenario"
               exit 1
