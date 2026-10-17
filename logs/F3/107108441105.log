@@ -1,0 +1,229 @@
+ï»¿2026-09-23T08:43:43.1569998Z Current runner version: '2.337.0'
+2026-09-23T08:43:43.1596231Z ##[group]Runner Image Provisioner
+2026-09-23T08:43:43.1597219Z Hosted Compute Agent
+2026-09-23T08:43:43.1597990Z Version: 20260828.587
+2026-09-23T08:43:43.1598693Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-23T08:43:43.1599433Z Build Date: 2026-08-28T16:44:25Z
+2026-09-23T08:43:43.1600195Z Worker ID: {c2ab3df1-0c92-4d66-a4af-8afb6bc12c0a}
+2026-09-23T08:43:43.1600971Z Azure Region: westus2
+2026-09-23T08:43:43.1601603Z ##[endgroup]
+2026-09-23T08:43:43.1603417Z ##[group]Operating System
+2026-09-23T08:43:43.1604092Z Ubuntu
+2026-09-23T08:43:43.1605068Z 24.04.5
+2026-09-23T08:43:43.1605669Z LTS
+2026-09-23T08:43:43.1606641Z ##[endgroup]
+2026-09-23T08:43:43.1607262Z ##[group]Runner Image
+2026-09-23T08:43:43.1607861Z Image: ubuntu-24.04
+2026-09-23T08:43:43.1608512Z Version: 20260907.300.1
+2026-09-23T08:43:43.1609800Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260907.300/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-23T08:43:43.1611449Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260907.300
+2026-09-23T08:43:43.1612467Z ##[endgroup]
+2026-09-23T08:43:43.1613838Z ##[group]GITHUB_TOKEN Permissions
+2026-09-23T08:43:43.1616224Z Contents: read
+2026-09-23T08:43:43.1616917Z Metadata: read
+2026-09-23T08:43:43.1617516Z Packages: read
+2026-09-23T08:43:43.1618120Z ##[endgroup]
+2026-09-23T08:43:43.1620374Z Secret source: Actions
+2026-09-23T08:43:43.1621411Z Cache mode: write
+2026-09-23T08:43:43.1622648Z Prepare workflow directory
+2026-09-23T08:43:43.1975155Z Prepare all required actions
+2026-09-23T08:43:43.2024562Z Getting action download info
+2026-09-23T08:43:43.5685304Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-23T08:43:43.7001209Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-09-23T08:43:43.8818421Z Complete job name: test-f3 (ValueError #15)
+2026-09-23T08:43:43.9591774Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-23T08:43:43.9600982Z ##[group]Run actions/checkout@v4
+2026-09-23T08:43:43.9601756Z with:
+2026-09-23T08:43:43.9602200Z   fetch-depth: 1
+2026-09-23T08:43:43.9602703Z   repository: DhruvHegde/log-generation
+2026-09-23T08:43:43.9607056Z   token: ***
+2026-09-23T08:43:43.9607514Z   ssh-strict: true
+2026-09-23T08:43:43.9607993Z   ssh-user: git
+2026-09-23T08:43:43.9608512Z   persist-credentials: true
+2026-09-23T08:43:43.9609064Z   clean: true
+2026-09-23T08:43:43.9609569Z   sparse-checkout-cone-mode: true
+2026-09-23T08:43:43.9610150Z   fetch-tags: false
+2026-09-23T08:43:43.9610652Z   show-progress: true
+2026-09-23T08:43:43.9611161Z   lfs: false
+2026-09-23T08:43:43.9611691Z   submodules: false
+2026-09-23T08:43:43.9612217Z   set-safe-directory: true
+2026-09-23T08:43:43.9612793Z   allow-unsafe-pr-checkout: false
+2026-09-23T08:43:43.9613657Z ##[endgroup]
+2026-09-23T08:43:44.0663276Z Syncing repository: DhruvHegde/log-generation
+2026-09-23T08:43:44.0666355Z ##[group]Getting Git version info
+2026-09-23T08:43:44.0667650Z Working directory is '/home/runner/work/log-generation/log-generation'
+2026-09-23T08:43:44.0669505Z [command]/usr/bin/git version
+2026-09-23T08:43:44.0808142Z git version 2.55.0
+2026-09-23T08:43:44.0830915Z ##[endgroup]
+2026-09-23T08:43:44.0846956Z Temporarily overriding HOME='/home/runner/work/_temp/af960c04-0f22-4149-a9be-264c39436db5' before making global git config changes
+2026-09-23T08:43:44.0849253Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-23T08:43:44.0853135Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/log-generation/log-generation
+2026-09-23T08:43:44.0913890Z Deleting the contents of '/home/runner/work/log-generation/log-generation'
+2026-09-23T08:43:44.0919123Z ##[group]Initializing the repository
+2026-09-23T08:43:44.0923530Z [command]/usr/bin/git init /home/runner/work/log-generation/log-generation
+2026-09-23T08:43:44.1082692Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-23T08:43:44.1084027Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-23T08:43:44.1088121Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-23T08:43:44.1089960Z hint: call:
+2026-09-23T08:43:44.1090742Z hint:
+2026-09-23T08:43:44.1091672Z hint: 	git config --global init.defaultBranch <name>
+2026-09-23T08:43:44.1093031Z hint:
+2026-09-23T08:43:44.1094139Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-23T08:43:44.1096153Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-23T08:43:44.1097408Z hint:
+2026-09-23T08:43:44.1098233Z hint: 	git branch -m <name>
+2026-09-23T08:43:44.1099164Z hint:
+2026-09-23T08:43:44.1100348Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-23T08:43:44.1102148Z Initialized empty Git repository in /home/runner/work/log-generation/log-generation/.git/
+2026-09-23T08:43:44.1105574Z [command]/usr/bin/git remote add origin https://github.com/DhruvHegde/log-generation
+2026-09-23T08:43:44.1161109Z ##[endgroup]
+2026-09-23T08:43:44.1162140Z ##[group]Disabling automatic garbage collection
+2026-09-23T08:43:44.1164492Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-23T08:43:44.1224294Z ##[endgroup]
+2026-09-23T08:43:44.1226993Z ##[group]Setting up auth
+2026-09-23T08:43:44.1233771Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-23T08:43:44.1286448Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-23T08:43:44.1686784Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-23T08:43:44.1724401Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-23T08:43:44.1955812Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-23T08:43:44.1993974Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-23T08:43:44.2245342Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-23T08:43:44.2290578Z ##[endgroup]
+2026-09-23T08:43:44.2292565Z ##[group]Fetching the repository
+2026-09-23T08:43:44.2302903Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +dfcb6f158e4bd8054252a4da5d0a9edc2ab15d57:refs/remotes/origin/feature/f3-test-failures
+2026-09-23T08:43:44.5472592Z From https://github.com/DhruvHegde/log-generation
+2026-09-23T08:43:44.5475261Z  * [new ref]         dfcb6f158e4bd8054252a4da5d0a9edc2ab15d57 -> origin/feature/f3-test-failures
+2026-09-23T08:43:44.5480802Z ##[endgroup]
+2026-09-23T08:43:44.5482371Z ##[group]Determining the checkout info
+2026-09-23T08:43:44.5484907Z ##[endgroup]
+2026-09-23T08:43:44.5489365Z [command]/usr/bin/git sparse-checkout disable
+2026-09-23T08:43:44.5547589Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-23T08:43:44.5585508Z ##[group]Checking out the ref
+2026-09-23T08:43:44.5590458Z [command]/usr/bin/git checkout --progress --force -B feature/f3-test-failures refs/remotes/origin/feature/f3-test-failures
+2026-09-23T08:43:44.5691137Z Switched to a new branch 'feature/f3-test-failures'
+2026-09-23T08:43:44.5700393Z branch 'feature/f3-test-failures' set up to track 'origin/feature/f3-test-failures'.
+2026-09-23T08:43:44.5706823Z ##[endgroup]
+2026-09-23T08:43:44.5752399Z [command]/usr/bin/git log -1 --format=%H
+2026-09-23T08:43:44.5781942Z dfcb6f158e4bd8054252a4da5d0a9edc2ab15d57
+2026-09-23T08:43:44.6134217Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-23T08:43:44.6139706Z ##[group]Run actions/setup-python@v5
+2026-09-23T08:43:44.6140551Z with:
+2026-09-23T08:43:44.6141110Z   python-version: 3.11
+2026-09-23T08:43:44.6141805Z   check-latest: false
+2026-09-23T08:43:44.6151603Z   token: ***
+2026-09-23T08:43:44.6152223Z   update-environment: true
+2026-09-23T08:43:44.6152985Z   allow-prereleases: false
+2026-09-23T08:43:44.6153740Z   freethreaded: false
+2026-09-23T08:43:44.6154396Z ##[endgroup]
+2026-09-23T08:43:44.7522856Z ##[group]Installed versions
+2026-09-23T08:43:44.7645030Z (node:2154) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-23T08:43:44.7649157Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-23T08:43:44.7651389Z Successfully set up CPython (3.11.16)
+2026-09-23T08:43:44.7656975Z ##[endgroup]
+2026-09-23T08:43:44.7852571Z ##[group]Run pip install --no-cache-dir pytest
+2026-09-23T08:43:44.7853793Z [36;1mpip install --no-cache-dir pytest[0m
+2026-09-23T08:43:44.7917101Z shell: /usr/bin/bash -e {0}
+2026-09-23T08:43:44.7918286Z env:
+2026-09-23T08:43:44.7919291Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-23T08:43:44.7921707Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-09-23T08:43:44.7924152Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-23T08:43:44.7926513Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-23T08:43:44.7928899Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-23T08:43:44.7931107Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-09-23T08:43:44.7932860Z ##[endgroup]
+2026-09-23T08:43:46.9028464Z Collecting pytest
+2026-09-23T08:43:46.9605514Z   Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+2026-09-23T08:43:46.9722692Z Collecting iniconfig>=1.0.1 (from pytest)
+2026-09-23T08:43:46.9791989Z   Downloading iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+2026-09-23T08:43:46.9935568Z Collecting packaging>=22 (from pytest)
+2026-09-23T08:43:47.0005604Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-09-23T08:43:47.0122792Z Collecting pluggy<2,>=1.5 (from pytest)
+2026-09-23T08:43:47.0188460Z   Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+2026-09-23T08:43:47.0382786Z Collecting pygments>=2.7.2 (from pytest)
+2026-09-23T08:43:47.0450666Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-09-23T08:43:47.0545210Z Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+2026-09-23T08:43:47.0915610Z Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+2026-09-23T08:43:47.0983496Z Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+2026-09-23T08:43:47.1051777Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-09-23T08:43:47.1176324Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-09-23T08:43:47.1659497Z    ââââââââââââââââââââââââââââââââââââââââ 1.3/1.3 MB 28.7 MB/s  0:00:00
+2026-09-23T08:43:47.3405565Z Installing collected packages: pygments, pluggy, packaging, iniconfig, pytest
+2026-09-23T08:43:48.3370709Z 
+2026-09-23T08:43:48.3379720Z Successfully installed iniconfig-2.3.0 packaging-26.3 pluggy-1.6.0 pygments-2.21.0 pytest-9.1.1
+2026-09-23T08:43:48.3887600Z ##[group]Run python automation/inject_mutation.py --error-type "ValueError"
+2026-09-23T08:43:48.3888273Z [36;1mpython automation/inject_mutation.py --error-type "ValueError"[0m
+2026-09-23T08:43:48.3926537Z shell: /usr/bin/bash -e {0}
+2026-09-23T08:43:48.3926803Z env:
+2026-09-23T08:43:48.3927095Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-23T08:43:48.3927809Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-09-23T08:43:48.3928237Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-23T08:43:48.3928616Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-23T08:43:48.3929005Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-23T08:43:48.3929387Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-09-23T08:43:48.3929730Z ##[endgroup]
+2026-09-23T08:43:48.4223764Z [Mutation Injected] Successfully injected ValueError into tests/test_app.py
+2026-09-23T08:43:48.4294219Z ##[group]Run pytest tests/test_app.py -v
+2026-09-23T08:43:48.4294606Z [36;1mpytest tests/test_app.py -v[0m
+2026-09-23T08:43:48.4331260Z shell: /usr/bin/bash -e {0}
+2026-09-23T08:43:48.4331531Z env:
+2026-09-23T08:43:48.4331800Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-23T08:43:48.4332240Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-09-23T08:43:48.4332683Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-23T08:43:48.4333061Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-23T08:43:48.4333439Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-23T08:43:48.4333820Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-09-23T08:43:48.4334140Z ##[endgroup]
+2026-09-23T08:43:48.8651377Z ============================= test session starts ==============================
+2026-09-23T08:43:48.8652801Z platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /opt/hostedtoolcache/Python/3.11.16/x64/bin/python
+2026-09-23T08:43:48.8653914Z cachedir: .pytest_cache
+2026-09-23T08:43:48.8654544Z rootdir: /home/runner/work/log-generation/log-generation
+2026-09-23T08:43:48.8655543Z configfile: pytest.ini
+2026-09-23T08:43:48.8736914Z collecting ... collected 6 items
+2026-09-23T08:43:48.8737288Z 
+2026-09-23T08:43:48.8745597Z tests/test_app.py::test_calculate_division PASSED                        [ 16%]
+2026-09-23T08:43:48.8752717Z tests/test_app.py::test_convert_to_int PASSED                            [ 33%]
+2026-09-23T08:43:48.8760119Z tests/test_app.py::test_get_list_item PASSED                             [ 50%]
+2026-09-23T08:43:48.8766912Z tests/test_app.py::test_get_dict_value PASSED                            [ 66%]
+2026-09-23T08:43:48.8773322Z tests/test_app.py::test_assert_positive PASSED                           [ 83%]
+2026-09-23T08:43:48.9044116Z tests/test_app.py::test_value_error FAILED                               [100%]
+2026-09-23T08:43:48.9045359Z 
+2026-09-23T08:43:48.9045629Z =================================== FAILURES ===================================
+2026-09-23T08:43:48.9046215Z _______________________________ test_value_error _______________________________
+2026-09-23T08:43:48.9046551Z 
+2026-09-23T08:43:48.9046671Z     def test_value_error():
+2026-09-23T08:43:48.9046977Z         """Injected synthetic ValueError."""
+2026-09-23T08:43:48.9047359Z         from src.app import convert_to_int
+2026-09-23T08:43:48.9047749Z >       convert_to_int("unparseable_alphanumeric_0x99")
+2026-09-23T08:43:48.9048034Z 
+2026-09-23T08:43:48.9048144Z tests/test_app.py:137: 
+2026-09-23T08:43:48.9048480Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-09-23T08:43:48.9048783Z 
+2026-09-23T08:43:48.9048923Z val = 'unparseable_alphanumeric_0x99'
+2026-09-23T08:43:48.9049149Z 
+2026-09-23T08:43:48.9049269Z     def convert_to_int(val):
+2026-09-23T08:43:48.9049548Z >       return int(val)
+2026-09-23T08:43:48.9049802Z                ^^^^^^^^
+2026-09-23T08:43:48.9050250Z E       ValueError: invalid literal for int() with base 10: 'unparseable_alphanumeric_0x99'
+2026-09-23T08:43:48.9050676Z 
+2026-09-23T08:43:48.9050785Z src/app.py:5: ValueError
+2026-09-23T08:43:48.9051130Z =========================== short test summary info ============================
+2026-09-23T08:43:48.9051917Z FAILED tests/test_app.py::test_value_error - ValueError: invalid literal for int() with base 10: 'unparseable_alphanumeric_0x99'
+2026-09-23T08:43:48.9052943Z ========================= 1 failed, 5 passed in 0.03s ==========================
+2026-09-23T08:43:48.9243551Z ##[error]Process completed with exit code 1.
+2026-09-23T08:43:48.9387355Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-23T08:43:48.9388615Z Post job cleanup.
+2026-09-23T08:43:49.0250142Z [command]/usr/bin/git version
+2026-09-23T08:43:49.0295244Z git version 2.55.0
+2026-09-23T08:43:49.0334991Z Temporarily overriding HOME='/home/runner/work/_temp/cc876998-4a40-4a4b-833a-864888e37bb4' before making global git config changes
+2026-09-23T08:43:49.0336583Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-23T08:43:49.0340347Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/log-generation/log-generation
+2026-09-23T08:43:49.0383523Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-23T08:43:49.0423273Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-23T08:43:49.0761594Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-23T08:43:49.0821609Z http.https://github.com/.extraheader
+2026-09-23T08:43:49.0823071Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-23T08:43:49.0859070Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-23T08:43:49.1212122Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-23T08:43:49.1278530Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-23T08:43:49.1672988Z Cleaning up orphan processes
+2026-09-23T08:43:49.1937687Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
