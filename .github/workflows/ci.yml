@@ -2,7 +2,10 @@ name: Dependency Error Dataset
 
 on:
   push:
-
+    paths:
+      - 'requirements.txt'
+      - 'test_app.py'
+      - '.github/workflows/ci.yml'
 jobs:
   dependency-test:
 
@@ -26,3 +29,4 @@ jobs:
       - name: Run Tests
         run: |
           pytest
+
