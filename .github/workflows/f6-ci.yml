@@ -32,11 +32,23 @@ jobs:
               fi
               ;;
             missing_variable)
+                         missing_variable)
               if [ -z "$F6_REQUIRED_ENV" ]; then
                 echo "Error: required variable F6_REQUIRED_ENV is missing"
                 exit 1
               fi
               ;;
+
+            permission_denied)
+              echo "Error: permission denied when accessing the required CI resource"
+              exit 1
+              ;;
+
+            token_lacks_permission)
+              echo "Error: token lacks the required permission to access the CI resource"
+              exit 1
+              ;;
+
             *)
               echo "Error: unknown F6 scenario: $scenario"
               exit 1
