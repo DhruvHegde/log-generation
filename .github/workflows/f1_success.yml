@@ -1,0 +1,59 @@
+
+name: F1 Success CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      scenario_id:
+        description: "F1 success scenario ID"
+        required: true
+        default: "S01_arithmetic"
+        type: choice
+        options:
+          - S01_arithmetic
+          - S02_string_ops
+          - S03_collections
+          - S04_validation
+          - S05_sorting_transform
+          - S06_matrix_math
+          - S07_json_parser
+          - S08_statistics
+          - S09_state_machine
+          - S10_cache_lru
+      run_id:
+        description: "Dataset run identifier"
+        required: false
+        default: "S_F1_run_0001"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  f1-success-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Check App Syntax
+        run: python -c "import app"
+
+      - name: Run Scenario Tests
+        env:
+          SCENARIO_ID: ${{ inputs.scenario_id }}
+          RUN_ID: ${{ inputs.run_id }}
+        run: |
+          echo "Executing F1 Success Scenario: $SCENARIO_ID (Run: $RUN_ID)"
+          pytest "tests/success_scenarios/test_${SCENARIO_ID}.py" -v
