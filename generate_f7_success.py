@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """Generate 20 F7 success baseline logs (S_F7_run_0001 through S_F7_run_0020)."""
 
+import argparse
 import csv
 import json
 import os
+import re
 import subprocess
 import time
 from datetime import datetime
 from pathlib import Path
-import re
 import threading
 import requests
 from dotenv import load_dotenv
@@ -26,6 +27,7 @@ SUCCESS_LOGS_DIR = Path("logs/success/F7")
 SUCCESS_METADATA_DIR = Path("metadata/success/F7")
 LABELS_FILE = Path("labels.csv")
 TEST_FILE = Path("tests/test_app.py")
+BATCH_FILE = Path(".f7_batch.json")
 SUCCESS_COUNTER_FILE = Path(".f7_success_counter")
 _SUCCESS_COUNTER_LOCK = threading.Lock()
 
@@ -80,10 +82,19 @@ def get_next_success_id() -> str:
         return f"S_F7_run_{next_id:04d}"
 
 
+def write_success_batch_spec(batch_size: int, seed: int | None = None) -> list[dict[str, object]]:
+    """Write the randomized matrix consumed by the dynamic workflow for success runs."""
+    entries = [
+        {"sample": index, "error_type": "success"}
+        for index in range(1, batch_size + 1)
+    ]
+    BATCH_FILE.write_text(json.dumps({"include": entries}, indent=2), encoding="utf-8")
+    return entries
+
+
 def git_commit_and_push_s(batch_num: int) -> str:
-    """Commit and push with a clean test file (no mutations)."""
-    # Ensure test file is clean (no mutations)
-    subprocess.run(["python", "automation/inject_network_failure.py", "--error-type", "success"], check=True, capture_output=True)
+    """Commit and push with a batch spec for success runs."""
+    write_success_batch_spec(batch_size=20)  # Always write 20 for full batch
 
     # Add a timestamp comment to trigger workflow
     timestamp_comment = f"\n# Success batch {batch_num} at {time.time()}\n"
@@ -270,15 +281,17 @@ def create_success_metadata(job: dict, commit_sha: str, run_id: str, log_path: P
 def fetch_and_save_success_artifacts(run: dict, commit_sha: str, expected_jobs: int) -> list[dict]:
     """Fetch and save success matrix artifacts."""
     jobs = get_matrix_jobs(run["id"])
-    # For success runs, we expect just one job or the test job
-    # Filter for the test job
-    test_jobs = [job for job in jobs if job.get("name", "").startswith("test") and not "test-f7 (" in job.get("name", "")]
-    if not test_jobs:
-        test_jobs = jobs  # fallback
+    # Filter for test-f7 jobs (not the prepare job)
+    test_jobs = [job for job in jobs if job.get("name", "").startswith("test-f7 (")]
+    print(f"  Found {len(test_jobs)} test-f7 jobs")
+
+    if len(test_jobs) < expected_jobs:
+        print(f"  Warning: Expected {expected_jobs} test-f7 jobs, found {len(test_jobs)}")
 
     results = []
     for job in test_jobs[:expected_jobs]:
         job_id = job["id"]
+        job_name = job.get("name", "")
 
         run_id = get_next_success_id()
 
@@ -314,7 +327,7 @@ def fetch_and_save_success_artifacts(run: dict, commit_sha: str, expected_jobs: 
         result = {
             "job": job,
             "run_id": run_id,
-            "job_name": job.get("name", ""),
+            "job_name": job_name,
             "is_valid": is_valid,
             "error_signature": error_signature,
             "metadata_path": metadata_path,
@@ -328,7 +341,7 @@ def fetch_and_save_success_artifacts(run: dict, commit_sha: str, expected_jobs: 
         results.append(result)
 
         status_str = "[VALIDATED]" if is_valid else f"[INVALID: {error_signature}]"
-        print(f"  -> Job {job_id} ({result['job_name']}): {conclusion} ({duration}s) {status_str}")
+        print(f"  -> Job {job_id} ({job_name}): {conclusion} ({duration}s) {status_str}")
 
     # Save valid results to labels.csv
     with open(LABELS_FILE, "a", newline="", encoding="utf-8") as stream:
@@ -361,15 +374,17 @@ def fetch_and_save_success_artifacts(run: dict, commit_sha: str, expected_jobs: 
     return results
 
 
-def wait_for_jobs(run: dict, expected_jobs: int, timeout_sec: int = 900) -> None:
-    """Wait for jobs to complete."""
+def wait_for_test_f7_jobs(run: dict, expected_jobs: int, timeout_sec: int = 900) -> None:
+    """Wait for test-f7 matrix jobs to complete."""
     start_time = time.time()
     reported_jobs = set()
-    print(f"Waiting for {expected_jobs} matrix jobs to complete...")
+    print(f"Waiting for {expected_jobs} test-f7 matrix jobs to complete...")
 
     while time.time() - start_time < timeout_sec:
         jobs = get_matrix_jobs(run["id"])
-        completed_jobs = [job for job in jobs if job.get("status") == "completed"]
+        test_jobs = [job for job in jobs if job.get("name", "").startswith("test-f7 (")]
+        completed_jobs = [job for job in test_jobs if job.get("status") == "completed"]
+
         for job in completed_jobs:
             if job["id"] in reported_jobs:
                 continue
@@ -383,14 +398,10 @@ def wait_for_jobs(run: dict, expected_jobs: int, timeout_sec: int = 900) -> None
             return
         time.sleep(5)
 
-    raise TimeoutError(f"Matrix jobs timed out for workflow run {run['id']}")
+    raise TimeoutError(f"Test-f7 matrix jobs timed out for workflow run {run['id']}")
 
-
-import re
 
 def main():
-    import argparse
-
     parser = argparse.ArgumentParser(description="Generate F7 success baseline logs")
     parser.add_argument("--runs", type=int, default=20, help="Total target success runs (default: 20)")
     args = parser.parse_args()
@@ -421,8 +432,8 @@ def main():
 
             commit_sha = git_commit_and_push_s(batch_number)
             run_data = poll_workflow_run(commit_sha)
-            wait_for_jobs(run_data, expected_jobs=1)  # Just need one test job for success
-            fetch_and_save_success_artifacts(run_data, commit_sha, expected_jobs=1)
+            wait_for_test_f7_jobs(run_data, expected_jobs=batch_size)
+            fetch_and_save_success_artifacts(run_data, commit_sha, expected_jobs=batch_size)
 
             remaining -= batch_size
             batch_number += 1
