@@ -1,0 +1,258 @@
+# Syntax error scenarios for F1 dataset generation.
+#
+# Format: scenario_id|description|broken_app_py_content
+#
+# Each scenario is a COMPLETE, STANDALONE replacement for app.py.
+# The content must be genuinely syntactically broken so that
+# `python -c "import app"` raises SyntaxError, IndentationError, or TabError.
+# Each scenario is independent — the generator writes it fresh to app.py
+# before every commit, so no scenario depends on a previous one.
+#
+# Pipe characters (|) delimit fields; the content field uses \n for newlines
+# and \t for tab characters.
+#
+# ORIGINAL 10 SCENARIOS (runs 1-100 used these cyclically)
+
+missing_colon|Missing colon after if statement|def add(a, b):\n    return a + b\n\nif __name__ == "__main__"\n    print(add(1, 2))\n
+
+missing_paren|Unmatched opening parenthesis|def add(a, b):\n    return a + b\n\nresult = add(1, 2\nprint(result)\n
+
+missing_bracket|Unmatched opening bracket|def add(a, b):\n    return a + b\n\nvalues = [1, 2, 3\nprint(values)\n
+
+bad_indent|Unexpected indentation inside function body|def add(a, b):\n    return a + b\n\ndef main():\n    x = 1\n      y = 2\n    print(x + y)\n
+
+malformed_def|def keyword with missing function name|def (a, b):\n    return a + b\n
+
+malformed_if|if statement with no condition|def add(a, b):\n    return a + b\n\nif :\n    print(add(1, 2))\n
+
+malformed_for|for loop with missing loop variable|def add(a, b):\n    return a + b\n\nfor in range(5):\n    print(add(1, 2))\n
+
+bad_class|class declaration with missing name|class :\n    def method(self):\n        pass\n
+
+bad_try|try block missing colon|def add(a, b):\n    return a + b\n\ntry\n    print(add(1, 2))\nexcept Exception as e:\n    print(e)\n
+
+bad_dict|Dictionary literal with missing value|def add(a, b):\n    return a + b\n\ndata = {"key": "value", "broken":}\nprint(data)\n
+
+# ------------------------------------------------------------------
+# EXPANDED CATALOGUE — 91 additional scenarios (validated with compile())
+# Categories: missing colons, unclosed brackets, malformed defs/classes,
+#             malformed control flow, try/except, with, imports,
+#             expressions/assignments, literals, strings, f-strings,
+#             comprehensions, indentation errors, TabErrors
+# ------------------------------------------------------------------
+
+# --- Missing colons: more variants ---
+
+missing_colon_else|else clause missing colon|def add(a, b):\n    return a + b\n\nx = 1\nif x > 0:\n    print('pos')\nelse\n    print('neg')\n
+
+missing_colon_elif|elif clause missing colon|def add(a, b):\n    return a + b\n\nx = 1\nif x > 0:\n    print('pos')\nelif x == 0\n    print('zero')\n
+
+missing_colon_while|while loop missing colon|def add(a, b):\n    return a + b\n\ni = 0\nwhile i < 5\n    i += 1\n
+
+missing_colon_for|for loop header missing colon|def add(a, b):\n    return a + b\n\nfor i in range(3)\n    print(i)\n
+
+missing_colon_with|with statement missing colon|def add(a, b):\n    return a + b\n\nwith open('x') as f\n    pass\n
+
+missing_colon_except|except clause missing colon|def add(a, b):\n    return a + b\n\ntry:\n    pass\nexcept Exception\n    pass\n
+
+missing_colon_finally|finally clause missing colon|def add(a, b):\n    return a + b\n\ntry:\n    pass\nexcept Exception:\n    pass\nfinally\n    pass\n
+
+missing_colon_class|class definition missing colon|class MyClass\n    def method(self):\n        pass\n
+
+missing_colon_def|function definition missing colon|def add(a, b)\n    return a + b\n
+
+missing_colon_lambda|lambda expression missing colon|def add(a, b):\n    return a + b\n\nf = lambda x x * 2\n
+
+# --- Unclosed brackets / braces: more variants ---
+
+unclosed_brace|Unclosed opening brace in dict literal|def add(a, b):\n    return a + b\n\ndata = {"a": 1, "b": 2\nprint(data)\n
+
+unclosed_paren_call|Unclosed parenthesis in function call|def add(a, b):\n    return a + b\n\nresult = max(1, 2, 3\nprint(result)\n
+
+unclosed_paren_tuple|Unclosed parenthesis in tuple literal|def add(a, b):\n    return a + b\n\nt = (1, 2, 3\nprint(t)\n
+
+unclosed_bracket_nested|Unclosed bracket inside nested expression|def add(a, b):\n    return a + b\n\nmatrix = [[1, 2], [3, 4\nprint(matrix)\n
+
+unclosed_set_literal|Unclosed brace in set literal|def add(a, b):\n    return a + b\n\ns = {1, 2, 3\nprint(s)\n
+
+# --- Malformed function / class definitions ---
+
+def_no_parens|def keyword with no parentheses at all|def add a, b:\n    return a + b\n
+
+def_double_star_error|def with ** before positional arg (invalid order)|def add(**kwargs, a):\n    return a\n
+
+class_no_body|class definition with no body and no pass|class Empty:\n
+
+class_invalid_base|class definition with unclosed base class list|class Child(Parent:\n    pass\n
+
+def_return_outside|return statement at module level (invalid)|return 42\n
+
+# --- Malformed if / elif / else ---
+
+elif_no_if|elif with no preceding if|def add(a, b):\n    return a + b\n\nelif True:\n    print('x')\n
+
+else_no_if|else with no preceding if|def add(a, b):\n    return a + b\n\nelse:\n    print('x')\n
+
+if_missing_body|if statement with no body and no pass|def add(a, b):\n    return a + b\n\nif True:\n
+
+# --- Malformed for / while ---
+
+for_missing_in|for loop missing the in keyword|def add(a, b):\n    return a + b\n\nfor x range(5):\n    print(x)\n
+
+while_missing_condition|while keyword with no condition|def add(a, b):\n    return a + b\n\nwhile:\n    break\n
+
+for_unpacking_mismatch|for loop with invalid unpacking target|def add(a, b):\n    return a + b\n\nfor (a, b, = [(1,2)]:\n    print(a)\n
+
+# --- Malformed try / except / finally ---
+
+except_no_try|except clause with no preceding try|def add(a, b):\n    return a + b\n\nexcept Exception:\n    pass\n
+
+finally_no_try|finally clause with no preceding try|def add(a, b):\n    return a + b\n\nfinally:\n    pass\n
+
+try_no_except_or_finally|try block with no except or finally|def add(a, b):\n    return a + b\n\ntry:\n    pass\n
+
+except_as_missing_name|except clause with as but no variable name|def add(a, b):\n    return a + b\n\ntry:\n    pass\nexcept Exception as:\n    pass\n
+
+# --- Malformed with statements ---
+
+with_no_as|with statement expression followed by stray keyword|def add(a, b):\n    return a + b\n\nwith open('x') as f, as g:\n    pass\n
+
+with_no_expression|with keyword with no context manager expression|def add(a, b):\n    return a + b\n\nwith as f:\n    pass\n
+
+# --- Malformed imports ---
+
+import_missing_name|import keyword with nothing after it|import\ndef add(a, b):\n    return a + b\n
+
+from_import_missing_name|from X import with nothing after import|from os import\ndef add(a, b):\n    return a + b\n
+
+from_missing_module|from keyword with no module before import|from import os\ndef add(a, b):\n    return a + b\n
+
+# --- Malformed expressions / assignments ---
+
+augassign_no_value|augmented assignment with no right-hand side|def add(a, b):\n    return a + b\n\nx = 1\nx +=\n
+
+assign_to_call_result|Assignment to a function call result (invalid target)|def add(a, b):\n    return a + b\n\nadd(1, 2) = 5\nprint(add(1,2))\n
+
+walrus_invalid_target|walrus operator with non-name on left side|def add(a, b):\n    return a + b\n\nif (1 + 2 := 3):\n    pass\n
+
+starred_invalid_rhs|Starred expression used alone on right-hand side of assignment|def add(a, b):\n    return a + b\n\nresult = (*[1, 2, 3],\n
+
+chained_assign_invalid|assignment where left side is a literal|def add(a, b):\n    return a + b\n\n1 = x\n
+
+del_literal|del applied to a literal (not allowed)|def add(a, b):\n    return a + b\n\ndel 1\n
+
+assign_to_call|Assignment to a function call result (invalid target)|def add(a, b):\n    return a + b\n\nadd(1, 2) = 5\n
+
+# --- Malformed dict / list / set / tuple literals ---
+
+dict_double_colon|dict literal with double colon|def add(a, b):\n    return a + b\n\nd = {"a":: 1}\n
+
+dict_missing_key|dict literal with bare colon (missing key)|def add(a, b):\n    return a + b\n\nd = {: 1}\n
+
+list_trailing_comma_unclosed|list with trailing comma before unclosed bracket|def add(a, b):\n    return a + b\n\nvals = [1, 2,\n
+
+set_empty_with_comma|set-like literal with stray comma|def add(a, b):\n    return a + b\n\ns = {,}\n
+
+tuple_single_star_only|tuple literal containing only a bare star|def add(a, b):\n    return a + b\n\nt = (*,)\n
+
+# --- Unterminated strings ---
+
+unterminated_single_quote|String literal with missing closing single quote|def add(a, b):\n    return a + b\n\nx = 'hello\nprint(x)\n
+
+unterminated_double_quote|String literal with missing closing double quote|def add(a, b):\n    return a + b\n\nx = "hello\nprint(x)\n
+
+unterminated_triple_quote|Triple-quoted string with missing closing triple quote|def add(a, b):\n    return a + b\n\nx = """hello world\nprint(x)\n
+
+# --- Invalid f-string syntax ---
+
+fstring_empty_expr|f-string with empty expression braces|def add(a, b):\n    return a + b\n\nx = 1\nresult = f"value: {}"\nprint(result)\n
+
+fstring_backslash_expr|f-string backslash in expression (Python 3.11 error)|def add(a, b):\n    return a + b\n\nitems = [1, 2, 3]\nresult = f"{\', \'.join([str(x) for x in items])}"\nprint(result)\n
+
+fstring_unclosed_brace|f-string with unclosed expression brace|def add(a, b):\n    return a + b\n\nx = 1\nresult = f"value: {x"\nprint(result)\n
+
+# --- Malformed comprehensions ---
+
+listcomp_missing_iterable|List comprehension with for clause but no iterable|def add(a, b):\n    return a + b\n\nresult = [x for x in]\nprint(result)\n
+
+listcomp_missing_in|List comprehension for clause missing in keyword|def add(a, b):\n    return a + b\n\nresult = [x for x range(5)]\nprint(result)\n
+
+listcomp_unclosed|Unclosed list comprehension bracket|def add(a, b):\n    return a + b\n\nresult = [x for x in range(5)\nprint(result)\n
+
+dictcomp_missing_colon|Dict comprehension with no colon between key and value|def add(a, b):\n    return a + b\n\nresult = {k v for k, v in [(1,2)]}\nprint(result)\n
+
+genexpr_unclosed|Generator expression with unclosed parenthesis|def add(a, b):\n    return a + b\n\nresult = sum(x for x in range(5)\nprint(result)\n
+
+# --- Indentation errors ---
+
+indent_after_colon_missing|Block after colon not indented at all|def add(a, b):\nreturn a + b\n
+
+dedent_unexpected|Unexpected dedent in the middle of a block|def add(a, b):\n    x = a + b\n  return x\n
+
+indent_inconsistent_class|Class body with inconsistent indentation levels|class Calc:\n    def add(self, a, b):\n        return a + b\n      def sub(self, a, b):\n        return a - b\n
+
+indent_double_indent|Double-indented block without enclosing scope|def add(a, b):\n    return a + b\n\nx = 1\n        y = 2\nprint(x + y)\n
+
+indent_zero_in_nested|Zero-indent return inside function body|def calc(a, b):\n    total = a + b\nreturn total\n
+
+indent_elif_wrong_level|elif block at wrong indentation level|def add(a, b):\n    return a + b\n\nx = 1\nif x > 0:\n    print('pos')\n        elif x == 0:\n    print('zero')\n
+
+# --- Mixed tabs and spaces (TabError) ---
+
+mixed_tabs_spaces_def|Function body mixing tabs and spaces (TabError)|def add(a, b):\n    x = a\n\ty = b\n    return x + y\n
+
+mixed_tabs_spaces_if|while loop body mixing tabs and spaces (TabError)|def add(a, b):\n    return a + b\n\nresults = []\nwhile len(results) < 3:\n    results.append(add(1, 2))\n\tprint(results)\n
+
+mixed_tabs_spaces_for|for body mixing tabs and spaces (TabError)|def add(a, b):\n    return a + b\n\nfor i in range(3):\n    print(i)\n\tprint('tab')\n
+
+# --- Miscellaneous genuine parser failures ---
+
+print_no_parens|print used as statement without parentheses (Python 2 style)|def add(a, b):\n    return a + b\n\nprint "hello"\n
+
+semicolon_after_colon|Semicolon immediately after block colon|def add(a, b):;\n    return a + b\n
+
+decorator_no_name|Decorator with only the @ symbol|@\ndef add(a, b):\n    return a + b\n
+
+global_no_name|global statement with no variable name|def add(a, b):\n    global\n    return a + b\n
+
+nonlocal_no_name|nonlocal statement with no variable name|def outer():\n    x = 1\n    def inner():\n        nonlocal\n        pass\n
+
+yield_outside_function|yield expression at module level|def add(a, b):\n    return a + b\n\nyield 1\n
+
+await_outside_async|await expression outside async function|def add(a, b):\n    return a + b\n\nawait something()\n
+
+async_def_no_body|async def with empty body (no pass)|async def run():\n
+
+double_dot_attribute|Double dot in attribute access|def add(a, b):\n    return a + b\n\nimport os\nprint(os..path)\n
+
+continue_outside_loop|continue statement outside a loop|def add(a, b):\n    return a + b\n\ncontinue\n
+
+break_outside_loop|break statement outside a loop|def add(a, b):\n    return a + b\n\nbreak\n
+
+class_double_class|Two class keywords on one line|class class Foo:\n    pass\n
+
+if_assign_walrus_invalid|Assignment expression with invalid target in condition|def add(a, b):\n    return a + b\n\nif (a + b := 5):\n    pass\n
+
+match_invalid_syntax|match statement with missing subject|def add(a, b):\n    return a + b\n\nmatch:\n    case 1:\n        pass\n
+
+type_annotation_no_value|Variable annotation with bare colon and no expression|def add(a, b):\n    return a + b\n\nx: = 5\nprint(x)\n
+
+unary_op_chain_invalid|Chained unary operators with no operand|def add(a, b):\n    return a + b\n\nx = + + + +\nprint(x)\n
+
+assert_no_expression|assert keyword with no expression|def add(a, b):\n    return a + b\n\nassert\n
+
+raise_from_invalid|raise ... from with nothing after from|def add(a, b):\n    return a + b\n\ntry:\n    pass\nexcept Exception as e:\n    raise RuntimeError from\n
+
+multiline_unclosed_paren|Multi-line expression with unclosed parenthesis across lines|def add(a, b):\n    return a + b\n\nresult = (\n    1 +\n    2 +\n    3\nprint(result)\n
+
+lambda_no_body|lambda with colon but no expression body|def add(a, b):\n    return a + b\n\nf = lambda x:\nprint(f(1))\n
+
+keyword_as_identifier|Using a reserved keyword as a variable name|def add(a, b):\n    return a + b\n\nclass = 5\nprint(class)\n
+
+else_on_for_wrong_indent|else clause on for loop at wrong indentation|def add(a, b):\n    return a + b\n\nfor i in range(3):\n    print(i)\n        else:\n    pass\n
+
+invalid_octal_literal|Invalid octal literal with leading zero|def add(a, b):\n    return a + b\n\nx = 08\nprint(x)\n
+
+expr_stmt_walrus_unclosed|Walrus operator with unclosed parenthesis|def add(a, b):\n    return a + b\n\n(x := 5\nprint(x)\n
+
+
