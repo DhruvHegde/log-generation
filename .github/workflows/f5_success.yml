@@ -1,0 +1,52 @@
+name: F5 Success Docker CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      scenario_id:
+        description: "F5 Docker success scenario ID"
+        required: true
+        default: "DS01_python_app"
+        type: choice
+        options:
+          - DS01_python_app
+          - DS02_alpine_multi_stage
+          - DS03_node_static_site
+          - DS04_debian_env_config
+          - DS05_build_arguments
+          - DS06_target_stages
+          - DS07_cache_mounts
+          - DS08_custom_dockerfile
+          - DS09_entrypoint_exec
+          - DS10_distroless_minimal
+      run_id:
+        description: "Dataset run identifier"
+        required: false
+        default: "S_F5_run_0001"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  f5-docker-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Execute Docker Build Scenario
+        env:
+          SCENARIO_ID: ${{ inputs.scenario_id }}
+          RUN_ID: ${{ inputs.run_id }}
+        run: |
+          python docker/build_scenario.py --scenario "$SCENARIO_ID" --run-id "$RUN_ID"

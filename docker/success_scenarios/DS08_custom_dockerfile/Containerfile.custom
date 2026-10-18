@@ -1,0 +1,4 @@
+FROM python:3.11-slim
+WORKDIR /service
+RUN echo "Image built using non-standard Containerfile.custom path" > /service/build_provenance.txt
+CMD ["cat", "/service/build_provenance.txt"]
