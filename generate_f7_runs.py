@@ -504,44 +504,66 @@ def wait_for_matrix_jobs(run: dict, expected_jobs: int, timeout_sec: int = 900) 
     raise TimeoutError(f"Matrix jobs timed out for workflow run {run['id']}")
 
 
-def create_structured_metadata(job: dict, commit_sha: str, expected_error_type: str) -> dict:
-    """Create structured metadata instead of saving raw GitHub API JSON."""
-    # Extract relevant information and structure it according to team schema
+def create_structured_metadata(job: dict, commit_sha: str, expected_error_type: str, is_success: bool = False) -> dict:
+    """Create structured metadata with required top-level keys for team's merger script."""
+    # Determine values based on whether this is a success or failure run
+    if is_success:
+        category_id = None
+        failure_type = None
+        success_family = "F7"
+        scenario_id = "valid_python_project"
+        outcome = "success"
+    else:
+        category_id = "F7"
+        failure_type = "network_service_failure"
+        success_family = None
+        scenario_id = expected_error_type  # e.g., "connection_reset", "dns_resolution_failure", etc.
+        outcome = "failure"
+
+    # Extract data from job
+    workflow_id = job.get("run_id")  # GitHub workflow run ID
+    job_id = job.get("id")  # GitHub job ID
+    head_sha = commit_sha
+    head_branch = job.get("head_branch")
+    event = job.get("event")
+    created_at = job.get("created_at")
+    updated_at = job.get("updated_at")
+    job_status = job.get("status")
+    job_conclusion = job.get("conclusion")
+    job_started_at = job.get("started_at")
+    job_completed_at = job.get("completed_at")
+    runner_id = job.get("runner_id")
+    runner_name = job.get("runner_name")
+
+    # Repository info
+    repository_owner = REPO_OWNER
+    repository_name = REPO_NAME
+
+    # Commit info
+    commit_message = ""
+    if job.get("head_commit"):
+        commit_message = job.get("head_commit", {}).get("message", "")
+
+    # Build the metadata with required top-level keys
     metadata = {
-        "workflow_run": {
-            "id": job.get("run_id"),
-            "workflow_id": job.get("workflow_id"),
-            "head_sha": commit_sha,
-            "head_branch": job.get("head_branch"),
-            "event": job.get("event"),
-            "created_at": job.get("created_at"),
-            "updated_at": job.get("updated_at"),
-        },
-        "job": {
-            "id": job.get("id"),
-            "name": job.get("name"),
-            "status": job.get("status"),
-            "conclusion": job.get("conclusion"),
-            "started_at": job.get("started_at"),
-            "completed_at": job.get("completed_at"),
-            "runner_id": job.get("runner_id"),
-            "runner_name": job.get("runner_name"),
-        },
-        "repository": {
-            "owner": REPO_OWNER,
-            "name": REPO_NAME,
-        },
-        "commit": {
-            "sha": commit_sha,
-            "message": job.get("head_commit", {}).get("message", "") if job.get("head_commit") else "",
-        },
-        "failure_injection": {
-            "error_type": expected_error_type,
-            "injected_at": datetime.utcnow().isoformat() + "Z",
-        },
-        "generated_by": "F7 Network Errors Generator",
-        "schema_version": "1.0",
+        "run_id": "",  # Will be filled in later by the caller
+        "outcome": outcome,
+        "category_id": category_id,
+        "failure_type": failure_type,
+        "success_family": success_family,
+        "scenario_id": scenario_id,
+        "log_file": "",  # Will be filled in later by the caller
+        "generation_method": "live_workflow_controlled_failure" if not is_success else "live_workflow",
+        "actual_execution_validated": "",  # Will be filled in later by the caller after validation
+        "workflow_id": workflow_id,
+        "commit_sha": head_sha,
+        "workflow_status": job_status,
+        "workflow_conclusion": job_conclusion,
+        "validation_status": "",  # Will be filled in later by the caller after validation
+        "validation_notes": "",  # Will be filled in later by the caller
+        "timestamp": job_completed_at or "",
     }
+
     return metadata
 
 
@@ -564,10 +586,26 @@ def fetch_and_save_matrix_artifacts(run: dict, commit_sha: str, expected_jobs: i
         # Get sequential run ID
         run_id = get_next_failure_id()
 
-        # Download and save structured metadata
-        structured_metadata = create_structured_metadata(job, commit_sha, matched_error)
+        # Create base metadata structure
+        structured_metadata = create_structured_metadata(job, commit_sha, matched_error, is_success=False)
         metadata_path = METADATA_DIR / f"{run_id}.json"
         METADATA_DIR.mkdir(parents=True, exist_ok=True)
+
+        # Update metadata with actual values after we know them
+        structured_metadata["run_id"] = run_id
+        structured_metadata["log_file"] = str(log_path).replace("\\", "/")
+        structured_metadata["actual_execution_validated"] = str(is_valid).lower()
+        structured_metadata["validation_status"] = "validated" if is_valid and conclusion == "failure" else "failed_validation"
+
+        # Add validation notes
+        if is_valid and conclusion == "failure":
+            structured_metadata["validation_notes"] = f"Confirmed F7 {matched_error} failure in pytest execution"
+        elif not is_valid:
+            structured_metadata["validation_notes"] = f"Log validation failed: {error_signature}"
+        else:
+            structured_metadata["validation_notes"] = "Unexpected success - expected failure"
+
+        # Save the updated metadata
         with open(metadata_path, "w", encoding="utf-8") as f:
             json.dump(structured_metadata, f, indent=2)
 
