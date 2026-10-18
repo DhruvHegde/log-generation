@@ -57,18 +57,46 @@ def find_commit_by_message(message):
 
 
 def create_empty_commit(message):
-    tree = run("git rev-parse HEAD^{tree}")
-    result = subprocess.run(
-        ["git", "commit-tree", tree, "-p", "HEAD", "-m", message],
+    """Create a new commit with the current tree but a new commit object.
+
+    This produces a genuinely new commit SHA (for GH Actions) without staging
+    or modifying any files. Useful for retries where the working tree hasn't
+    changed but a new workflow run is needed.
+
+    Args:
+        message: The commit message.
+
+    Returns:
+        str: The new commit SHA.
+    """
+    # Use subprocess with argument list (shell=False) to avoid Windows
+    # shell parsing of special characters like ^.
+    tree_result = subprocess.run(
+        ["git", "rev-parse", "HEAD^{tree}"],
         capture_output=True,
         text=True,
         encoding="utf-8",
         errors="replace",
     )
-    if result.returncode != 0:
-        raise RuntimeError(result.stderr.strip())
+    if tree_result.returncode != 0:
+        raise RuntimeError(
+            f"Failed to get tree SHA: {tree_result.stderr.strip()}"
+        )
 
-    commit_sha = result.stdout.strip()
+    tree_sha = tree_result.stdout.strip()
+    commit_result = subprocess.run(
+        ["git", "commit-tree", tree_sha, "-p", "HEAD", "-m", message],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+    )
+    if commit_result.returncode != 0:
+        raise RuntimeError(
+            f"Failed to create commit: {commit_result.stderr.strip()}"
+        )
+
+    commit_sha = commit_result.stdout.strip()
     run(f"git update-ref HEAD {commit_sha}")
     return commit_sha
 
