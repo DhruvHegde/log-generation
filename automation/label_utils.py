@@ -35,6 +35,16 @@ def _ensure_label_file(path):
             writer.writeheader()
 
 
+def ensure_label_file(path):
+    _ensure_label_file(path)
+    with open(path, "r", newline="", encoding="utf-8") as f:
+        header = next(csv.reader(f), None)
+    if header != LABEL_COLUMNS:
+        raise ValueError(
+            f"CSV header in {path} does not match the required label schema."
+        )
+
+
 def append_label_record(path, record):
     if not isinstance(record, dict):
         raise ValueError("Label record must be a dictionary.")

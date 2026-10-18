@@ -1,6 +1,7 @@
 """Validation helpers for identifying dependency-installation failures."""
 
 from pathlib import Path
+import re
 
 
 DEPENDENCY_PATTERNS = [
@@ -89,4 +90,30 @@ def validate_workflow_log_file(log_file_path):
         "matched_pattern": None,
         "matched_line": None,
         "status": "invalid"
+    }
+
+
+def validate_success_workflow_log(log_text):
+    """Confirm the expected Python compilation and pytest results are in a log."""
+    if not log_text or not log_text.strip():
+        return {"status": "invalid", "validation_notes": None}
+
+    lowered_log = log_text.lower()
+    required_steps = ("compile python sources", "run test suite")
+    if any(step not in lowered_log for step in required_steps):
+        return {"status": "invalid", "validation_notes": None}
+
+    if "python syntax/compilation checks passed" not in lowered_log:
+        return {"status": "invalid", "validation_notes": None}
+
+    test_summary = re.search(r"\b([1-9]\d*) passed\b", lowered_log)
+    if test_summary is None:
+        return {"status": "invalid", "validation_notes": None}
+
+    return {
+        "status": "valid",
+        "validation_notes": (
+            "Python syntax/compilation checks passed; "
+            f"pytest reported {test_summary.group(1)} passed"
+        ),
     }
