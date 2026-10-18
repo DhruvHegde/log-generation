@@ -174,6 +174,52 @@ def test_update_requirements_writes_only_the_dependency(tmp_path, monkeypatch):
     assert "pytest" not in content
 
 
+def test_ensure_attempt_commit_writes_only_dependency_to_requirements(tmp_path, monkeypatch):
+    """End-to-end path: _ensure_attempt_commit must write only the dependency.
+
+    This test exercises the actual call path used during generation, not just
+    the helper in isolation.  It patches commit_and_push and
+    find_commit_by_message so no real git operations run, then reads back
+    requirements.txt from disk to verify its content.
+    """
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "requirements.txt").write_text("pytest>=8.0,<9.0\n", encoding="utf-8")
+
+    captured_sha = "deadbeef1234"
+
+    monkeypatch.setattr(
+        generate_successes,
+        "find_commit_by_message",
+        lambda msg: None,  # no prior commit exists
+    )
+    monkeypatch.setattr(
+        generate_successes,
+        "commit_and_push",
+        lambda msg: captured_sha,  # fake a successful commit+push
+    )
+
+    pending = {
+        "run_number": 1,
+        "attempt_number": 1,
+        "commit_message": "Success dataset F1 run 0001 attempt 0001: requests==2.31.0",
+        "dependency": "requests==2.31.0",
+        "commit_sha": None,
+        "workflow": None,
+    }
+
+    sha = generate_successes._ensure_attempt_commit(pending)
+
+    assert sha == captured_sha
+    assert pending["commit_sha"] == captured_sha
+
+    content = (tmp_path / "requirements.txt").read_text(encoding="utf-8")
+    lines = [ln for ln in content.splitlines() if ln.strip()]
+    assert lines == ["requests==2.31.0"], (
+        f"_ensure_attempt_commit wrote unexpected requirements.txt content: {lines}"
+    )
+    assert "pytest" not in content
+
+
 # ---------------------------------------------------------------------------
 # Recovery / idempotency tests
 # ---------------------------------------------------------------------------
