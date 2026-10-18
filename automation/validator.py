@@ -10,7 +10,7 @@ DEPENDENCY_PATTERNS = [
     "ResolutionImpossible",
     "Invalid requirement",
     "ERROR: Could not find",
-    "Ignored the following versions"
+    "Ignored the following versions",
     "Cannot install",
     "requires a different Python",
     "Failed building wheel",

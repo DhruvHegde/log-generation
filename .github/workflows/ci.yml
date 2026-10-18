@@ -1,4 +1,4 @@
-name: Dependency Error Dataset
+name: Success Dataset
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
 
       - name: Compile Python Sources
         run: |
-          python -m compileall -q automation app.py generate_failures.py generate_successes.py test_app.py test_workflow.py
+          python -m compileall -q automation app.py generate_successes.py test_app.py test_workflow.py
           echo "Python syntax/compilation checks passed"
 
       - name: Run Test Suite
