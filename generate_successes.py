@@ -1,9 +1,13 @@
 """Generate 300 successful GitHub Actions workflow logs.
 
-Each run writes one valid package spec from success_dependencies.txt into
-requirements.txt (alongside pinned pytest), commits and pushes the change,
-waits for the workflow to complete with conclusion "success", downloads the
-log, validates it, and records metadata + CSV.
+Each run writes one valid package spec from success_dependencies.txt as the
+sole content of requirements.txt, commits and pushes the change, waits for
+the workflow to complete with conclusion "success", downloads the log,
+validates it, and records metadata + CSV.
+
+The CI workflow installs the selected dependency from requirements.txt and
+installs pytest separately, so the test runner is always available regardless
+of what is under test.
 
 Approach mirrors the former failure generator but only accepts runs whose
 workflow conclusion is "success".
@@ -111,16 +115,17 @@ def load_success_dependencies(path=SUCCESS_DEPENDENCIES_FILE):
 
 
 def update_requirements(dependency):
-    """Write *dependency* into requirements.txt alongside pinned pytest.
+    """Write *dependency* as the sole content of requirements.txt.
 
-    The file always contains exactly two lines so the CI workflow has a
-    working test runner regardless of which dependency is under test.
+    pytest is installed separately by the CI workflow, so it must not appear
+    here.  The file contains exactly one non-blank line: the selected package
+    specifier.
 
     Args:
         dependency: A valid pip requirement specifier, e.g. ``requests==2.31.0``.
     """
     with open("requirements.txt", "w", encoding="utf-8") as fh:
-        fh.write(f"pytest>=8.0,<9.0\n{dependency}\n")
+        fh.write(f"{dependency}\n")
 
 # ---------------------------------------------------------------------------
 # Timestamp

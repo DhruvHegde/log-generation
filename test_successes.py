@@ -161,17 +161,17 @@ def test_load_success_dependencies_raises_on_empty_file(tmp_path):
         generate_successes.load_success_dependencies(str(dep_file))
 
 
-def test_update_requirements_writes_pytest_and_dependency(tmp_path, monkeypatch):
+def test_update_requirements_writes_only_the_dependency(tmp_path, monkeypatch):
+    """requirements.txt must contain only the selected dependency — no pytest line."""
     monkeypatch.chdir(tmp_path)
     (tmp_path / "requirements.txt").write_text("old content\n", encoding="utf-8")
     generate_successes.update_requirements("requests==2.31.0")
     content = (tmp_path / "requirements.txt").read_text(encoding="utf-8")
-    assert "pytest>=8.0,<9.0" in content
-    assert "requests==2.31.0" in content
-    # Baseline pytest line must come first so the test runner is always available
     lines = [ln for ln in content.splitlines() if ln.strip()]
-    assert lines[0].startswith("pytest")
-    assert lines[1] == "requests==2.31.0"
+    assert lines == ["requests==2.31.0"], (
+        f"requirements.txt must contain exactly the dependency, got: {lines}"
+    )
+    assert "pytest" not in content
 
 
 # ---------------------------------------------------------------------------

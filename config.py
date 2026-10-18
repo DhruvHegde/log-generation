@@ -7,7 +7,7 @@ WORKFLOW_FILE = "ci.yml"
 POLL_INTERVAL = 5
 MAX_WAIT = 300
 
-SUCCESS_TOTAL_RUNS = 2
+SUCCESS_TOTAL_RUNS = 1  # TEST: set to 300 for full collection
 SUCCESS_FAMILY = "F1"
 SUCCESS_SCENARIO = "valid_python_project"
 SUCCESS_STATE_FILE = "success_state.json"
