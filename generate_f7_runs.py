@@ -8,6 +8,7 @@ import random
 import subprocess
 import time
 from datetime import datetime
+import re
 import requests
 from dotenv import load_dotenv
 
@@ -27,17 +28,27 @@ TEST_FILE = Path("tests/test_app.py")
 BATCH_FILE = Path(".f7_batch.json")
 BATCH_SIZE = 20
 
+# Sequential counters for standardized naming
+FAILURE_COUNTER_FILE = Path(".f7_failure_counter")
+
+# 18-column schema for labels.csv
 CSV_COLUMNS = [
-    "run_number",
-    "dependency",
+    "run_id",
+    "outcome",
+    "category_id",
+    "failure_type",
+    "scenario_id",
+    "success_family",
+    "stage",
+    "workflow_id",
+    "job_id",
     "repository",
     "commit_sha",
-    "workflow_id",
     "workflow_conclusion",
-    "failure_type",
-    "stage",
+    "generation_method",
+    "actual_execution_validated",
     "validation_status",
-    "matched_pattern",
+    "error_signature",
     "log_file",
     "metadata_file",
     "timestamp",
@@ -62,6 +73,29 @@ ERROR_TYPES = [
 ]
 
 
+def _load_counter(counter_file: Path) -> int:
+    """Load counter from file, return 0 if file doesn't exist."""
+    if counter_file.exists():
+        try:
+            return int(counter_file.read_text().strip())
+        except (ValueError, FileNotFoundError):
+            return 0
+    return 0
+
+
+def _save_counter(counter_file: Path, value: int) -> None:
+    """Save counter to file."""
+    counter_file.write_text(str(value), encoding="utf-8")
+
+
+def get_next_failure_id() -> str:
+    """Get next sequential failure ID (F7_run_0001, F7_run_0002, ...)."""
+    counter = _load_counter(FAILURE_COUNTER_FILE)
+    next_id = counter + 1
+    _save_counter(FAILURE_COUNTER_FILE, next_id)
+    return f"F7_run_{next_id:04d}"
+
+
 def select_error_types(count: int, seed: int | None = None) -> list[str]:
     """Select errors randomly while gently favoring less-used types."""
     rng = random.Random(seed)
@@ -69,8 +103,8 @@ def select_error_types(count: int, seed: int | None = None) -> list[str]:
     if LABELS_FILE.exists():
         with open(LABELS_FILE, "r", newline="", encoding="utf-8") as stream:
             for row in csv.DictReader(stream):
-                error_type = row.get("dependency", "")
-                if row.get("failure_type") == "F7" and error_type in counts:
+                error_type = row.get("failure_type", "")
+                if row.get("category_id") == "F7" and error_type in counts:
                     counts[error_type] += 1
 
     selected = []
@@ -80,6 +114,126 @@ def select_error_types(count: int, seed: int | None = None) -> list[str]:
         selected.append(error_type)
         counts[error_type] += 1
     return selected
+
+
+def validate_f7_log(log_text: str, expected_error_type: str) -> tuple[bool, str]:
+    """
+    Validate F7 log content.
+
+    Returns:
+        (is_valid, error_signature):
+        - is_valid: True if log passes all validation checks
+        - error_signature: Brief description of the error found (for labeling)
+    """
+    if not log_text or log_text.strip() == "":
+        return False, "empty_log"
+
+    # Check 1: No Python SyntaxError
+    syntax_error_patterns = [
+        r"SyntaxError",
+        r"syntax error",
+        r"Invalid syntax",
+        r"EOL while scanning",
+        r"unexpected EOF",
+        r"IndentationError",
+        r"TabError",
+    ]
+
+    for pattern in syntax_error_patterns:
+        if re.search(pattern, log_text, re.IGNORECASE):
+            return False, f"syntax_error:{pattern}"
+
+    # Check 2: Pytest was executed
+    pytest_patterns = [
+        r"=== test session starts ===",
+        r"collecting.*items",
+        r"collected.*items",
+        r"pytest.*",
+        r"tests\/test_app\.py",
+    ]
+
+    pytest_found = False
+    for pattern in pytest_patterns:
+        if re.search(pattern, log_text, re.IGNORECASE):
+            pytest_found = True
+            break
+
+    if not pytest_found:
+        return False, "no_pytest_execution"
+
+    # Check 3: Expected network error signature
+    error_signatures = {
+        "dns_resolution_failure": [
+            r"NETWORK ERROR: DNS resolution failed",
+            r"Could not resolve host",
+            r"\[Errno -3\]",
+            r"gaierror",
+        ],
+        "connection_refused": [
+            r"NETWORK ERROR: Connection refused",
+            r"ConnectionRefusedError",
+            r"\[Errno 111\]",
+            r"Connection refused",
+        ],
+        "connection_timeout": [
+            r"NETWORK ERROR: Connection timeout",
+            r"ConnectTimeout|ETIMEDOUT",
+            r"Operation timed out",
+            r"timeout",
+        ],
+        "connection_reset": [
+            r"NETWORK ERROR: Connection reset",
+            r"ConnectionResetError",
+            r"\[Errno 104\]",
+            r"Connection reset by peer",
+        ],
+        "tls_handshake_failure": [
+            r"NETWORK ERROR: TLS handshake failure",
+            r"SSLCertVerificationError",
+            r"CERTIFICATE_VERIFY_FAILED",
+            r"certificate verify failed",
+        ],
+        "remote_server_5xx": [
+            r"NETWORK ERROR: Remote server 5xx error",
+            r"HTTP Error 503",
+            r"Service Unavailable",
+        ],
+        "rate_limit_exceeded": [
+            r"NETWORK ERROR: Rate limit exceeded",
+            r"HTTP Error 429",
+            r"Too Many Requests",
+        ],
+        "package_repo_unreachable": [
+            r"NETWORK ERROR: Package repository unreachable",
+            r"HTTP Error 502",
+            r"Bad Gateway",
+        ],
+        "external_service_outage": [
+            r"NETWORK ERROR: External service outage",
+            r"URLError",
+            r"Connection refused by external service",
+        ],
+    }
+
+    if expected_error_type not in error_signatures:
+        return False, f"unknown_error_type:{expected_error_type}"
+
+    signatures = error_signatures[expected_error_type]
+    signature_found = False
+    matched_signature = None
+
+    for pattern in signatures:
+        if re.search(pattern, log_text, re.IGNORECASE):
+            signature_found = True
+            matched_signature = pattern
+            break
+
+    if not signature_found:
+        return False, f"expected_signature_not_found:{expected_error_type}"
+
+    # Extract a brief error signature for labeling
+    error_signature = matched_signature if matched_signature else expected_error_type
+    return True, error_signature
 
 
 def write_batch_spec(batch_size: int, seed: int | None = None) -> list[dict[str, object]]:
@@ -105,6 +259,9 @@ def sync_and_prepare_labels(clean_f7: bool = False) -> int:
         for f in METADATA_DIR.glob("*"):
             if f.is_file():
                 f.unlink()
+        # Reset counter when cleaning
+        if FAILURE_COUNTER_FILE.exists():
+            FAILURE_COUNTER_FILE.unlink()
 
     if not LABELS_FILE.exists():
         with open(LABELS_FILE, "w", newline="", encoding="utf-8") as f:
@@ -118,7 +275,7 @@ def sync_and_prepare_labels(clean_f7: bool = False) -> int:
     with open(LABELS_FILE, "r", newline="", encoding="utf-8") as f:
         reader = csv.reader(f)
         header = next(reader, None)
-        
+
         is_canonical = header == CSV_COLUMNS
 
         for row in reader:
@@ -131,9 +288,8 @@ def sync_and_prepare_labels(clean_f7: bool = False) -> int:
                 row_dict = migrate_legacy_row(row)
 
             is_f7 = (
-                row_dict.get("failure_type") == "F7"
-                or (len(row) > 5 and row[5] == "F7")
-                or (len(row) > 3 and row[3] == "F7")
+                row_dict.get("category_id") == "F7"
+                or (len(row) > 2 and row[2] == "F7")
             )
 
             if is_f7:
@@ -178,7 +334,6 @@ def migrate_legacy_row(row: list[str]) -> dict[str, str]:
         "dependency": error_type,
         "repository": repository,
         "commit_sha": commit_sha,
-        "workflow_id": workflow_id,
         "workflow_conclusion": status,
         "failure_type": failure_type,
         "stage": stage,
@@ -200,7 +355,7 @@ def git_commit_and_push(batch_num: int) -> str:
     subprocess.run(["git", "add", "-A"], check=True, capture_output=True)
     commit_msg = f"synthetic(F7): parallel matrix batch run #{batch_num}"
     subprocess.run(["git", "commit", "-m", commit_msg], check=True, capture_output=True)
-    
+
     success = False
     for attempt in range(3):
         # Ensure we are up to date before pushing
@@ -244,7 +399,7 @@ def latest_labeled_f7_commit() -> str:
         commits = [
             row.get("commit_sha", "")
             for row in csv.DictReader(stream)
-            if row.get("failure_type") == "F7"
+            if row.get("category_id") == "F7"
         ]
     return commits[-1] if commits else ""
 
@@ -346,77 +501,148 @@ def wait_for_matrix_jobs(run: dict, expected_jobs: int, timeout_sec: int = 900) 
     raise TimeoutError(f"Matrix jobs timed out for workflow run {run['id']}")
 
 
-def fetch_and_save_matrix_artifacts(run: dict, commit_sha: str, expected_jobs: int):
+def create_structured_metadata(job: dict, commit_sha: str, expected_error_type: str) -> dict:
+    """Create structured metadata instead of saving raw GitHub API JSON."""
+    # Extract relevant information and structure it according to team schema
+    metadata = {
+        "workflow_run": {
+            "id": job.get("run_id"),
+            "workflow_id": job.get("workflow_id"),
+            "head_sha": commit_sha,
+            "head_branch": job.get("head_branch"),
+            "event": job.get("event"),
+            "created_at": job.get("created_at"),
+            "updated_at": job.get("updated_at"),
+        },
+        "job": {
+            "id": job.get("id"),
+            "name": job.get("name"),
+            "status": job.get("status"),
+            "conclusion": job.get("conclusion"),
+            "started_at": job.get("started_at"),
+            "completed_at": job.get("completed_at"),
+            "runner_id": job.get("runner_id"),
+            "runner_name": job.get("runner_name"),
+        },
+        "repository": {
+            "owner": REPO_OWNER,
+            "name": REPO_NAME,
+        },
+        "commit": {
+            "sha": commit_sha,
+            "message": job.get("head_commit", {}).get("message", "") if job.get("head_commit") else "",
+        },
+        "failure_injection": {
+            "error_type": expected_error_type,
+            "injected_at": datetime.utcnow().isoformat() + "Z",
+        },
+        "generated_by": "F7 Network Errors Generator",
+        "schema_version": "1.0",
+    }
+    return metadata
+
+
+def fetch_and_save_matrix_artifacts(run: dict, commit_sha: str, expected_jobs: int) -> list[dict]:
+    """Fetch and save matrix artifacts, return list of validation results."""
     jobs = get_matrix_jobs(run["id"])
     if len(jobs) != expected_jobs:
         raise RuntimeError(f"Expected {expected_jobs} F7 jobs, collected {len(jobs)}")
 
-    def download_job(job: dict) -> dict:
+    def process_job(job: dict) -> dict:
         job_id = job["id"]
         job_name = job.get("name", "")
+
+        # Determine expected error type from job name
         matched_error = next(
             (error_type for error_type in ERROR_TYPES if error_type in job_name),
-            "dns_resolution_failure",
+            "dns_resolution_failure",  # fallback
         )
-        metadata_path = METADATA_DIR / f"{job_id}.json"
-        metadata_path.write_text(json.dumps(job, indent=2), encoding="utf-8")
 
-        log_path = LOGS_DIR / f"{job_id}.log"
+        # Get sequential run ID
+        run_id = get_next_failure_id()
+
+        # Download and save structured metadata
+        structured_metadata = create_structured_metadata(job, commit_sha, matched_error)
+        metadata_path = METADATA_DIR / f"{run_id}.json"
+        METADATA_DIR.mkdir(parents=True, exist_ok=True)
+        with open(metadata_path, "w", encoding="utf-8") as f:
+            json.dump(structured_metadata, f, indent=2)
+
+        # Download log
+        log_path = LOGS_DIR / f"{run_id}.log"
+        LOGS_DIR.mkdir(parents=True, exist_ok=True)
         log_url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/actions/jobs/{job_id}/logs"
         log_res = requests.get(log_url, headers=HEADERS, timeout=30)
         log_text = log_res.text if log_res.status_code == 200 else f"Log retrieval failed with HTTP {log_res.status_code}"
         log_path.write_text(log_text, encoding="utf-8")
 
+        # Validate log content
+        is_valid, error_signature = validate_f7_log(log_text, matched_error)
+
         completed_at_str = job.get("completed_at") or ""
+        started_at_str = job.get("started_at")
+        duration = 0.0
+        if started_at_str and completed_at_str:
+            started_at = datetime.fromisoformat(started_at_str.replace("Z", "+00:00"))
+            completed_at = datetime.fromisoformat(completed_at_str.replace("Z", "+00:00"))
+            duration = round((completed_at - started_at).total_seconds(), 2)
+
+        conclusion = job.get("conclusion", "failure")
+
         return {
             "job": job,
+            "run_id": run_id,
+            "job_name": job_name,
             "matched_error": matched_error,
+            "is_valid": is_valid,
+            "error_signature": error_signature,
             "metadata_path": metadata_path,
             "log_path": log_path,
             "timestamp": completed_at_str,
+            "duration": duration,
+            "conclusion": conclusion,
+            "outcome": "failure" if conclusion == "failure" else "unexpected_success",
+            "validation_status": "validated" if is_valid and conclusion == "failure" else "failed_validation",
         }
 
-    records = []
+    results = []
     with ThreadPoolExecutor(max_workers=min(32, expected_jobs)) as executor:
-        futures = [executor.submit(download_job, job) for job in jobs]
+        futures = [executor.submit(process_job, job) for job in jobs]
         for future in as_completed(futures):
-            records.append(future.result())
+            results.append(future.result())
 
+    # Save valid results to labels.csv
     with open(LABELS_FILE, "a", newline="", encoding="utf-8") as stream:
         writer = csv.DictWriter(stream, fieldnames=CSV_COLUMNS)
-        for result in records:
-            job = result["job"]
-            job_id = job["id"]
-            job_name = job.get("name", "")
-            matched_error = result["matched_error"]
-            metadata_path = result["metadata_path"]
-            log_path = result["log_path"]
-            completed_at_str = result["timestamp"]
-            started_at_str = job.get("started_at")
-            duration = 0.0
-            if started_at_str and completed_at_str:
-                started_at = datetime.fromisoformat(started_at_str.replace("Z", "+00:00"))
-                completed_at = datetime.fromisoformat(completed_at_str.replace("Z", "+00:00"))
-                duration = round((completed_at - started_at).total_seconds(), 2)
+        for result in results:
+            if result["is_valid"]:  # Only save validated runs
+                record = {
+                    "run_id": result["run_id"],
+                    "outcome": result["outcome"],
+                    "category_id": "F7",
+                    "failure_type": result["matched_error"],
+                    "scenario_id": "",  # Could be enhanced later
+                    "success_family": "",  # Could be enhanced later
+                    "stage": "test",
+                    "workflow_id": WORKFLOW_FILE,
+                    "job_id": str(result["job"]["id"]),
+                    "repository": f"{REPO_OWNER}/{REPO_NAME}",
+                    "commit_sha": commit_sha,
+                    "workflow_conclusion": result["conclusion"],
+                    "generation_method": "synthetic_injection",
+                    "actual_execution_validated": str(result["is_valid"]).lower(),
+                    "validation_status": result["validation_status"],
+                    "error_signature": result["error_signature"],
+                    "log_file": str(result["log_path"]).replace("\\", "/"),
+                    "metadata_file": str(result["metadata_path"]).replace("\\", "/"),
+                    "timestamp": result["timestamp"],
+                }
+                writer.writerow(record)
+                print(f"  -> Job {result['job']['id']} ({result['job_name']}): {result['conclusion']} [{result['matched_error']}] ({result['duration']}s) [VALIDATED]")
+            else:
+                print(f"  -> Job {result['job']['id']} ({result['job_name']}): {result['conclusion']} [{result['matched_error']}] ({result['duration']}s) [INVALID: {result['error_signature']}] - DISCARDED")
 
-            conclusion = job.get("conclusion", "failure")
-            record = {
-                "run_number": str(job_id),
-                "dependency": matched_error,
-                "repository": f"{REPO_OWNER}/{REPO_NAME}",
-                "commit_sha": commit_sha,
-                "workflow_id": WORKFLOW_FILE,
-                "workflow_conclusion": conclusion,
-                "failure_type": "F7",
-                "stage": "test",
-                "validation_status": conclusion,
-                "matched_pattern": matched_error,
-                "log_file": str(log_path).replace("\\", "/"),
-                "metadata_file": str(metadata_path).replace("\\", "/"),
-                "timestamp": completed_at_str,
-            }
-            writer.writerow(record)
-            print(f"  -> Job {job_id} ({job_name}): {conclusion} [{matched_error}] ({duration}s)")
+    return results
 
 
 def main():
@@ -430,7 +656,7 @@ def main():
         raise ValueError("GITHUB_TOKEN not found in environment or .env file.")
 
     existing_f7_runs = sync_and_prepare_labels(clean_f7=args.clean)
-    
+
     if existing_f7_runs >= args.runs:
         print(f"Target of {args.runs} F7 runs already reached ({existing_f7_runs} present). Exiting.")
         return
@@ -442,6 +668,7 @@ def main():
     try:
         while remaining > 0:
             batch_size = min(BATCH_SIZE, remaining)
+
             batch_entries = []
             if BATCH_FILE.exists():
                 batch_entries = json.loads(BATCH_FILE.read_text(encoding="utf-8")).get("include", [])

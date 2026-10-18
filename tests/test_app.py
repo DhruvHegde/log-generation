@@ -1,32 +1,34 @@
+from app import add
 
-# Trigger batch 1 at 1792149112.9026756
+def test_add():
+    assert add(2, 3) == 5
 
-# Trigger batch 1 at 1792149442.5975103
 
-# Trigger batch 1 at 1792153758.1517222
+# --- SYNTHETIC F7 NETWORK FAILURE MUTATION ---
 
-# Trigger batch 1 at 1792162114.583608
+def test_connection_timeout():
+    """Injected synthetic connection timeout error."""
+    import socket
+    target = "10.255.255.1:80"
+    operation = "TCP connect with 0.1s timeout"
+    retries = 3
+    last_error = None
+    for attempt in range(1, retries + 1):
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(0.1)
+            sock.connect(("10.255.255.1", 80))
+            sock.close()
+            return
+        except (socket.timeout, OSError) as e:
+            last_error = e
+    print(
+        f"NETWORK ERROR: Connection timeout\n"
+        f"  Target host: {target}\n"
+        f"  Operation: {operation}\n"
+        f"  Retries: {retries}/{retries}\n"
+        f"  Error: ConnectTimeout/ETIMEDOUT Operation timed out: {last_error}"
+    )
+    raise last_error
 
-# Trigger batch 1 at 1792163005.100006
-
-# Trigger batch 1 at 1792165747.724771
-
-# Trigger batch 1 at 1792166060.0796628
-
-# Trigger batch 2 at 1792166107.653145
-
-# Trigger batch 3 at 1792166153.160195
-
-# Trigger batch 4 at 1792166198.9830658
-
-# Trigger batch 5 at 1792166249.2849638
-
-# Trigger batch 6 at 1792166302.283317
-
-# Trigger batch 7 at 1792166354.6038978
-
-# Trigger batch 8 at 1792166401.1211107
-
-# Trigger batch 9 at 1792166447.8580985
-
-# Trigger batch 10 at 1792166494.1509778
+# Trigger batch 1 at 1792322556.9923973
