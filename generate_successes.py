@@ -3,7 +3,8 @@
 Each run writes one valid package spec from success_dependencies.txt as the
 sole content of requirements.txt, commits and pushes the change, waits for
 the workflow to complete with conclusion "success", downloads the log,
-validates it, and records metadata + CSV.
+validates it (including confirming the dependency was installed), and records
+metadata + CSV.
 
 The CI workflow installs the selected dependency from requirements.txt and
 installs pytest separately, so the test runner is always available regardless
@@ -48,6 +49,7 @@ METADATA_KEYS = (
     "category_id",
     "failure_type",
     "success_family",
+    "dependency",
     "scenario_id",
     "log_file",
     "generation_method",
@@ -190,8 +192,8 @@ def _save_success_state(state):
 # Metadata / CSV helpers
 # ---------------------------------------------------------------------------
 
-def _make_metadata(run_number, workflow, commit_sha, log_path, validation_notes):
-    """Build and return the 16-key success metadata dict.
+def _make_metadata(run_number, workflow, commit_sha, log_path, validation_notes, dependency):
+    """Build and return the 17-key success metadata dict.
 
     Args:
         run_number: Dataset-sequential run number (int).
@@ -199,6 +201,8 @@ def _make_metadata(run_number, workflow, commit_sha, log_path, validation_notes)
         commit_sha: The exact commit SHA that triggered the workflow.
         log_path: Relative POSIX path to the saved log file.
         validation_notes: Human-readable string from validate_success_workflow_log().
+        dependency: The pip requirement specifier that was installed,
+            e.g. ``"requests==2.31.0"``.
 
     Returns:
         dict: Metadata with keys matching METADATA_KEYS exactly.
@@ -219,6 +223,7 @@ def _make_metadata(run_number, workflow, commit_sha, log_path, validation_notes)
         "category_id": None,
         "failure_type": None,
         "success_family": SUCCESS_FAMILY,
+        "dependency": dependency,
         "scenario_id": SUCCESS_SCENARIO,
         "log_file": log_path,
         "generation_method": "live_workflow",
@@ -266,7 +271,7 @@ def _csv_record(run_number, dependency, metadata):
         "workflow_id": metadata["workflow_id"],
         "workflow_conclusion": "success",
         "failure_type": "",
-        "stage": "ci",
+        "stage": "build",
         "validation_status": "valid",
         "matched_pattern": "",
         "log_file": metadata["log_file"],
@@ -407,10 +412,11 @@ def _process_successful_workflow(state, pending, workflow, commit_sha):
     _save_success_state(state)
 
     log_text = _load_or_download_log(workflow, run_number)
-    validation = validate_success_workflow_log(log_text)
+    validation = validate_success_workflow_log(log_text, dependency=dependency)
     if validation["status"] != "valid":
         raise ValueError(
-            "Successful workflow log did not confirm Python compilation and test results."
+            "Successful workflow log did not confirm dependency installation, "
+            "Python compilation, and test results."
         )
 
     log_path = (Path(SUCCESS_LOG_FOLDER) / f"run_{run_number:04d}.log").as_posix()
@@ -420,6 +426,7 @@ def _process_successful_workflow(state, pending, workflow, commit_sha):
         commit_sha,
         log_path,
         validation["validation_notes"],
+        dependency,
     )
     metadata_path = Path(SUCCESS_METADATA_FOLDER) / f"run_{run_number:04d}.json"
     if metadata_path.exists():

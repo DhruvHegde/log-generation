@@ -14,12 +14,20 @@ import generate_successes
 # Fixtures / helpers
 # ---------------------------------------------------------------------------
 
-def _valid_log():
+def _valid_log(dependency="requests==2.31.0"):
+    """Return a minimal but realistic GitHub Actions log for a success run.
+
+    Includes the Install Selected Dependency step with a pip "Successfully
+    installed" line, the Compile Python Sources step, and the Run Test Suite
+    step.  All three are required for the validator to return "valid".
+    """
+    bare = dependency.split("==")[0].lower()
     return (
-        "Compile Python Sources\n"
-        "Python syntax/compilation checks passed\n"
-        "Run Test Suite\n"
-        "2 passed in 0.01s\n"
+        f"dependency-test\tInstall Selected Dependency\t##[group]\n"
+        f"dependency-test\tInstall Selected Dependency\tCollecting {dependency}\n"
+        f"dependency-test\tInstall Selected Dependency\tSuccessfully installed {bare}-1.0\n"
+        "dependency-test\tCompile Python Sources\tPython syntax/compilation checks passed\n"
+        "dependency-test\tRun Test Suite\t2 passed in 0.01s\n"
     )
 
 
@@ -36,14 +44,92 @@ def _workflow(commit_sha="abc123"):
 # Validator tests
 # ---------------------------------------------------------------------------
 
-def test_success_log_validation_requires_compile_and_test_evidence():
-    valid = validate_success_workflow_log(_valid_log())
+def test_success_log_validation_requires_install_compile_and_test_evidence():
+    """All three signals must be present for a valid result."""
+    valid = validate_success_workflow_log(_valid_log(), dependency="requests==2.31.0")
     assert valid["status"] == "valid"
-    assert "2 passed" in valid["validation_notes"]
-    assert validate_success_workflow_log("2 passed in 0.01s")["status"] == "invalid"
+    assert "Dependency installation succeeded for requests==2.31.0" in valid["validation_notes"]
+    assert "Python syntax/compilation checks passed" in valid["validation_notes"]
+    assert "pytest reported 2 passed" in valid["validation_notes"]
+
+
+def test_success_log_validation_fails_without_install_evidence():
+    """Missing install step → invalid even if compile and tests pass."""
+    log_no_install = (
+        "dependency-test\tCompile Python Sources\tPython syntax/compilation checks passed\n"
+        "dependency-test\tRun Test Suite\t5 passed in 0.02s\n"
+    )
+    result = validate_success_workflow_log(log_no_install, dependency="requests==2.31.0")
+    assert result["status"] == "invalid"
+
+
+def test_success_log_validation_fails_without_correct_package_in_install():
+    """Successfully installed line must mention the requested package name."""
+    log_wrong_pkg = (
+        "dependency-test\tInstall Selected Dependency\tSuccessfully installed other-pkg-1.0\n"
+        "dependency-test\tCompile Python Sources\tPython syntax/compilation checks passed\n"
+        "dependency-test\tRun Test Suite\t1 passed in 0.01s\n"
+    )
+    result = validate_success_workflow_log(log_wrong_pkg, dependency="requests==2.31.0")
+    assert result["status"] == "invalid"
+
+
+def test_success_log_validation_skips_install_check_when_no_dependency():
+    """When dependency=None the install check is skipped; compile+test suffice."""
+    log_no_install_step = (
+        "Compile Python Sources\n"
+        "Python syntax/compilation checks passed\n"
+        "Run Test Suite\n"
+        "3 passed in 0.01s\n"
+    )
+    result = validate_success_workflow_log(log_no_install_step, dependency=None)
+    assert result["status"] == "valid"
+    assert "installation" not in result["validation_notes"].lower()
+
+
+def test_success_log_validation_fails_without_compile_evidence():
+    """Missing compile step → invalid."""
     assert validate_success_workflow_log(
-        "Compile Python Sources\nPython syntax/compilation checks passed\n"
-        "Run Test Suite\n0 passed in 0.01s"
+        "dependency-test\tInstall Selected Dependency\tSuccessfully installed requests-2.31.0\n"
+        "dependency-test\tRun Test Suite\t2 passed in 0.01s\n",
+        dependency="requests==2.31.0",
+    )["status"] == "invalid"
+
+
+def test_success_log_validation_normalises_underscores_to_hyphens():
+    """PEP 503: some_package spec must match some-package in pip output."""
+    log = (
+        "dependency-test\tInstall Selected Dependency\t##[group]\n"
+        "dependency-test\tInstall Selected Dependency\tSuccessfully installed some-package-1.2.3\n"
+        "dependency-test\tCompile Python Sources\tPython syntax/compilation checks passed\n"
+        "dependency-test\tRun Test Suite\t1 passed in 0.01s\n"
+    )
+    result = validate_success_workflow_log(log, dependency="some_package==1.2.3")
+    assert result["status"] == "valid", (
+        "underscore spec should match hyphenated pip output via PEP 503 normalisation"
+    )
+
+
+def test_success_log_validation_rejects_substring_package_name():
+    """'six' must not match 'six-another-1.0' — digit boundary required."""
+    log = (
+        "dependency-test\tInstall Selected Dependency\t##[group]\n"
+        "dependency-test\tInstall Selected Dependency\tSuccessfully installed six-another-1.0\n"
+        "dependency-test\tCompile Python Sources\tPython syntax/compilation checks passed\n"
+        "dependency-test\tRun Test Suite\t1 passed in 0.01s\n"
+    )
+    result = validate_success_workflow_log(log, dependency="six==1.16.0")
+    assert result["status"] == "invalid", (
+        "'six' must not match 'six-another-1.0'"
+    )
+
+
+    """Zero tests passed → invalid."""
+    assert validate_success_workflow_log(
+        "dependency-test\tInstall Selected Dependency\tSuccessfully installed requests-2.31.0\n"
+        "dependency-test\tCompile Python Sources\tPython syntax/compilation checks passed\n"
+        "dependency-test\tRun Test Suite\t0 passed in 0.01s\n",
+        dependency="requests==2.31.0",
     )["status"] == "invalid"
 
 
@@ -76,13 +162,18 @@ def test_metadata_has_exact_required_schema_and_values():
         _workflow(),
         "abc123",
         "logs/success/F1/run_0001.log",
+        "Dependency installation succeeded for requests==2.31.0; "
         "Python syntax/compilation checks passed; pytest reported 2 passed",
+        "requests==2.31.0",
     )
 
     assert set(metadata) == set(generate_successes.METADATA_KEYS)
-    assert len(metadata) == 16
+    assert len(metadata) == 17
+    assert metadata["dependency"] == "requests==2.31.0"
     assert metadata["category_id"] is None
     assert metadata["failure_type"] is None
+    assert metadata["success_family"] == "F1"
+    assert metadata["scenario_id"] == "successful_dependency_installation"
     assert metadata["workflow_id"] == 12345678901
     assert metadata["timestamp"].endswith("Z")
 
@@ -95,6 +186,7 @@ def test_metadata_rejects_a_workflow_for_another_sha():
             "abc123",
             "logs/success/F1/run_0001.log",
             "checks passed",
+            "requests==2.31.0",
         )
 
 
@@ -121,8 +213,8 @@ def test_label_writer_preserves_schema_and_prevents_duplicate_run_numbers(tmp_pa
     assert rows[0]["failure_type"] == ""
 
 
-def test_success_csv_mapping_records_the_dependency(tmp_path, monkeypatch):
-    """dependency column is populated with the actual package spec."""
+def test_success_csv_uses_build_stage_and_records_dependency(tmp_path, monkeypatch):
+    """stage must be 'build' and dependency column must be populated."""
     monkeypatch.setattr(generate_successes, "REPO_NAME", "example")
     metadata = generate_successes._make_metadata(
         2,
@@ -130,6 +222,7 @@ def test_success_csv_mapping_records_the_dependency(tmp_path, monkeypatch):
         "abc123",
         "logs/success/F1/run_0002.log",
         "checks passed",
+        "requests==2.31.0",
     )
     record = generate_successes._csv_record(2, "requests==2.31.0", metadata)
 
@@ -137,7 +230,7 @@ def test_success_csv_mapping_records_the_dependency(tmp_path, monkeypatch):
     assert record["dependency"] == "requests==2.31.0"
     assert record["failure_type"] == ""
     assert record["workflow_conclusion"] == "success"
-    assert record["stage"] == "ci"
+    assert record["stage"] == "build"
 
 
 # ---------------------------------------------------------------------------
@@ -175,13 +268,7 @@ def test_update_requirements_writes_only_the_dependency(tmp_path, monkeypatch):
 
 
 def test_ensure_attempt_commit_writes_only_dependency_to_requirements(tmp_path, monkeypatch):
-    """End-to-end path: _ensure_attempt_commit must write only the dependency.
-
-    This test exercises the actual call path used during generation, not just
-    the helper in isolation.  It patches commit_and_push and
-    find_commit_by_message so no real git operations run, then reads back
-    requirements.txt from disk to verify its content.
-    """
+    """End-to-end: _ensure_attempt_commit writes only the dependency to requirements.txt."""
     monkeypatch.chdir(tmp_path)
     (tmp_path / "requirements.txt").write_text("pytest>=8.0,<9.0\n", encoding="utf-8")
 
@@ -190,12 +277,12 @@ def test_ensure_attempt_commit_writes_only_dependency_to_requirements(tmp_path, 
     monkeypatch.setattr(
         generate_successes,
         "find_commit_by_message",
-        lambda msg: None,  # no prior commit exists
+        lambda msg: None,
     )
     monkeypatch.setattr(
         generate_successes,
         "commit_and_push",
-        lambda msg: captured_sha,  # fake a successful commit+push
+        lambda msg: captured_sha,
     )
 
     pending = {
@@ -235,7 +322,9 @@ def test_recovery_finishes_csv_and_state_after_metadata_was_written(
     monkeypatch.setattr(generate_successes, "SUCCESS_CSV_FILE", "success_records.csv")
     monkeypatch.setattr(generate_successes, "SUCCESS_STATE_FILE", "success_state.json")
     monkeypatch.setattr(generate_successes, "SUCCESS_FAMILY", "F1")
-    monkeypatch.setattr(generate_successes, "SUCCESS_SCENARIO", "valid_python_project")
+    monkeypatch.setattr(
+        generate_successes, "SUCCESS_SCENARIO", "successful_dependency_installation"
+    )
     monkeypatch.setattr(generate_successes, "REPO_NAME", "example")
 
     log_file = Path("logs/success/F1/run_0001.log")
@@ -263,7 +352,9 @@ def test_recovery_finishes_csv_and_state_after_metadata_was_written(
         workflow,
         "abc123",
         "logs/success/F1/run_0001.log",
+        "Dependency installation succeeded for requests==2.31.0; "
         "Python syntax/compilation checks passed; pytest reported 2 passed",
+        "requests==2.31.0",
     )
     expected["timestamp"] = "2026-10-18T08:00:00Z"
     metadata_path = Path("metadata/success/F1/run_0001.json")
@@ -278,11 +369,14 @@ def test_recovery_finishes_csv_and_state_after_metadata_was_written(
     )
     recovered = json.loads(metadata_path.read_text(encoding="utf-8"))
     assert set(recovered) == set(generate_successes.METADATA_KEYS)
+    assert len(recovered) == 17
+    assert recovered["dependency"] == "requests==2.31.0"
     with open("success_records.csv", newline="", encoding="utf-8") as csv_file:
         records = list(csv.DictReader(csv_file))
     assert len(records) == 1
     assert records[0]["commit_sha"] == "abc123"
     assert records[0]["dependency"] == "requests==2.31.0"
+    assert records[0]["stage"] == "build"
     assert state["accepted_count"] == 1
     assert state["pending"] is None
 
@@ -298,6 +392,7 @@ def test_duplicate_csv_recovery_requires_matching_existing_record(tmp_path, monk
         "abc123",
         "logs/success/F1/run_0001.log",
         "checks passed",
+        "requests==2.31.0",
     )
     generate_successes._persist_csv_record(1, "requests==2.31.0", metadata)
     generate_successes._persist_csv_record(1, "requests==2.31.0", metadata)

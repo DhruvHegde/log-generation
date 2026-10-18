@@ -9,7 +9,7 @@ MAX_WAIT = 300
 
 SUCCESS_TOTAL_RUNS = 1  # TEST: set to 300 for full collection
 SUCCESS_FAMILY = "F1"
-SUCCESS_SCENARIO = "valid_python_project"
+SUCCESS_SCENARIO = "successful_dependency_installation"
 SUCCESS_STATE_FILE = "success_state.json"
 SUCCESS_CSV_FILE = "success_records.csv"
 SUCCESS_LOG_FOLDER = "logs/success/F1"
