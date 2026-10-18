@@ -1,0 +1,249 @@
+ï»¿2026-10-18T12:12:27.8987369Z Current runner version: '2.337.0'
+2026-10-18T12:12:27.9011611Z ##[group]Runner Image Provisioner
+2026-10-18T12:12:27.9012460Z Hosted Compute Agent
+2026-10-18T12:12:27.9013489Z Version: 20261012.601
+2026-10-18T12:12:27.9014183Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+2026-10-18T12:12:27.9014947Z Build Date: 2026-10-12T17:48:21Z
+2026-10-18T12:12:27.9015741Z Worker ID: {e3920cc0-ceba-4e9f-a200-a62038dd9c57}
+2026-10-18T12:12:27.9016452Z Region: centralus
+2026-10-18T12:12:27.9017043Z Cloud: Azure
+2026-10-18T12:12:27.9017605Z ##[endgroup]
+2026-10-18T12:12:27.9019122Z ##[group]Operating System
+2026-10-18T12:12:27.9019921Z Ubuntu
+2026-10-18T12:12:27.9020452Z 24.04.5
+2026-10-18T12:12:27.9020988Z LTS
+2026-10-18T12:12:27.9021529Z ##[endgroup]
+2026-10-18T12:12:27.9022115Z ##[group]Runner Image
+2026-10-18T12:12:27.9022759Z Image: ubuntu-24.04
+2026-10-18T12:12:27.9023674Z Version: 20261012.334.1
+2026-10-18T12:12:27.9025010Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-18T12:12:27.9026634Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-18T12:12:27.9028039Z ##[endgroup]
+2026-10-18T12:12:27.9029265Z ##[group]GITHUB_TOKEN Permissions
+2026-10-18T12:12:27.9031189Z Contents: read
+2026-10-18T12:12:27.9031834Z Metadata: read
+2026-10-18T12:12:27.9032501Z Packages: read
+2026-10-18T12:12:27.9033391Z ##[endgroup]
+2026-10-18T12:12:27.9035870Z Secret source: Actions
+2026-10-18T12:12:27.9036931Z Cache mode: write
+2026-10-18T12:12:27.9037832Z Prepare workflow directory
+2026-10-18T12:12:27.9468721Z Prepare all required actions
+2026-10-18T12:12:27.9539255Z Getting action download info
+2026-10-18T12:12:28.1981877Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-18T12:12:28.2975348Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-18T12:12:28.4778016Z Complete job name: test-f7 (external_service_outage #1)
+2026-10-18T12:12:28.5547589Z ##[group]Run actions/checkout@v4
+2026-10-18T12:12:28.5548459Z with:
+2026-10-18T12:12:28.5548899Z   fetch-depth: 1
+2026-10-18T12:12:28.5549377Z   repository: DhruvHegde/log-generation
+2026-10-18T12:12:28.5553722Z   token: ***
+2026-10-18T12:12:28.5554175Z   ssh-strict: true
+2026-10-18T12:12:28.5554606Z   ssh-user: git
+2026-10-18T12:12:28.5555053Z   persist-credentials: true
+2026-10-18T12:12:28.5555544Z   clean: true
+2026-10-18T12:12:28.5555986Z   sparse-checkout-cone-mode: true
+2026-10-18T12:12:28.5556499Z   fetch-tags: false
+2026-10-18T12:12:28.5556942Z   show-progress: true
+2026-10-18T12:12:28.5557379Z   lfs: false
+2026-10-18T12:12:28.5557780Z   submodules: false
+2026-10-18T12:12:28.5558221Z   set-safe-directory: true
+2026-10-18T12:12:28.5558724Z   allow-unsafe-pr-checkout: false
+2026-10-18T12:12:28.5559526Z ##[endgroup]
+2026-10-18T12:12:28.6558535Z Syncing repository: DhruvHegde/log-generation
+2026-10-18T12:12:28.6561022Z ##[group]Getting Git version info
+2026-10-18T12:12:28.6562332Z Working directory is '/home/runner/work/log-generation/log-generation'
+2026-10-18T12:12:28.6564376Z [command]/usr/bin/git version
+2026-10-18T12:12:28.6648356Z git version 2.55.0
+2026-10-18T12:12:28.6671547Z ##[endgroup]
+2026-10-18T12:12:28.6688445Z Temporarily overriding HOME='/home/runner/work/_temp/81d4f9ea-731e-435d-9495-87d4a91307b2' before making global git config changes
+2026-10-18T12:12:28.6690943Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-18T12:12:28.6694301Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/log-generation/log-generation
+2026-10-18T12:12:28.6751477Z Deleting the contents of '/home/runner/work/log-generation/log-generation'
+2026-10-18T12:12:28.6756681Z ##[group]Initializing the repository
+2026-10-18T12:12:28.6760463Z [command]/usr/bin/git init /home/runner/work/log-generation/log-generation
+2026-10-18T12:12:28.6909139Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-18T12:12:28.6911351Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-18T12:12:28.6912886Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-18T12:12:28.6914324Z hint: call:
+2026-10-18T12:12:28.6914973Z hint:
+2026-10-18T12:12:28.6915846Z hint: 	git config --global init.defaultBranch <name>
+2026-10-18T12:12:28.6916887Z hint:
+2026-10-18T12:12:28.6917851Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-18T12:12:28.6919353Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-18T12:12:28.6920568Z hint:
+2026-10-18T12:12:28.6921289Z hint: 	git branch -m <name>
+2026-10-18T12:12:28.6922112Z hint:
+2026-10-18T12:12:28.6923332Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-18T12:12:28.6925275Z Initialized empty Git repository in /home/runner/work/log-generation/log-generation/.git/
+2026-10-18T12:12:28.6928229Z [command]/usr/bin/git remote add origin https://github.com/DhruvHegde/log-generation
+2026-10-18T12:12:28.7003754Z ##[endgroup]
+2026-10-18T12:12:28.7005245Z ##[group]Disabling automatic garbage collection
+2026-10-18T12:12:28.7007111Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-18T12:12:28.7039966Z ##[endgroup]
+2026-10-18T12:12:28.7041308Z ##[group]Setting up auth
+2026-10-18T12:12:28.7048726Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-18T12:12:28.7086921Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-18T12:12:28.7487279Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-18T12:12:28.7528708Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-18T12:12:28.7753920Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T12:12:28.7788432Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-18T12:12:28.8010241Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-18T12:12:28.8050675Z ##[endgroup]
+2026-10-18T12:12:28.8051501Z ##[group]Fetching the repository
+2026-10-18T12:12:28.8062432Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +7a1523f2021900d9431999a09bb3a63e96011197:refs/remotes/origin/feature/f7-network-errors
+2026-10-18T12:12:29.1375770Z From https://github.com/DhruvHegde/log-generation
+2026-10-18T12:12:29.1377202Z  * [new ref]         7a1523f2021900d9431999a09bb3a63e96011197 -> origin/feature/f7-network-errors
+2026-10-18T12:12:29.1380876Z ##[endgroup]
+2026-10-18T12:12:29.1381891Z ##[group]Determining the checkout info
+2026-10-18T12:12:29.1385157Z ##[endgroup]
+2026-10-18T12:12:29.1390795Z [command]/usr/bin/git sparse-checkout disable
+2026-10-18T12:12:29.1446058Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-18T12:12:29.1479774Z ##[group]Checking out the ref
+2026-10-18T12:12:29.1484973Z [command]/usr/bin/git checkout --progress --force -B feature/f7-network-errors refs/remotes/origin/feature/f7-network-errors
+2026-10-18T12:12:29.1600813Z Switched to a new branch 'feature/f7-network-errors'
+2026-10-18T12:12:29.1607616Z branch 'feature/f7-network-errors' set up to track 'origin/feature/f7-network-errors'.
+2026-10-18T12:12:29.1611949Z ##[endgroup]
+2026-10-18T12:12:29.1654696Z [command]/usr/bin/git log -1 --format=%H
+2026-10-18T12:12:29.1680706Z 7a1523f2021900d9431999a09bb3a63e96011197
+2026-10-18T12:12:29.1970816Z ##[group]Run actions/setup-python@v5
+2026-10-18T12:12:29.1971500Z with:
+2026-10-18T12:12:29.1971966Z   python-version: 3.11
+2026-10-18T12:12:29.1972681Z   check-latest: false
+2026-10-18T12:12:29.1977412Z   token: ***
+2026-10-18T12:12:29.1977924Z   update-environment: true
+2026-10-18T12:12:29.1978488Z   allow-prereleases: false
+2026-10-18T12:12:29.1979030Z   freethreaded: false
+2026-10-18T12:12:29.1979531Z ##[endgroup]
+2026-10-18T12:12:29.3312318Z ##[group]Installed versions
+2026-10-18T12:12:29.3413201Z (node:2295) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-18T12:12:29.3415637Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-18T12:12:29.3417187Z Successfully set up CPython (3.11.17)
+2026-10-18T12:12:29.3418791Z ##[endgroup]
+2026-10-18T12:12:29.3638110Z ##[group]Run pip install --no-cache-dir pytest
+2026-10-18T12:12:29.3639009Z [36;1mpip install --no-cache-dir pytest[0m
+2026-10-18T12:12:29.3984721Z shell: /usr/bin/bash -e {0}
+2026-10-18T12:12:29.3985458Z env:
+2026-10-18T12:12:29.3986159Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-18T12:12:29.3987320Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+2026-10-18T12:12:29.3988456Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-18T12:12:29.3989475Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-18T12:12:29.3990502Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-18T12:12:29.3991546Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+2026-10-18T12:12:29.3992434Z ##[endgroup]
+2026-10-18T12:12:30.3866959Z Collecting pytest
+2026-10-18T12:12:30.4632114Z   Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+2026-10-18T12:12:30.4799850Z Collecting iniconfig>=1.0.1 (from pytest)
+2026-10-18T12:12:30.4936097Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+2026-10-18T12:12:30.5126562Z Collecting packaging>=22 (from pytest)
+2026-10-18T12:12:30.5262364Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-10-18T12:12:30.5418796Z Collecting pluggy<2,>=1.5 (from pytest)
+2026-10-18T12:12:30.5551970Z   Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+2026-10-18T12:12:30.5838143Z Collecting pygments>=2.7.2 (from pytest)
+2026-10-18T12:12:30.5971495Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-10-18T12:12:30.6134246Z Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+2026-10-18T12:12:30.6725705Z Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+2026-10-18T12:12:30.6859661Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+2026-10-18T12:12:30.6995595Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-10-18T12:12:30.7150997Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-10-18T12:12:30.7556494Z    ââââââââââââââââââââââââââââââââââââââââ 1.3/1.3 MB 39.7 MB/s  0:00:00
+2026-10-18T12:12:30.8268412Z Installing collected packages: pygments, pluggy, packaging, iniconfig, pytest
+2026-10-18T12:12:31.8112672Z 
+2026-10-18T12:12:31.8122181Z Successfully installed iniconfig-2.3.1 packaging-26.3 pluggy-1.7.0 pygments-2.21.0 pytest-9.1.1
+2026-10-18T12:12:31.8616230Z ##[group]Run python automation/inject_network_failure.py --error-type "external_service_outage"
+2026-10-18T12:12:31.8617030Z [36;1mpython automation/inject_network_failure.py --error-type "external_service_outage"[0m
+2026-10-18T12:12:31.8682820Z shell: /usr/bin/bash -e {0}
+2026-10-18T12:12:31.8683258Z env:
+2026-10-18T12:12:31.8683544Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-18T12:12:31.8684023Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+2026-10-18T12:12:31.8684498Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-18T12:12:31.8684887Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-18T12:12:31.8685279Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-18T12:12:31.8685681Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+2026-10-18T12:12:31.8686020Z ##[endgroup]
+2026-10-18T12:12:31.9010918Z [Mutation Injected] Successfully injected external_service_outage into tests/test_app.py
+2026-10-18T12:12:31.9084395Z ##[group]Run pytest tests/test_app.py -v
+2026-10-18T12:12:31.9084775Z [36;1mpytest tests/test_app.py -v[0m
+2026-10-18T12:12:31.9145515Z shell: /usr/bin/bash -e {0}
+2026-10-18T12:12:31.9145779Z env:
+2026-10-18T12:12:31.9146062Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-18T12:12:31.9146533Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+2026-10-18T12:12:31.9146992Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-18T12:12:31.9147388Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-18T12:12:31.9147798Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-18T12:12:31.9148206Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+2026-10-18T12:12:31.9148541Z ##[endgroup]
+2026-10-18T12:12:32.1616335Z ============================= test session starts ==============================
+2026-10-18T12:12:32.1617631Z platform linux -- Python 3.11.17, pytest-9.1.1, pluggy-1.7.0 -- /opt/hostedtoolcache/Python/3.11.17/x64/bin/python
+2026-10-18T12:12:32.1618651Z cachedir: .pytest_cache
+2026-10-18T12:12:32.1619236Z rootdir: /home/runner/work/log-generation/log-generation
+2026-10-18T12:12:32.1677938Z collecting ... collected 2 items
+2026-10-18T12:12:32.1678347Z 
+2026-10-18T12:12:32.1686464Z tests/test_app.py::test_add PASSED                                       [ 50%]
+2026-10-18T12:12:32.1935418Z tests/test_app.py::test_external_service_outage FAILED                   [100%]
+2026-10-18T12:12:32.1936018Z 
+2026-10-18T12:12:32.1936273Z =================================== FAILURES ===================================
+2026-10-18T12:12:32.1936980Z _________________________ test_external_service_outage _________________________
+2026-10-18T12:12:32.1937455Z 
+2026-10-18T12:12:32.1937649Z     def test_external_service_outage():
+2026-10-18T12:12:32.1938226Z         """Injected synthetic external service outage."""
+2026-10-18T12:12:32.1938816Z         import urllib.error
+2026-10-18T12:12:32.1939401Z         target = "https://auth.service.internal/oauth/token"
+2026-10-18T12:12:32.1940040Z         operation = "External service connection"
+2026-10-18T12:12:32.1940553Z         retries = 3
+2026-10-18T12:12:32.1940930Z         last_error = None
+2026-10-18T12:12:32.1941367Z         for attempt in range(1, retries + 1):
+2026-10-18T12:12:32.1941855Z             try:
+2026-10-18T12:12:32.1942504Z                 raise urllib.error.URLError(f"Connection refused by external service: {target}")
+2026-10-18T12:12:32.1943574Z             except urllib.error.URLError as e:
+2026-10-18T12:12:32.1944083Z                 last_error = e
+2026-10-18T12:12:32.1944488Z         print(
+2026-10-18T12:12:32.1944978Z             f"NETWORK ERROR: External service outage\n"
+2026-10-18T12:12:32.1945552Z             f"  Target host: {target}\n"
+2026-10-18T12:12:32.1946080Z             f"  Operation: {operation}\n"
+2026-10-18T12:12:32.1946584Z             f"  Retries: {retries}/{retries}\n"
+2026-10-18T12:12:32.1947321Z             f"  Error: Connection refused by external service: {target}: {last_error}"
+2026-10-18T12:12:32.1948008Z         )
+2026-10-18T12:12:32.1948333Z >       raise last_error
+2026-10-18T12:12:32.1948584Z 
+2026-10-18T12:12:32.1948752Z tests/test_app.py:27: 
+2026-10-18T12:12:32.1949241Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-10-18T12:12:32.1949681Z 
+2026-10-18T12:12:32.1949858Z     def test_external_service_outage():
+2026-10-18T12:12:32.1950412Z         """Injected synthetic external service outage."""
+2026-10-18T12:12:32.1950967Z         import urllib.error
+2026-10-18T12:12:32.1951484Z         target = "https://auth.service.internal/oauth/token"
+2026-10-18T12:12:32.1952130Z         operation = "External service connection"
+2026-10-18T12:12:32.1952647Z         retries = 3
+2026-10-18T12:12:32.1953186Z         last_error = None
+2026-10-18T12:12:32.1953635Z         for attempt in range(1, retries + 1):
+2026-10-18T12:12:32.1954388Z             try:
+2026-10-18T12:12:32.1955274Z >               raise urllib.error.URLError(f"Connection refused by external service: {target}")
+2026-10-18T12:12:32.1956656Z E               urllib.error.URLError: <urlopen error Connection refused by external service: https://auth.service.internal/oauth/token>
+2026-10-18T12:12:32.1957579Z 
+2026-10-18T12:12:32.1957755Z tests/test_app.py:17: URLError
+2026-10-18T12:12:32.1958374Z ----------------------------- Captured stdout call -----------------------------
+2026-10-18T12:12:32.1959074Z NETWORK ERROR: External service outage
+2026-10-18T12:12:32.1959672Z   Target host: https://auth.service.internal/oauth/token
+2026-10-18T12:12:32.1960355Z   Operation: External service connection
+2026-10-18T12:12:32.1960829Z   Retries: 3/3
+2026-10-18T12:12:32.1962158Z   Error: Connection refused by external service: https://auth.service.internal/oauth/token: <urlopen error Connection refused by external service: https://auth.service.internal/oauth/token>
+2026-10-18T12:12:32.1963913Z =========================== short test summary info ============================
+2026-10-18T12:12:32.1965390Z FAILED tests/test_app.py::test_external_service_outage - urllib.error.URLError: <urlopen error Connection refused by external service: https://auth.service.internal/oauth/token>
+2026-10-18T12:12:32.1966766Z ========================= 1 failed, 1 passed in 0.03s ==========================
+2026-10-18T12:12:32.2129791Z ##[error]Process completed with exit code 1.
+2026-10-18T12:12:32.2280437Z Post job cleanup.
+2026-10-18T12:12:32.3146126Z [command]/usr/bin/git version
+2026-10-18T12:12:32.3192312Z git version 2.55.0
+2026-10-18T12:12:32.3234594Z Temporarily overriding HOME='/home/runner/work/_temp/db708a58-b9d5-47b7-9dbb-4262931fd1a3' before making global git config changes
+2026-10-18T12:12:32.3236546Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-18T12:12:32.3240894Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/log-generation/log-generation
+2026-10-18T12:12:32.3282279Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-18T12:12:32.3319225Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-18T12:12:32.3586470Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-18T12:12:32.3617464Z http.https://github.com/.extraheader
+2026-10-18T12:12:32.3630609Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-18T12:12:32.3667581Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-18T12:12:32.3950534Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T12:12:32.3994386Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-18T12:12:32.4420895Z Cleaning up orphan processes
+2026-10-18T12:12:32.4694859Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

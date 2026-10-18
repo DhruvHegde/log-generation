@@ -141,29 +141,45 @@ pytest tests/test_app.py -q
 
 ## 📊 7. Dataset Schema (`labels.csv`)
 
-The canonical `labels.csv` uses a **13-column schema** that records individual matrix job executions:
+The canonical `labels.csv` uses an **18-column schema** that records individual matrix job executions for both failure runs (F7) and success baselines (S_F7):
 
 ```csv
-run_number,dependency,repository,commit_sha,workflow_id,workflow_conclusion,failure_type,stage,validation_status,matched_pattern,log_file,metadata_file,timestamp
+run_id,outcome,category_id,failure_type,scenario_id,success_family,stage,workflow_id,job_id,repository,commit_sha,workflow_conclusion,generation_method,actual_execution_validated,validation_status,error_signature,log_file,metadata_file,timestamp
 ```
 
 ### Field Definitions
 
-| Column | Type | Description | F7 Example |
-| :--- | :--- | :--- | :--- |
-| **`run_number`** | string | Unique GitHub Actions matrix job database ID. | `100991130618` |
-| **`dependency`** | string | Injected network failure type (one of the 9 error types). | `dns_resolution_failure` |
-| **`repository`** | string | Target GitHub repository (`owner/repo`). | `DhruvHegde/dependency-error-repo` |
-| **`commit_sha`** | string | 40-character Git commit hash that triggered the CI batch. | `662918f99782429600c2c3d5153248f654497263` |
-| **`workflow_id`** | string | Workflow file name responsible for the run. | `f7_test.yml` |
-| **`workflow_conclusion`** | string | GitHub Actions job conclusion status (`failure` or `success`). | `failure` |
-| **`failure_type`** | string | Dataset failure taxonomy code. | `F7` |
-| **`stage`** | string | Pipeline lifecycle stage (`test` for F7). | `test` |
-| **`validation_status`** | string | Validation result recorded for the collected job. | `failure` |
-| **`matched_pattern`** | string | Injected error type matched in the matrix job title. | `dns_resolution_failure` |
-| **`log_file`** | string | Relative path to the raw console log. | `logs/F7/100991130618.log` |
-| **`metadata_file`** | string | Relative path to the GitHub Actions job JSON metadata. | `metadata/F7/100991130618.json` |
-| **`timestamp`** | string | Job completion ISO-8601 timestamp (`completed_at`). | `2026-09-04T10:22:44Z` |
+| Column | Type | Description | F7 Failure Example | F7 Success Example |
+| :--- | :--- | :--- | :--- | :--- |
+| **`run_id`** | string | Unique sequential run identifier. | `F7_run_0001` | `S_F7_run_0001` |
+| **`outcome`** | string | Run outcome (`failure` or `success`). | `failure` | `success` |
+| **`category_id`** | string | Dataset failure taxonomy code. | `F7` | (empty) |
+| **`failure_type`** | string | Injected network failure type (one of 9 error types). | `dns_resolution_failure` | (empty) |
+| **`scenario_id`** | string | Specific error scenario identifier. | `dns_resolution_failure` | `valid_python_project` |
+| **`success_family`** | string | Success family identifier (only for success runs). | (empty) | `F7` |
+| **`stage`** | string | Pipeline lifecycle stage (`test` for F7). | `test` | `test` |
+| **`workflow_id`** | string | GitHub Actions workflow run ID. | `39126416806` | `39156023783` |
+| **`job_id`** | string | GitHub Actions job ID. | `117672415778` | `117759331399` |
+| **`repository`** | string | Target GitHub repository (`owner/repo`). | `DhruvHegde/dependency-error-repo` | `DhruvHegde/dependency-error-repo` |
+| **`commit_sha`** | string | 40-character Git commit hash that triggered the CI batch. | `d9735b735e340a3f8265f12c5986ee675302cca5` | `2ace4b8b605cab1fdd2e3281341f2cda194e8a29` |
+| **`workflow_conclusion`** | string | GitHub Actions job conclusion status. | `failure` | `success` |
+| **`generation_method`** | string | Generation method (`live_workflow_controlled_failure` or `live_workflow`). | `live_workflow_controlled_failure` | `live_workflow` |
+| **`actual_execution_validated`** | boolean | Whether actual execution was validated (`true`/`false`). | `true` | `true` |
+| **`validation_status`** | string | Validation result (`valid` or `failed_validation`). | `valid` | `valid` |
+| **`error_signature`** | string | Matched error signature in log. | `NETWORK ERROR: DNS resolution failed` | `all_tests_passed` |
+| **`log_file`** | string | Relative path to the raw console log. | `logs/F7/F7_run_0001.log` | `logs/success/F7/S_F7_run_0001.log` |
+| **`metadata_file`** | string | Relative path to the structured metadata JSON. | `metadata/F7/F7_run_0001.json` | `metadata/success/F7/S_F7_run_0001.json` |
+| **`timestamp`** | string | Job completion ISO-8601 timestamp. | `2026-10-18T12:14:05Z` | `2026-10-18T18:50:59Z` |
+
+---
+
+### Final Dataset Counts
+
+| Run Type | Count | Run ID Range |
+| :--- | :--- | :--- |
+| **F7 Network Failures** | 250 | `F7_run_0001` — `F7_run_0250` |
+| **S_F7 Success Baselines** | 20 | `S_F7_run_0001` — `S_F7_run_0020` |
+| **Total** | **270** | |
 
 ---
 
