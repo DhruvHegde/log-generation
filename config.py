@@ -4,7 +4,7 @@ REPO_NAME = "dependency-error-repo"
 WORKFLOW_NAME = "Success Dataset"
 WORKFLOW_FILE = "ci.yml"
 
-POLL_INTERVAL = 5
+POLL_INTERVAL = 100
 MAX_WAIT = 300
 
 SUCCESS_TOTAL_RUNS = 10 # TEST: set to 300 for full collection
