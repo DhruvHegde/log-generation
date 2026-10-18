@@ -13,7 +13,13 @@ def run(command):
     )
 
     if result.returncode != 0:
-        raise Exception(result.stderr)
+        # Git writes diagnostics to stdout for several common failures
+        # (e.g. "nothing to commit", push rejections).  Preserve both
+        # streams so the caller always has the full error message.
+        stdout = result.stdout.strip()
+        stderr = result.stderr.strip()
+        parts = [p for p in [stderr, stdout] if p]
+        raise Exception("\n".join(parts) if parts else f"git command failed (exit {result.returncode})")
 
     return result.stdout.strip()
 

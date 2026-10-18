@@ -1,17 +1,16 @@
-"""Generate 300 successful GitHub Actions workflow logs.
+"""Generate successful GitHub Actions dependency-installation logs.
 
 Each run writes one valid package spec from success_dependencies.txt as the
 sole content of requirements.txt, commits and pushes the change, waits for
 the workflow to complete with conclusion "success", downloads the log,
-validates it (including confirming the dependency was installed), and records
+validates that the selected dependency was installed successfully, and records
 metadata + CSV.
 
-The CI workflow installs the selected dependency from requirements.txt and
-installs pytest separately, so the test runner is always available regardless
-of what is under test.
+The CI workflow installs the selected dependency from requirements.txt.
+No test suite or compilation step is required.
 
 Approach mirrors the former failure generator but only accepts runs whose
-workflow conclusion is "success".
+workflow conclusion is "success" and whose log confirms the installation.
 """
 
 import csv
@@ -20,7 +19,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 import subprocess
 
-from automation.git_utils import commit_and_push, find_commit_by_message
+from automation.git_utils import (
+    commit_and_push,
+    create_empty_commit,
+    find_commit_by_message,
+    push_commit,
+)
 from automation.label_utils import LABEL_COLUMNS, append_label_record, ensure_label_file
 from automation.log_utils import download_workflow_log
 from automation.metadata_utils import save_metadata
@@ -119,9 +123,9 @@ def load_success_dependencies(path=SUCCESS_DEPENDENCIES_FILE):
 def update_requirements(dependency):
     """Write *dependency* as the sole content of requirements.txt.
 
-    pytest is installed separately by the CI workflow, so it must not appear
-    here.  The file contains exactly one non-blank line: the selected package
-    specifier.
+    The file contains exactly one non-blank line: the selected package
+    specifier.  The CI workflow installs it directly; no other packages
+    are written here.
 
     Args:
         dependency: A valid pip requirement specifier, e.g. ``requests==2.31.0``.
@@ -335,11 +339,46 @@ def _next_pending_attempt(state, dependencies):
     _save_success_state(state)
 
 
-def _ensure_attempt_commit(pending):
-    """Ensure the requirements change for this attempt is committed and pushed.
+def _requirements_matches_head(dependency):
+    """Return True if requirements.txt at HEAD already contains exactly *dependency*.
 
-    On resume after a crash the commit may already exist locally (found via
-    message search) or have been pushed already; we avoid creating a duplicate.
+    When this is the case, ``git add . && git commit`` would produce a
+    "nothing to commit" error because the working-tree file is identical to
+    the committed file.  The caller should use an empty commit instead.
+
+    Args:
+        dependency: The pip requirement specifier, e.g. ``"httpx==0.27.0"``.
+
+    Returns:
+        bool: True if HEAD:requirements.txt is already ``dependency\\n``.
+    """
+    import subprocess as _subprocess
+    result = _subprocess.run(
+        ["git", "show", "HEAD:requirements.txt"],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+    )
+    if result.returncode != 0:
+        # No HEAD yet (initial repo state) — treat as not matching.
+        return False
+    return result.stdout.strip() == dependency.strip()
+
+
+def _ensure_attempt_commit(pending):
+    """Ensure a unique commit for this attempt is created and pushed.
+
+    On crash-resume, the commit may already exist locally (found via message
+    search); we reuse it rather than creating a duplicate.
+
+    When a new commit is needed, we first write *dependency* into
+    requirements.txt and try ``commit_and_push``.  If the file is already
+    identical to HEAD (which happens on retries where the previous attempt
+    committed the same dependency), ``git commit`` would fail with "nothing to
+    commit".  In that case we fall back to ``create_empty_commit`` + ``push_commit``
+    which produces a genuine new commit SHA without touching any file — enough to
+    trigger a new GitHub Actions run.
 
     Args:
         pending: The pending-attempt dict from state.
@@ -353,9 +392,17 @@ def _ensure_attempt_commit(pending):
         commit_sha = find_commit_by_message(pending["commit_message"])
 
     if commit_sha is None:
-        # No existing commit — write requirements.txt and commit+push now.
-        update_requirements(pending["dependency"])
-        commit_sha = commit_and_push(pending["commit_message"])
+        dependency = pending["dependency"]
+        update_requirements(dependency)
+
+        if _requirements_matches_head(dependency):
+            # requirements.txt is already at HEAD with the same content — a
+            # normal commit would fail with "nothing to commit".  Use an empty
+            # commit so this attempt gets a unique SHA and triggers CI.
+            commit_sha = create_empty_commit(pending["commit_message"])
+            push_commit(commit_sha)
+        else:
+            commit_sha = commit_and_push(pending["commit_message"])
 
     pending["commit_sha"] = commit_sha
     return commit_sha
@@ -417,8 +464,7 @@ def _process_successful_workflow(state, pending, workflow, commit_sha):
     validation = validate_success_workflow_log(log_text, dependency=dependency)
     if validation["status"] != "valid":
         raise ValueError(
-            "Successful workflow log did not confirm dependency installation, "
-            "Python compilation, and test results."
+            "Successful workflow log did not confirm dependency installation."
         )
 
     log_path = (Path(SUCCESS_LOG_FOLDER) / f"run_{run_number:04d}.log").as_posix()
