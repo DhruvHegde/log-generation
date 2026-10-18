@@ -10,6 +10,10 @@ import automation.workflow_utils as workflow_utils
 import generate_successes
 
 
+# ---------------------------------------------------------------------------
+# Fixtures / helpers
+# ---------------------------------------------------------------------------
+
 def _valid_log():
     return (
         "Compile Python Sources\n"
@@ -28,6 +32,10 @@ def _workflow(commit_sha="abc123"):
     }
 
 
+# ---------------------------------------------------------------------------
+# Validator tests
+# ---------------------------------------------------------------------------
+
 def test_success_log_validation_requires_compile_and_test_evidence():
     valid = validate_success_workflow_log(_valid_log())
     assert valid["status"] == "valid"
@@ -38,6 +46,10 @@ def test_success_log_validation_requires_compile_and_test_evidence():
         "Run Test Suite\n0 passed in 0.01s"
     )["status"] == "invalid"
 
+
+# ---------------------------------------------------------------------------
+# Workflow-polling tests
+# ---------------------------------------------------------------------------
 
 def test_workflow_polling_ignores_a_different_sha(monkeypatch):
     matching_run = _workflow()
@@ -53,6 +65,10 @@ def test_workflow_polling_ignores_a_different_sha(monkeypatch):
 
     assert workflow_utils.wait_for_run("abc123") == matching_run
 
+
+# ---------------------------------------------------------------------------
+# Metadata tests
+# ---------------------------------------------------------------------------
 
 def test_metadata_has_exact_required_schema_and_values():
     metadata = generate_successes._make_metadata(
@@ -82,6 +98,10 @@ def test_metadata_rejects_a_workflow_for_another_sha():
         )
 
 
+# ---------------------------------------------------------------------------
+# Label / CSV tests
+# ---------------------------------------------------------------------------
+
 def test_label_writer_preserves_schema_and_prevents_duplicate_run_numbers(tmp_path):
     csv_path = tmp_path / "success_records.csv"
     ensure_label_file(csv_path)
@@ -101,7 +121,9 @@ def test_label_writer_preserves_schema_and_prevents_duplicate_run_numbers(tmp_pa
     assert rows[0]["failure_type"] == ""
 
 
-def test_success_csv_mapping_uses_neutral_failure_fields():
+def test_success_csv_mapping_records_the_dependency(tmp_path, monkeypatch):
+    """dependency column is populated with the actual package spec."""
+    monkeypatch.setattr(generate_successes, "REPO_NAME", "example")
     metadata = generate_successes._make_metadata(
         2,
         _workflow(),
@@ -109,14 +131,52 @@ def test_success_csv_mapping_uses_neutral_failure_fields():
         "logs/success/F1/run_0002.log",
         "checks passed",
     )
-    record = generate_successes._csv_record(2, metadata)
+    record = generate_successes._csv_record(2, "requests==2.31.0", metadata)
 
     assert tuple(record) == tuple(LABEL_COLUMNS)
-    assert record["dependency"] == ""
+    assert record["dependency"] == "requests==2.31.0"
     assert record["failure_type"] == ""
     assert record["workflow_conclusion"] == "success"
     assert record["stage"] == "ci"
 
+
+# ---------------------------------------------------------------------------
+# Dependency-list helpers
+# ---------------------------------------------------------------------------
+
+def test_load_success_dependencies_returns_non_comment_lines(tmp_path):
+    dep_file = tmp_path / "success_dependencies.txt"
+    dep_file.write_text(
+        "# comment\n\nrequests==2.31.0\nurllib3==2.2.1\n# another comment\n",
+        encoding="utf-8",
+    )
+    result = generate_successes.load_success_dependencies(str(dep_file))
+    assert result == ["requests==2.31.0", "urllib3==2.2.1"]
+
+
+def test_load_success_dependencies_raises_on_empty_file(tmp_path):
+    dep_file = tmp_path / "empty.txt"
+    dep_file.write_text("# only comments\n\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="no usable dependency"):
+        generate_successes.load_success_dependencies(str(dep_file))
+
+
+def test_update_requirements_writes_pytest_and_dependency(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "requirements.txt").write_text("old content\n", encoding="utf-8")
+    generate_successes.update_requirements("requests==2.31.0")
+    content = (tmp_path / "requirements.txt").read_text(encoding="utf-8")
+    assert "pytest>=8.0,<9.0" in content
+    assert "requests==2.31.0" in content
+    # Baseline pytest line must come first so the test runner is always available
+    lines = [ln for ln in content.splitlines() if ln.strip()]
+    assert lines[0].startswith("pytest")
+    assert lines[1] == "requests==2.31.0"
+
+
+# ---------------------------------------------------------------------------
+# Recovery / idempotency tests
+# ---------------------------------------------------------------------------
 
 def test_recovery_finishes_csv_and_state_after_metadata_was_written(
     tmp_path, monkeypatch
@@ -141,6 +201,7 @@ def test_recovery_finishes_csv_and_state_after_metadata_was_written(
         "run_number": 1,
         "attempt_number": 1,
         "commit_message": "success attempt",
+        "dependency": "requests==2.31.0",
         "commit_sha": "abc123",
         "workflow": workflow,
     }
@@ -175,6 +236,7 @@ def test_recovery_finishes_csv_and_state_after_metadata_was_written(
         records = list(csv.DictReader(csv_file))
     assert len(records) == 1
     assert records[0]["commit_sha"] == "abc123"
+    assert records[0]["dependency"] == "requests==2.31.0"
     assert state["accepted_count"] == 1
     assert state["pending"] is None
 
@@ -182,6 +244,7 @@ def test_recovery_finishes_csv_and_state_after_metadata_was_written(
 def test_duplicate_csv_recovery_requires_matching_existing_record(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     monkeypatch.setattr(generate_successes, "SUCCESS_CSV_FILE", "success_records.csv")
+    monkeypatch.setattr(generate_successes, "REPO_NAME", "example")
     ensure_label_file("success_records.csv")
     metadata = generate_successes._make_metadata(
         1,
@@ -190,11 +253,11 @@ def test_duplicate_csv_recovery_requires_matching_existing_record(tmp_path, monk
         "logs/success/F1/run_0001.log",
         "checks passed",
     )
-    generate_successes._persist_csv_record(1, metadata)
-    generate_successes._persist_csv_record(1, metadata)
+    generate_successes._persist_csv_record(1, "requests==2.31.0", metadata)
+    generate_successes._persist_csv_record(1, "requests==2.31.0", metadata)
     with open("success_records.csv", newline="", encoding="utf-8") as csv_file:
         assert len(list(csv.DictReader(csv_file))) == 1
 
     metadata["commit_sha"] = "different"
     with pytest.raises(ValueError, match="does not match"):
-        generate_successes._persist_csv_record(1, metadata)
+        generate_successes._persist_csv_record(1, "requests==2.31.0", metadata)

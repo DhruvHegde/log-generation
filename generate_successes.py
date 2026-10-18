@@ -1,14 +1,21 @@
+"""Generate 300 successful GitHub Actions workflow logs.
+
+Each run writes one valid package spec from success_dependencies.txt into
+requirements.txt (alongside pinned pytest), commits and pushes the change,
+waits for the workflow to complete with conclusion "success", downloads the
+log, validates it, and records metadata + CSV.
+
+Approach mirrors the former failure generator but only accepts runs whose
+workflow conclusion is "success".
+"""
+
 import csv
 import json
 from datetime import datetime, timezone
 from pathlib import Path
 import subprocess
 
-from automation.git_utils import (
-    create_empty_commit,
-    find_commit_by_message,
-    push_commit,
-)
+from automation.git_utils import commit_and_push, find_commit_by_message
 from automation.label_utils import LABEL_COLUMNS, append_label_record, ensure_label_file
 from automation.log_utils import download_workflow_log
 from automation.metadata_utils import save_metadata
@@ -27,6 +34,9 @@ from config import (
     SUCCESS_TOTAL_RUNS,
 )
 
+# ---------------------------------------------------------------------------
+# Schema
+# ---------------------------------------------------------------------------
 
 METADATA_KEYS = (
     "run_id",
@@ -47,6 +57,11 @@ METADATA_KEYS = (
     "timestamp",
 )
 
+SUCCESS_DEPENDENCIES_FILE = "success_dependencies.txt"
+
+# Files that must be clean (committed, no pending changes) before collection
+# starts. requirements.txt is included because it is the file we modify each
+# run — it must start from a committed baseline.
 GENERATION_FILES = (
     ".github/workflows/ci.yml",
     ".gitignore",
@@ -57,10 +72,59 @@ GENERATION_FILES = (
     "config.py",
     "generate_successes.py",
     "requirements.txt",
+    "success_dependencies.txt",
     "test_successes.py",
     "test_workflow.py",
 )
 
+# ---------------------------------------------------------------------------
+# Dependency helpers
+# ---------------------------------------------------------------------------
+
+def load_success_dependencies(path=SUCCESS_DEPENDENCIES_FILE):
+    """Return the list of valid package specs from *path*.
+
+    Blank lines and lines beginning with ``#`` are ignored.
+
+    Args:
+        path: Path to the dependency list file.
+
+    Returns:
+        list[str]: Non-empty, non-comment lines stripped of whitespace.
+
+    Raises:
+        FileNotFoundError: If *path* does not exist.
+        ValueError: If the file contains no usable entries.
+    """
+    entries = []
+    with open(path, encoding="utf-8") as fh:
+        for line in fh:
+            stripped = line.strip()
+            if stripped and not stripped.startswith("#"):
+                entries.append(stripped)
+    if not entries:
+        raise ValueError(
+            f"{path} contains no usable dependency entries. "
+            "Add at least one non-comment, non-blank line."
+        )
+    return entries
+
+
+def update_requirements(dependency):
+    """Write *dependency* into requirements.txt alongside pinned pytest.
+
+    The file always contains exactly two lines so the CI workflow has a
+    working test runner regardless of which dependency is under test.
+
+    Args:
+        dependency: A valid pip requirement specifier, e.g. ``requests==2.31.0``.
+    """
+    with open("requirements.txt", "w", encoding="utf-8") as fh:
+        fh.write(f"pytest>=8.0,<9.0\n{dependency}\n")
+
+# ---------------------------------------------------------------------------
+# Timestamp
+# ---------------------------------------------------------------------------
 
 def _utc_timestamp():
     return (
@@ -70,6 +134,9 @@ def _utc_timestamp():
         .replace("+00:00", "Z")
     )
 
+# ---------------------------------------------------------------------------
+# State helpers
+# ---------------------------------------------------------------------------
 
 def _initial_state():
     return {"accepted_count": 0, "attempt_count": 0, "pending": None}
@@ -87,8 +154,9 @@ def _require_generation_files_committed():
         raise RuntimeError(result.stderr.strip())
     if result.stdout.strip():
         raise RuntimeError(
-            "Commit the success generator and CI workflow changes before starting "
-            "collection. No files were staged or committed."
+            "The following tracked files have uncommitted changes. "
+            "Commit them before starting collection:\n"
+            + result.stdout.strip()
         )
 
 
@@ -113,8 +181,26 @@ def _load_success_state():
 def _save_success_state(state):
     save_state(state, SUCCESS_STATE_FILE)
 
+# ---------------------------------------------------------------------------
+# Metadata / CSV helpers
+# ---------------------------------------------------------------------------
 
 def _make_metadata(run_number, workflow, commit_sha, log_path, validation_notes):
+    """Build and return the 16-key success metadata dict.
+
+    Args:
+        run_number: Dataset-sequential run number (int).
+        workflow: Completed workflow record dict from wait_for_run().
+        commit_sha: The exact commit SHA that triggered the workflow.
+        log_path: Relative POSIX path to the saved log file.
+        validation_notes: Human-readable string from validate_success_workflow_log().
+
+    Returns:
+        dict: Metadata with keys matching METADATA_KEYS exactly.
+
+    Raises:
+        ValueError: If the workflow does not match the expected commit or outcome.
+    """
     if (
         workflow.get("headSha") != commit_sha
         or workflow.get("status") != "completed"
@@ -146,8 +232,8 @@ def _make_metadata(run_number, workflow, commit_sha, log_path, validation_notes)
 
 
 def _validate_existing_metadata(path, expected):
-    with path.open("r", encoding="utf-8") as metadata_file:
-        existing = json.load(metadata_file)
+    with path.open("r", encoding="utf-8") as fh:
+        existing = json.load(fh)
     if tuple(existing) != METADATA_KEYS:
         raise ValueError(f"Existing success metadata has an invalid schema: {path}")
     for key in METADATA_KEYS:
@@ -156,10 +242,20 @@ def _validate_existing_metadata(path, expected):
     return existing
 
 
-def _csv_record(run_number, metadata):
+def _csv_record(run_number, dependency, metadata):
+    """Build the 13-column CSV row for one accepted success run.
+
+    Args:
+        run_number: Dataset-sequential run number (int).
+        dependency: The package specifier that was installed, e.g. ``requests==2.31.0``.
+        metadata: The accepted metadata dict for this run.
+
+    Returns:
+        dict: Keys matching LABEL_COLUMNS in the correct order.
+    """
     return {
         "run_number": run_number,
-        "dependency": "",
+        "dependency": dependency,
         "repository": REPO_NAME,
         "commit_sha": metadata["commit_sha"],
         "workflow_id": metadata["workflow_id"],
@@ -175,15 +271,15 @@ def _csv_record(run_number, metadata):
 
 
 def _existing_csv_record(run_number):
-    with open(SUCCESS_CSV_FILE, newline="", encoding="utf-8") as csv_file:
-        for row in csv.DictReader(csv_file):
+    with open(SUCCESS_CSV_FILE, newline="", encoding="utf-8") as fh:
+        for row in csv.DictReader(fh):
             if row.get("run_number") == str(run_number):
                 return row
     return None
 
 
-def _persist_csv_record(run_number, metadata):
-    record = _csv_record(run_number, metadata)
+def _persist_csv_record(run_number, dependency, metadata):
+    record = _csv_record(run_number, dependency, metadata)
     inserted = append_label_record(SUCCESS_CSV_FILE, record)
     if not inserted:
         existing = _existing_csv_record(run_number)
@@ -193,19 +289,34 @@ def _persist_csv_record(run_number, metadata):
                 f"Existing success CSV row does not match run {run_number}."
             )
 
+# ---------------------------------------------------------------------------
+# Commit helpers
+# ---------------------------------------------------------------------------
 
-def _next_pending_attempt(state):
+def _next_pending_attempt(state, dependencies):
+    """Create the next pending-attempt entry and save state.
+
+    The dependency is chosen by ``accepted_count`` so every accepted sample
+    maps to a unique entry in the dependency list. Retries of the same sample
+    reuse the same dependency (stored in ``pending``).
+
+    Args:
+        state: Mutable state dict.
+        dependencies: Full list of dependency strings loaded at startup.
+    """
     run_number = state["accepted_count"] + 1
     attempt_number = state["attempt_count"] + 1
+    dependency = dependencies[state["accepted_count"]]
     commit_message = (
         f"Success dataset {SUCCESS_FAMILY} run {run_number:04d} "
-        f"attempt {attempt_number:04d}"
+        f"attempt {attempt_number:04d}: {dependency}"
     )
     state["attempt_count"] = attempt_number
     state["pending"] = {
         "run_number": run_number,
         "attempt_number": attempt_number,
         "commit_message": commit_message,
+        "dependency": dependency,
         "commit_sha": None,
         "workflow": None,
     }
@@ -213,15 +324,33 @@ def _next_pending_attempt(state):
 
 
 def _ensure_attempt_commit(pending):
+    """Ensure the requirements change for this attempt is committed and pushed.
+
+    On resume after a crash the commit may already exist locally (found via
+    message search) or have been pushed already; we avoid creating a duplicate.
+
+    Args:
+        pending: The pending-attempt dict from state.
+
+    Returns:
+        str: The commit SHA for this attempt.
+    """
     commit_sha = pending.get("commit_sha")
     if commit_sha is None:
+        # Check whether a prior interrupted run already created this commit.
         commit_sha = find_commit_by_message(pending["commit_message"])
-        if commit_sha is None:
-            commit_sha = create_empty_commit(pending["commit_message"])
-        pending["commit_sha"] = commit_sha
-    push_commit(commit_sha)
+
+    if commit_sha is None:
+        # No existing commit — write requirements.txt and commit+push now.
+        update_requirements(pending["dependency"])
+        commit_sha = commit_and_push(pending["commit_message"])
+
+    pending["commit_sha"] = commit_sha
     return commit_sha
 
+# ---------------------------------------------------------------------------
+# Log helpers
+# ---------------------------------------------------------------------------
 
 def _load_or_download_log(workflow, run_number):
     destination = Path(SUCCESS_LOG_FOLDER) / f"run_{run_number:04d}.log"
@@ -240,9 +369,29 @@ def _load_or_download_log(workflow, run_number):
         raise ValueError(f"Downloaded success log is missing or empty: {downloaded}")
     return downloaded.read_text(encoding="utf-8", errors="replace")
 
+# ---------------------------------------------------------------------------
+# Per-run processing
+# ---------------------------------------------------------------------------
 
 def _process_successful_workflow(state, pending, workflow, commit_sha):
+    """Validate, persist, and record one completed workflow attempt.
+
+    Args:
+        state: Mutable state dict.
+        pending: The pending-attempt dict from state.
+        workflow: Completed workflow record returned by wait_for_run().
+        commit_sha: The commit SHA for this attempt.
+
+    Returns:
+        bool: True if the workflow was accepted as a valid success sample,
+              False if its conclusion was not "success".
+
+    Raises:
+        ValueError: If SHA mismatch, or the log fails validation.
+    """
     run_number = pending["run_number"]
+    dependency = pending["dependency"]
+
     if workflow.get("headSha") != commit_sha:
         raise ValueError("Workflow SHA does not match the success attempt commit.")
     if workflow.get("status") != "completed" or workflow.get("conclusion") != "success":
@@ -273,16 +422,27 @@ def _process_successful_workflow(state, pending, workflow, commit_sha):
     else:
         save_metadata(str(metadata_path), metadata)
 
-    _persist_csv_record(run_number, metadata)
+    _persist_csv_record(run_number, dependency, metadata)
 
     state["accepted_count"] += 1
     state["pending"] = None
     _save_success_state(state)
     return True
 
+# ---------------------------------------------------------------------------
+# Main loop
+# ---------------------------------------------------------------------------
 
 def main():
     _require_generation_files_committed()
+
+    dependencies = load_success_dependencies()
+    if len(dependencies) < SUCCESS_TOTAL_RUNS:
+        raise ValueError(
+            f"success_dependencies.txt has only {len(dependencies)} entries but "
+            f"{SUCCESS_TOTAL_RUNS} are required. Add more entries and re-run."
+        )
+
     ensure_label_file(SUCCESS_CSV_FILE)
     state = _load_success_state()
     attempts_for_sample = 0
@@ -290,11 +450,23 @@ def main():
     while state["accepted_count"] < SUCCESS_TOTAL_RUNS:
         if state["pending"] is None:
             attempts_for_sample = 0
-            _next_pending_attempt(state)
+            _next_pending_attempt(state, dependencies)
+
         pending = state["pending"]
         attempts_for_sample += 1
-        commit_sha = _ensure_attempt_commit(pending)
-        _save_success_state(state)
+
+        print(
+            f"\n[Run {pending['run_number']}/{SUCCESS_TOTAL_RUNS}] "
+            f"attempt {pending['attempt_number']} — {pending['dependency']}"
+        )
+
+        try:
+            commit_sha = _ensure_attempt_commit(pending)
+            _save_success_state(state)
+            print(f"Commit SHA: {commit_sha}")
+        except Exception as exc:
+            print(f"Commit/push failed: {exc}")
+            raise
 
         workflow = pending.get("workflow")
         if workflow is None:
@@ -307,12 +479,8 @@ def main():
         if workflow.get("status") != "completed":
             raise ValueError("Workflow lookup returned an incomplete workflow.")
 
-        accepted = _process_successful_workflow(
-            state,
-            pending,
-            workflow,
-            commit_sha,
-        )
+        accepted = _process_successful_workflow(state, pending, workflow, commit_sha)
+
         if not accepted:
             failed_attempt_number = pending["attempt_number"]
             state["pending"] = None
@@ -324,7 +492,8 @@ def main():
             if attempts_for_sample >= SUCCESS_MAX_ATTEMPTS_PER_SAMPLE:
                 raise RuntimeError(
                     f"Stopped after {SUCCESS_MAX_ATTEMPTS_PER_SAMPLE} unsuccessful "
-                    "workflow attempts for one success sample."
+                    "workflow attempts for one success sample. "
+                    f"Dependency: {pending['dependency']}"
                 )
             continue
 
@@ -334,7 +503,7 @@ def main():
         )
         attempts_for_sample = 0
 
-    print("Successful workflow log generation complete.")
+    print("\nSuccessful workflow log generation complete.")
 
 
 if __name__ == "__main__":
