@@ -586,6 +586,20 @@ def fetch_and_save_matrix_artifacts(run: dict, commit_sha: str, expected_jobs: i
         # Get sequential run ID
         run_id = get_next_failure_id()
 
+        # Download log first
+        log_path = LOGS_DIR / f"{run_id}.log"
+        LOGS_DIR.mkdir(parents=True, exist_ok=True)
+        log_url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/actions/jobs/{job_id}/logs"
+        log_res = requests.get(log_url, headers=HEADERS, timeout=30)
+        log_text = log_res.text if log_res.status_code == 200 else f"Log retrieval failed with HTTP {log_res.status_code}"
+        log_path.write_text(log_text, encoding="utf-8")
+
+        # Get workflow conclusion
+        conclusion = job.get("conclusion", "failure")
+
+        # Validate log content
+        is_valid, error_signature = validate_f7_log(log_text, matched_error)
+
         # Create base metadata structure
         structured_metadata = create_structured_metadata(job, commit_sha, matched_error, is_success=False)
         metadata_path = METADATA_DIR / f"{run_id}.json"
@@ -609,17 +623,6 @@ def fetch_and_save_matrix_artifacts(run: dict, commit_sha: str, expected_jobs: i
         with open(metadata_path, "w", encoding="utf-8") as f:
             json.dump(structured_metadata, f, indent=2)
 
-        # Download log
-        log_path = LOGS_DIR / f"{run_id}.log"
-        LOGS_DIR.mkdir(parents=True, exist_ok=True)
-        log_url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/actions/jobs/{job_id}/logs"
-        log_res = requests.get(log_url, headers=HEADERS, timeout=30)
-        log_text = log_res.text if log_res.status_code == 200 else f"Log retrieval failed with HTTP {log_res.status_code}"
-        log_path.write_text(log_text, encoding="utf-8")
-
-        # Validate log content
-        is_valid, error_signature = validate_f7_log(log_text, matched_error)
-
         completed_at_str = job.get("completed_at") or ""
         started_at_str = job.get("started_at")
         duration = 0.0
@@ -627,8 +630,6 @@ def fetch_and_save_matrix_artifacts(run: dict, commit_sha: str, expected_jobs: i
             started_at = datetime.fromisoformat(started_at_str.replace("Z", "+00:00"))
             completed_at = datetime.fromisoformat(completed_at_str.replace("Z", "+00:00"))
             duration = round((completed_at - started_at).total_seconds(), 2)
-
-        conclusion = job.get("conclusion", "failure")
 
         return {
             "job": job,
