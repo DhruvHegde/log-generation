@@ -623,8 +623,7 @@ def fetch_and_save_matrix_artifacts(run: dict, commit_sha: str, expected_jobs: i
             structured_metadata["validation_notes"] = "Unexpected success - expected failure"
 
         # Remove success_family from failure runs (not in required schema)
-        if not is_success:
-            structured_metadata.pop("success_family", None)
+        structured_metadata.pop("success_family", None)
 
         # Save the updated metadata
         with open(metadata_path, "w", encoding="utf-8") as f:
