@@ -252,13 +252,15 @@ def _validate_existing_metadata(path, expected):
     return existing
 
 
-def _csv_record(run_number, dependency, metadata):
+def _csv_record(run_number, dependency, metadata, matched_line):
     """Build the 13-column CSV row for one accepted success run.
 
     Args:
         run_number: Dataset-sequential run number (int).
         dependency: The package specifier that was installed, e.g. ``requests==2.31.0``.
         metadata: The accepted metadata dict for this run.
+        matched_line: The actual pip log line that confirmed installation, e.g.
+            ``"Successfully installed requests-2.31.0 urllib3-2.8.0"``.
 
     Returns:
         dict: Keys matching LABEL_COLUMNS in the correct order.
@@ -273,7 +275,7 @@ def _csv_record(run_number, dependency, metadata):
         "failure_type": "",
         "stage": "build",
         "validation_status": "valid",
-        "matched_pattern": "",
+        "matched_pattern": matched_line or "",
         "log_file": metadata["log_file"],
         "metadata_file": f"{SUCCESS_METADATA_FOLDER}/run_{run_number:04d}.json",
         "timestamp": metadata["timestamp"],
@@ -288,8 +290,8 @@ def _existing_csv_record(run_number):
     return None
 
 
-def _persist_csv_record(run_number, dependency, metadata):
-    record = _csv_record(run_number, dependency, metadata)
+def _persist_csv_record(run_number, dependency, metadata, matched_line):
+    record = _csv_record(run_number, dependency, metadata, matched_line)
     inserted = append_label_record(SUCCESS_CSV_FILE, record)
     if not inserted:
         existing = _existing_csv_record(run_number)
@@ -434,7 +436,7 @@ def _process_successful_workflow(state, pending, workflow, commit_sha):
     else:
         save_metadata(str(metadata_path), metadata)
 
-    _persist_csv_record(run_number, dependency, metadata)
+    _persist_csv_record(run_number, dependency, metadata, validation["matched_line"])
 
     state["accepted_count"] += 1
     state["pending"] = None

@@ -137,12 +137,13 @@ def validate_success_workflow_log(log_text, dependency=None):
             validation_notes (str | None): Human-readable summary, or None.
     """
     if not log_text or not log_text.strip():
-        return {"status": "invalid", "validation_notes": None}
+        return {"status": "invalid", "validation_notes": None, "matched_line": None}
 
     lowered_log = log_text.lower()
 
     # --- 1. Dependency installation check ------------------------------------
     install_note = None
+    matched_install_line = None
     if dependency is not None:
         # Apply PEP 503 normalisation to the specifier's bare name so that
         # underscores, hyphens, and dots are treated as equivalent.
@@ -171,28 +172,50 @@ def validate_success_workflow_log(log_text, dependency=None):
                 if len(parts) >= 2 and "install selected dependency" not in parts[1].lower():
                     in_install_step = False
 
-            if in_install_step and "successfully installed" in lowered_line:
+            if in_install_step:
                 normalised_line = _normalize_package_name(line)
-                if install_pattern.search(normalised_line):
-                    install_found = True
-                    break
+
+                # Primary evidence: pip "Successfully installed name-VERSION ..."
+                if "successfully installed" in lowered_line:
+                    if install_pattern.search(normalised_line):
+                        # Strip the GitHub Actions log prefix
+                        # (format: "step\tStep Name\tTIMESTAMP text" or plain text)
+                        raw_text = line.split("\t")[-1].strip()
+                        matched_install_line = raw_text
+                        install_found = True
+                        break
+
+                # Secondary evidence: "Requirement already satisfied: name==ver ..."
+                # Accept only when the specifier's normalised name and the
+                # version from the spec appear explicitly in the line.
+                if "requirement already satisfied" in lowered_line:
+                    if install_pattern.search(normalised_line):
+                        # Additionally verify the version from the spec is present.
+                        # Extract version part after the first == / >= / etc.
+                        version_match = re.search(r"[=<>!]+([\d][^\s,;\]]*)", dependency)
+                        version_str = version_match.group(1) if version_match else None
+                        if version_str and version_str in line:
+                            raw_text = line.split("\t")[-1].strip()
+                            matched_install_line = raw_text
+                            install_found = True
+                            break
 
         if not install_found:
-            return {"status": "invalid", "validation_notes": None}
+            return {"status": "invalid", "validation_notes": None, "matched_line": None}
         install_note = f"Dependency installation succeeded for {dependency}"
 
     # --- 2. Compilation check ------------------------------------------------
     required_steps = ("compile python sources", "run test suite")
     if any(step not in lowered_log for step in required_steps):
-        return {"status": "invalid", "validation_notes": None}
+        return {"status": "invalid", "validation_notes": None, "matched_line": None}
 
     if "python syntax/compilation checks passed" not in lowered_log:
-        return {"status": "invalid", "validation_notes": None}
+        return {"status": "invalid", "validation_notes": None, "matched_line": None}
 
     # --- 3. Test-count check -------------------------------------------------
     test_summary = re.search(r"\b([1-9]\d*) passed\b", lowered_log)
     if test_summary is None:
-        return {"status": "invalid", "validation_notes": None}
+        return {"status": "invalid", "validation_notes": None, "matched_line": None}
 
     # --- Assemble notes ------------------------------------------------------
     compile_note = "Python syntax/compilation checks passed"
@@ -201,4 +224,4 @@ def validate_success_workflow_log(log_text, dependency=None):
     parts = [p for p in [install_note, compile_note, test_note] if p]
     notes = "; ".join(parts)
 
-    return {"status": "valid", "validation_notes": notes}
+    return {"status": "valid", "validation_notes": notes, "matched_line": matched_install_line}

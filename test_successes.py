@@ -51,9 +51,53 @@ def test_success_log_validation_requires_install_compile_and_test_evidence():
     assert "Dependency installation succeeded for requests==2.31.0" in valid["validation_notes"]
     assert "Python syntax/compilation checks passed" in valid["validation_notes"]
     assert "pytest reported 2 passed" in valid["validation_notes"]
+    # matched_line must be the actual pip output line, not None
+    assert valid["matched_line"] is not None
+    assert "successfully installed" in valid["matched_line"].lower()
+    assert "requests" in valid["matched_line"].lower()
 
 
-def test_success_log_validation_fails_without_install_evidence():
+def test_success_log_validation_returns_matched_line_from_log():
+    """matched_line must be the stripped pip output, not the full log prefix."""
+    log = (
+        "dependency-test\tInstall Selected Dependency\t2026-01-01T00:00:00Z "
+        "Successfully installed requests-2.31.0 certifi-2024.1\n"
+        "dependency-test\tCompile Python Sources\tPython syntax/compilation checks passed\n"
+        "dependency-test\tRun Test Suite\t4 passed in 0.02s\n"
+    )
+    result = validate_success_workflow_log(log, dependency="requests==2.31.0")
+    assert result["status"] == "valid"
+    assert result["matched_line"] == (
+        "Successfully installed requests-2.31.0 certifi-2024.1"
+    )
+
+
+def test_success_log_validation_accepts_requirement_already_satisfied():
+    """Requirement already satisfied is valid when name+version match the spec."""
+    log = (
+        "dependency-test\tInstall Selected Dependency\t"
+        "Requirement already satisfied: urllib3==2.2.1 in /path (from -r requirements.txt)\n"
+        "dependency-test\tCompile Python Sources\tPython syntax/compilation checks passed\n"
+        "dependency-test\tRun Test Suite\t1 passed in 0.01s\n"
+    )
+    result = validate_success_workflow_log(log, dependency="urllib3==2.2.1")
+    assert result["status"] == "valid"
+    assert result["matched_line"] is not None
+    assert "Requirement already satisfied" in result["matched_line"]
+
+
+def test_success_log_validation_rejects_requirement_already_satisfied_wrong_version():
+    """Requirement already satisfied for a different version must not match."""
+    log = (
+        "dependency-test\tInstall Selected Dependency\t"
+        "Requirement already satisfied: urllib3==1.26.0 in /path\n"
+        "dependency-test\tCompile Python Sources\tPython syntax/compilation checks passed\n"
+        "dependency-test\tRun Test Suite\t1 passed in 0.01s\n"
+    )
+    result = validate_success_workflow_log(log, dependency="urllib3==2.2.1")
+    assert result["status"] == "invalid"
+
+
     """Missing install step → invalid even if compile and tests pass."""
     log_no_install = (
         "dependency-test\tCompile Python Sources\tPython syntax/compilation checks passed\n"
@@ -214,7 +258,7 @@ def test_label_writer_preserves_schema_and_prevents_duplicate_run_numbers(tmp_pa
 
 
 def test_success_csv_uses_build_stage_and_records_dependency(tmp_path, monkeypatch):
-    """stage must be 'build' and dependency column must be populated."""
+    """stage must be 'build', dependency column populated, matched_pattern from log."""
     monkeypatch.setattr(generate_successes, "REPO_NAME", "example")
     metadata = generate_successes._make_metadata(
         2,
@@ -224,13 +268,15 @@ def test_success_csv_uses_build_stage_and_records_dependency(tmp_path, monkeypat
         "checks passed",
         "requests==2.31.0",
     )
-    record = generate_successes._csv_record(2, "requests==2.31.0", metadata)
+    matched = "Successfully installed requests-2.31.0 certifi-2024.1"
+    record = generate_successes._csv_record(2, "requests==2.31.0", metadata, matched)
 
     assert tuple(record) == tuple(LABEL_COLUMNS)
     assert record["dependency"] == "requests==2.31.0"
     assert record["failure_type"] == ""
     assert record["workflow_conclusion"] == "success"
     assert record["stage"] == "build"
+    assert record["matched_pattern"] == matched
 
 
 # ---------------------------------------------------------------------------
@@ -377,6 +423,8 @@ def test_recovery_finishes_csv_and_state_after_metadata_was_written(
     assert records[0]["commit_sha"] == "abc123"
     assert records[0]["dependency"] == "requests==2.31.0"
     assert records[0]["stage"] == "build"
+    # matched_pattern must contain the actual pip line, not empty
+    assert "successfully installed" in records[0]["matched_pattern"].lower()
     assert state["accepted_count"] == 1
     assert state["pending"] is None
 
@@ -394,11 +442,12 @@ def test_duplicate_csv_recovery_requires_matching_existing_record(tmp_path, monk
         "checks passed",
         "requests==2.31.0",
     )
-    generate_successes._persist_csv_record(1, "requests==2.31.0", metadata)
-    generate_successes._persist_csv_record(1, "requests==2.31.0", metadata)
+    matched = "Successfully installed requests-2.31.0"
+    generate_successes._persist_csv_record(1, "requests==2.31.0", metadata, matched)
+    generate_successes._persist_csv_record(1, "requests==2.31.0", metadata, matched)
     with open("success_records.csv", newline="", encoding="utf-8") as csv_file:
         assert len(list(csv.DictReader(csv_file))) == 1
 
     metadata["commit_sha"] = "different"
     with pytest.raises(ValueError, match="does not match"):
-        generate_successes._persist_csv_record(1, "requests==2.31.0", metadata)
+        generate_successes._persist_csv_record(1, "requests==2.31.0", metadata, matched)
