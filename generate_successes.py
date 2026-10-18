@@ -528,9 +528,20 @@ def main():
             print(f"Commit/push failed: {exc}")
             raise
 
+        # Update pending with the commit SHA before polling.
+        # If polling fails, restart will have the SHA to retry with.
+        pending["commit_sha"] = commit_sha
+        _save_success_state(state)
+
         workflow = pending.get("workflow")
         if workflow is None:
-            workflow = wait_for_run(commit_sha)
+            try:
+                workflow = wait_for_run(commit_sha)
+            except Exception as exc:
+                # Save state with commit SHA but no workflow.
+                # On restart, we can retry polling without re-committing.
+                print(f"Polling failed: {exc}")
+                raise
 
         if workflow.get("headSha") != commit_sha:
             raise ValueError(
