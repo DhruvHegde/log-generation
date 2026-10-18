@@ -10,6 +10,7 @@ import time
 from datetime import datetime
 import re
 import requests
+import threading
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -30,6 +31,7 @@ BATCH_SIZE = 20
 
 # Sequential counters for standardized naming
 FAILURE_COUNTER_FILE = Path(".f7_failure_counter")
+_COUNTER_LOCK = threading.Lock()
 
 # 18-column schema for labels.csv
 CSV_COLUMNS = [
@@ -73,8 +75,8 @@ ERROR_TYPES = [
 ]
 
 
-def _load_counter(counter_file: Path) -> int:
-    """Load counter from file, return 0 if file doesn't exist."""
+def _load_counter_locked(counter_file: Path) -> int:
+    """Load counter from file, return 0 if file doesn't exist. Assumes lock is held."""
     if counter_file.exists():
         try:
             return int(counter_file.read_text().strip())
@@ -83,17 +85,18 @@ def _load_counter(counter_file: Path) -> int:
     return 0
 
 
-def _save_counter(counter_file: Path, value: int) -> None:
-    """Save counter to file."""
+def _save_counter_locked(counter_file: Path, value: int) -> None:
+    """Save counter to file. Assumes lock is held."""
     counter_file.write_text(str(value), encoding="utf-8")
 
 
 def get_next_failure_id() -> str:
     """Get next sequential failure ID (F7_run_0001, F7_run_0002, ...)."""
-    counter = _load_counter(FAILURE_COUNTER_FILE)
-    next_id = counter + 1
-    _save_counter(FAILURE_COUNTER_FILE, next_id)
-    return f"F7_run_{next_id:04d}"
+    with _COUNTER_LOCK:
+        counter = _load_counter_locked(FAILURE_COUNTER_FILE)
+        next_id = counter + 1
+        _save_counter_locked(FAILURE_COUNTER_FILE, next_id)
+        return f"F7_run_{next_id:04d}"
 
 
 def select_error_types(count: int, seed: int | None = None) -> list[str]:
