@@ -550,7 +550,6 @@ def create_structured_metadata(job: dict, commit_sha: str, expected_error_type: 
         "outcome": outcome,
         "category_id": category_id,
         "failure_type": failure_type,
-        "success_family": success_family,
         "scenario_id": scenario_id,
         "log_file": "",  # Will be filled in later by the caller
         "generation_method": "live_workflow_controlled_failure" if not is_success else "live_workflow",
@@ -563,6 +562,10 @@ def create_structured_metadata(job: dict, commit_sha: str, expected_error_type: 
         "validation_notes": "",  # Will be filled in later by the caller
         "timestamp": job_completed_at or "",
     }
+
+    # Only add success_family for success runs
+    if is_success:
+        metadata["success_family"] = success_family
 
     return metadata
 
@@ -608,8 +611,8 @@ def fetch_and_save_matrix_artifacts(run: dict, commit_sha: str, expected_jobs: i
         # Update metadata with actual values after we know them
         structured_metadata["run_id"] = run_id
         structured_metadata["log_file"] = str(log_path).replace("\\", "/")
-        structured_metadata["actual_execution_validated"] = str(is_valid).lower()
-        structured_metadata["validation_status"] = "validated" if is_valid and conclusion == "failure" else "failed_validation"
+        structured_metadata["actual_execution_validated"] = is_valid  # boolean, not string
+        structured_metadata["validation_status"] = "valid" if is_valid and conclusion == "failure" else "failed_validation"
 
         # Add validation notes
         if is_valid and conclusion == "failure":
@@ -618,6 +621,10 @@ def fetch_and_save_matrix_artifacts(run: dict, commit_sha: str, expected_jobs: i
             structured_metadata["validation_notes"] = f"Log validation failed: {error_signature}"
         else:
             structured_metadata["validation_notes"] = "Unexpected success - expected failure"
+
+        # Remove success_family from failure runs (not in required schema)
+        if not is_success:
+            structured_metadata.pop("success_family", None)
 
         # Save the updated metadata
         with open(metadata_path, "w", encoding="utf-8") as f:
@@ -663,15 +670,15 @@ def fetch_and_save_matrix_artifacts(run: dict, commit_sha: str, expected_jobs: i
                     "outcome": result["outcome"],
                     "category_id": "F7",
                     "failure_type": result["matched_error"],
-                    "scenario_id": "",  # Could be enhanced later
-                    "success_family": "",  # Could be enhanced later
+                    "scenario_id": result["matched_error"],  # Use the error type as scenario_id
+                    "success_family": "",  # Empty for failure runs
                     "stage": "test",
-                    "workflow_id": WORKFLOW_FILE,
+                    "workflow_id": result["job"].get("run_id", ""),
                     "job_id": str(result["job"]["id"]),
                     "repository": f"{REPO_OWNER}/{REPO_NAME}",
                     "commit_sha": commit_sha,
                     "workflow_conclusion": result["conclusion"],
-                    "generation_method": "synthetic_injection",
+                    "generation_method": "live_workflow_controlled_failure",
                     "actual_execution_validated": str(result["is_valid"]).lower(),
                     "validation_status": result["validation_status"],
                     "error_signature": result["error_signature"],
