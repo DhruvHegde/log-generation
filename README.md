@@ -119,19 +119,19 @@ log-generation/
 
 Run the F3 generator directly:
 ```bash
-# Generate target runs (e.g. 250 runs across batches of 250)
-python generate_f3_runs.py --runs 250
+# Generate target runs (500 failures + 300 successes)
+python generate_f3_runs.py --runs 500 --success-runs 300
 
 # Fresh run: purge prior F3 data and start from scratch
-python generate_f3_runs.py --runs 250 --clean
+python generate_f3_runs.py --runs 500 --success-runs 300 --clean
 
 # Reproducible run with a fixed seed
-python generate_f3_runs.py --runs 250 --seed 42
+python generate_f3_runs.py --runs 500 --success-runs 300 --seed 42
 ```
 
 Or run via the unified dataset pipeline CLI:
 ```bash
-python dataset_pipeline.py --category F3 --runs 250
+python dataset_pipeline.py --category F3 --runs 500 --success-runs 300
 ```
 
 ### Local Validation
@@ -161,26 +161,114 @@ pytest tests/test_app.py -q
 
 ## 📊 7. Dataset Schema (`labels.csv`)
 
-The canonical `labels.csv` uses a 13-column schema that records individual matrix job executions:
+The canonical `labels.csv` uses a **23-column unified schema** that records individual matrix job executions for both failure runs (F3) and success baselines (S_F3):
 
 ```csv
-run_number,dependency,repository,commit_sha,workflow_id,workflow_conclusion,failure_type,stage,validation_status,matched_pattern,log_file,metadata_file,timestamp
+run_id,outcome,category_id,failure_type,scenario_id,success_family,stage,workflow_id,job_id,repository,commit_sha,workflow_conclusion,generation_method,actual_execution_validated,validation_status,error_signature,log_file,metadata_file,timestamp,github_run_id,workflow_file,is_synthetic,failure_origin
 ```
 
 ### Field Definitions
 
-| Column | Description | Example |
+| Column | Type | Description | F3 Failure Example | F3 Success Example |
+| :--- | :--- | :--- | :--- | :--- |
+| **`run_id`** | string | Unique sequential run identifier. | `F3_run_123456789` | `S_F3_run_123456789` |
+| **`outcome`** | string | Run outcome (`failure` or `success`). | `failure` | `success` |
+| **`category_id`** | string | Dataset failure taxonomy code. | `F3` | (empty) |
+| **`failure_type`** | string | Injected test failure type (one of 8 error types). | `KeyError` | (empty) |
+| **`scenario_id`** | string | Specific error scenario identifier. | `KeyError` | `valid_python_project` |
+| **`success_family`** | string | Success family identifier (only for success runs). | (empty) | `F3` |
+| **`stage`** | string | Pipeline lifecycle stage (`test` for F3). | `test` | `test` |
+| **`workflow_id`** | string | GitHub Actions workflow run ID. | `17255341234` | `17255541234` |
+| **`job_id`** | string | GitHub Actions job ID. | `117672415778` | `117759331399` |
+| **`repository`** | string | Target GitHub repository (`owner/repo`). | `DhruvHegde/log-generation` | `DhruvHegde/log-generation` |
+| **`commit_sha`** | string | 40-character Git commit hash that triggered the CI batch. | `d9735b735e340a3f8265f12c5986ee675302cca5` | `2ace4b8b605cab1fdd2e3281341f2cda194e8a29` |
+| **`workflow_conclusion`** | string | GitHub Actions job conclusion status. | `failure` | `success` |
+| **`generation_method`** | string | Generation method (`live_workflow_controlled_failure` or `live_workflow`). | `live_workflow_controlled_failure` | `live_workflow` |
+| **`actual_execution_validated`** | boolean | Whether actual execution was validated (`true`/`false`). | `true` | `true` |
+| **`validation_status`** | string | Validation result (`valid` or `failed_validation`). | `valid` | `valid` |
+| **`error_signature`** | string | Matched error signature in log. | `TEST ERROR: KeyError` | `all_tests_passed` |
+| **`log_file`** | string | Relative path to the raw console log. | `logs/F3/123456789.log` | `logs/success/F3/123456789.log` |
+| **`metadata_file`** | string | Relative path to the structured metadata JSON. | `metadata/F3/123456789.json` | `metadata/success/F3/123456789.json` |
+| **`timestamp`** | string | Job completion ISO-8601 timestamp. | `2026-10-18T12:14:05Z` | `2026-10-18T18:50:59Z` |
+| **`github_run_id`** | string | GitHub Actions workflow run database ID. | `17255341234` | `17255541234` |
+| **`workflow_file`** | string | Workflow filename that executed the job. | `f3_test.yml` | `f3_test.yml` |
+| **`is_synthetic`** | boolean | Whether the run was synthetically generated. | `true` | `false` |
+| **`failure_origin`** | string | Origin of failure for synthetic runs. | `test_mutation` | (empty) |
+
+---
+
+### Final Dataset Counts
+
+| Run Type | Count | Run ID Range |
 | :--- | :--- | :--- |
-| **`run_number`** | Unique GitHub Actions matrix job database ID. | `100991130618` |
-| **`dependency`** | Injected error type (e.g., `AssertionError`, `KeyError`). | `ZeroDivisionError` |
-| **`repository`** | Target GitHub repository (`owner/repo`). | `DhruvHegde/log-generation` |
-| **`commit_sha`** | 40-character Git commit hash that triggered the CI batch. | `662918f99782429600c2c3d5153248f654497263` |
-| **`workflow_id`** | Workflow file name responsible for the run. | `f3_test.yml` |
-| **`workflow_conclusion`** | GitHub Actions job conclusion status (`failure` or `success`). | `failure` |
-| **`failure_type`** | Dataset failure taxonomy code (`F0`, `F1`, `F2`, `F3`, `F4`, `F5`, `F6`, `F7`). | `F3` |
-| **`stage`** | Pipeline lifecycle stage (`test` for F3). | `test` |
-| **`validation_status`** | Validation result recorded for the collected job. | `failure` |
-| **`matched_pattern`** | Injected error type matched in the matrix job title. | `ZeroDivisionError` |
-| **`log_file`** | Relative path to the raw console log. | `logs/F3/100991130618.log` |
-| **`metadata_file`** | Relative path to the GitHub Actions job JSON metadata. | `metadata/F3/100991130618.json` |
-| **`timestamp`** | Job completion ISO-8601 timestamp (`completed_at`). | `2026-09-04T10:22:44Z` |
+| **F3 Test Failures** | 500 | `F3_run_<job_id>` (500 unique job IDs) |
+| **S_F3 Success Baselines** | 300 | `S_F3_run_<job_id>` (300 unique job IDs) |
+| **Total** | **800** | |
+
+---
+
+## 🏗️ 8. F3 Core Architecture
+
+```
+generate_f3_runs.py
+├── select_error_types()        # Weighted random selection with inverse frequency
+├── write_batch_spec()          # Writes .f3_batch.json for GitHub Actions matrix
+├── sync_and_prepare_labels()   # Canonical schema enforcement; append vs clean
+├── git_commit_and_push()       # Triggers workflow via git push to feature/f3-test-failures
+├── poll_workflow_run()         # GitHub Actions REST polling for workflow completion
+├── get_matrix_jobs()           # Fetches matrix jobs, filters test-f3 jobs
+├── wait_for_matrix_jobs()      # Reports progress while waiting for batch completion
+└── fetch_and_save_matrix_artifacts()
+    ├── Downloads console logs  → logs/F3/<job_id>.log
+    ├── Downloads job metadata  → metadata/F3/<job_id>.json
+    └── Appends labels.csv records with 23-column unified schema
+```
+
+**Concurrency:** `max-parallel: 250` in `.github/workflows/f3_test.yml` and `BATCH_SIZE = 250` in `generate_f3_runs.py`. The batch size matches the workflow concurrency cap to enable full parallel execution of up to 250 jobs simultaneously.
+
+---
+
+## 📂 9. Repository Directory Structure
+
+```text
+log-generation/
+├── .github/
+│   └── workflows/
+│       └── f3_test.yml            # Dynamic parallel matrix CI workflow (F3)
+├── automation/
+│   ├── git_utils.py               # Git operations helper
+│   ├── inject_mutation.py         # Synthetic failure mutation engine
+│   ├── metadata_utils.py          # Metadata helper
+│   ├── state_utils.py             # State persistence helper
+│   ├── validator.py               # Pattern validator
+│   └── workflow_utils.py          # Workflow helper
+├── logs/
+│   ├── F3/                        # Harvested raw job logs (<job_id>.log)
+│   └── success/
+│       └── F3/                    # Harvested success job logs (<job_id>.log)
+├── metadata/
+│   ├── F3/                        # Harvested GitHub job JSON metadata (<job_id>.json)
+│   └── success/
+│       └── F3/                    # Harvested success job JSON metadata (<job_id>.json)
+├── src/
+│   └── app.py                     # Baseline application functions
+├── tests/
+│   └── test_app.py                # Baseline Pytest test suite (mutated per batch)
+├── .env.example                   # Environment configuration template
+├── .f3_batch.json                 # Dynamic matrix batch specification (1-250 entries)
+├── AGENTS.md                      # Repository rules & architecture guide
+├── dataset_pipeline.py            # Unified pipeline runner CLI
+├── generate_f3_runs.py            # Core F3 failure/success generation, REST polling, and harvester
+├── labels.csv                     # Master dataset run registry & labels (23 columns)
+├── F3_VALIDATION_REPORT.md        # Dataset validation report
+├── pytest.ini                     # Local pytest configuration
+└── README.md                      # Complete project & branch documentation (this file)
+```
+
+---
+
+## 🔒 10. Security Notes
+
+* **Never commit `.env`** — it contains `GITHUB_TOKEN` and other sensitive credentials.
+* `.env` is listed in `.gitignore` and must remain local only.
+* Do not expose `GITHUB_TOKEN` in logs, commits, or issue descriptions.
