@@ -58,10 +58,23 @@ def test_file_not_found_error():
 }
 
 def inject(error_type: str):
+    if error_type == "success":
+        # For success runs, just use the baseline tests without any mutation
+        baseline = TEST_FILE.read_text(encoding="utf-8")
+        # Remove any previous mutation
+        if "# --- SYNTHETIC F3 FAILURE MUTATION ---" in baseline:
+            baseline = baseline.split("# --- SYNTHETIC F3 FAILURE MUTATION ---")[0]
+        TEST_FILE.write_text(baseline, encoding="utf-8")
+        print(f"[Mutation Injected] Using baseline tests (no mutation) for success run")
+        return
+
     if error_type not in ERROR_MUTATIONS:
-        raise ValueError(f"Unknown error type: {error_type}. Valid: {list(ERROR_MUTATIONS.keys())}")
-    
+        raise ValueError(f"Unknown error type: {error_type}. Valid: {list(ERROR_MUTATIONS.keys())} + ['success']")
+
     baseline = TEST_FILE.read_text(encoding="utf-8")
+    # Remove any previous mutation
+    if "# --- SYNTHETIC F3 FAILURE MUTATION ---" in baseline:
+        baseline = baseline.split("# --- SYNTHETIC F3 FAILURE MUTATION ---")[0]
     mutation = ERROR_MUTATIONS[error_type]
     mutated_content = f"{baseline}\n\n# --- SYNTHETIC F3 FAILURE MUTATION ---\n{mutation}"
     TEST_FILE.write_text(mutated_content, encoding="utf-8")
