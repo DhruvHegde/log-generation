@@ -24,16 +24,19 @@ WORKFLOW_FILE = os.getenv("WORKFLOW_FILE", "f7_test.yml")
 
 LOGS_DIR = Path("logs/F7")
 METADATA_DIR = Path("metadata/F7")
+SUCCESS_LOGS_DIR = Path("logs/success/F7")
+SUCCESS_METADATA_DIR = Path("metadata/success/F7")
 LABELS_FILE = Path("labels.csv")
 TEST_FILE = Path("tests/test_app.py")
 BATCH_FILE = Path(".f7_batch.json")
-BATCH_SIZE = 20
+BATCH_SIZE = 50
 
 # Sequential counters for standardized naming
 FAILURE_COUNTER_FILE = Path(".f7_failure_counter")
+SUCCESS_COUNTER_FILE = Path(".f7_success_counter")
 _COUNTER_LOCK = threading.Lock()
 
-# 18-column schema for labels.csv
+# 23-column schema for labels.csv (unified schema for F7 and F3)
 CSV_COLUMNS = [
     "run_id",
     "outcome",
@@ -42,12 +45,16 @@ CSV_COLUMNS = [
     "scenario_id",
     "success_family",
     "stage",
+    "github_run_id",
     "workflow_id",
+    "workflow_file",
     "job_id",
     "repository",
     "commit_sha",
     "workflow_conclusion",
     "generation_method",
+    "is_synthetic",
+    "failure_origin",
     "actual_execution_validated",
     "validation_status",
     "error_signature",
@@ -97,6 +104,15 @@ def get_next_failure_id() -> str:
         next_id = counter + 1
         _save_counter_locked(FAILURE_COUNTER_FILE, next_id)
         return f"F7_run_{next_id:04d}"
+
+
+def get_next_success_id() -> str:
+    """Get next sequential success ID (S_F7_run_0001, S_F7_run_0002, ...)."""
+    with _COUNTER_LOCK:
+        counter = _load_counter_locked(SUCCESS_COUNTER_FILE)
+        next_id = counter + 1
+        _save_counter_locked(SUCCESS_COUNTER_FILE, next_id)
+        return f"S_F7_run_{next_id:04d}"
 
 
 def select_error_types(count: int, seed: int | None = None) -> list[str]:
@@ -239,6 +255,188 @@ def validate_f7_log(log_text: str, expected_error_type: str) -> tuple[bool, str]
     return True, error_signature
 
 
+def validate_success_log(log_text: str) -> tuple[bool, str]:
+    """
+    Validate S_F7 success log content.
+
+    Returns:
+        (is_valid, error_signature):
+        - is_valid: True if log passes all validation checks
+        - error_signature: Brief description (always "all_tests_passed" for success)
+    """
+    if not log_text or log_text.strip() == "":
+        return False, "empty_log"
+
+    # Check 1: No Python SyntaxError
+    syntax_error_patterns = [
+        r"SyntaxError",
+        r"syntax error",
+        r"Invalid syntax",
+        r"EOL while scanning",
+        r"unexpected EOF",
+        r"IndentationError",
+        r"TabError",
+    ]
+
+    for pattern in syntax_error_patterns:
+        if re.search(pattern, log_text, re.IGNORECASE):
+            return False, f"syntax_error:{pattern}"
+
+    # Check 2: Pytest was executed
+    pytest_patterns = [
+        r"=== test session starts ===",
+        r"collecting.*items",
+        r"collected.*items",
+        r"pytest.*",
+        r"tests\/test_app\.py",
+    ]
+
+    pytest_found = False
+    for pattern in pytest_patterns:
+        if re.search(pattern, log_text, re.IGNORECASE):
+            pytest_found = True
+            break
+
+    if not pytest_found:
+        return False, "no_pytest_execution"
+
+    # Check 3: All tests passed (exit code 0)
+    # Look for pytest pass indicators
+    pass_patterns = [
+        r"passed",
+        r"=+\s*passed\s*=+",
+    ]
+
+    passed_found = False
+    for pattern in pass_patterns:
+        if re.search(pattern, log_text, re.IGNORECASE):
+            passed_found = True
+            break
+
+    if not passed_found:
+        return False, "tests_did_not_pass"
+
+    return True, "all_tests_passed"
+
+
+def fetch_and_save_success_artifacts(run: dict, commit_sha: str, expected_jobs: int) -> list[dict]:
+    """Fetch and save success matrix artifacts, return list of validation results."""
+    jobs = get_matrix_jobs(run["id"])
+    if len(jobs) != expected_jobs:
+        raise RuntimeError(f"Expected {expected_jobs} S_F7 jobs, collected {len(jobs)}")
+
+    def process_job(job: dict) -> dict:
+        job_id = job["id"]
+
+        # Get sequential run ID for success
+        run_id = get_next_success_id()
+
+        # Download log first
+        log_path = SUCCESS_LOGS_DIR / f"{run_id}.log"
+        SUCCESS_LOGS_DIR.mkdir(parents=True, exist_ok=True)
+        log_url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/actions/jobs/{job_id}/logs"
+        log_res = requests.get(log_url, headers=HEADERS, timeout=30)
+        log_text = log_res.text if log_res.status_code == 200 else f"Log retrieval failed with HTTP {log_res.status_code}"
+        log_path.write_text(log_text, encoding="utf-8")
+
+        # Get workflow conclusion
+        conclusion = job.get("conclusion", "success")
+
+        # Validate log content
+        is_valid, error_signature = validate_success_log(log_text)
+
+        # Create base metadata structure for success
+        structured_metadata = create_structured_metadata(job, commit_sha, "success", is_success=True)
+        metadata_path = SUCCESS_METADATA_DIR / f"{run_id}.json"
+        SUCCESS_METADATA_DIR.mkdir(parents=True, exist_ok=True)
+
+        # Update metadata with actual values after we know them
+        structured_metadata["run_id"] = run_id
+        structured_metadata["log_file"] = str(log_path).replace("\\", "/")
+        structured_metadata["actual_execution_validated"] = is_valid  # boolean, not string
+        structured_metadata["validation_status"] = "valid" if is_valid and conclusion == "success" else "failed_validation"
+
+        # Add validation notes
+        if is_valid and conclusion == "success":
+            structured_metadata["validation_notes"] = "All network checks and baseline pytest tests passed"
+        elif not is_valid:
+            structured_metadata["validation_notes"] = f"Log validation failed: {error_signature}"
+        else:
+            structured_metadata["validation_notes"] = "Unexpected failure - expected success"
+
+        # Save the updated metadata
+        with open(metadata_path, "w", encoding="utf-8") as f:
+            json.dump(structured_metadata, f, indent=2)
+
+        completed_at_str = job.get("completed_at") or ""
+        started_at_str = job.get("started_at")
+        duration = 0.0
+        if started_at_str and completed_at_str:
+            started_at = datetime.fromisoformat(started_at_str.replace("Z", "+00:00"))
+            completed_at = datetime.fromisoformat(completed_at_str.replace("Z", "+00:00"))
+            duration = round((completed_at - started_at).total_seconds(), 2)
+
+        return {
+            "job": job,
+            "run_id": run_id,
+            "job_name": job.get("name", ""),
+            "matched_error": "success",
+            "is_valid": is_valid,
+            "error_signature": error_signature,
+            "metadata_path": metadata_path,
+            "log_path": log_path,
+            "timestamp": completed_at_str,
+            "duration": duration,
+            "conclusion": conclusion,
+            "outcome": "success" if conclusion == "success" else "unexpected_failure",
+            "validation_status": "validated" if is_valid and conclusion == "success" else "failed_validation",
+        }
+
+    results = []
+    with ThreadPoolExecutor(max_workers=min(32, expected_jobs)) as executor:
+        futures = [executor.submit(process_job, job) for job in jobs]
+        for future in as_completed(futures):
+            results.append(future.result())
+
+    # Save valid results to labels.csv
+    with open(LABELS_FILE, "a", newline="", encoding="utf-8") as stream:
+        writer = csv.DictWriter(stream, fieldnames=CSV_COLUMNS)
+        for result in results:
+            if result["is_valid"]:  # Only save validated runs
+                github_run_id = result["job"].get("run_id", "")
+                record = {
+                    "run_id": result["run_id"],
+                    "outcome": result["outcome"],
+                    "category_id": "",  # Empty for success runs
+                    "failure_type": "",  # Empty for success runs
+                    "scenario_id": "valid_python_project",
+                    "success_family": "F7",
+                    "stage": "test",
+                    "github_run_id": github_run_id,
+                    "workflow_id": github_run_id,
+                    "workflow_file": "f7_test.yml",
+                    "job_id": str(result["job"]["id"]),
+                    "repository": f"{REPO_OWNER}/{REPO_NAME}",
+                    "commit_sha": commit_sha,
+                    "workflow_conclusion": result["conclusion"],
+                    "generation_method": "live_workflow",
+                    "is_synthetic": "true",
+                    "failure_origin": "",
+                    "actual_execution_validated": str(result["is_valid"]).lower(),
+                    "validation_status": "valid",
+                    "error_signature": "all_tests_passed",
+                    "log_file": str(result["log_path"]).replace("\\", "/"),
+                    "metadata_file": str(result["metadata_path"]).replace("\\", "/"),
+                    "timestamp": result["timestamp"],
+                }
+                writer.writerow(record)
+                print(f"  -> Job {result['job']['id']} ({result['job_name']}): {result['conclusion']} [SUCCESS] ({result['duration']}s) [VALIDATED]")
+            else:
+                print(f"  -> Job {result['job']['id']} ({result['job_name']}): {result['conclusion']} [INVALID: {result['error_signature']}] - DISCARDED")
+
+    return results
+
+
 def write_batch_spec(batch_size: int, seed: int | None = None) -> list[dict[str, object]]:
     """Write the randomized matrix consumed by the dynamic workflow."""
     error_types = select_error_types(batch_size, seed=seed)
@@ -250,10 +448,12 @@ def write_batch_spec(batch_size: int, seed: int | None = None) -> list[dict[str,
     return entries
 
 
-def sync_and_prepare_labels(clean_f7: bool = False) -> int:
-    """Enforces canonical schema, handles isolated cleanup, and returns existing F7 count."""
+def sync_and_prepare_labels(clean_f7: bool = False) -> tuple[int, int]:
+    """Enforces canonical schema, handles isolated cleanup, and returns existing F7 failure and success counts."""
     LOGS_DIR.mkdir(parents=True, exist_ok=True)
     METADATA_DIR.mkdir(parents=True, exist_ok=True)
+    SUCCESS_LOGS_DIR.mkdir(parents=True, exist_ok=True)
+    SUCCESS_METADATA_DIR.mkdir(parents=True, exist_ok=True)
 
     if clean_f7:
         for f in LOGS_DIR.glob("*"):
@@ -262,18 +462,27 @@ def sync_and_prepare_labels(clean_f7: bool = False) -> int:
         for f in METADATA_DIR.glob("*"):
             if f.is_file():
                 f.unlink()
-        # Reset counter when cleaning
+        for f in SUCCESS_LOGS_DIR.glob("*"):
+            if f.is_file():
+                f.unlink()
+        for f in SUCCESS_METADATA_DIR.glob("*"):
+            if f.is_file():
+                f.unlink()
+        # Reset counters when cleaning
         if FAILURE_COUNTER_FILE.exists():
             FAILURE_COUNTER_FILE.unlink()
+        if SUCCESS_COUNTER_FILE.exists():
+            SUCCESS_COUNTER_FILE.unlink()
 
     if not LABELS_FILE.exists():
         with open(LABELS_FILE, "w", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=CSV_COLUMNS)
             writer.writeheader()
-        return 0
+        return 0, 0
 
     preserved_rows = []
     f7_count = 0
+    s_f7_count = 0
 
     with open(LABELS_FILE, "r", newline="", encoding="utf-8") as f:
         reader = csv.reader(f)
@@ -290,15 +499,20 @@ def sync_and_prepare_labels(clean_f7: bool = False) -> int:
             else:
                 row_dict = migrate_legacy_row(row)
 
-            is_f7 = (
+            is_f7_failure = (
                 row_dict.get("category_id") == "F7"
                 or (len(row) > 2 and row[2] == "F7")
             )
+            is_s_f7 = row_dict.get("success_family") == "F7"
 
-            if is_f7:
+            if is_f7_failure:
                 if not clean_f7:
                     preserved_rows.append(row_dict)
                     f7_count += 1
+            elif is_s_f7:
+                if not clean_f7:
+                    preserved_rows.append(row_dict)
+                    s_f7_count += 1
             else:
                 preserved_rows.append(row_dict)
 
@@ -308,11 +522,11 @@ def sync_and_prepare_labels(clean_f7: bool = False) -> int:
         writer.writeheader()
         writer.writerows(preserved_rows)
 
-    return f7_count
+    return f7_count, s_f7_count
 
 
 def migrate_legacy_row(row: list[str]) -> dict[str, str]:
-    """Convert the previous label layouts into the current registry schema."""
+    """Convert the previous label layouts into the current registry schema (23 columns)."""
     if len(row) >= 9:
         run_number, repository, commit_sha, workflow_id, stage = row[:5]
         failure_type, error_type, status = row[5:8]
@@ -332,20 +546,90 @@ def migrate_legacy_row(row: list[str]) -> dict[str, str]:
             metadata = json.load(metadata_stream)
         timestamp = metadata.get("completed_at", "")
 
-    return {
-        "run_number": run_number,
-        "dependency": error_type,
-        "repository": repository,
-        "commit_sha": commit_sha,
-        "workflow_conclusion": status,
-        "failure_type": failure_type,
-        "stage": stage,
-        "validation_status": status,
-        "matched_pattern": error_type,
-        "log_file": log_file,
-        "metadata_file": metadata_file,
-        "timestamp": timestamp,
-    }
+    # Determine if this is an F7 failure, S_F7 success, or other category
+    is_f7_failure = failure_type == "F7"
+    is_s_f7 = "S_F7" in run_number or (failure_type == "success" and stage == "test")
+
+    # Map to new 23-column schema
+    if is_f7_failure:
+        return {
+            "run_id": run_number,
+            "outcome": "failure",
+            "category_id": "F7",
+            "failure_type": error_type if error_type in ERROR_TYPES else "dns_resolution_failure",
+            "scenario_id": error_type if error_type in ERROR_TYPES else "dns_resolution_failure",
+            "success_family": "",
+            "stage": stage,
+            "github_run_id": workflow_id,
+            "workflow_id": workflow_id,
+            "workflow_file": "f7_test.yml",
+            "job_id": "",
+            "repository": repository,
+            "commit_sha": commit_sha,
+            "workflow_conclusion": status,
+            "generation_method": "live_workflow_controlled_failure",
+            "is_synthetic": "true",
+            "failure_origin": "controlled_error_injection",
+            "actual_execution_validated": "true",
+            "validation_status": status,
+            "error_signature": error_type,
+            "log_file": log_file,
+            "metadata_file": metadata_file,
+            "timestamp": timestamp,
+        }
+    elif is_s_f7:
+        return {
+            "run_id": run_number,
+            "outcome": "success",
+            "category_id": "",
+            "failure_type": "",
+            "scenario_id": "valid_python_project",
+            "success_family": "F7",
+            "stage": stage,
+            "github_run_id": workflow_id,
+            "workflow_id": workflow_id,
+            "workflow_file": "f7_test.yml",
+            "job_id": "",
+            "repository": repository,
+            "commit_sha": commit_sha,
+            "workflow_conclusion": status,
+            "generation_method": "live_workflow",
+            "is_synthetic": "true",
+            "failure_origin": "",
+            "actual_execution_validated": "true",
+            "validation_status": "valid",
+            "error_signature": "all_tests_passed",
+            "log_file": log_file,
+            "metadata_file": metadata_file,
+            "timestamp": timestamp,
+        }
+    else:
+        # Other categories (F0-F6) - preserve as-is with empty new fields
+        return {
+            "run_id": run_number,
+            "outcome": status,
+            "category_id": failure_type if failure_type != "F7" else "",
+            "failure_type": error_type,
+            "scenario_id": error_type,
+            "success_family": "",
+            "stage": stage,
+            "github_run_id": workflow_id,
+            "workflow_id": workflow_id,
+            "workflow_file": "",
+            "job_id": "",
+            "repository": repository,
+            "commit_sha": commit_sha,
+            "workflow_conclusion": status,
+            "generation_method": "",
+            "is_synthetic": "false",
+            "failure_origin": "",
+            "actual_execution_validated": "false",
+            "validation_status": status,
+            "error_signature": error_type,
+            "log_file": log_file,
+            "metadata_file": metadata_file,
+            "timestamp": timestamp,
+        }
 
 
 def git_commit_and_push(batch_num: int) -> str:
@@ -513,48 +797,39 @@ def create_structured_metadata(job: dict, commit_sha: str, expected_error_type: 
         success_family = "F7"
         scenario_id = "valid_python_project"
         outcome = "success"
+        failure_origin = None
     else:
         category_id = "F7"
         failure_type = "network_service_failure"
         success_family = None
         scenario_id = expected_error_type  # e.g., "connection_reset", "dns_resolution_failure", etc.
         outcome = "failure"
+        failure_origin = "controlled_error_injection"
 
     # Extract data from job
-    workflow_id = job.get("run_id")  # GitHub workflow run ID
+    github_run_id = job.get("run_id")  # GitHub workflow execution run ID
     job_id = job.get("id")  # GitHub job ID
     head_sha = commit_sha
-    head_branch = job.get("head_branch")
-    event = job.get("event")
-    created_at = job.get("created_at")
-    updated_at = job.get("updated_at")
     job_status = job.get("status")
     job_conclusion = job.get("conclusion")
-    job_started_at = job.get("started_at")
     job_completed_at = job.get("completed_at")
-    runner_id = job.get("runner_id")
-    runner_name = job.get("runner_name")
 
-    # Repository info
-    repository_owner = REPO_OWNER
-    repository_name = REPO_NAME
-
-    # Commit info
-    commit_message = ""
-    if job.get("head_commit"):
-        commit_message = job.get("head_commit", {}).get("message", "")
-
-    # Build the metadata with required top-level keys
+    # Build the metadata with required top-level keys (unified schema)
     metadata = {
         "run_id": "",  # Will be filled in later by the caller
         "outcome": outcome,
         "category_id": category_id,
         "failure_type": failure_type,
         "scenario_id": scenario_id,
+        "success_family": success_family,
         "log_file": "",  # Will be filled in later by the caller
         "generation_method": "live_workflow_controlled_failure" if not is_success else "live_workflow",
+        "is_synthetic": True,
+        "failure_origin": failure_origin,
         "actual_execution_validated": "",  # Will be filled in later by the caller after validation
-        "workflow_id": workflow_id,
+        "github_run_id": github_run_id,
+        "workflow_id": github_run_id,  # Alias for backward compatibility
+        "workflow_file": "f7_test.yml",
         "commit_sha": head_sha,
         "workflow_status": job_status,
         "workflow_conclusion": job_conclusion,
@@ -562,10 +837,6 @@ def create_structured_metadata(job: dict, commit_sha: str, expected_error_type: 
         "validation_notes": "",  # Will be filled in later by the caller
         "timestamp": job_completed_at or "",
     }
-
-    # Only add success_family for success runs
-    if is_success:
-        metadata["success_family"] = success_family
 
     return metadata
 
@@ -616,16 +887,13 @@ def fetch_and_save_matrix_artifacts(run: dict, commit_sha: str, expected_jobs: i
 
         # Add validation notes
         if is_valid and conclusion == "failure":
-            structured_metadata["validation_notes"] = f"Confirmed F7 {matched_error} failure in pytest execution"
+            structured_metadata["validation_notes"] = f"Confirmed controlled F7 {matched_error} failure in pytest execution"
         elif not is_valid:
             structured_metadata["validation_notes"] = f"Log validation failed: {error_signature}"
         else:
             structured_metadata["validation_notes"] = "Unexpected success - expected failure"
 
-        # Remove success_family from failure runs (not in required schema)
-        structured_metadata.pop("success_family", None)
-
-        # Save the updated metadata
+        # Save the updated metadata (success_family is null for failures, which is correct per schema)
         with open(metadata_path, "w", encoding="utf-8") as f:
             json.dump(structured_metadata, f, indent=2)
 
@@ -664,20 +932,25 @@ def fetch_and_save_matrix_artifacts(run: dict, commit_sha: str, expected_jobs: i
         writer = csv.DictWriter(stream, fieldnames=CSV_COLUMNS)
         for result in results:
             if result["is_valid"]:  # Only save validated runs
+                github_run_id = result["job"].get("run_id", "")
                 record = {
                     "run_id": result["run_id"],
                     "outcome": result["outcome"],
                     "category_id": "F7",
                     "failure_type": result["matched_error"],
                     "scenario_id": result["matched_error"],  # Use the error type as scenario_id
-                    "success_family": "",  # Empty for failure runs
+                    "success_family": "",  # Empty for failure runs (null in JSON)
                     "stage": "test",
-                    "workflow_id": result["job"].get("run_id", ""),
+                    "github_run_id": github_run_id,
+                    "workflow_id": github_run_id,  # Alias for backward compatibility
+                    "workflow_file": "f7_test.yml",
                     "job_id": str(result["job"]["id"]),
                     "repository": f"{REPO_OWNER}/{REPO_NAME}",
                     "commit_sha": commit_sha,
                     "workflow_conclusion": result["conclusion"],
                     "generation_method": "live_workflow_controlled_failure",
+                    "is_synthetic": "true",
+                    "failure_origin": "controlled_error_injection",
                     "actual_execution_validated": str(result["is_valid"]).lower(),
                     "validation_status": result["validation_status"],
                     "error_signature": result["error_signature"],
@@ -694,8 +967,9 @@ def fetch_and_save_matrix_artifacts(run: dict, commit_sha: str, expected_jobs: i
 
 
 def main():
-    parser = argparse.ArgumentParser(description="High-Speed Parallel Matrix F7 Network Service Failure Generation Engine")
-    parser.add_argument("--runs", type=int, default=250, help="Total target F7 runs (default: 250)")
+    parser = argparse.ArgumentParser(description="High-Speed Parallel Matrix F7 Network Service Failure & Success Generation Engine")
+    parser.add_argument("--runs", type=int, default=500, help="Total target F7 failure runs (default: 500)")
+    parser.add_argument("--success-runs", type=int, default=300, help="Total target S_F7 success runs (default: 300)")
     parser.add_argument("--clean", action="store_true", help="Purge prior F7 data before starting")
     parser.add_argument("--seed", type=int, default=None, help="Optional seed for reproducible error selection")
     args = parser.parse_args()
@@ -703,47 +977,81 @@ def main():
     if not GITHUB_TOKEN:
         raise ValueError("GITHUB_TOKEN not found in environment or .env file.")
 
-    existing_f7_runs = sync_and_prepare_labels(clean_f7=args.clean)
+    existing_f7_runs, existing_s_f7_runs = sync_and_prepare_labels(clean_f7=args.clean)
 
-    if existing_f7_runs >= args.runs:
-        print(f"Target of {args.runs} F7 runs already reached ({existing_f7_runs} present). Exiting.")
-        return
+    # Generate failures first
+    remaining_failures = args.runs - existing_f7_runs
+    if remaining_failures > 0:
+        batch_number = 1
+        total_batches_needed = (remaining_failures + BATCH_SIZE - 1) // BATCH_SIZE  # Ceiling division
+        print(f"[F7 Progress] Failures: {existing_f7_runs}/{args.runs} | Successes: {existing_s_f7_runs}/{args.success_runs}")
+        print("Starting randomized F7 failure generator.")
+        try:
+            while remaining_failures > 0:
+                batch_size = min(BATCH_SIZE, remaining_failures)
 
-    remaining = args.runs - existing_f7_runs
-    batch_number = 1
-    total_batches_needed = (remaining + BATCH_SIZE - 1) // BATCH_SIZE  # Ceiling division
-    print("Starting randomized F7 generator.")
-    try:
-        while remaining > 0:
-            batch_size = min(BATCH_SIZE, remaining)
+                batch_entries = []
+                if BATCH_FILE.exists():
+                    batch_entries = json.loads(BATCH_FILE.read_text(encoding="utf-8")).get("include", [])
 
-            batch_entries = []
-            if BATCH_FILE.exists():
-                batch_entries = json.loads(BATCH_FILE.read_text(encoding="utf-8")).get("include", [])
+                can_resume_batch = (
+                    not args.clean
+                    and current_commit_is_f7_batch()
+                    and current_commit_sha() != latest_labeled_f7_commit()
+                    and len(batch_entries) == batch_size
+                )
+                if can_resume_batch:
+                    commit_sha = current_commit_sha()
+                    print(f"Resuming existing F7 workflow for commit {commit_sha[:12]}...")
+                else:
+                    write_batch_spec(batch_size, seed=None if args.seed is None else args.seed + batch_number)
+                    commit_sha = git_commit_and_push(batch_num=batch_number)
+                run_data = poll_workflow_run(commit_sha, timeout_sec=1800)
+                wait_for_matrix_jobs(run_data, expected_jobs=batch_size, timeout_sec=1800)
+                total_harvested = existing_f7_runs + (args.runs - remaining_failures)
+                fetch_and_save_matrix_artifacts(run_data, commit_sha, expected_jobs=batch_size)
+                existing_f7_runs = total_harvested
+                print(f"[F7 Progress] Failures: {existing_f7_runs}/{args.runs} | Successes: {existing_s_f7_runs}/{args.success_runs}")
+                remaining_failures -= batch_size
+                batch_number += 1
+                time.sleep(1)
+        finally:
+            print("F7 failure generation batch run finished.")
+    else:
+        print(f"Target of {args.runs} F7 failure runs already reached ({existing_f7_runs} present). Skipping failure generation.")
 
-            can_resume_batch = (
-                not args.clean
-                and current_commit_is_f7_batch()
-                and current_commit_sha() != latest_labeled_f7_commit()
-                and len(batch_entries) == batch_size
-            )
-            if can_resume_batch:
-                commit_sha = current_commit_sha()
-                print(f"Resuming existing F7 workflow for commit {commit_sha[:12]}...")
-            else:
-                write_batch_spec(batch_size, seed=None if args.seed is None else args.seed + batch_number)
-                commit_sha = git_commit_and_push(batch_num=batch_number)
-            run_data = poll_workflow_run(commit_sha)
-            wait_for_matrix_jobs(run_data, expected_jobs=batch_size)
-            total_harvested = existing_f7_runs + (args.runs - remaining)
-            fetch_and_save_matrix_artifacts(run_data, commit_sha, expected_jobs=batch_size)
-            print(f"Batch {batch_number}/{total_batches_needed} complete | Total F7 logs harvested: {total_harvested}/{args.runs}")
-            remaining -= batch_size
-            batch_number += 1
-            time.sleep(1)
+    # Generate successes
+    remaining_successes = args.success_runs - existing_s_f7_runs
+    if remaining_successes > 0:
+        success_batch_number = 1
+        success_total_batches_needed = (remaining_successes + BATCH_SIZE - 1) // BATCH_SIZE  # Ceiling division
+        print(f"[F7 Progress] Failures: {existing_f7_runs}/{args.runs} | Successes: {existing_s_f7_runs}/{args.success_runs}")
+        print("Starting S_F7 success generator.")
+        try:
+            while remaining_successes > 0:
+                batch_size = min(BATCH_SIZE, remaining_successes)
 
-    finally:
-        print("Parallel generation batch run finished.")
+                # Write batch spec with all "success" error types
+                entries = [{"sample": index, "error_type": "success"} for index in range(1, batch_size + 1)]
+                BATCH_FILE.write_text(json.dumps({"include": entries}, indent=2), encoding="utf-8")
+
+                commit_sha = git_commit_and_push(batch_num=success_batch_number + 1000)  # Offset to avoid collision
+                run_data = poll_workflow_run(commit_sha, timeout_sec=1800)
+                wait_for_matrix_jobs(run_data, expected_jobs=batch_size, timeout_sec=1800)
+                total_harvested = existing_s_f7_runs + (args.success_runs - remaining_successes)
+                fetch_and_save_success_artifacts(run_data, commit_sha, expected_jobs=batch_size)
+                existing_s_f7_runs = total_harvested
+                print(f"[F7 Progress] Failures: {existing_f7_runs}/{args.runs} | Successes: {existing_s_f7_runs}/{args.success_runs}")
+                remaining_successes -= batch_size
+                success_batch_number += 1
+                time.sleep(1)
+        finally:
+            print("S_F7 success generation batch run finished.")
+    else:
+        print(f"Target of {args.success_runs} S_F7 success runs already reached ({existing_s_f7_runs} present). Skipping success generation.")
+
+    print(f"\n[F7 Final] Failures: {existing_f7_runs}/{args.runs} | Successes: {existing_s_f7_runs}/{args.success_runs}")
+    print("Parallel generation batch run finished.")
 
 
 if __name__ == "__main__":

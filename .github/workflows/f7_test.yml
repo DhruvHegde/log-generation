@@ -35,8 +35,8 @@ jobs:
               raise SystemExit(".f7_batch.json is required for F7 generation")
           batch = json.loads(batch_file.read_text(encoding="utf-8"))
           entries = batch.get("include", [])
-          if not 1 <= len(entries) <= 250:
-              raise SystemExit(f"F7 batch must contain 1-250 entries, got {len(entries)}")
+          if not 1 <= len(entries) <= 50:
+              raise SystemExit(f"F7 batch must contain 1-50 entries, got {len(entries)}")
           print(f"matrix={json.dumps(batch, separators=(',', ':'))}")
           PY
 
