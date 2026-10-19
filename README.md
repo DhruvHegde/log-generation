@@ -29,7 +29,7 @@ This branch is specifically dedicated to **Category F7 (Network & External-Servi
 
 1. **Baseline Scaffolding:** Maintain a testable baseline application (`src/app.py`) and test suite (`tests/test_app.py`) that passes cleanly under normal conditions.
 2. **Synthetic Network Failure Injection Engine:** Dynamically inject 9 specific network and external-service failure types into `tests/test_app.py` using `automation/inject_network_failure.py`.
-3. **Dynamic Parallel CI Matrix:** Generate `.f7_batch.json` and trigger high-speed parallel matrix execution on GitHub Actions (`.github/workflows/f7_test.yml`) with **up to 20 concurrent jobs per batch** (`fail-fast: false`, `max-parallel: 20`). The concurrency cap of 20 prevents GitHub Actions runner queuing and workflow timeouts that occur when too many jobs request runners simultaneously.
+3. **Dynamic Parallel CI Matrix:** Generate `.f7_batch.json` and trigger high-speed parallel matrix execution on GitHub Actions (`.github/workflows/f7_test.yml`) with **up to 20 concurrent jobs per wave** (`fail-fast: false`, `max-parallel: 20`). Batches contain up to 50 jobs, executed in waves of 20 by GitHub Actions. The concurrency cap of 20 prevents GitHub Actions runner queuing and workflow timeouts that occur when too many jobs request runners simultaneously.
 4. **Concurrent Log & Metadata Harvesting:** Automatically poll GitHub Actions for job completions and download raw console logs (`logs/F7/<job_id>.log`) and job JSON metadata (`metadata/F7/<job_id>.json`) concurrently via `ThreadPoolExecutor`.
 5. **Unified Dataset Registry (`labels.csv`):** Record normalized matrix job metadata, execution conclusions, error types, timestamps, and artifact paths while strictly protecting non-F7 teammate records (`F0`, `F1`, `F2`, `F3`, `F4`, `F5`, `F6`).
 
@@ -90,19 +90,19 @@ where `historical_count` is the number of times an error type has already appear
 **Append Mode (Default):** Verifies existing logs and generates only the delta needed to reach `--runs`. Exits cleanly if the target is already reached.
 
 ```bash
-python generate_f7_runs.py --runs 250
+python generate_f7_runs.py --runs 500
 ```
 
 **Clean Mode:** Purges `logs/F7/`, `metadata/F7/`, and all F7 records in `labels.csv`, then generates fresh from zero.
 
 ```bash
-python generate_f7_runs.py --runs 250 --clean
+python generate_f7_runs.py --runs 500 --clean
 ```
 
 **Deterministic Seeded Generation:** Reproducible runs with a fixed seed.
 
 ```bash
-python generate_f7_runs.py --runs 250 --seed 42
+python generate_f7_runs.py --runs 500 --seed 42
 ```
 
 ### Unified CLI Invocation
@@ -110,7 +110,7 @@ python generate_f7_runs.py --runs 250 --seed 42
 If `dataset_pipeline.py` exists in the repo:
 
 ```bash
-python dataset_pipeline.py --category F7 --runs 250
+python dataset_pipeline.py --category F7 --runs 500
 ```
 
 ### Local Validation
@@ -134,17 +134,17 @@ pytest tests/test_app.py -q
    * Inspects existing F7 runs in `labels.csv` (using `failure_type == 'F7'`).
    * If the target `--runs` is already reached, exits cleanly without making remote calls.
    * Resumes in-flight matrix batches if a matching batch commit exists, avoiding duplicate runs.
-   * Dynamically generates remaining batches of up to 20 jobs until `--runs` is satisfied.
+   * Dynamically generates remaining batches of up to 50 jobs until `--runs` is satisfied.
    * Never overwrites or duplicates existing IDs in `labels.csv`.
 
 ---
 
 ## 📊 7. Dataset Schema (`labels.csv`)
 
-The canonical `labels.csv` uses an **18-column schema** that records individual matrix job executions for both failure runs (F7) and success baselines (S_F7):
+The canonical `labels.csv` uses a **23-column unified schema** that records individual matrix job executions for both failure runs (F7) and success baselines (S_F7):
 
 ```csv
-run_id,outcome,category_id,failure_type,scenario_id,success_family,stage,workflow_id,job_id,repository,commit_sha,workflow_conclusion,generation_method,actual_execution_validated,validation_status,error_signature,log_file,metadata_file,timestamp
+run_id,outcome,category_id,failure_type,scenario_id,success_family,stage,workflow_id,job_id,repository,commit_sha,workflow_conclusion,generation_method,actual_execution_validated,validation_status,error_signature,log_file,metadata_file,timestamp,github_run_id,workflow_file,is_synthetic,failure_origin
 ```
 
 ### Field Definitions
@@ -170,6 +170,10 @@ run_id,outcome,category_id,failure_type,scenario_id,success_family,stage,workflo
 | **`log_file`** | string | Relative path to the raw console log. | `logs/F7/F7_run_0001.log` | `logs/success/F7/S_F7_run_0001.log` |
 | **`metadata_file`** | string | Relative path to the structured metadata JSON. | `metadata/F7/F7_run_0001.json` | `metadata/success/F7/S_F7_run_0001.json` |
 | **`timestamp`** | string | Job completion ISO-8601 timestamp. | `2026-10-18T12:14:05Z` | `2026-10-18T18:50:59Z` |
+| **`github_run_id`** | string | GitHub Actions workflow run database ID. | `17255341234` | `17255541234` |
+| **`workflow_file`** | string | Workflow filename that executed the job. | `f7_test.yml` | `f7_test.yml` |
+| **`is_synthetic`** | boolean | Whether the run was synthetically generated. | `true` | `false` |
+| **`failure_origin`** | string | Origin of failure for synthetic runs. | `network_injection` | (empty) |
 
 ---
 
@@ -177,9 +181,9 @@ run_id,outcome,category_id,failure_type,scenario_id,success_family,stage,workflo
 
 | Run Type | Count | Run ID Range |
 | :--- | :--- | :--- |
-| **F7 Network Failures** | 250 | `F7_run_0001` — `F7_run_0250` |
-| **S_F7 Success Baselines** | 20 | `S_F7_run_0001` — `S_F7_run_0020` |
-| **Total** | **270** | |
+| **F7 Network Failures** | 500 | `F7_run_0001` — `F7_run_0500` |
+| **S_F7 Success Baselines** | 300 | `S_F7_run_0001` — `S_F7_run_0300` |
+| **Total** | **800** | |
 
 ---
 
@@ -200,7 +204,7 @@ generate_f7_runs.py
     └── Appends labels.csv records with 13-column schema
 ```
 
-**Concurrency:** `max-parallel: 20` in `.github/workflows/f7_test.yml` and `BATCH_SIZE = 20` in `generate_f7_runs.py`. The batch size matches the workflow concurrency cap to prevent GitHub Actions runner queuing and workflow timeouts.
+**Concurrency:** `max-parallel: 20` in `.github/workflows/f7_test.yml` and `BATCH_SIZE = 50` in `generate_f7_runs.py`. The batch size of 50 exceeds the workflow concurrency cap of 20, allowing GitHub Actions to queue and execute jobs in waves of 20 while maintaining full batch atomicity for artifact harvesting.
 
 ---
 
@@ -222,7 +226,7 @@ log-generation/
 ├── tests/
 │   └── test_app.py               # Baseline Pytest test suite (mutated per batch)
 ├── .env.example                  # Environment configuration template
-├── .f7_batch.json                # Dynamic matrix batch specification (1-20 entries)
+├── .f7_batch.json                # Dynamic matrix batch specification (1-50 entries)
 ├── .gitignore                    # Git ignore rules (excludes .env, logs/, metadata/, labels.csv)
 ├── F7_SETUP_SUMMARY.md           # Phase-by-phase setup and execution summary
 ├── generate_f7_runs.py           # Core F7 failure generation, REST polling, and harvester
