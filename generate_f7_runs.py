@@ -979,16 +979,41 @@ def main():
 
     existing_f7_runs, existing_s_f7_runs = sync_and_prepare_labels(clean_f7=args.clean)
 
+    def count_f7_failures() -> int:
+        """Count actual F7 failure runs in labels.csv."""
+        if not LABELS_FILE.exists():
+            return 0
+        count = 0
+        with open(LABELS_FILE, "r", newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row.get("category_id") == "F7":
+                    count += 1
+        return count
+
+    def count_s_f7_successes() -> int:
+        """Count actual S_F7 success runs in labels.csv."""
+        if not LABELS_FILE.exists():
+            return 0
+        count = 0
+        with open(LABELS_FILE, "r", newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row.get("success_family") == "F7":
+                    count += 1
+        return count
+
     # Generate failures first
-    remaining_failures = args.runs - existing_f7_runs
-    if remaining_failures > 0:
-        batch_number = 1
-        total_batches_needed = (remaining_failures + BATCH_SIZE - 1) // BATCH_SIZE  # Ceiling division
-        print(f"[F7 Progress] Failures: {existing_f7_runs}/{args.runs} | Successes: {existing_s_f7_runs}/{args.success_runs}")
+    existing_f7_runs = count_f7_failures()
+    print(f"[F7 Progress] Failures: {existing_f7_runs}/{args.runs} | Successes: {existing_s_f7_runs}/{args.success_runs}")
+
+    if existing_f7_runs < args.runs:
         print("Starting randomized F7 failure generator.")
+        batch_number = 1
         try:
-            while remaining_failures > 0:
-                batch_size = min(BATCH_SIZE, remaining_failures)
+            while existing_f7_runs < args.runs:
+                remaining = args.runs - existing_f7_runs
+                batch_size = min(BATCH_SIZE, remaining)
 
                 batch_entries = []
                 if BATCH_FILE.exists():
@@ -1006,13 +1031,16 @@ def main():
                 else:
                     write_batch_spec(batch_size, seed=None if args.seed is None else args.seed + batch_number)
                     commit_sha = git_commit_and_push(batch_num=batch_number)
+
                 run_data = poll_workflow_run(commit_sha, timeout_sec=1800)
                 wait_for_matrix_jobs(run_data, expected_jobs=batch_size, timeout_sec=1800)
-                total_harvested = existing_f7_runs + (args.runs - remaining_failures)
-                fetch_and_save_matrix_artifacts(run_data, commit_sha, expected_jobs=batch_size)
-                existing_f7_runs = total_harvested
-                print(f"[F7 Progress] Failures: {existing_f7_runs}/{args.runs} | Successes: {existing_s_f7_runs}/{args.success_runs}")
-                remaining_failures -= batch_size
+                results = fetch_and_save_matrix_artifacts(run_data, commit_sha, expected_jobs=batch_size)
+
+                # Count actual validated failures from this batch
+                validated_in_batch = sum(1 for r in results if r["is_valid"])
+                existing_f7_runs = count_f7_failures()
+
+                print(f"[F7 Progress] Failures: {existing_f7_runs}/{args.runs} | Successes: {existing_s_f7_runs}/{args.success_runs} (batch validated: {validated_in_batch}/{batch_size})")
                 batch_number += 1
                 time.sleep(1)
         finally:
@@ -1021,15 +1049,16 @@ def main():
         print(f"Target of {args.runs} F7 failure runs already reached ({existing_f7_runs} present). Skipping failure generation.")
 
     # Generate successes
-    remaining_successes = args.success_runs - existing_s_f7_runs
-    if remaining_successes > 0:
-        success_batch_number = 1
-        success_total_batches_needed = (remaining_successes + BATCH_SIZE - 1) // BATCH_SIZE  # Ceiling division
-        print(f"[F7 Progress] Failures: {existing_f7_runs}/{args.runs} | Successes: {existing_s_f7_runs}/{args.success_runs}")
+    existing_s_f7_runs = count_s_f7_successes()
+    print(f"[F7 Progress] Failures: {existing_f7_runs}/{args.runs} | Successes: {existing_s_f7_runs}/{args.success_runs}")
+
+    if existing_s_f7_runs < args.success_runs:
         print("Starting S_F7 success generator.")
+        success_batch_number = 1
         try:
-            while remaining_successes > 0:
-                batch_size = min(BATCH_SIZE, remaining_successes)
+            while existing_s_f7_runs < args.success_runs:
+                remaining = args.success_runs - existing_s_f7_runs
+                batch_size = min(BATCH_SIZE, remaining)
 
                 # Write batch spec with all "success" error types
                 entries = [{"sample": index, "error_type": "success"} for index in range(1, batch_size + 1)]
@@ -1038,11 +1067,13 @@ def main():
                 commit_sha = git_commit_and_push(batch_num=success_batch_number + 1000)  # Offset to avoid collision
                 run_data = poll_workflow_run(commit_sha, timeout_sec=1800)
                 wait_for_matrix_jobs(run_data, expected_jobs=batch_size, timeout_sec=1800)
-                total_harvested = existing_s_f7_runs + (args.success_runs - remaining_successes)
-                fetch_and_save_success_artifacts(run_data, commit_sha, expected_jobs=batch_size)
-                existing_s_f7_runs = total_harvested
-                print(f"[F7 Progress] Failures: {existing_f7_runs}/{args.runs} | Successes: {existing_s_f7_runs}/{args.success_runs}")
-                remaining_successes -= batch_size
+                results = fetch_and_save_success_artifacts(run_data, commit_sha, expected_jobs=batch_size)
+
+                # Count actual validated successes from this batch
+                validated_in_batch = sum(1 for r in results if r["is_valid"])
+                existing_s_f7_runs = count_s_f7_successes()
+
+                print(f"[F7 Progress] Failures: {existing_f7_runs}/{args.runs} | Successes: {existing_s_f7_runs}/{args.success_runs} (batch validated: {validated_in_batch}/{batch_size})")
                 success_batch_number += 1
                 time.sleep(1)
         finally:
